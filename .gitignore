@@ -1,0 +1,12 @@
+.vscode
+prepros.cfg
+*.psd
+*.rar
+*.zip
+*.psb
+*.xls
+.idea
+typings/**
+node_modules/**
+**/*npm-debug.log.*
+dist/**
