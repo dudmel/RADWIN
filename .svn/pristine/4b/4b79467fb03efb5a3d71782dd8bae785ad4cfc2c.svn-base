@@ -1,0 +1,21 @@
+.wifi-title {
+    display: inline-flex;
+}
+
+.wifi-table-wrapper {
+    overflow:auto;
+    height: 270px;
+    font-size: 16px;
+}
+
+
+.wifi-th {
+    color: #a0a8b6;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: #f1faf5;
+}

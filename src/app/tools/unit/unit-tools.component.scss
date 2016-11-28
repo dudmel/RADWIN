@@ -1,0 +1,325 @@
+/*
+ * Component: Box
+ * --------------
+ */
+.row-flex {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    height: 240px;
+    justify-content: space-between
+}
+
+.box {
+//   position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  border-radius: 3px;
+  background: #ffffff;
+  border-left: 4px solid #76828e;
+  margin-bottom: 20px;
+  height: 100%;
+  width: 39%;
+  
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  &.box-light-blue {
+    border-left: 4px solid #8db5d3;
+  }
+  &.box-red {
+    border-left: 4px solid #f47f6b;
+  }
+    &.box-green {
+    border-left: 4px solid #72cd9a;
+  }
+	&.box-results {
+	    background: #fbfbfb;
+      margin-top: -20px;
+	    border-radius: 0;
+      > .box-header {
+        color: #72cd9a;
+      }
+    }
+  &.collapsed-box {
+    .box-body, .box-footer {
+      display: none;
+    }
+  }
+  .nav-stacked > li {
+    border-bottom: 1px solid #f4f4f4;
+    margin: 0;
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+  &.height-control .box-body {
+    max-height: 300px;
+    overflow: auto;
+  }
+  .border-right {
+    border-right: 1px solid #f4f4f4;
+  }
+  .border-left {
+    border-left: 1px solid #f4f4f4;
+  }
+  &.box-solid {
+    border-top: 0;
+    > .box-header {
+      .btn {
+        &.btn-default {
+          background: transparent;
+        }
+        &:hover {
+          background: rgba(0, 0, 0, 0.1);
+        }
+      }
+      a:hover {
+        background: rgba(0, 0, 0, 0.1);
+      }
+    }
+    &.box-default {
+      border: 1px solid #d2d6de;
+      > .box-header {
+        color: #444444;
+        background: #d2d6de;
+        background-color: #d2d6de;
+        a, .btn {
+          color: #444444;
+        }
+      }
+    }
+    &.box-primary {
+      border: 1px solid #3c8dbc;
+      > .box-header {
+        color: #ffffff;
+        background: #3c8dbc;
+        background-color: #3c8dbc;
+        a, .btn {
+          color: #ffffff;
+        }
+      }
+    }
+    &.box-info {
+      border: 1px solid #00c0ef;
+      > .box-header {
+        color: #ffffff;
+        background: #00c0ef;
+        background-color: #00c0ef;
+        a, .btn {
+          color: #ffffff;
+        }
+      }
+    }
+    &.box-vlan {
+      border: 1px solid #00a65a;
+      > .box-header {
+        color: #ffffff;
+        background: #00a65a;
+        background-color: #00a65a;
+        a, .btn {
+          color: #ffffff;
+        }
+      }
+    }
+    > .box-header > .box-tools .btn {
+      border: 0;
+      box-shadow: none;
+    }
+    &[class*='bg'] > .box-header {
+      color: #fff;
+    }
+  }
+  .box-group > .box {
+    margin-bottom: 5px;
+  }
+  .knob-label {
+    text-align: center;
+    color: #333;
+    font-weight: 100;
+    font-size: 12px;
+    margin-bottom: 0.3em;
+  }
+  > .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+.backup {
+    width: 20%;
+}
+.overlay-wrapper > .overlay, .box > .loading-img, .overlay-wrapper > .loading-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.box .overlay, .overlay-wrapper .overlay {
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 3px;
+}
+
+.box .overlay > .fa, .overlay-wrapper .overlay > .fa {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -15px;
+  margin-top: -15px;
+  color: #000;
+  font-size: 30px;
+}
+
+.box .overlay.dark, .overlay-wrapper .overlay.dark {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.box-header:before, .box-body:before, .box-footer:before, .box-header:after, .box-body:after, .box-footer:after {
+  content: " ";
+  display: table;
+}
+
+.box-header:after, .box-body:after, .box-footer:after {
+  clear: both;
+}
+
+.box-header {
+  color: #444;
+  display: block;
+  padding: 10px;
+  position: relative;
+  &.with-border {
+    border-bottom: 1px solid #f4f4f4;
+  }
+}
+
+.collapsed-box .box-header.with-border {
+  border-bottom: none;
+}
+
+.box-header {
+  > {
+    .fa, .glyphicon, .ion {
+      display: inline-block;
+      font-size: 18px;
+      margin: 0;
+      line-height: 1;
+    }
+  }
+  .box-title {
+    display: inline-block;
+    font-size: 18px;
+    margin: 0;
+    line-height: 2;
+	  border-bottom: 1px solid #ececec;
+    width: 100%;
+    margin-left: 10px;
+    
+  }
+  > {
+    .fa, .glyphicon, .ion {
+      margin-right: 5px;
+    }
+    .box-tools {
+      position: absolute;
+      right: 10px;
+      top: 5px;
+      [data-toggle="tooltip"] {
+        position: relative;
+      }
+      &.pull-right .dropdown-menu {
+        right: 0;
+        left: auto;
+      }
+    }
+  }
+}
+
+.btn-box-tool {
+  padding: 5px;
+  font-size: 12px;
+  background: transparent;
+  color: #97a0b3;
+}
+
+.open .btn-box-tool {
+  color: #606c84;
+}
+
+.btn-box-tool {
+  &:hover {
+    color: #606c84;
+  }
+  &.btn:active {
+    box-shadow: none;
+  }
+}
+
+.box-body {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  padding: 10px;
+}
+
+.no-header .box-body {
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.box-body {
+  > .table {
+    margin-bottom: 0;
+  }
+  .fc {
+    margin-top: 5px;
+  }
+  .full-width-chart {
+    margin: -19px;
+  }
+  &.no-padding .full-width-chart {
+    margin: -9px;
+  }
+  .box-pane {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 3px;
+  }
+  .box-pane-right {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.box-footer {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-top: 1px solid #f4f4f4;
+  padding: 10px;
+  background-color: #ffffff;
+}
+
+.chart-legend {
+  margin: 10px 0;
+}
+
+@media (max-width: 991px) {
+  .chart-legend > li {
+    float: left;
+    margin-right: 10px;
+  }
+}
+
+
+.box-input {
+  max-width: 200px;
+}

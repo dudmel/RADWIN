@@ -1,0 +1,141 @@
+.rad-sprite {
+	background: url("/assets/icon/sprites.png") no-repeat;
+    display: inline-block;
+    position: relative;
+}
+
+.overview{
+	background-position: 0 -8px ;
+	width: 22px;
+	height: 22px;
+}
+
+.configure{
+	background-position: -3px -56px ;
+	width: 22px;
+	height: 22px;
+}
+
+.tools{
+	background-position: -5px -106px ;
+	width: 17px;
+	height: 23px;
+    margin-right: 5px;
+}
+
+.location{
+	background-position: -148px 0;
+	width: 30px;
+	height: 48px;
+}
+
+.registered{
+	background-position: -187px -3px ;
+	width: 49px;
+	height: 39px;
+}
+
+.uptime{
+	background-position: -138px -52px ;
+	width: 48px;
+	height: 47px;
+}
+
+.graph{
+	background-position: -194px -48px ;
+	width: 32px;
+	height: 45px;
+}
+
+.globe{
+	background-position: -139px -146px ;
+	width: 47px;
+	height: 46px;
+}
+
+.bell{
+	background-position: -252px -11px ;
+	width: 20px;
+	height: 22px;
+}
+
+.antenna{
+	background-position: -189px -144px ;
+	width: 48px;
+	height: 47px;
+}
+
+.hamburger{
+	background-position: -56px -10px ;
+	width: 31px;
+	height: 23px;
+}
+
+.refresh{
+    cursor: pointer;
+    margin-left: 10px;
+    margin-top: 13px;
+	background-position: -54px -53px ;
+	width: 36px;
+	height: 36px;
+}
+
+.swuupgraderequired{
+	background-position: -244px -205px ;
+	width: 49px;
+	height: 37px;
+}
+
+.syncunregistered{
+	background-position: -185px -206px ;
+	width: 49px;
+	height: 37px;
+}
+
+.violated{
+	background-position: -65px -205px ;
+	width: 49px;
+	height: 37px;
+}
+
+.authenticationerror{
+	background-position: -5px -206px ;
+	width: 49px;
+	height: 37px;
+}
+
+.nosync{
+	background-position: -127px -201px ;
+	width: 49px;
+	height: 48px;
+}
+
+.lantxrx{
+	background-position: -52px -150px ;
+	width: 46px;
+	height: 45px;
+}
+
+.modal-warning-icon{
+	background-position: -55px -257px ;
+	width: 41px;
+	height: 33px;
+}
+
+.modal-error-icon{
+	background-position: -104px -255px ;
+	width: 41px;
+	height: 41px;
+}
+
+.modal-info-icon{
+	background-position: -6px -255px ;
+	width: 40px;
+	height: 40px;
+}
+
+.modal-question-icon{
+	background-position: -152px -255px ;
+	width: 42px;
+	height: 41px;
+}

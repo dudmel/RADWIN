@@ -1,0 +1,30 @@
+import { ISystemModel } from '../system';
+import { IMonitorModel } from '../monitor';
+import { INetworkModel, ITrapDestination } from '../network';
+import { IRadioModel } from '../radio';
+import { ISpeedTestModel } from '../tools/network/network-tools.model';
+import { ISpectrumData, ISpectrumRange } from '../tools/operations/spectrum.service';
+import { IWifiModel } from '../wifi';
+import { IActiveAlarm } from '../blocks/alarms/alarms.model';
+import { IChangeBandModel } from '../radio/change-band/change-band.model';
+import { IRecentEvents } from '../recent-events';
+
+export interface AppStore {
+  monitor: IMonitorModel;
+  system: ISystemModel;
+  network: INetworkModel;
+  traps: ITrapDestination[];
+  radio: IRadioModel;
+  wifi: IWifiModel;
+  speedTest: ISpeedTestModel;
+  spectrum: ISpectrumData;
+  spectrumRange: ISpectrumRange;
+  events: IRecentEvents[];
+  changeBand: IChangeBandModel;
+  activeAlarms: IActiveAlarm[];
+  timeoutsOccured: boolean;
+  tokenExpiration: boolean;
+  alarmsCounter: number;
+  crcErrorsClear: number;
+  crcDecreaser: number;
+};

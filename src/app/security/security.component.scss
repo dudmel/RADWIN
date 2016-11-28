@@ -1,0 +1,50 @@
+.box-security {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  border-radius: 3px;
+  background: #ffffff;
+  margin-bottom: 20px;
+  width: 80%;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  padding-top: 20px ;
+  padding-bottom: 10px;
+
+}
+.box-light-blue {
+    border-left: 4px solid #8db5d3;
+}
+.box-green {
+    border-left: 4px solid #72cd9a;
+}
+.box-orange {
+		border-left: 4px solid #f47f6b
+}
+.currPassword {
+    width: 20%;  
+    margin-left: 25px;
+       
+    .form-group {
+        width: 100%;
+    }
+}
+.form-group {
+    width: 45%;
+    height: 86px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+}
+.matching-passwords {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-left: 25px;
+    width: 50%;
+}
+.box-body {
+    display: flex;
+    justify-content: space-around;
+    width:80%;
+    flex-flow: row nowrap;
+}

@@ -1,0 +1,101 @@
+    <h3 class="box-title">WiFi</h3>
+<div class="wifi-container">
+    <!--<div class="col-md-6">-->
+        <div class="box-wifi box-light-blue">
+            <form *ngIf="wifi" [formGroup]="form">
+                <div class="box-body">
+                    <fieldset>
+                        <div class="form-group">
+                            SSID {{ wifi.wifiSSID}}
+                        </div>
+                        <div class="form-group">
+                            Status {{ monitor.configMonitor?.wifiApStatus }}
+                        </div>
+
+                        <div class="form-group">
+                            Security {{ wifi.wifiSecurityType }}
+                        </div>
+                        <div class="form-group">
+                            Access Point Mode:
+                            <select formControlName="wifiMode" [(ngModel)]="wifi.wifiMode" class="form-control">
+                                <option *ngFor="let mode of wifi?.wifiModes" [value]="mode">{{ mode }}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            Channel
+                            <input formControlName="wifiChannel" [(ngModel)]="wifi.wifiChannel" class="form-control" type="number" step="1" min="1" max="11">
+                            <div class="control-msgs" *ngIf="form.controls.wifiChannel.dirty && !form.controls.wifiChannel.valid">
+                                <p *ngIf="form.controls.wifiChannel.errors.required">Channel is required.</p>
+                                <p *ngIf="form.controls.wifiChannel.errors.invalidMinMax">Channel should be between 1-11</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            Tx Power
+                            <div class="input-group">
+                                <input formControlName="wifiTxPower" [(ngModel)]="wifi.wifiTxPower" class="form-control" type="number" step="1" min="1" max="{{wifi.wifiMaxTxPower}}">
+                                <span class="input-group-addon">dBm</span>
+                            </div>
+
+                            <div class="control-msgs" *ngIf="form.controls.wifiTxPower.dirty && !form.controls.wifiTxPower.valid">
+                                <p *ngIf="form.controls.wifiTxPower.errors.required">Tx Power Gain is required.</p>
+                                <p *ngIf="form.controls.wifiTxPower.errors.invalidMinMax">Tx Power should be between 1-{{wifi.wifiMaxTxPower}}</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            Password
+                            <input formControlName="wifiPassword" class="form-control" type="password" maxlength="30">
+                            <div class="control-msgs" *ngIf="form.controls.wifiPassword.dirty && !form.controls.wifiPassword.valid">
+                                <p *ngIf="form.controls.wifiPassword.errors.minlength">Password must be at least 8 characters.</p>
+                                <p *ngIf="form.controls.wifiPassword.errors.maxlength">Password should not exceed 30 characters.</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            IP Address
+                            <input formControlName="wifiNetwork" [(ngModel)]="wifi.wifiNetwork" class="form-control">
+                            <div class="control-msgs" *ngIf="form.controls.wifiNetwork.dirty && !form.controls.wifiNetwork.valid">
+                                <p *ngIf="form.controls.wifiNetwork.errors.invalidIp4">IP Address is invalid.</p>
+                                <p *ngIf="form.controls.wifiNetwork.errors.invalidWifiIp">IP Address is must be 192.168.X.X</p>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </div>
+            </form>
+        </div>
+    <!--</div>-->
+
+
+    <!--<div class="col-md-6">-->
+        <div class="box-wifi box-green">
+            <div class="box-header">
+                <h3 class="box-title"> Connected Clients</h3>
+            </div>
+            <div class="box-body">
+                <div class="wifi-table-wrapper">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="wifi-th">#</th>
+                                <th class="wifi-th">MAC Address</th>
+                                <th class="wifi-th">RSSI [dBm]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of monitor.configMonitor?.wifiRssiTable; let i = index;">
+                                <td>{{ i + 1 }}</td>
+                                <td>{{ row.mac }}</td>
+                                <td>{{ row.rssi }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    <!--</div>-->
+</div>
+
+<div class="buttons-footer">
+    <button form="form" type="submit" (click)="save($event)" [disabled]="!form.valid || form.pristine" class="btn btn-primary">APPLY ALL</button>
+    <button form="form" type="cancel" (click)="cancel($event)" class="btn btn-default">CANCEL</button>
+</div>

@@ -1,0 +1,55 @@
+.events-title {
+    display: inline-flex;
+}
+
+.events-table-wrapper {
+    overflow:auto;
+    height: 220px;
+    font-size: 16px;
+}
+
+
+.events-th {
+    color: #a0a8b6;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.severity-circle {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    border-radius: 50%;
+    border: 3px solid;
+}
+
+.severity-circle.info {
+    border: 1px solid;
+    border-color: #d7dadd;
+}
+
+.severity-circle.normal {
+    border: 2px solid;
+    border-color: #c2caef;
+}
+
+.severity-circle.warning {
+    border: 3px solid;
+    border-color: #efce39;
+}
+
+.severity-circle.minor {
+    border: 4px solid;
+    border-color: #ef8939;
+}
+
+.severity-circle.major {
+    border: 5px solid;
+    border-color: #ec1f27;
+}
+
+.severity-circle.critical {
+    border: 6px solid;
+    border-color: #ec1f27;
+}

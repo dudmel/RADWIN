@@ -1,0 +1,92 @@
+<div class="quick-look-wrapper">
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <link-state linkState="{{monitor?.hsuLinkState}}" airState="{{monitor?.hsuAirState}}"> </link-state>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box info-box-red">
+                <div class="info-box-icon">
+                    <i class="rad-sprite graph"></i>
+                </div>
+                <div class="info-box-content">
+                    <span class="info-box-label">RSS</span>
+                    <span class="info-box-text" *ngIf="!(monitor?.hsuLinkState == 'Not Synchronized')">{{ monitor?.hsuRss | units: 'dbm'}}</span>
+                    <span class="info-box-text" *ngIf="monitor?.hsuLinkState == 'Not Synchronized'" >N/A</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <div class="info-box-icon">
+                    <i class="rad-sprite lantxrx"></i>
+                </div>
+                <div class="info-box-content" (click)="onLanClick($event)">
+                    <span class="info-box-label">LAN TX/RX</span>
+                    <span *ngIf="mbpsUnits" style="cursor: pointer" class="info-box-text">{{monitor?.hsuLan1TxMbps}} / {{monitor?.hsuLan1RxMbps | units: 'mbs'}}</span>
+                    <span *ngIf="!mbpsUnits" style="cursor: pointer" class="info-box-text">{{monitor?.hsuLan1TxFps}} / {{monitor?.hsuLan1RxFps | units: 'fps'}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box info-box-light-blue">
+                <div class="info-box-icon">
+                    <i class="rad-sprite uptime"></i>
+                </div>
+                <div class="info-box-content">
+                    <span class="info-box-label">Up Time</span>
+                    <span *ngIf="monitor?.upTime" class="info-box-text">{{ monitor?.upTime | timeTicks }}</span>
+                    <!--<span *ngIf="monitor?.upTime" class="info-box-text">{{ monitor?.upTime | timeTicks | date:'medium' }}</span>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="quick-look-bar">
+            <div class="col-xs-6 col-md-3">
+                <div class="quick-look-block border-right">
+                    <div class="quick-look-header">
+                        Sector ID
+                    </div>
+                    <span class="quick-look-text">
+                    {{system?.sectorId}}
+                </span>
+                </div>
+            </div>
+
+            <div class="col-xs-6 col-md-3">
+                <div class="quick-look-block border-right">
+                    <div class="quick-look-header">
+                        Serial Number
+                    </div>
+                    <span class="quick-look-text">
+                    {{system?.serialNumber}}
+                </span>
+                </div>
+            </div>
+
+            <div class="col-xs-6 col-md-3">
+                <div class="quick-look-block border-right">
+                    <div class="quick-look-header">
+                        SW Version
+                    </div>
+                    <span class="quick-look-text">
+                    {{system?.swVersion}}
+                </span>
+                </div>
+            </div>
+
+            <div class="col-xs-6 col-md-3">
+                <div class="quick-look-block">
+                    <div class="quick-look-header">
+                        HW Version
+                    </div>
+                    <span class="quick-look-text">
+                    {{system?.hwVersion}}
+                </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

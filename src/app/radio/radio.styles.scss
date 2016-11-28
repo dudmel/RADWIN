@@ -1,0 +1,75 @@
+﻿.radio-table-body {
+    background-image: url("/assets/icon/pattern.png");
+    background-repeat: initial;
+    border-top: 1px solid #cfd3da;
+}
+change-band {
+  width: 100%;
+}
+h3 {
+  margin-left: 0;
+}
+.right-side {
+  width: 48%;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+h3 {
+  margin-top: 0;
+}
+.radio-container {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	width: 48%;
+}
+.parent-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.box-radio {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  border-radius: 3px;
+  background: #ffffff;
+  margin-bottom: 20px;
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  .system-box-title {
+	  font-size: 36px;
+  }
+}
+.box-light-blue {
+    border-left: 4px solid #8db5d3;
+}
+.box-green {
+    border-left: 4px solid #72cd9a;
+}
+table {
+  margin-bottom: 0;
+}
+.radio-table {
+  > {
+    thead > tr > th, tbody > tr > th, tfoot > tr > th, thead > tr > td, tbody > tr > td, tfoot > tr > td {
+      border-top: 1px solid #cfd3da;
+    }
+  }
+  tr td .progress {
+    margin-top: 5px;
+  }
+}
+
+.radio-table-icon {
+    float: left;
+    padding-right: 20px;
+}
+
+.radio-container {
+  height: 100%;
+}
+

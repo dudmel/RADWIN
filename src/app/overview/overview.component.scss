@@ -1,0 +1,38 @@
+.row-flex {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+    // height: 250px;
+    width: 100%;
+}
+
+system-monitor {
+    width: 50%;
+    display: block;
+}
+device-monitor {
+    width: 100%;
+    display: flex;
+}
+radio-monitor {
+    width: 32%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    
+}
+.monitors-container {
+    width: 65%;
+    height: 215px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-self: flex-end;
+}
+
+recent-events {
+    width: 100%;   
+    margin-top: 20px;
+    margin-bottom: 40px;
+}

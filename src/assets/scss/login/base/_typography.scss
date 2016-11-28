@@ -1,0 +1,22 @@
+select,
+textarea,
+input,
+{   
+    width: 100%;
+    padding: 10px 73px 10px 10px;
+    border: 1px solid $input-default-border;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: $input-default-color;
+    @include juice-prefixer(transition,all 0.5s ease-in 0s,webkit moz ms o spec);
+}
+*::-webkit-input-placeholder
+{
+    color: $input-default-placeholder-color;
+    opacity: $input-default-placeholder-opacity;
+}
+*::-moz-placeholder
+{
+    color: $input-default-placeholder-color;
+    opacity: $input-default-placeholder-opacity;
+}

@@ -1,0 +1,15 @@
+<form *ngIf="bands" [formGroup]="bandform">
+    <div class="box-body">
+        <fieldset>
+            <div class="form-group">
+                Band:
+                <div class="input-group">
+                    <select formControlName="currentBandId" [(ngModel)]="bands.currentBandId" class="form-control">
+                         <option *ngFor="let band of bands?.bandsList" [value]="band.bandId">{{ band.description }}</option>
+                </select>
+                </div>
+            </div>
+        </fieldset>
+        <button form="bandform" type="submit" (click)="changeBand($event)" [disabled]="!bandform.valid || bandform.pristine" class="btn btn-default">CHANGE BAND</button>
+    </div>
+</form>

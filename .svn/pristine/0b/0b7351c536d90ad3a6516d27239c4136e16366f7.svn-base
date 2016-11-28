@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <title>
+    <%= webpackConfig.metadata.title %>
+  </title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="<%= webpackConfig.metadata.title %>">
+  <link rel="shortcut icon" href="/assets/icon/favicon.ico" />
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- ng2-toastr -->
+  <link rel="stylesheet" href="/assets/plugins/ng2-toastr/ng2-toastr.min.css" />
+  <!-- base url -->
+  <base href="<%= webpackConfig.metadata.baseUrl %>">
+</head>
+
+
+<body class="hold-transition rad-skin sidebar-mini">
+  <app></app>
+
+  <div id="preloader">
+    <div class="spinner">
+    </div>
+    <div id="spinner-message"></div>
+  </div>
+
+  <!-- jQuery 3.1.0 -->
+  <script src="/assets/plugins/jQuery/jquery-3.1.0.min.js"></script>
+  <!-- Sparkline -->
+  <script src="/assets/plugins/jQuery/jquery.sparkline.min.js"></script>
+  <!-- Bootstrap 3.3.7 -->
+  <script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+  <!-- Slimscroll -->
+  <script src="/assets/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+  <!-- Canvas Gauges 2.0.9 -->
+  <script src="/assets/js/gauge.min.js"></script>
+  <!-- Login -->
+  <script src="/assets/js/script.js"></script>
+  <script src="/assets/js/modernizr.min.js"></script>
+
+</body>
+
+</html>

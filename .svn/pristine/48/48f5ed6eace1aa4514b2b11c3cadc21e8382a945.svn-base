@@ -1,0 +1,109 @@
+<!-- template -->
+
+<!-- /#wrapper -->
+<div class="wrapper">
+
+	<!-- Main Header -->
+	<header class="main-header">
+		<!-- Header Navbar -->
+		<nav class="navbar navbar-static-top" role="navigation">
+			<!-- Sidebar toggle button-->
+			<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+				<i class="rad-sprite hamburger"></i>
+				<span class="sr-only">Toggle navigation</span>
+			</a>
+			<span>
+                <img src="/assets/img/logo.png" style="padding-top:15px">
+            </span>
+			<!-- Navbar Right Menu -->
+			<div class="navbar-custom-menu">
+				<ul class="nav navbar-nav">
+
+					<!-- Notifications Menu -->
+					<li class="dropdown notifications-menu" (click)='RequestForAlarms()'>
+						<!-- Menu toggle button -->
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="rad-sprite bell"></i>
+							<span *ngIf="alarmsCounter > 0" class="label label-warning">{{alarmsCounter}}</span>
+						</a>
+						<ul class="dropdown-menu">
+							<active-alarms></active-alarms>
+						</ul>
+					</li>
+					<!-- User Account Menu -->
+					<li class="dropdown user user-menu">
+						<!-- Menu Toggle Button -->
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<!-- The user image in the navbar-->
+							<!-- hidden-xs hides the username on small devices so only the image appears. -->
+							<!--               <span class="hidden-xs">{{ loginData.fullName }}</span>
+                            --><span class="hidden-xs">Admin</span>
+						</a>
+						<ul class="dropdown-menu">
+							<!-- Menu Footer-->
+							<li class="user-footer">
+								<a href="/" (click)='logout()' class="btn btn-default btn-flat">Log out</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<!-- Left side column. contains the logo and sidebar -->
+	<span class="main-sidebar">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+
+            <!-- Sidebar Menu -->
+            <ul class="sidebar-menu">
+                <li class="treeview">
+                    <a [routerLink]=" ['./overview'] " [routerLinkActive]="['is-active']" >
+                        <i class="rad-sprite overview"></i>
+                        <span class="side-bar-title">OVERVIEW</span>
+	</a>
+	</li>
+	<li class="treeview">
+		<a><i class="rad-sprite configure"></i><span class="side-bar-title">CONFIGURE</span></a>
+		<ul class="treeview-menu">
+			<li><a [routerLink]=" ['./system-configuration'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i><span class="side-bar-title sub-menu">SYSTEM</span></a></li>
+			<li><a [routerLink]=" ['./radio-configuration'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu">RADIO</span></a></li>
+			<li><a [routerLink]=" ['./network-configuration'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu">NETWORK</span></a></li>
+			<li><a [routerLink]=" ['./wifi-configuration'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu">WIFI</span></a></li>
+			<li><a [routerLink]=" ['./security-configuration'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu">SECURITY</span></a></li>
+		</ul>
+	</li>
+	<li class="treeview">
+		<a><i class="rad-sprite tools"></i> <span class="side-bar-title">TOOLS</span></a>
+		<ul class="treeview-menu">
+			<li><a [routerLink]=" ['./unit-tools'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu">UNIT</span></a></li>
+			<li><a [routerLink]=" ['./network-tools'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu">NETWORK</span></a></li>
+			<li><a [routerLink]=" ['./operations-tools'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu">OPERATIONS</span></a></li>
+		</ul>
+	</li>
+
+	</ul>
+	</section>
+	</span>
+
+	<!-- Content Wrapper. Contains page content -->
+	<div class="content-wrapper">
+		<section class="content-header">
+			<h1>
+				{{system?.product | productPipe }}
+			</h1>
+			<h5 *ngIf="system">{{system?.hsu?.hsuName}}, {{system?.hsu?.hsuLocation}}</h5>
+		</section>
+
+		<!-- Main content -->
+		<section class="content">
+			<quick-look></quick-look>
+			<!-- Your Page Content Here -->
+			<router-outlet></router-outlet>
+		</section>
+	</div>
+
+</div>
+
+<rad-modal></rad-modal>

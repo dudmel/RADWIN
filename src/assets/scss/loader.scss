@@ -1,0 +1,91 @@
+#cssload-wrapper {
+    width: 144px;
+    height: 32px;
+	position: relative;
+	left: -20px;
+	// top: 90%;
+}
+
+#cssload-border {
+	border: 3px solid rgb(141, 181, 211);
+    border-radius: 4px;
+	height: 100%;
+	width: 100%;
+	position: relative;
+	//left: -50%;
+	top: -50%;
+	padding: 4px 3px;
+}
+
+#cssload-whitespace {
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+	position: relative;
+}
+
+#cssload-line {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(141, 181, 211, 1);
+	animation: cssload-slide 5.75s steps(40) infinite;
+		-o-animation: cssload-slide 5.75s steps(40) infinite;
+		-ms-animation: cssload-slide 5.75s steps(40) infinite;
+		-webkit-animation: cssload-slide 5.75s steps(40) infinite;
+		-moz-animation: cssload-slide 5.75s steps(40) infinite;
+}
+
+
+
+@keyframes cssload-slide {
+	0% {
+		left: -100%;
+	}
+	
+	100% {
+		left: 100%;
+	}
+}
+
+@-o-keyframes cssload-slide {
+	0% {
+		left: -100%;
+	}
+	
+	100% {
+		left: 100%;
+	}
+}
+
+@-ms-keyframes cssload-slide {
+	0% {
+		left: -100%;
+	}
+	
+	100% {
+		left: 100%;
+	}
+}
+
+@-webkit-keyframes cssload-slide {
+	0% {
+		left: -100%;
+	}
+	
+	100% {
+		left: 100%;
+	}
+}
+
+@-moz-keyframes cssload-slide {
+	0% {
+		left: -100%;
+	}
+	
+	100% {
+		left: 100%;
+	}
+}

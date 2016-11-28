@@ -1,0 +1,63 @@
+<!--<div class="col-md-12">-->
+    <div class="title-row">
+        <div class="events-title">
+            <h3 class="box-title">Events</h3>
+            <i class="rad-sprite refresh" (click)="refresh()" ></i>
+        </div> 
+
+        <div class="events-legend"> 
+            <span class="legend-title"> LEGEND </span>
+            <span class="legend-body">
+                <span class="legend-bubbles">
+                    <span class="bubble" [ngClass]="{'visible' : legendStatus==='info'}"> Info </span>
+                    <span class="bubble" [ngClass]="{'visible' : legendStatus==='normal'}"> Normal </span>
+                    <span class="bubble" [ngClass]="{'visible' : legendStatus==='warning'}"> Warning </span>
+                    <span class="bubble" [ngClass]="{'visible' : legendStatus==='minor'}"> Minor </span>
+                    <span class="bubble" [ngClass]="{'visible' : legendStatus==='major'}"> Major </span>
+                    <span class="bubble" [ngClass]="{'visible' : legendStatus==='critical'}"> Critical </span>
+                </span>
+                <span class="legend-icons"> 
+                    <span class="severity-circle info" (mouseenter)="legendStatus='info'" (mouseleave)="legendStatus=''">
+                    </span>
+                    <span class="severity-circle normal"   (mouseenter)="legendStatus='normal'" (mouseleave)="legendStatus=''">
+                    </span>
+                    <span class="severity-circle warning"  (mouseenter)="legendStatus='warning'" (mouseleave)="legendStatus=''">
+                    </span>
+                    <span class="severity-circle minor"    (mouseenter)="legendStatus='minor'" (mouseleave)="legendStatus=''">
+                    </span>
+                    <span class="severity-circle major"    (mouseenter)="legendStatus='major'" (mouseleave)="legendStatus=''">
+                    </span>
+                    <span class="severity-circle critical" (mouseenter)="legendStatus='critical'" (mouseleave)="legendStatus=''">
+                    </span>
+                </span>
+            </span>
+        
+        </div>
+    </div>
+    <div class="box-events">
+        <div class="box-body">
+            <div class="events-table-wrapper">
+                <table class="table" *ngIf="events">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="events-th">#</th>
+                            <th class="events-th">Date & Time</th>
+                            <th class="events-th">Description</th>
+                            <th class="events-th">Interface</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let event of events">
+                            <td><i [ngClass]="getSeverityClass(event.severity)"></i></td>
+                            <td>{{ event.eventIndex }}</td>
+                            <td>{{ event.dateAndTime }}</td>
+                            <td>{{ event.description }}</td>
+                            <td>{{ event.interfaceName }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+<!--</div>-->

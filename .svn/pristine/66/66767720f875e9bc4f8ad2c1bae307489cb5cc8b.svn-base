@@ -1,0 +1,18 @@
+<div class="row">
+    <system-monitor></system-monitor>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <radio-monitor></radio-monitor>
+    </div>
+    <div class="col-md-8">
+        <device-monitor device="HSU" [tput]="monitor.hsuTput" [rss]="monitor.hsuRss" [tx]="monitor.hsuLan1TxMbps" [rx]="monitor.hsuLan1RxMbps">
+        </device-monitor>
+        <device-monitor device="HBS" [tput]="monitor.hbsTput" [rss]="monitor.hbsRss" [tx]="monitor.hbsLan1TxMbps" [rx]="monitor.hbsLan1RxMbps">
+        </device-monitor>
+    </div>
+</div>
+
+<div class="row">
+    <recent-events></recent-events>
+</div>

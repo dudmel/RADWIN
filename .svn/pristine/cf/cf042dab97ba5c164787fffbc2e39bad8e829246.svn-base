@@ -1,0 +1,54 @@
+<div [ngClass]="{'box box-light-blue': true}">
+    <div class="box-body">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="device-monitor-title border-right">
+                    {{device}}
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="device-monitor-block border-right">
+                    <div class="device-row border-bottom">
+                        <div class="monitor-graph">
+                            <div class="sparkline" #rsssparkline></div>
+                        </div>
+                        <div class="measure">
+                            <div class="monitor-caption">RSS</div>
+                            <div class="monitor-caption-data" *ngIf='isLinkSynchronized'>{{rss | units: 'dbm'}}</div>
+                        </div>
+                    </div>
+                    <div class="device-row">
+                        <div class="monitor-graph">
+                            <div class="sparkline" #tputsparkline></div>
+                        </div>
+                        <div class="measure">
+                            <div class="monitor-caption">Est. T-Put</div>
+                            <div class="monitor-caption-data" *ngIf='isLinkSynchronized'>{{tput / 1000000 | number : '1.2-2' | units: 'mbs'}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="device-monitor-block">
+                    <div class="device-row border-bottom">
+                        <div class="monitor-graph">
+                            <div class="sparkline" #txsparkline></div>
+                        </div>
+                        <div class="measure">
+                            <div class="monitor-caption">LAN TX</div>
+                            <div class="monitor-caption-data" *ngIf='isLinkSynchronized'>{{tx | units: 'mbs'}}</div>
+                        </div>
+                    </div>
+                    <div class="device-row">
+                        <div class="monitor-graph">
+                            <div class="sparkline" #rxsparkline></div>
+                        </div>
+                        <div class="measure">
+                            <div class="monitor-caption">LAN RX</div>
+                            <div class="monitor-caption-data" *ngIf='isLinkSynchronized'>{{rx | units: 'mbs'}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

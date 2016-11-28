@@ -1,0 +1,224 @@
+@import 'vars';
+@import 'adminlte';
+@import 'loader';
+@import 'sprite';
+@import 'onoffswitch';
+@import 'fontello';
+@import 'animation';
+@import 'preloader';
+@import "hamburgers/hamburgers-settings";
+@import "hamburgers/hamburgers";
+
+/* roboto-regular - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'),
+       url('../assets/fonts/roboto-v15-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../assets/fonts/roboto-v15-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+dashboard {
+    position: relative;
+}
+body {
+    background-color: #fbfbfb;
+}
+.box-title {
+    color: $red-color;
+    margin-left: 15px;
+}
+
+.status-box {
+    display:flex;
+    // align-items: center;
+    background-color: white;
+    border-radius: 0.2em;
+    
+    padding: 0.2em 0;
+    // glyphicon
+    div:first-child {
+        font-size: 2em;
+        border-right: 1px solid lightgrey;
+    }
+    // text
+    div {
+        padding: 0.2em 0.3em;
+    }
+    .title {
+        color:gray;
+        font-size:0.8em;
+    }
+
+    .connected {
+        color:darkolivegreen;
+    }
+
+    &.major {
+        border-left: 0.3em solid green;
+    }
+
+} 
+
+.buttons-footer {
+	text-align: center;
+}
+
+/*
+.side-bar-title {
+    padding-left: 12px;
+    position: absolute;
+    margin-top: 5px;
+}
+
+.side-bar-title {
+    padding-left: 12px;
+    position: absolute;
+    margin-top: 5px;
+    &.sub-menu{
+        margin-top: 0px;
+    }
+}*/
+
+.sub-menu-icon {
+    width:12px;
+    height:12px;
+    border-radius:50px;
+    background:#81919e
+}
+
+.is-active { 
+    color: #ffffff !important;
+}
+
+.chart-legend, .bar-legend, .line-legend, .pie-legend, .radar-legend, .polararea-legend, .doughnut-legend {
+  list-style-type: none;
+  margin-top: 5px;
+  text-align: center;
+  -webkit-padding-start: 0;
+  -moz-padding-start: 0;
+  padding-left: 0
+}
+
+.chart-legend li, .bar-legend li, .line-legend li, .pie-legend li, .radar-legend li, .polararea-legend li, .doughnut-legend li {
+  display: inline-block;
+  white-space: nowrap;
+  position: relative;
+  margin-bottom: 4px;
+  border-radius: 5px;
+  padding: 2px 8px 2px 28px;
+  font-size: smaller;
+  cursor: default
+}
+
+.chart-legend li span, .bar-legend li span, .line-legend li span, .pie-legend li span, .radar-legend li span, .polararea-legend li span, .doughnut-legend li span {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px
+}
+.rd-chart {
+    // display: block; 
+    // width: 100%;
+    position: relative !important;
+    overflow: hidden !important;
+    width: 100% !important;
+}
+
+.spectrum-chart {
+    display: block;
+    //height: 80%;
+    //width: 600px;
+    //width: 50%;
+    //margin: 0 auto;
+    //height: 227px;
+    //width: 778px;
+}
+.parent {
+  display: flex;
+  height: auto;
+  flex-flow: row wrap;
+  justify-content: inherit;
+}
+
+.child {
+  width: auto;
+  height: auto;
+  border-right: 1px solid #f4f4f4;
+  padding-right: 20px;
+  padding-left: 20px;
+  align-self: center;
+}
+
+.jqstooltip {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+.box-buttons {
+    padding:  23px;
+}
+
+.gauge-container {
+    text-align: center;
+}
+
+.label-warning {
+    background-color: #eb5062;
+}
+
+.modal-body-content {
+	// margin-bottom: 10px;
+	display: table;
+	// min-height: 35px;
+	p {
+        padding-left: 10px;
+        display: table-cell;
+        vertical-align: middle;
+	}
+}
+
+
+.alarms-dropdown-header {
+    color: #ef4023;
+    font-size: 18px;
+    background: #f7f7f7;
+    border-bottom: none;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.alarms-list {
+    list-style-type: none;
+    h4 {
+        font-size: 14px;
+        font-weight: bold;
+        color: #76828e;
+        margin: 0 0 5px 0px;
+    }
+    p {
+        font-size: 14px;
+        margin: 0;
+    }
+    small {
+        font-size: 11px;
+        color: #76828e;
+        margin: 0;
+    }
+
+    li {
+        border-bottom: 1px solid #e5e5e5;
+        padding: 5px;
+    }
+}
+
+// Fix for not showing up/down arrows when readonly in firefix
+input[type='number']:-moz-read-only  {
+    -moz-appearance:textfield;
+}

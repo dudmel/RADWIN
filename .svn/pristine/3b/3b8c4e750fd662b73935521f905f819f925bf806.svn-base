@@ -1,0 +1,98 @@
+<div class="row">
+    <h3 class="box-title">Radio</h3>
+    <div class="col-md-6">
+        <div class="box box-light-blue">
+            <form *ngIf="radio" [formGroup]="form">
+                <div class="box-body">
+                    <fieldset>
+                        Antenna Type: {{radio.antennaType}} <br> Antenna Connection Type: {{radio.antennaConnectionType}}
+                        <br> TX Power (System): {{monitor?.configMonitor?.totalTxPower}} <br> EIRP: {{eirp | number:'2.0'
+                        | units: 'dbm' }} Max: {{monitor?.configMonitor?.maxEirp}} <br> TX Power(Per radio): {{monitor?.configMonitor?.currentTxPower}}
+                        <div class="form-group">
+                            Sector ID
+                            <input formControlName="sectorId" [(ngModel)]="radio.sectorId" [readonly]="!canChangesectorId" class="form-control" type="text">
+                            <div class="control-msgs" *ngIf="form.controls.sectorId.dirty && !form.controls.sectorId.valid">
+                                <p *ngIf="form.controls.sectorId.errors.minLength">Sector ID is must be at least 4 characters.</p>
+                                <p *ngIf="form.controls.sectorId.errors.maxLength">Sector ID is maximum characters is 24.</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            Required TX Power Per Radio
+                            <div class="input-group">
+                                <input formControlName="desiredTxPower" [(ngModel)]="radio.desiredTxPower" class="form-control" type="number" min={{radio.minTxPower}}
+                                    max="{{radio.maxTxPower}}">
+                                <span class="input-group-addon">dBm</span>
+                            </div>
+                            <div class="control-msgs" *ngIf="form.controls.desiredTxPower.dirty && !form.controls.desiredTxPower.valid">
+                                <p *ngIf="form.controls.desiredTxPower.errors.required">TX Power Per Radio is required.</p>
+                                <p *ngIf="form.controls.desiredTxPower.errors.invalidMinMax">Tx Power Per Radio should be between {{radio.minTxPower}}-{{radio.maxTxPower}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            Antenna Gain
+                            <div class="input-group">
+                                <input formControlName="antennaGain" [(ngModel)]="radio.antennaGain" class="form-control" type="number" step="0.1" readonly
+                                    min="{{radio.minAntennaGain" max="radio.maxAntennaGain}}">
+                                <span class="input-group-addon">dBi</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    Channel Bandwidth
+                                    <div class="input-group">
+                                        <select formControlName="currentCbw" [(ngModel)]="radio.currentCbw" class="form-control" type="number">
+                                            <option *ngFor="let cbw of radio?.options?.cbwList" [value]="cbw">{{ cbw }}</option>
+                                     </select>
+                                        <span class="input-group-addon">MHz</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    Frequency
+                                    <div class="input-group">
+                                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="radio.currentFrequency" class="form-control" readonly>
+                                        <!--<span class="input-group-addon">GHz</span>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+    <div class="col-md-6">
+        <div class="box box-green">
+            <change-band></change-band>
+        </div>
+        <div class="box" *ngIf="radio.hsuType == 'Stationary' || radio.hsuType == 'Mobile'">
+            <div class="box-header">
+                <h3 class="box-title">MOBILITY SETTINGS</h3>
+            </div>
+            <div class="box-body">
+                <form *ngIf="radio" [formGroup]="form">
+                    <fieldset>
+                        <div class="form-group">
+                            Mobility level
+                            <div class="input-group">
+                                <select formControlName="mobilityLevels" [(ngModel)]="radio.mobilityLevel" class="form-control" type="number">
+                                        <option *ngFor="let level of mobilityLevels" [value]="level">{{ level }}</option>
+                                    </select>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="buttons-footer">
+    <button form="form" type="submit" (click)="save($event)" [disabled]="!form.valid || form.pristine" class="btn btn-primary">APPLY ALL</button>
+    <button form="form" type="cancel" (click)="cancel($event)" class="btn btn-default">CANCEL</button>
+</div>

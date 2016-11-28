@@ -1,0 +1,56 @@
+﻿.custom-pagination {
+  display: flex;
+  height: auto;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.vlan-wrapper
+{
+	display:flex; 
+	//padding-left: 20px;
+	padding: 20px;
+	justify-content: center;
+  align-items: center;
+	min-height: 166px;
+}
+
+.vlan-content
+{
+	// height : 110px; 
+	display: flex;
+	flex-flow: row wrap;
+	flex: 2;
+}
+
+.vlan-title
+{
+	padding-left : 10px;
+	padding-top : 10px;
+	width: 170px;
+	border-right: 1px solid #edeff0;
+	font-size: 18px;
+}
+
+.trap-title
+{
+	padding-left : 10px;
+	padding-top : 10px;
+	width:120px;
+	font-size: 18px;
+}
+
+.vlan-form {
+  flex-flow: row wrap;
+  flex: 2;
+  background-color : #fbfbfb;
+}
+
+.traps-header {
+	padding-bottom: 80px;
+}
+
+.traps-buttons {
+	padding: 20px;
+	text-align: right;
+}

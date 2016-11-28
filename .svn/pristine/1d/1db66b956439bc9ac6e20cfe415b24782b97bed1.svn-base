@@ -1,0 +1,32 @@
+<div class="col-md-12">
+    <div class="events-title">
+        <h3 class="box-title">Events</h3>
+        <i class="rad-sprite refresh" (click)="refresh()" ></i>
+    </div>
+    <div class="box">
+        <div class="box-body">
+            <div class="events-table-wrapper">
+                <table class="table" *ngIf="events">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="events-th">#</th>
+                            <th class="events-th">Date & Time</th>
+                            <th class="events-th">Description</th>
+                            <th class="events-th">Interface</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let event of events">
+                            <td><i [ngClass]="getSeverityClass(event.severity)"></i></td>
+                            <td>{{ event.eventIndex }}</td>
+                            <td>{{ event.dateAndTime }}</td>
+                            <td>{{ event.description }}</td>
+                            <td>{{ event.interfaceName }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

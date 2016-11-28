@@ -1,0 +1,77 @@
+<div class="system-container">
+    <h3 class="box-title">System</h3>
+    <div class="box">
+        <div class="box-system box-light-blue">
+            <form *ngIf="system" [formGroup]="form">
+                <div class="box-body">
+                    <div>
+                        <fieldset>
+                            <div class="form-group">
+                                Name
+                                <input formControlName="hsuName" [(ngModel)]="system.hsu && system.hsu.hsuName" class="form-control" type="text" maxlength="30">
+                                <div class="control-msgs" *ngIf="form.controls.hsuName.dirty && !form.controls.hsuName.valid">
+                                    <p *ngIf="form.controls.hsuName.errors.required">Name is required.</p>
+                                    <p *ngIf="form.controls.hsuName.errors.invalidChars">Bad chars: ,'%</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        Location
+                                        <input formControlName="hsuLocation" [(ngModel)]="system.hsu && system.hsu.hsuLocation" class="form-control" type="text"
+                                            maxlength="30">
+                                        <div class="control-msgs" *ngIf="form.controls.hsuLocation.dirty && !form.controls.hsuLocation.valid">
+                                            <p *ngIf="form.controls.hsuLocation.errors.required">Location is required.</p>
+                                            <p *ngIf="form.controls.hsuLocation.errors.invalidChars">Bad chars: ,'%</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-6">
+                                        Contact
+                                        <input formControlName="hsuContact" [(ngModel)]="system.hsu && system.hsu.hsuContact" class="form-control" type="text" maxlength="30">
+                                        <div class="control-msgs" *ngIf="form.controls.hsuContact.dirty && !form.controls.hsuContact.valid">
+                                            <p *ngIf="form.controls.hsuContact.errors.required">Contact is required.</p>
+                                            <p *ngIf="form.controls.hsuContact.errors.invalidChars">Bad chars: ,'%</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        NTP Server
+                                        <input formControlName="ntpServer" [(ngModel)]="system.ntpServer" class="form-control" type="text">
+                                        <div class="control-msgs" *ngIf="form.controls.ntpServer.dirty && !form.controls.ntpServer.valid">
+                                            <p *ngIf="form.controls.ntpServer.errors.invalidNtpServer">NTP server is invalid.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        Offset [Minutes]
+                                        <input formControlName="ntpTimeOffsetFromUTC" [(ngModel)]="system.ntpTimeOffsetFromUTC" class="form-control" type="number"
+                                            min=-1439 max=1439>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div *ngIf="monitor.realTimeAndDate" class="form-group">
+                                        Date & Time
+                                        {{monitor.realTimeAndDate | date: 'medium'}}
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="buttons-footer">
+    <button form="form" type="submit" (click)="save($event)" [disabled]="!form.valid || form.pristine" class="btn btn-primary">APPLY ALL</button>
+    <button form="form" type="cancel" (click)="cancel($event)" class="btn btn-default">CANCEL</button>
+</div>
