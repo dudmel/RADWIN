@@ -1,0 +1,50 @@
+.wifi-title {
+  display: inline-flex;
+}
+
+.wifi-table-wrapper {
+  overflow: auto;
+  height: 270px;
+  font-size: 16px;
+}
+
+.wifi-th {
+  color: #a0a8b6;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+  background-color: #f1faf5;
+}
+
+.box-wifi {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  border-radius: 3px;
+  background: #ffffff;
+  margin-bottom: 20px;
+  width: 48%;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  padding: 5px 10px 5px 10px;
+}
+
+.box-light-blue {
+  border-left: 4px solid #8db5d3;
+}
+
+.box-green {
+  border-left: 4px solid #72cd9a;
+}
+
+.box-orange {
+  border-left: 4px solid #f47f6b;
+}
+
+.wifi-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}

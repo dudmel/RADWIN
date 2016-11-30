@@ -10,14 +10,7 @@
     justify-content: space-between
 }
 
-.box {
-//   position: relative;
-  display: flex;
-  flex-flow: column nowrap;
-  border-radius: 3px;
-  background: #ffffff;
-  border-left: 4px solid #76828e;
-  margin-bottom: 20px;
+.box-unit {
   height: 100%;
   width: 39%;
   

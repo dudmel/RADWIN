@@ -20,7 +20,8 @@ let OFFSET: number = 100;
 @Component({
   selector: 'unit',
   providers: [OperationsService, SpectrumService],
-  template: require('./operations.component.html')
+  template: require('./operations.component.html'),
+  styleUrls: ['operations.component.scss']
 })
 export class OperationsComponent implements OnInit, OnDestroy {
   @ViewChild(BaseChartDirective) _chart;

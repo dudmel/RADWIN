@@ -1,0 +1,87 @@
+.box-device {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  border-radius: 3px;
+  background: #ffffff;
+  padding: 5px;
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.box-device .system-box-title {
+  font-size: 36px;
+}
+
+.box-lightBlue {
+  border-left: 4px solid #8db5d3;
+}
+
+.box-orange {
+  border-left: 4px solid #f47f6b;
+}
+
+.device-monitor-title {
+  display: flex;
+  padding: 20px;
+  flex-flow: column nowrap;
+  justify-content: center;
+  text-align: center;
+  border-right: 1px solid #d8d8d8;
+  font-size: 36px;
+  height: 100%;
+  flex: 1;
+}
+
+.device-monitor-block {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  flex: 4;
+}
+
+.device-monitor-block.border-right {
+  border-right: 1px solid #d8d8d8;
+}
+
+.monitor-block {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 100%;
+  align-items: center;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.monitor-caption {
+  color: #76828e;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.monitor-caption-data {
+  color: #273238;
+  font-size: 18px;
+  padding-left: 10px;
+  padding-top: 2px;
+}
+
+.device-row {
+  display: flex;
+  padding: 5px;
+  min-height: 68px;
+}
+
+.device-row.border-bottom {
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.measure {
+  margin-left: auto;
+}

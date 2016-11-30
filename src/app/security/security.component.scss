@@ -1,25 +1,9 @@
 .box-security {
-  position: relative;
-  display: flex;
-  flex-flow: column nowrap;
-  border-radius: 3px;
-  background: #ffffff;
-  margin-bottom: 20px;
   width: 80%;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  padding-top: 20px ;
-  padding-bottom: 10px;
+//   padding-top: 20px ;
+//   padding-bottom: 10px;
+}
 
-}
-.box-light-blue {
-    border-left: 4px solid #8db5d3;
-}
-.box-green {
-    border-left: 4px solid #72cd9a;
-}
-.box-orange {
-		border-left: 4px solid #f47f6b
-}
 .currPassword {
     width: 20%;  
     margin-left: 25px;
@@ -27,6 +11,17 @@
     .form-group {
         width: 100%;
     }
+}
+.pass-buttons {
+   align-self: center;
+    display: flex;
+    margin-left: 10px;
+    flex-flow: row wrap;
+    justify-content: center;
+    button {
+        margin:2px;
+    }
+
 }
 .form-group {
     width: 45%;
@@ -45,6 +40,6 @@
 .box-body {
     display: flex;
     justify-content: space-around;
-    width:80%;
+    width: 100%;
     flex-flow: row nowrap;
 }

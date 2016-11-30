@@ -3,7 +3,7 @@
 </h3>
 <div class="security-container">
 	<!--<div class="col-md-8">-->
-		<div class="box-security box-green">
+		<div class="box box-security box-green">
 			<form [formGroup]="linkPasswordForm">
 				<fieldset [disabled]="isChangeLinkPasswordDisabled()">
 					<div class="box-body">
@@ -45,12 +45,12 @@
 									</div>
 								<!--</div>-->
 							</div>
-							<!--<div class="col-xs-6 col-sm-3 col-md-3">-->
-								<div class="box-buttons">
+								<div class="pass-buttons">
 									<button form="form" type="submit" (click)="save($event)" [disabled]="!linkPasswordForm.valid || linkPasswordForm.pristine"
 										class="btn btn-primary">SAVE</button>
 									<button form="form" type="cancel" (click)="cancel($event)" class="btn btn-default">CANCEL</button>
 								</div>
+							<!--<div class="col-xs-6 col-sm-3 col-md-3">-->
 							</div>
 						<!--</div>-->
 					<!--</div>-->

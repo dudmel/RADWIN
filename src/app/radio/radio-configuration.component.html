@@ -1,7 +1,6 @@
-<h3 class="box-title">Radio</h3>
-<div class="parent-container">
-    <div class="radio-container">
-        <div class="box-radio box-light-blue">
+<h3 class="section-title">Radio</h3>
+<div class="radio-container">
+        <div class="box box-radio box-light-blue">
             <form *ngIf="radio" [formGroup]="form">
                 <div class="box-body">
                     <fieldset>
@@ -63,14 +62,13 @@
             </form>
 
         </div>
-    </div>
 
 
     <div class="right-side">
-        <div class="box-radio box-green">
+        <div class="box box-radio box-green">
             <change-band></change-band>
         </div>
-        <div class="box-radio box-light-blue" *ngIf="radio.hsuType == 'Stationary' || radio.hsuType == 'Mobile'">
+        <div class="box box-radio box-light-blue" *ngIf="radio.hsuType == 'Stationary' || radio.hsuType == 'Mobile'">
             <div class="box-header">
                 <h3 class="box-title">MOBILITY SETTINGS</h3>
             </div>
@@ -91,7 +89,6 @@
         </div>
     </div>
 </div>
-
 <div class="buttons-footer">
     <button form="form" type="submit" (click)="save($event)" [disabled]="!form.valid || form.pristine" class="btn btn-primary">APPLY ALL</button>
     <button form="form" type="cancel" (click)="cancel($event)" class="btn btn-default">CANCEL</button>

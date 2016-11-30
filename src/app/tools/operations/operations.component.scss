@@ -1,0 +1,62 @@
+.row-flex {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+.col-flex {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+}
+
+.spectrum-title {
+    font-size: 18px;
+}
+.box-operations {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    width: 77%;
+}
+
+.inputs-container {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 17%;
+    // min-height: 1px;
+    // padding-right: 15px;
+    // padding-left: 15px;
+}
+
+.side-box {
+    width: 22%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+
+    h4 { 
+        margin-left: 0;
+    }
+
+        button {
+            margin: 2px;
+        }
+    .two-buttons {
+        display: flex;
+        justify-content: space-between;
+        max-width:100%;
+        button {
+            width: 50%;
+        }
+    }
+    button {
+        width:80%;
+        padding-right: 0;
+        padding-left: 0;
+        font-size: 1vw;
+        text-align: center;        
+    }
+
+}

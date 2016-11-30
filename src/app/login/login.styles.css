@@ -1,0 +1,273 @@
+/*************************************************/
+/*                                               */
+/*	Theme        : RADWIN                        */
+/*	Developed by : Manoj Dharajiya               */
+/*	Site URL     : http://md.wearedevelopers.in  */
+/*	version      : 1.0.0	                     */
+/*                                               */
+/*************************************************/
+select,
+textarea,
+input {
+  width: 100%;
+  padding: 10px 73px 10px 10px;
+  border: 1px solid #a1a7ad;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #d8d8d8;
+  -webkit-transition: all 0.5s ease-in 0s;
+  -moz-transition: all 0.5s ease-in 0s;
+  -ms-transition: all 0.5s ease-in 0s;
+  -o-transition: all 0.5s ease-in 0s;
+  transition: all 0.5s ease-in 0s;
+}
+
+*::-webkit-input-placeholder {
+  color: #a1a7ad;
+  opacity: 1;
+}
+
+*::-moz-placeholder {
+  color: #a1a7ad;
+  opacity: 1;
+}
+
+/*===== Login / Forgot-Password Css  =====*/
+.container {
+  max-width: 1200px;
+  width: auto;
+}
+
+.loader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/img/loader.gif");
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: 99;
+}
+
+.bg-placeholder {
+  background-position: 0 0 !important;
+  height: 100%;
+  top: 0;
+  width: 100%;
+  background-size: cover !important;
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 768px) and (max-width: 1026px) {
+  .bg-placeholder {
+    background-position: center !important;
+  }
+}
+
+.fullHeight {
+  position: relative;
+}
+
+.imageShadow {
+  position: relative;
+}
+
+.imageShadow:after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+.form-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 350px;
+  max-width: 85%;
+  z-index: 2;
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.form-container .logo-text {
+  margin-bottom: 20px;
+}
+
+.form-container .form {
+  background: #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.form-container .form-text p {
+  margin-bottom: 0;
+}
+
+.form-container .form-content {
+  padding: 40px 39px 90px 36px;
+}
+
+.form-container .form-header {
+  font-family: "Roboto";
+  font-weight: 400;
+  color: #ef4023;
+  font-size: 18px;
+  background: #f7f7f7;
+  text-align: center;
+  padding: 15px 5px;
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -ms-border-radius: 5px 5px 0 0;
+  -o-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+}
+
+.form-container .form-footer {
+  padding: 0 0 20px 0;
+  text-align: center;
+  color: #a1a7ad;
+  -webkit-border-radius: 0 0 5px 5px;
+  -moz-border-radius: 0 0 5px 5px;
+  -ms-border-radius: 0 0 5px 5px;
+  -o-border-radius: 0 0 5px 5px;
+  border-radius: 0 0 5px 5px;
+}
+
+.form-container .form-footer a {
+  color: #a1a7ad;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.form-container .form-footer a:hover, .form-container .form-footer a:focus {
+  color: #a1a7ad;
+  text-decoration: "none";
+}
+
+.form-container form input[type="email"],
+.form-container form input[type="text"] {
+  margin: 0 0 30px;
+  padding: 10px 73px 10px 10px;
+  color: #a1a7ad;
+  line-height: 1.1em;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}
+
+.form-container form input[type="submit"] {
+  width: 97px;
+  height: 37px;
+  padding: 0;
+  margin-top: 6px;
+  border: none;
+  background: #ef4023;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  float: right;
+}
+
+.form-container .login-form .forgot-pass {
+  font-size: 12px;
+  color: #a1a7ad;
+  display: inline-block;
+  float: left;
+  margin-top: 18px;
+}
+
+.form-container .login-form .forgot-pass a {
+  color: #a1a7ad;
+  text-decoration: none;
+}
+
+.form-container .login-form .forgot-pass a:hover, .form-container .login-form .forgot-pass a:focus {
+  color: #a1a7ad;
+  text-decoration: "none";
+}
+
+.form-container .forgot-password {
+  position: relative;
+}
+
+.form-container .forgot-password input[type="email"],
+.form-container .forgot-password input[type="text"] {
+  margin: 0;
+}
+
+.form-container .forgot-password input[type="submit"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  border: none;
+  background: #ef4023;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  width: 63px;
+  height: 37px;
+  padding: 0;
+  -webkit-border-radius: 0 2px 2px 0;
+  -moz-border-radius: 0 2px 2px 0;
+  -ms-border-radius: 0 2px 2px 0;
+  -o-border-radius: 0 2px 2px 0;
+  border-radius: 0 2px 2px 0;
+}
+
+@media (max-width: 767px) {
+  .form-container {
+    margin: 20px auto;
+  }
+  .form-container .form-content {
+    padding: 40px 25px 90px 25px;
+  }
+}
+
+@media (max-width: 767px) and (orientation: landscape) {
+  .form-container {
+    position: inherit;
+    left: inherit;
+    top: inherit;
+    -webkit-transform: translate(0,0);
+    -moz-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    transform: translate(0,0);
+  }
+}
+
+/*===== Login / Forgot-Password Css  =====*/
+/*************************************************/
+/*                                               */
+/*	Theme        : RADWIN                        */
+/*	Developed by : Manoj Dharajiya               */
+/*	Site URL     : http://md.wearedevelopers.in  */
+/*	version      : 1.0.0	                     */
+/*                                               */
+/*************************************************/
+.login-background {
+  background-image: url("/assets/img/login_background.jpg") !important;
+  background-size: 100% 100%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
