@@ -77,26 +77,6 @@ export class LinkStateComponent implements OnInit {
         }
     }
 
-    // getClass(): string {
-    //     switch (this.linkState) {
-
-    //         case 'Not Synchronized':
-    //             return 'rad-sprite nosync';
-    //         case 'Active Violated':
-    //             return 'rad-sprite violated';
-    //         case 'Active Unregistered':
-    //             return 'rad-sprite syncunregistered';
-    //         case 'Active':
-    //             return 'rad-sprite registered';
-    //         case 'Active Authentication Error':
-    //             return 'rad-sprite authenticationerror';
-    //         case 'Active SW Upgrade Required':
-    //             return 'rad-sprite swuupgraderequired';
-    //         default:
-    //             return 'rad-sprite registered';
-    //     }
-    // }
-
     getCurrentStatus(): string {
 
         if (this._airState !== 'Active') {

@@ -20,6 +20,7 @@ export class ChangeBandComponent implements OnInit, OnDestroy {
     private bands: IChangeBandModel;
     private monitor: IMonitorModel;
     private linkOff: boolean;
+    private currentBandId: string;
     private changeBandSub;
     private monitorSub;
 
@@ -51,11 +52,20 @@ export class ChangeBandComponent implements OnInit, OnDestroy {
             });
     }
 
+    changebandAllowed() {
+        let isDifferent = this.bands.currentBandId != this.currentBandId;
+        return isDifferent;
+    }
 
     canDeactivate(): any {
         if (!this.bandform || !this.bandform.dirty) {
             return true;
         }
+
+        if (this.bandform.value === this.bands.currentBandId) {
+            return true;
+        }
+        
         // Ask User
         return Observable.fromPromise(Promise.resolve(this._modalService.activate()));
     }
@@ -65,6 +75,7 @@ export class ChangeBandComponent implements OnInit, OnDestroy {
         this.changeBandSub = this._store.select('changeBand')
             .subscribe((bands: IChangeBandModel) => {
                 this.bands = bands;
+                this.currentBandId = bands.currentBandId
             });
 
         this.monitorSub = this._store.select('monitor')

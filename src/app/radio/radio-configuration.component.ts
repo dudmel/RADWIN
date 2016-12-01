@@ -42,6 +42,10 @@ export class RadioConfigurationComponent implements OnInit, OnDestroy {
   save() {
     exLog('Radio Form Value: ', this.form.value);
 
+    if (!this.form.valid) {
+      return Observable.fromPromise(Promise.resolve(this._modalService.activate("Configuration is invalid", "Radio configuration", "OK", "", Consts.ModalType.error)));
+    }
+
     let dirtyForm: IRadioModel = <IRadioModel>{};
     for (let control in this.form.controls) {
       if (this.form.controls[control].dirty) {
@@ -106,7 +110,7 @@ export class RadioConfigurationComponent implements OnInit, OnDestroy {
     this.mobilityLevels = [1, 2, 3, 4];
 
     this.form = this._formBuilder.group({
-      sectorId: ['', Validators.compose([Validators.minLength(4), Validators.maxLength(24)])],
+      sectorId: ['', Validators.compose([Validators.minLength(8), Validators.maxLength(24)])],
       antennaGain: [''],
       desiredTxPower: ['', minMaxNumberValidator(-8, 25)],
       currentCbw: [''],

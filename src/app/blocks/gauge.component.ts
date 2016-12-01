@@ -18,7 +18,6 @@ declare var RadialGauge: any;
                     <canvas id="{{_title}}"></canvas>
                 </div>
     `,
-    
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 

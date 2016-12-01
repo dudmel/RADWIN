@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { NetworkToolsService } from './network-tools.service';
 import { SpeedTestService } from './speed-test.service';
 import { INetworkToolsModel } from './network-tools.model';
+import { IMonitorModel } from '../../monitor/monitor.model';
 import { WModalService, GaugeComponent } from '../../blocks';
 import { Resources, exLog } from '../../shared';
 import { AppStore, ip4Validator, minMaxNumberValidator } from '../../blocks';
@@ -26,8 +27,10 @@ export class NetworkToolsComponent implements OnInit, OnDestroy {
     private pingInProgress: boolean;
     private traceInProgress: boolean;
     private speedTestInProgress: boolean;
+    private isLinkSynchronized: boolean;
     private speedTestData;
     private speedTestSub;
+    private monitorSub;
 
     constructor(private _networkToolsService: NetworkToolsService,
                 private _speedTestService: SpeedTestService,
@@ -38,7 +41,7 @@ export class NetworkToolsComponent implements OnInit, OnDestroy {
         this.form = _formBuilder.group({
             ip: ['', Validators.compose([Validators.required, ip4Validator])],
             packetCount: ['5', Validators.compose([Validators.required, minMaxNumberValidator(1, 30)])],
-            packetSize: ['5', Validators.compose([Validators.required, minMaxNumberValidator(0, 65535)])]
+            packetSize: ['5', Validators.compose([Validators.required, minMaxNumberValidator(1, 65535)])]
         });
 
         this.traceform = _formBuilder.group({
@@ -107,6 +110,11 @@ export class NetworkToolsComponent implements OnInit, OnDestroy {
             .subscribe((speedTestData: any) => {
                 this.speedTestData = speedTestData;
             });
+
+        this.monitorSub = this._store.select('monitor')
+            .subscribe((monitor: IMonitorModel) => {
+                this.isLinkSynchronized = (monitor.hsuLinkState == "Active");
+      });
 
     }
 

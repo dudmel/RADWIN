@@ -29,6 +29,7 @@ export class SwuComponent implements OnInit, OnDestroy {
   private isValidating: boolean = false;
   private subscription: any;
   private monitorSuspend: boolean;
+  private isErrorOccurred: boolean;
 
   constructor(private _swuService: SwuService, private _store: Store<AppStore>,
     private _modalService: WModalService) { }
@@ -59,11 +60,16 @@ export class SwuComponent implements OnInit, OnDestroy {
 
   validateSwu() {
     this.swuData = <ISwuMetaData>{};
+    this._store.dispatch({ type: 'MONITOR_SUSPEND_ON' });
     this.isValidating = true;
+
     this._swuService.getSwuState(this.type)
       .subscribe((swudata: ISwuMetaData) => {
+        this._store.dispatch({ type: 'MONITOR_SUSPEND_OFF' });
         this.isValidating = false;
         this.swuData = <ISwuMetaData>(swudata);
+
+        this.isErrorOccurred = this.swuData.error != null
       });
   }
 
@@ -113,20 +119,15 @@ export class SwuComponent implements OnInit, OnDestroy {
   }
 
   swuBrowseButtonState() {
+    if (this.isErrorOccurred)
+      return true
+
     return this.isInProcess;
   }
 
   swuStartButtonState() {
     return !this.swuData;
   }
-
-  // stopMonitor() {
-  //   this.monitorSuspend = !this.monitorSuspend
-  //   if(this.monitorSuspend)
-  //     this._store.dispatch({ type: 'MONITOR_SUSPEND_ON' });
-  //   else
-  //     this._store.dispatch({ type: 'MONITOR_SUSPEND_OFF' });
-  // }
 }
 
 export class RadFileUploader extends FileUploader {

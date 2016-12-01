@@ -48,23 +48,4 @@ export class AlarmsComponent implements OnInit, OnDestroy {
     ngOnDestroy() {
         this.activeAlaramsSub.unsubscribe();
     }
-
-    //     getSeverityClass(severity: string) {
-    //     switch (severity) {
-    //       case Consts.TrapType[Consts.TrapType.Info]:
-    //         return 'severity-circle info';
-    //       case Consts.TrapType[Consts.TrapType.Normal]:
-    //         return 'severity-circle normal';
-    //       case Consts.TrapType[Consts.TrapType.Warning]:
-    //         return 'severity-circle warning';
-    //       case Consts.TrapType[Consts.TrapType.Minor]:
-    //         return 'severity-circle minor';
-    //       case Consts.TrapType[Consts.TrapType.Major]:
-    //         return 'severity-circle major';
-    //       case Consts.TrapType[Consts.TrapType.Critical]:
-    //         return 'severity-circle critical';
-    //       default:
-    //         return 'severity-circle';
-    //     }
-    //   }
 }

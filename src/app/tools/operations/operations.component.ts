@@ -35,7 +35,7 @@ export class OperationsComponent implements OnInit, OnDestroy {
   private spectrumForm: FormGroup;
   private licenseActivationForm: FormGroup;
   private duration: number = 120;
-  private isActive: boolean;
+  private isActivationEnabled: boolean;
   private spectrumTestInProgress: boolean;
   private restoreData: IRestoreToDefaultsData;
   private spectrumSub;
@@ -94,7 +94,7 @@ export class OperationsComponent implements OnInit, OnDestroy {
 
     this.monitorSub = this._store.select('monitor')
       .subscribe((monitor: IMonitorModel) => {
-        this.isActive = monitor.hsuAirState === 'Active';
+        this.isActivationEnabled = monitor.hsuAirState === 'Alignment Required';
       });
 
     this._spectrumService.getRange();

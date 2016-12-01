@@ -5,22 +5,25 @@
 		</div>
 		<div class="box-body">
 			<span>
-        		<span class="btn btn-file">
-					BROWSE <input type="file" ng2FileSelect *ngIf="uploader.queue.length==0" [uploader]="uploader" [disabled]="swuBrowseButtonState()" accept="{{fileType}}"/>
-				</span>
-				<button type="submit" (click)="validateSwu()" class="btn btn-default">VALIDATE</button>
-				<button type="submit" (click)="startSwu()" class="btn btn-default" [disabled]="swuStartButtonState()">START</button>
-				<!--<button type="submit" (click)="stopMonitor()" class="btn btn-default">Stop Monitor</button>-->
+        <span class="btn btn-file">
+          BROWSE <input type="file" ng2FileSelect *ngIf="uploader.queue.length==0" [uploader]="uploader" [disabled]="swuBrowseButtonState()" accept="{{fileType}}"/>
+        </span>
+			<button type="submit" (click)="validateSwu()" class="btn btn-default">VALIDATE</button>
+			<button type="submit" (click)="startSwu()" class="btn btn-default" [disabled]="swuStartButtonState()">START</button>
+			<!--<button type="submit" (click)="stopMonitor()" class="btn btn-default">Stop Monitor</button>-->
 			</span>
 			<div>
 				<div *ngIf="isValidating"> 
 					<br> 
 					<i class="icon-spin6 animate-spin"></i>Validating...
 				</div>
-				<br>Type: {{ swuData?.type }} <br> Release: {{ swuData?.release }} <br> Description: {{ swuData?.description }} <br>
-				<br *ngIf="type != 'restore'"><div *ngIf="type == 'restore'"> Date: {{ swuData?.date}} </div>
+				<br>Type: {{ swuData?.type }} 
+				<br> Release: {{ swuData?.release }} 
+				<br> Description: {{ swuData?.description }}
+				<br>
+				<div *ngIf="type == 'restore'"> Date: {{ swuData?.date}} </div>
 			</div>
-			<div *ngIf="swuData?.error">
+			<div *ngIf="isErrorOccurred">
 				<br> Error: {{ swuData.error.message }}
 			</div>
 
