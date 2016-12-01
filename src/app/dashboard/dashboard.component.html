@@ -26,7 +26,8 @@
 					<li class="dropdown notifications-menu" (click)='RequestForAlarms()'>
 						<!-- Menu toggle button -->
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="rad-sprite bell"></i>
+							<!--<i class="rad-sprite bell"></i>-->
+							<img class="bell" [src]="'../../assets/icon/bell.svg'" />
 							<span *ngIf="alarmsCounter > 0" class="label label-warning">{{alarmsCounter}}</span>
 						</a>
 						<ul class="dropdown-menu">
@@ -71,7 +72,7 @@
 					</span>
 				</li>
 				
-				<li class="treeview" (click)="openedSection === 2? openedSection = 0 : openedSection = 2">
+				<li class="treeview" (click)="openedSection === 2? openedSection = 0 : openedSection = 2" >
 					<span class="side-bar-item">
 						<span class="menu-title" (mouseenter)="openedSection === 2? state2='active' : state2='hover'" (mouseleave)="openedSection === 2? state2='active' : state2=''" (click)="state2='active'; state3=''; state1=''">
 							<img [src]="'../../assets/icon/menu2' + getImg(state2) + '.svg'"/>

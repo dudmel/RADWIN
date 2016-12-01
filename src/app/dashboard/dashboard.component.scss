@@ -54,6 +54,7 @@
   margin-left: 0;
 }
 
+
 .main-header {
   #navbar-search-input.form-control {
     background: rgba(255, 255, 255, 0.2);
@@ -176,6 +177,13 @@
   border: 0;
   margin: 0;
   padding: 15px 15px;
+}
+
+.sub-menu-icon {
+    width:12px;
+    height:12px;
+    border-radius:50px;
+    background:#81919e
 }
 
 @media (max-width: 991px) {
@@ -371,7 +379,10 @@
     }
   }
 }
-
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover 
+{
+  background-color: white;
+}
 .sidebar-menu {
   display: flex;
   flex-flow: column nowrap;
@@ -397,7 +408,6 @@
       top: 10px;
       
   }
- 
   > li {
     position: relative;
     margin: 20px 0 20px 0;
@@ -606,17 +616,20 @@
           margin-right: 10px;
         }
       }
-      &:hover {
-        background-color: #e1e3e9;
-        color: #333;
-      }
+      // &:hover {
+      //   background-color: #e1e3e9;
+      //   color: #333;
+      // }
     }
     .divider {
       background-color: #eee;
     }
   }
 }
-
+.navbar-nav {
+  // position: absolute;
+  top:0px;
+}
 .navbar-nav > {
   .notifications-menu > .dropdown-menu, .messages-menu > .dropdown-menu, .tasks-menu > .dropdown-menu {
     width: 467px;
@@ -919,8 +932,7 @@
 
 /* Fix dropdown menu in navbars */
 
-.navbar-custom-menu > .navbar-nav > li {
-  position: relative;
+.custom-menu > .navbar-nav > li {
   > .dropdown-menu {
     position: absolute;
     right: 0;
