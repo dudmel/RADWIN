@@ -156,7 +156,7 @@ module.exports = function(options) {
                  */
                 {
                     test: /\.css$/,
-                    loaders: ['to-string-loader', 'css-loader']
+                    loaders: ['to-string-loader', 'postcss-loader']
                 },
 
                 /* Raw loader support for *.html

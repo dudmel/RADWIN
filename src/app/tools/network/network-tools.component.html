@@ -6,21 +6,15 @@
 				<div class="box-header">
 					<h3 class="box-title">SPEED TEST</h3>
 				</div>
-			<!--<div class="box-body">-->
 				<div class="gauges">
-					<!--<div class="col-md-6">-->
 						<gauge title="Downlink" [value]="speedTestData?.dlSpeed"> </gauge>
-					<!--</div>-->
-					<!--<div class="col-md-6">-->
 						<gauge title="Uplink" [value]="speedTestData?.ulSpeed"> </gauge>
-					<!--</div>-->
 				</div>
 				<div class="row" style="text-align: center">
 					<button type="submit" class="btn btn-default" [disabled]="speedTestInProgress || !isLinkSynchronized" (click)="startSpeedTest()">START</button>
 					<button type="submit" class="btn btn-default" [disabled]="!speedTestInProgress" (click)="stopSpeedTest()">STOP</button>
 				</div>
 			</div>
-		<!--</div>-->
 
 	<div class="box box-network box-green">
 			<div class="box-header-ping">
@@ -28,7 +22,6 @@
 			</div> 
 			<div class="pingbox">
 				<form [formGroup]="form">
-					<!--<div class="col-md-3">-->
 						<div class="form-group">
 							Target IP
 							<input formControlName="ip" type="text" class="form-control" placeholder="IP">
@@ -37,8 +30,6 @@
 								<p *ngIf="form.controls.ip.errors.invalidIp4">IP is invalid</p>
 							</div>
 						</div>
-					<!--</div>-->
-					<!--<div class="col-md-3">-->
 						<div class="form-group">
 							Packets (1-30)
 							<input formControlName="packetCount" type="number" class="form-control" placeholder="Packets" min=1 max=30>
@@ -46,17 +37,13 @@
 								<p *ngIf="form.controls.packetCount.errors.invalidMinMax">Packet Count is invalid</p>
 							</div>
 						</div>
-					<!--</div>-->
-					<!--<div class="col-md-3">-->
 						<div class="form-group">
-							Packet Size (0-65535)
-							<input formControlName="packetSize" type="number" class="form-control" placeholder="Packet Size" min=0 max=65535>
+							Packet Size (0-1472)
+							<input formControlName="packetSize" type="number" class="form-control" placeholder="Packet Size" min=0 max=1472>
 							<div class="control-msgs" *ngIf="form.controls.packetSize.dirty && !form.controls.packetSize.valid">
 								<p *ngIf="form.controls.packetSize.errors.invalidMinMax">Packet Size is invalid</p>
 							</div>
 						</div>
-					<!--</div>-->
-					<!--<div class="col-md-3">-->
 						<div class="box-buttons">
 							<button type="submit" *ngIf=!pingInProgress class="btn btn-default" (click)="ping()" [disabled]="!form.valid">PING</button>
 							<div *ngIf=pingInProgress id="cssload-wrapper">
@@ -70,7 +57,6 @@
 					</div>
 				</form>
 			
-				<!--<div class="box box-results">-->
 				<div class="box box-results" *ngIf="ipNetworkTools?.result">
 					<div class="box-header-trace">
 						<h3 class="box-title">RESULTS</h3>
@@ -94,7 +80,6 @@
 		</div>
 				<div class="tracebox">
 					<form [formGroup]="traceform">
-						<!--<div class="col-md-3">-->
 							<div class="form-group">
 								Target IP
 								<input formControlName="ip" type="text" class="form-control" placeholder="IP">
@@ -103,8 +88,6 @@
 									<p *ngIf="traceform.controls.ip.errors.invalidIp4">IP is invalid</p>
 								</div>
 							</div>
-						<!--</div>-->
-						<!--<div class="col-md-3">-->
 							<div class="box-buttons">
 								<button type="submit" *ngIf=!traceInProgress class="btn btn-default" (click)="trace()" [disabled]="!traceform.valid">TRACE</button>
 								<div *ngIf=traceInProgress id="cssload-wrapper">
@@ -116,7 +99,6 @@
 									</div>
 								</div>
 							</div>
-						<!--</div>-->
 					</form>
 					<div class="box box-network box-results" *ngIf="traceNetworkTools?.result">
 						<div class="box-header">

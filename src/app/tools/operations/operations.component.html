@@ -2,7 +2,6 @@
 
 <div class="row-flex">
 
-  <!--<div class="col-md-8">-->
     <div class="box box-operations box-light-blue">
       <div class="box-body">
       <div class="box-header">
@@ -30,11 +29,11 @@
                   </div>
                 </div>
               </fieldset>
-              <button type="submit" [disabled]="!spectrumForm.valid || spectrumTestInProgress" (click)="startSpectrum($event)" class="btn btn-default">START</button>
-              <button type="submit" [disabled]="!spectrumTestInProgress" (click)="stopSpectrum($event)" class="btn btn-default">STOP</button>
             </form>
+              <button  [disabled]="!spectrumForm.valid || spectrumTestInProgress" (click)="startSpectrum($event)" class="btn btn-default">START</button>
+              <button  [disabled]="!spectrumTestInProgress" (click)="stopSpectrum($event)" class="btn btn-default">STOP</button>
           </div>
-          <div class="col-md-10">
+          <div class="charts-container">
             <div class="chart">
               <div>
                 Antenna A
@@ -55,16 +54,13 @@
         </div>
       </div>
     </div>
-  <!--</div>-->
 
   <div class="side-box">
     <div class="box box-green">
       <div class="box-header">
         <h4 class="box-title">DIAGNOSTICS FILE</h4>
       </div>
-      <!--<div class="box-body">-->
         <button type="submit" [disabled]="false" (click)="getDiagnostics($event)" class="btn btn-default">DOWNLOAD</button>
-      <!--</div>-->
     </div>
 
     <div class="box box-orange">
@@ -73,24 +69,11 @@
       </div>
       <div class="box-body">
           <div class="row-flex two-buttons">
-            <!--<div class="col-sm-4 col-md-4">-->
-              <!--<div class=" border-right">-->
                 <button type="submit" (click)="reset($event)" class="btn btn-default">RESET</button>
-              <!--</div>-->
-            <!--</div>-->
-            <!--<div class="col-sm-4 col-md-4">-->
-              <!--<div class=" border-right">-->
                 <button type="submit" (click)="resync($event)" class="btn btn-default">RESYNC</button>
-              <!--</div>-->
-            <!--</div>-->
           </div>
-
-          <!--<div class="col-sm-4 col-md-4">-->
-            <!--<div class="">-->
               <button type="submit" [disabled]="!isActivationEnabled" (click)="acitvateDevice($event)" class="btn btn-default">DEVICE ACTIVATION</button>
-            <!--</div>-->
         </div>
-          <!--</div>-->
     </div>
     <div class="box box-gray">
       <div class="box-header">
@@ -112,9 +95,7 @@
       <div class="box-header">
         <h4 class="box-title">RESTORE TO FACTORY DEFAULTS</h4>
       </div>
-      <!--<div class="box-body">-->
         <button type="submit" class="btn btn-default" (click)="restoreToDefualtsPressed($event)">RESTORE</button>
-      <!--</div>-->
     </div>
   </div>
 </div>

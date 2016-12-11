@@ -9,7 +9,8 @@ import { exLog } from '../shared/global-methods';
 @Component({
   selector: 'radio-monitor',
   template: require('./radio-monitor.component.html'),
-  styles: [require('./radio.styles.scss')]
+  styles: [require('./radio.styles.scss')],
+  inputs: ['showTitle']
 })
 
 export class RadioMonitorComponent implements OnInit, OnDestroy {

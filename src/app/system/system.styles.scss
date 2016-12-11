@@ -1,7 +1,78 @@
 ﻿.system-container {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-flow: column nowrap;
-	justify-content: space-between;
+	-ms-flex-flow: column nowrap;
+	    flex-flow: column nowrap;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+.system-monitors-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100%;
+  .box-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+  }
+  .box-header {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+    width: 100%;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+
+    .system-box-title {
+      font-size: 36px;
+    }
+    .system-box-details {
+      font-size: 18px; 
+      margin: 10px;
+      -ms-flex-item-align: end;
+          align-self: flex-end;
+      :nth-child(1):after {
+        content: '|';
+        color: #f58875;
+        padding: 10px;
+      }
+    }
+  }
+  .box-body {
+    width: 100%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 0;
+    >div {
+      width: 50%;
+      border: 1px solid #d8d8d8;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+      padding: 5px 10px;
+    }
+  }
+}
+.box-system-monitor {
+  width: 49%;
+  min-width: 390px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; 
+  padding: 0;
 }
 .box-system {
   height: 100%;
@@ -22,7 +93,7 @@
     }
   }
   &.height-control .box-body {
-    max-height: 300px;
+    max-height: 300px; 
     overflow: auto;
   }
   .border-right {
@@ -124,18 +195,6 @@
 .info-box-text {
 	font-size: 22px;
 }
-
-
-.box-light-blue {
-    border-left: 4px solid #8db5d3;
-}
-.box-red {
-    border-left: 4px solid #f47f6b;
-}
-.box-green {
-    border-left: 4px solid #72cd9a;
-}
-
 
 .overlay-wrapper > .overlay, .box > .loading-img, .overlay-wrapper > .loading-img {
   position: absolute;
@@ -307,4 +366,9 @@
   }
 }
 
+@media (max-width: 1050px) {
+  .box-system-monitor {
+    width: 100%;
+  }
+}
 

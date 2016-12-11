@@ -84,6 +84,7 @@ export class OperationsComponent implements OnInit, OnDestroy {
           this.barChartDataB[1].data = spectrum.averageAntennaB.map(function (val) { return val + OFFSET; });
           this.barChartDataA[2].data = spectrum.maxAntennaA.map(function (val) { return val + OFFSET; });
           this.barChartDataB[2].data = spectrum.maxAntennaB.map(function (val) { return val + OFFSET; });
+          // console.table(this.barChartDataA)
         }
       });
 
@@ -108,6 +109,8 @@ export class OperationsComponent implements OnInit, OnDestroy {
   }
 
   startSpectrum() {
+    exLog('starting spectrum');
+    
     let durationStr = String(this.duration);
     let warningMessage = Resources.spectrumWarning.replace('{0}', durationStr);
     this._modalService.activate(warningMessage, Resources.warning, undefined, undefined, Consts.ModalType.warning)

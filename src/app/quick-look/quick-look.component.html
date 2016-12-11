@@ -1,11 +1,11 @@
 <div class="quick-look-wrapper">
     <div class="row-flex">
-       
-        <link-state linkState="{{monitor?.hsuLinkState}}" airState="{{monitor?.hsuAirState}}" class="info-box info-box-green"> </link-state>
         
-        <div class="info-box info-box-red">
+        <link-state linkState="{{monitor?.hsuLinkState}}" airState="{{monitor?.hsuAirState}}" class="info-box info-box-green"> </link-state>
+    
+        <div class="info-box info-box-red"> 
             <div class="info-box-icon">
-                <i class="rad-sprite graph"></i>
+                <img [src]="getRssImg()"/>
             </div>
             <div class="info-box-content">
                 <span class="info-box-label">RSS</span>
@@ -16,10 +16,7 @@
        
             <div class="info-box">
                 <div class="info-box-icon">
-                    <!--<i class="rad-sprite lantxrx"></i>-->
-                    <i class="info-box-icon">
                         <img src="./../assets/icon/lan.svg"/>
-                    </i>
                 </div>
                 <div class="info-box-content" (click)="onLanClick($event)">
                     <span class="info-box-label">LAN TX/RX</span>
@@ -30,7 +27,7 @@
        
             <div class="info-box info-box-light-blue">
                 <div class="info-box-icon">
-                    <i class="rad-sprite uptime"></i>
+                        <img src="./../assets/icon/uptime.svg"/>
                 </div>
                 <div class="info-box-content">
                     <span class="info-box-label">Up Time</span>
@@ -42,7 +39,6 @@
 
     <div>
         <div class="row-flex quick-look-bar">
-            <!--<div class="col-xs-6 col-md-3">-->
                 <div class="quick-look-block border-right">
                     <div class="quick-look-header">
                         Sector ID
@@ -50,10 +46,8 @@
                     <span class="quick-look-text">
                     {{system?.sectorId}}
                 </span>
-                <!--</div>-->
             </div>
 
-            <!--<div class="col-xs-6 col-md-3">-->
                 <div class="quick-look-block border-right">
                     <div class="quick-look-header">
                         Serial Number
@@ -61,10 +55,8 @@
                     <span class="quick-look-text">
                     {{system?.serialNumber}}
                 </span>
-                <!--</div>-->
             </div>
 
-            <!--<div class="col-xs-6 col-md-3">-->
                 <div class="quick-look-block border-right">
                     <div class="quick-look-header">
                         SW Version
@@ -72,19 +64,16 @@
                     <span class="quick-look-text">
                     {{system?.swVersion}}
                 </span>
-                <!--</div>-->
             </div>
 
-            <!--<div class="col-xs-6 col-md-3">-->
                 <div class="quick-look-block">
                     <div class="quick-look-header">
                         HW Version
                     </div>
                     <span class="quick-look-text">
-                    {{system?.hwVersion}}
-                </span>
+                        {{system?.hwVersion}}
+                    </span>
                 </div>
-            <!--</div>-->
         </div>
 
     </div>

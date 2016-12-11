@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { RadioService } from './radio.service';
 import { IRadioModel } from './radio.model';
 import { Consts } from '../shared';
-import { exLog } from '../shared/global-methods';
+import { Resources, exLog } from '../shared';
 import { AppStore, UnitsPipe, minMaxNumberValidator, WModalService } from '../blocks';
 import { IMonitorModel } from '../monitor';
 import { ChangeBandService } from './change-band';
@@ -22,12 +22,14 @@ export class RadioConfigurationComponent implements OnInit, OnDestroy {
   private radio: IRadioModel;
   private eirp: number;
   private monitor: any;
-  private canChangesectorId: boolean;
+  private canChangeSectorId1: boolean;
+  private canChangeSectorId2: boolean;
   private linkOff: boolean;
   private radioSub;
   private monitorSub;
   private mobilityLevels: number[];
   private isLinkSynchronized: boolean;
+  private initialSectorId
   // private mask = [/[1-9]/, /[1-9]/, /[1-9]/, '.', /[1-9]/];
   // [textMask]="{mask: mask}"
 
@@ -46,14 +48,37 @@ export class RadioConfigurationComponent implements OnInit, OnDestroy {
       return Observable.fromPromise(Promise.resolve(this._modalService.activate("Configuration is invalid", "Radio configuration", "OK", "", Consts.ModalType.error)));
     }
 
+    if (this.form.controls['currentCbw'].dirty) {
+      let warningMessage = this.linkOff 
+        ? "You are about to change Channel Bandwidth. \nUnsynchronized HSUs will not be updated and will not be able to resynchronize."
+        : "You are about to change Channel Bandwidth.";
+      this._modalService.activate(warningMessage, Resources.warning, undefined, undefined, Consts.ModalType.warning)
+        .then(responseOk => {
+          if (!responseOk) { return; }
+          }); 
+    }
+    // else if (this.form.controls['currentCbw'].dirty) {
+    //   let warningMessage = "You are about to change the Operating Channel."
+    //   this._modalService.activate(warningMessage, Resources.warning, undefined, undefined, Consts.ModalType.warning)
+    //     .then(responseOk => {
+    //       if (!responseOk) { return; }
+    //       }); 
+    //  }
+
     let dirtyForm: IRadioModel = <IRadioModel>{};
     for (let control in this.form.controls) {
       if (this.form.controls[control].dirty) {
         dirtyForm[control] = this.form.controls[control].value;
+        dirtyForm.sectorId = '' + this.form.controls['sectorId1'].value + this.form.controls['sectorId2'].value
       }
+      exLog(dirtyForm.sectorId);
     }
 
     this._radioService.setData(dirtyForm);
+
+    if (this.form.controls['sectorId1'].dirty || this.form.controls['sectorId2'].dirty)
+      this._radioService.resync();
+
     this.form.reset();
   }
 
@@ -71,12 +96,13 @@ export class RadioConfigurationComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    // console.log(this.form);
     exLog('hello Radio Configuration Component');
 
     this.monitorSub = this._store.select('monitor')
       .subscribe((monitor: IMonitorModel) => {
         this.monitor = monitor;
-        this.canChangesectorId =  monitor.hsuLinkState === 'Not Synchronized' ||
+        this.canChangeSectorId1 =  monitor.hsuLinkState === 'Not Synchronized' ||
                                   monitor.hsuLinkState === 'Active Unregistered';
         this.linkOff = monitor.hsuLinkState === 'Not Synchronized';
 
@@ -93,12 +119,14 @@ export class RadioConfigurationComponent implements OnInit, OnDestroy {
     this.radioSub = this._store.select('radio')
       .subscribe((radio: IRadioModel) => {
         this.radio = radio;
+        this.initialSectorId = radio.sectorId;
         this.calculateEirp();
       });
 
     this.isLinkSynchronized = true;
 
     this.getRadio();
+
   }
 
   ngOnDestroy() {
@@ -110,7 +138,8 @@ export class RadioConfigurationComponent implements OnInit, OnDestroy {
     this.mobilityLevels = [1, 2, 3, 4];
 
     this.form = this._formBuilder.group({
-      sectorId: ['', Validators.compose([Validators.minLength(8), Validators.maxLength(24)])],
+      sectorId1: ['', Validators.compose([Validators.minLength(4), Validators.maxLength(4)])],
+      sectorId2: ['', Validators.compose([Validators.minLength(4), Validators.maxLength(16)])],
       antennaGain: [''],
       desiredTxPower: ['', minMaxNumberValidator(-8, 25)],
       currentCbw: [''],
@@ -135,5 +164,10 @@ export class RadioConfigurationComponent implements OnInit, OnDestroy {
   private getRadio() {
     this._radioService.getData();
     this._changeBandService.getData();
+  }
+
+  private _canChangeSectorId2(sector1Value) {
+    if ((sector1Value + '').length === 4) this.canChangeSectorId2 = true;
+    else this.canChangeSectorId2 = false;
   }
 }

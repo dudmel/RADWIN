@@ -1,28 +1,49 @@
 ﻿.custom-pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   height: auto;
-  flex-flow: row wrap;
-  justify-content: space-around;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 form {
 	width: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-flow: row nowrap;
-	justify-content: space-between;
+	-ms-flex-flow: row nowrap;
+	    flex-flow: row nowrap;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 }
 
 .network-container {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-flow: column nowrap;
-	justify-content: space-between;
-	align-items: flex-start;
+	-ms-flex-flow: column nowrap;
+	    flex-flow: column nowrap;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-align: start;
+	    -ms-flex-align: start;
+	        align-items: flex-start;
 	width: 100%;
 }
 .row-flex {
 	width: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-flow: row nowrap;
-	justify-content: space-between
+	-ms-flex-flow: row nowrap;
+	    flex-flow: row nowrap;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between
 }
 .form-group {
 	width: 30%; 
@@ -50,28 +71,48 @@ form {
 .vlan-content
 {
 	height : 100%; 
+	display: -webkit-box; 
+	display: -ms-flexbox; 
 	display: flex;
-	flex-flow: row wrap;
-	justify-content: space-between;
-	align-items: center;
+	-ms-flex-flow: row wrap;
+	    flex-flow: row wrap;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 }
 
 .vlan-title
 {
-	flex-flow: column nowrap;
-	justify-content: space-around;
+	-ms-flex-flow: column nowrap;
+	    flex-flow: column nowrap;
+	-ms-flex-pack: distribute;
+	    justify-content: space-around;
 	height: 65%;
-	align-items: flex-start;
+	-webkit-box-align: start;
+	    -ms-flex-align: start;
+	        align-items: flex-start;
 	width: 170px;
 	font-size: 18px;
-	flex: 2;
+	-webkit-box-flex: 2;
+	    -ms-flex: 2;
+	        flex: 2;
 	padding: 10px;
 }
 .vlan-form {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-	flex: 5;
+    -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+	-webkit-box-flex: 5;
+	    -ms-flex: 5;
+	        flex: 5;
 	background-color : #fbfbfb;
 	height: 100%;
 	padding: 10px;
@@ -84,9 +125,13 @@ form {
 .traps {
 }
 .traps-header {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-flow: row nowrap;
-	justify-content: space-around;
+	-ms-flex-flow: row nowrap;
+	    flex-flow: row nowrap;
+	-ms-flex-pack: distribute;
+	    justify-content: space-around;
 	background-color: white;
 	min-height: 77px;
 	padding: 0 10px 0 10px;
@@ -103,9 +148,14 @@ form {
 	padding: 0 28px 0 28px;
 }
 .traps-buttons {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-flow: row nowrap;
-	justify-content: center;
+	-ms-flex-flow: row nowrap;
+	    flex-flow: row nowrap;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
 	position: relative;
 	bottom: -26px;
 	height:100%;

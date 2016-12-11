@@ -6,7 +6,7 @@ import { SwuService, ISwuMetaData } from './swu.service';
 import { WModalService } from '../../blocks';
 import { Consts, exLog, Resources } from '../../shared';
 import { saveAs } from 'file-saver';
-import { AppStore } from '../../blocks';
+import { AppStore, SpinnerService } from '../../blocks';
 import { Store } from '@ngrx/store';
 
 let swuUploadUrl = Consts.baseUrls.swuUpload;
@@ -21,21 +21,28 @@ let swuUploadUrl = Consts.baseUrls.swuUpload;
 export class SwuComponent implements OnInit, OnDestroy {
   @Input() type: string;
 
-  public uploader: RadFileUploader;
+  public uploader: FileUploader;
   private title: string;
+  // private uploadingItem: any;
   private fileType: string;
   private swuData: ISwuMetaData;
+  private swuError: string
   private isInProcess: boolean = false;
   private isValidating: boolean = false;
   private subscription: any;
   private monitorSuspend: boolean;
   private isErrorOccurred: boolean;
+  private validateAllowable: boolean;
 
-  constructor(private _swuService: SwuService, private _store: Store<AppStore>,
-    private _modalService: WModalService) { }
+  constructor(private _swuService: SwuService,
+              private _store: Store<AppStore>,
+              private _modalService: WModalService,
+              private _spinnerService: SpinnerService) { }
 
   ngOnInit() {
     exLog('hello Swu component, type:' + this.type);
+
+    this.validateAllowable = false;
 
     if (this.type === 'swu') {
       this.title = 'Software Upgrade';
@@ -45,31 +52,71 @@ export class SwuComponent implements OnInit, OnDestroy {
       this.fileType = '.backupl';
     }
 
-    this.uploader = new RadFileUploader({
+    this.uploader = new FileUploader({
       url: swuUploadUrl + '?mode=' + this.type,
       isHTML5: true,
       authToken: Consts.jwtPrefix + localStorage.getItem(Consts.jwtToken)
     });
 
-    this.subscription = this.uploader.completeItemEvent.subscribe(this.validateSwu);
 
-    //this.validateSwu();
+    this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
+          console.log("item uploaded" + response);
+          this._spinnerService.hide();
+          this._store.dispatch({ type: 'MONITOR_SUSPEND_OFF' });
+          this.validateAllowable = false;
+          
+          this.validateSwu();
+      };
+
+    this.uploader.onBeforeUploadItem = () => {
+        console.log("Begin upload");
+        this._spinnerService.show('File Upload in process...');
+        this._store.dispatch({ type: 'MONITOR_SUSPEND_ON' });
+      };
+
+    this.uploader.onAfterAddingFile = (fileItem: any) => {
+      this.uploader.uploadAll();
+    }
+
+    this.checkFileExistance();
   }
 
-  ngOnDestroy() { this.subscription.unsubscribe(); }
+  ngOnDestroy() {
+    if (this.subscription != null)
+      this.subscription.unsubscribe(); 
+  }
 
   validateSwu() {
+    this._spinnerService.show('File validation in process...');
     this.swuData = <ISwuMetaData>{};
     this._store.dispatch({ type: 'MONITOR_SUSPEND_ON' });
-    this.isValidating = true;
-
+    
     this._swuService.getSwuState(this.type)
-      .subscribe((swudata: ISwuMetaData) => {
-        this._store.dispatch({ type: 'MONITOR_SUSPEND_OFF' });
-        this.isValidating = false;
-        this.swuData = <ISwuMetaData>(swudata);
+      .subscribe((swudataJason: any) => {
 
-        this.isErrorOccurred = this.swuData.error != null
+        this._store.dispatch({ type: 'MONITOR_SUSPEND_OFF' });
+        this._spinnerService.hide();
+        this.isValidating = false;
+        this.swuData = <ISwuMetaData>(swudataJason.data);
+
+        if (swudataJason.error != null) {
+          this.swuError = <string>(swudataJason.error.message);
+          this.isErrorOccurred = true;
+          this.swuData = null;
+          this.validateAllowable = false;
+          
+        }
+      });
+  }
+
+  checkFileExistance() {
+      this.validateAllowable = false;
+      this._swuService.checkFileExistance(this.type)
+      .subscribe((data: any) => {
+        if (data == null) 
+          return;
+        if (data.message === 'true')
+          this.validateAllowable = true;
       });
   }
 
@@ -78,7 +125,7 @@ export class SwuComponent implements OnInit, OnDestroy {
   }
 
   startSwu() {
-    this.isInProcess = true;
+
     // in restore ask user
     if (this.type === 'restore') {
       let warningMessage = Resources.restoreWarning.replace('{0}', this.swuData.release);
@@ -96,11 +143,20 @@ export class SwuComponent implements OnInit, OnDestroy {
 
   startProcess() {
 
-    this._store.dispatch({ type: 'MONITOR_SUSPEND_ON' });
+    let msg = ''
+    if (this.type === 'restore')
+      msg = 'Restore in process...'
+    else
+      msg = 'Software upgrade in process...'
 
+    this._spinnerService.show(msg);
+
+    this._store.dispatch({ type: 'MONITOR_SUSPEND_ON' });
+    
     this._swuService.startSwu(this.type)
       .subscribe((swudata: ISwuMetaData) => {
-        this.isInProcess = false;
+
+        this._spinnerService.hide();
 
         this._store.dispatch({ type: 'MONITOR_SUSPEND_OFF' });
 
@@ -114,34 +170,7 @@ export class SwuComponent implements OnInit, OnDestroy {
       });
   }
 
-  uploadStart() {
-    exLog('uploading started');
-  }
-
-  swuBrowseButtonState() {
-    if (this.isErrorOccurred)
-      return true
-
-    return this.isInProcess;
-  }
-
-  swuStartButtonState() {
-    return !this.swuData;
-  }
-}
-
-export class RadFileUploader extends FileUploader {
-
-  @Output() completeItemEvent = new EventEmitter();
-
-  constructor(options: FileUploaderOptions) {
-    super(options);
-  }
-
-  public onCompleteItem(item: any, response: string, status: number, headers: ParsedResponseHeaders): any {
-
-    this.completeItemEvent.emit()
-
-    super.onCompleteItem(item, response, status, headers)
+    swuStartButtonState() {
+    return this.swuData;
   }
 }

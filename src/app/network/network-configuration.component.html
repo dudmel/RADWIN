@@ -3,11 +3,9 @@
 		<form *ngIf="network" [formGroup]="form">
 	
 		<div class="box box-network box-green">
-			<!--<div class="box box-green">-->
 				<div class="box-body">
 					<fieldset formGroupName="ipParams">
 						<div class="row-flex">
-							<!--<div class="col-lg-4">-->
 								<div class="form-group">
 									IP Address:
 									<input formControlName="hsuIp" [(ngModel)]="network.ipParams && network.ipParams.hsuIp" class="form-control" type="text">

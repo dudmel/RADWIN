@@ -25,10 +25,25 @@ dashboard {
 body {
     background-color: #fbfbfb;
 }
+
+@media (min-width: 1000px) {
+    font-size:20px;
+}
+@media (min-width: 1200px) {
+    font-size:30px;
+}
+@media (min-width: 800px) {
+    font-size:10px;
+}
+
+
 .box {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: column nowrap;
+  -ms-flex-flow: column nowrap;
+      flex-flow: column nowrap;
   border-radius: 3px;
   background: #ffffff;
   margin-bottom: 20px;
@@ -97,27 +112,33 @@ body {
   border-radius: 5px
 }
 .rd-chart {
-    // display: block; 
-    // width: 100%;
+    /* display: block; */
+    /* width: 100%;*/
     position: relative !important;
     overflow: hidden !important;
     width: 100% !important;
 }
 
 .spectrum-chart {
-    display: block;
-    //height: 80%;
-    //width: 600px;
-    //width: 50%;
-    //margin: 0 auto;
-    //height: 227px;
-    //width: 778px;
+    display: inline;
+    max-width:100%;
+    /*height: 80%;*/
+    /*width: 600px;*/
+    /*width: 50%;*/
+    /*margin: 0 auto;*/
+    /*height: 227px;*/
+    /*width: 778px;*/
 }
 .parent {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   height: auto;
-  flex-flow: row wrap;
-  justify-content: inherit;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  -webkit-box-pack: inherit;
+      -ms-flex-pack: inherit;
+          justify-content: inherit;
 }
 
 .child {
@@ -126,12 +147,12 @@ body {
   border-right: 1px solid #f4f4f4;
   padding-right: 20px;
   padding-left: 20px;
-  align-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .jqstooltip {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
 
@@ -148,9 +169,9 @@ body {
 }
 
 .modal-body-content {
-	// margin-bottom: 10px;
+	/* margin-bottom: 10px;*/
 	display: table;
-	// min-height: 35px;
+	/* min-height: 35px;*/
 	p {
         padding-left: 10px;
         display: table-cell;
@@ -164,7 +185,6 @@ body {
     font-size: 18px;
     background: #f7f7f7;
     border-bottom: none;
-    -webkit-border-radius: 4px;
     border-radius: 4px;
     padding: 10px;
 }
@@ -193,7 +213,7 @@ body {
     }
 }
 
-// Fix for not showing up/down arrows when readonly in firefix
+/* Fix for not showing up/down arrows when readonly in firefix*/
 input[type='number']:-moz-read-only  {
     -moz-appearance:textfield;
 }

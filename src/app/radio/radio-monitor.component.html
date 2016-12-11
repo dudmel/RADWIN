@@ -1,42 +1,32 @@
-<!--<div class="radio-container">-->
-    <h3 class="section-title">Radio</h3>
-    <div>
-        <div>
-            <table class="table radio-table">
-                <tbody>
-                    <tr>
-                        <td colspan="2">
-                            <div class="radio-table-icon">
-                                <i class="rad-sprite globe"></i>
-                            </div>
-                            <div class="quick-look-header">
-                                Lat.    Long.       Hgt.
-                            </div>
-                            <div class="quick-look-text">
-                                N/A, N/A, N/A
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-                <tbody class="radio-table-body">
-                    <tr>
-                        <td>Sector ID</td>
-                        <td>{{ radio?.sectorId }}</td>
-                    </tr>
-                    <tr>
-                        <td>Frequency</td>
-                        <td>{{ radio?.currentFrequency | units: 'ghz' }}</td>
-                    </tr>
-                    <tr>
-                        <td>Band</td>
-                        <td>{{ radio?.currentBand }}</td>
-                    </tr>
-                    <tr>
-                        <td>Channel BW</td>
-                        <td>{{ radio?.currentCbw | units: 'mhz' }}</td>
-                    </tr>
-                </tbody>
-            </table>
+<h3 class="section-title">Radio</h3>
+<div class="radio-table">
+    
+    <div class="radio-table-header">
+        <div class="radio-table-icon">
+            <img src="../../assets/icon/coordinates_active.svg"/>
+        </div>
+        <div class="header-details">
+            <span class="quick-look-header"> Lat.    Long.       Hgt. </span>
+            <span class="quick-look-text"> N/A, N/A, N/A </span>
         </div>
     </div>
-<!--</div>-->
+    
+    <div class="radio-table-body">
+        <div>
+            <span>Sector ID</span>
+            <span>{{ radio?.sectorId }}</span>
+        </div>
+        <div>
+            <span>Frequency</span>
+            <span>{{ radio?.currentFrequency | units: 'ghz' }}</span>
+        </div>
+        <div>
+            <span>Band</span>
+            <span>{{ radio?.currentBand }}</span>
+        </div>
+        <div>
+            <span>Channel BW</span>
+            <span>{{ radio?.currentCbw | units: 'mhz' }}</span>
+        </div>
+    </div>
+</div>

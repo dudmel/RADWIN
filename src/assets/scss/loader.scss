@@ -1,9 +1,7 @@
 #cssload-wrapper {
-    width: 144px;
+    width: 100%;
     height: 32px;
 	position: relative;
-	left: -20px;
-	// top: 90%;
 }
 
 #cssload-border {
@@ -12,8 +10,6 @@
 	height: 100%;
 	width: 100%;
 	position: relative;
-	//left: -50%;
-	top: -50%;
 	padding: 4px 3px;
 }
 
@@ -50,37 +46,7 @@
 	}
 }
 
-@-o-keyframes cssload-slide {
-	0% {
-		left: -100%;
-	}
-	
-	100% {
-		left: 100%;
-	}
-}
-
-@-ms-keyframes cssload-slide {
-	0% {
-		left: -100%;
-	}
-	
-	100% {
-		left: 100%;
-	}
-}
-
 @-webkit-keyframes cssload-slide {
-	0% {
-		left: -100%;
-	}
-	
-	100% {
-		left: 100%;
-	}
-}
-
-@-moz-keyframes cssload-slide {
 	0% {
 		left: -100%;
 	}

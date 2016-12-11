@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="67px" height="56px" viewBox="0 0 67 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>warning</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M40.0781186,4.82817421 C35.883919,-1.67112778 29.2111008,-1.60150912 25.1683157,4.99288162 L1.79938128,43.1111297 C-2.24087592,49.701397 0.751482324,55.0438643 8.48496436,55.0438643 L58.4827326,55.0438643 C66.2153354,55.0438643 69.0821031,49.7725437 64.8895784,43.2758371 L40.0781186,4.82817421 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="66.8188606" height="55.0438643" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Dialog-Box" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="warning">
+            <ellipse id="Oval-3" fill="#EF4023" cx="32.5" cy="41.5" rx="3.5" ry="3.5"></ellipse>
+            <path d="M32.75,33 C34.8210678,33 36.5,31.3210678 36.5,29.25 C36.5,27.1789322 33.7916667,15 32.75,15 C31.7083333,15 29,27.1789322 29,29.25 C29,31.3210678 30.6789322,33 32.75,33 Z" id="Oval-2" stroke="#EF4023" fill="#EF4023" transform="translate(32.750000, 24.000000) rotate(-180.000000) translate(-32.750000, -24.000000) "></path>
+            <use id="Combined-Shape" stroke="#EF4023" mask="url(#mask-2)" stroke-width="6" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

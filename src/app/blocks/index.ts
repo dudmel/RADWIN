@@ -10,6 +10,6 @@ export * from './modal/modal.component';
 export * from './spinner/spinner.service';
 export * from './can-deactivate.guard';
 export * from './validators';
-export * from './ngrx-store/reducers';
 export * from './ngrx-store/store';
+export * from './ngrx-store/reducers';
 export * from './toast-options';

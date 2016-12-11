@@ -1,8 +1,4 @@
-﻿.radio-table-body {
-    background-image: url("/assets/icon/pattern.png");
-    background-repeat: initial;
-    border-top: 1px solid #cfd3da;
-}
+﻿/* radio configuration */
 change-band {
   width: 100%;
 }
@@ -11,9 +7,11 @@ h3 {
 }
 .right-side {
   width: 100%;
-  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: column nowrap;
+  -ms-flex-flow: column nowrap;
+      flex-flow: column nowrap;
 }
 .box-header {
   h3 {
@@ -22,45 +20,289 @@ h3 {
 }
 
 .radio-container {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-flow: row nowrap;
-	justify-content: space-between;
+	-ms-flex-flow: row nowrap;
+	    flex-flow: row nowrap;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 	width: 100%;
-}
-.parent-container {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
+  height: 100%;
+  margin-bottom: 10px;
 }
 .box-radio {
-  height: 100%;
   width: 100%;
   padding: 5px 10px 5px 10px;
-
   .system-box-title {
 	  font-size: 36px;
   }
 }
-table {
-  margin-bottom: 0;
-}
+
+/* radion monitor */
+
 .radio-table {
-  > {
-    thead > tr > th, tbody > tr > th, tfoot > tr > th, thead > tr > td, tbody > tr > td, tfoot > tr > td {
-      border-top: 1px solid #cfd3da;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column nowrap;
+      flex-flow: column nowrap;
+}
+.radio-table-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row nowrap;
+      flex-flow: row nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 56px;
+  .radio-table-icon {
+    height: 70%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    img {
+      height: 100%;
+      display: block;
+    }  
+  }
+  .header-details {
+    padding-left: 10px;
+  }
+}
+.radio-table-body {
+  div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 100%;
+    background-image: url('../../assets/icon/pattern.png');
+    border-top: 1px solid #d8d8d8;
+    border-bottom: 1px solid #d8d8d8;
+    padding: 5px;
+  }
+}
+
+.box-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column wrap;
+      flex-flow: column wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px;
+  .box-radio-header {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+            -webkit-box-align: start;
+                -ms-flex-align: start;
+                    align-items: flex-start;
+    min-height: 100px;
+    height: 100%;
+    .h-title {
+      height: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+          -ms-flex-flow: row nowrap;
+              flex-flow: row nowrap;
+              -webkit-box-pack: start;
+                  -ms-flex-pack: start;
+                      justify-content: flex-start;
+      -webkit-box-align: end;
+          -ms-flex-align: end;
+              align-items: flex-end;
+      width: 45%;
+      .img { 
+        height: 100%;
+        padding-bottom: 3px;
+
+      }
+    }
+    .header-title {
+        padding-left: 10px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+        .main-title {
+          font-size: 36px;
+          font-weight: 700;
+        }
+        .sub-title {
+          font-size: 16px;
+          font-weight: 700;
+        }
+    }
+    .header-details {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      /* width: 50%;*/
+      width: 230px;
+      min-width: 200px;
+      height: 100%;
+     
+      font-size: 16px;
+      text-align: center;
+      span {
+        background-image: url('../../assets/icon/pattern.png');
+        height: 45px;
+        line-height: 45px;
+        padding: 0 5px 0 5px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+      }
     }
   }
-  tr td .progress {
-    margin-top: 5px;
+  .box-radio-sector {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    height: 70px;
+    .sector-title {
+      color: #76828e;
+    }
+    .sector-inputs {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      padding: 4px 0 4px 0;
+      .sector1 {
+        border: 1px solid #d8d8d8;
+        width: 20%;
+        &:after {
+          content: "-";
+          font-size: bold;
+        }
+      }
+      .sector2 {
+        border: 1px solid #d8d8d8;
+        width: 75%;
+      }
+    }
+  }
+  .box-radio-footer {
+    height: 200px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    .footer-left, .footer-right {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      -ms-flex-item-align: end;
+          align-self: flex-end;
+      height: 100%;
+      align-self: flex-end;
+      .req-tx, .ant-gain, .cbw, .frq, {
+        padding-right: 5px;
+        min-height: 70px;
+        height: 100%;
+        -webkit-box-pack: end;
+            -ms-flex-pack: end;
+                justify-content: flex-end;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+        span {
+          color: #76828e;
+        }
+      }
+    }
+  }
+
+}
+.buttons-footer {
+  margin-bottom: 30px;
+}
+
+.control-msgs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: red;
+  p {
+    margin: 10px 0 0 0 ;
   }
 }
 
-.radio-table-icon {
-    float: left;
-    padding-right: 20px;
+.input-field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row nowrap;
+      flex-flow: row nowrap;
+  width: 120%;
+  .input-units {
+    position: relative;
+    right: 60px;
+
+    height: 100%;
+    width: 20%;
+    text-align: center;
+    font-size: 16px;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
 }
 
-.radio-container {
-  height: 100%;
+@media (max-width: 1050px) {
+    
 }
-

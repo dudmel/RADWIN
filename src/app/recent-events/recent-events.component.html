@@ -1,16 +1,12 @@
-<!--<div class="col-md-12">-->
     <div class="title-row">
         <div class="events-title">
             <h3 class="section-title">Events</h3>
-            <i class="rad-sprite refresh" (click)="refresh()" ></i>
+            <img src="../../assets/icon/refresh.svg" style="cursor: pointer; height: 40px;"(click)="refresh()"/>
         </div> 
 
         <div class="events-legend"> 
             <span class="legend-title"> LEGEND </span>
             <span class="legend-body">
-                <!--<span class="legend-bubbles">
-                   
-                </span>-->
                 <span class="legend-icons"> 
                     <span class="legend-icon" (mouseenter)="legendStatus='info'" (mouseleave)="legendStatus=''">
                         <span class="bubble" [ngClass]="{'visible' : legendStatus==='info'}"> Info </span>
@@ -73,4 +69,3 @@
             </div>
         </div>
     </div>
-<!--</div>-->

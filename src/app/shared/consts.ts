@@ -41,6 +41,7 @@ export namespace Consts {
     swuValidate: url + '/api/v1/operations/software-upgrade/validate',
     swuUpload: url + '/api/v1/operations/software-upgrade/upload',
     swuBackup: url + '/api/v1/operations/software-upgrade/backup',
+    checkFileExistence: url + '/api/v1/operations/software-upgrade/check-file-existence',
     // Spectrum
     spectrumStart: url + '/api/v1/operations/spectrum/start',
     spectrumStop: url + '/api/v1/operations/spectrum/stop',

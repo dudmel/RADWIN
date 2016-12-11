@@ -105,19 +105,19 @@ export class WModalComponent implements OnInit, OnDestroy {
     ngOnDestroy(){
     }
 
-    getIconClass(): string {
+    getIconImg(): string {
         switch (this.modalType) {
 
             case Consts.ModalType.error:
-                return 'rad-sprite modal-error-icon';
+                return '../../../assets/icon/notification.svg';
             case Consts.ModalType.info:
-                return 'rad-sprite modal-info-icon';
+                return '../../../assets/icon/info.svg';
             case Consts.ModalType.warning:
-                return 'rad-sprite modal-warning-icon';
+                return '../../../assets/icon/warning.svg';
             case Consts.ModalType.question:
-                return 'rad-sprite modal-question-icon';
+                return '../../../assets/icon/question.svg';
             default:
-                return 'rad-sprite modal-info-icon';
+                return '../../../assets/icon/info.svg';
         }
     }
 }

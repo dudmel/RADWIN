@@ -31,9 +31,9 @@ export class RecentEventsComponent implements OnInit, OnDestroy {
 
     this.eventsSub = this._store.select('events')
       .subscribe((events: IRecentEvents[]) => {
-        this.events = events;
+        if (events.length > 0)
+          this.events = events;
       });
-
 
     this.getRecentEvents();
   }

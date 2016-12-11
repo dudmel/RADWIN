@@ -7,6 +7,7 @@ import { IRadioModel } from './radio.model';
 import { Consts, exLog } from '../shared';
 
 let radioUrl = Consts.baseUrls.radio;
+let resyncUrl = Consts.baseUrls.resync;
 
 @Injectable()
 export class RadioService {
@@ -29,5 +30,9 @@ export class RadioService {
           // this._store.dispatch({ type: 'SET_RADIO', payload: radio });
           this.getData();
         });
+  }
+
+  resync(): any {
+    return this._httpService.post(resyncUrl);
   }
 }

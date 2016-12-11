@@ -41,7 +41,7 @@ export class NetworkToolsComponent implements OnInit, OnDestroy {
         this.form = _formBuilder.group({
             ip: ['', Validators.compose([Validators.required, ip4Validator])],
             packetCount: ['5', Validators.compose([Validators.required, minMaxNumberValidator(1, 30)])],
-            packetSize: ['5', Validators.compose([Validators.required, minMaxNumberValidator(1, 65535)])]
+            packetSize: ['5', Validators.compose([Validators.required, minMaxNumberValidator(1, 1472)])]
         });
 
         this.traceform = _formBuilder.group({
@@ -114,6 +114,10 @@ export class NetworkToolsComponent implements OnInit, OnDestroy {
         this.monitorSub = this._store.select('monitor')
             .subscribe((monitor: IMonitorModel) => {
                 this.isLinkSynchronized = (monitor.hsuLinkState == "Active");
+
+                if (!this.isLinkSynchronized) {
+                    this.speedTestInProgress = false;
+                }
       });
 
     }
@@ -129,5 +133,4 @@ export class NetworkToolsComponent implements OnInit, OnDestroy {
         }
         this.speedTestSub.unsubscribe();
     }
-
 }

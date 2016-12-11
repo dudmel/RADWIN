@@ -1,38 +1,91 @@
-.row-flex {
-	display: flex;
-	flex-flow: row nowrap;
-	justify-content: space-between;
-	align-items: center;
-    // height: 250px;
-    width: 100%;
-}
 
+
+.overview-section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    height: 100%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+.overview-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    height: 40%;
+    width:100%;
+}
 system-monitor {
     width: 100%;
-    display: block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
 }
 device-monitor {
     width: 100%;
+    height: 100%;
+    margin-top:10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 radio-monitor {
-    width: 32%;
-    height: 100%;
+    width: 25%;
+    min-width: 230px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: column nowrap;
+    -ms-flex-item-align: center;
+        align-self: center;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
     
 }
 .monitors-container {
-    width: 65%;
-    height: 215px;
+    min-width: 540px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    align-self: flex-end;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 
 recent-events {
-    width: 100%;   
+    width: 100%;  
     margin-top: 20px;
     margin-bottom: 40px;
+}
+
+@media (max-width: 1050px) {
+    .overview-row {
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+        
+    }
+    .monitors-container {
+        width: 100%;
+    }
+
+    radio-monitor {
+        width: 50%;
+        margin: auto;
+        margin-bottom: 35px;
+    }
+
+    .overview-section {
+        min-width: 600px;
+    }
 }

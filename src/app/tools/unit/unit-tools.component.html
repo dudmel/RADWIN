@@ -1,13 +1,10 @@
-<h3 class="section-title">Unit</h3>
+<!--<h3 class="section-title">Unit</h3>
 <div class="row-flex">
-
 
   <swu-component type="swu" class="box box-unit box-green"> </swu-component>
 
   <swu-component type="restore" class="box box-unit box-green"> </swu-component>
-  
 
-  <!--<div class="col-md-2">-->
     <div class="box box-unit backup">
       <div class="box-header">
         <h3 class="box-title">Backup</h3>
@@ -17,5 +14,37 @@
         <button type="submit" (click)="backupDevice()" class="btn btn-default">BACKUP</button>
       </span>
       </div>
+    </div>-->
+    <h3 class="section-title">Unit</h3>
+<h5 class="section-subtitle"> Upgrade to the latest software, backup, and restore to a previous version </h5>
+<div class="row-flex">
+
+  <div class="box box-unit box-gray backup">
+    <div class="box-header">
+      <h3 class="box-title">Backup</h3> 
     </div>
-  <!--</div>-->
+    <div class="box-body">
+
+      <div class="body-text" *ngIf="!isBackupInProcess">Retrieve backup file</div>
+      <div class="body-text" *ngIf="isBackupInProcess">Download and verification</div>
+    </div>
+      <div class="buttons">
+        <button *ngIf="!isBackupInProcess" type="submit" (click)="backupDevice()" class="btn btn-default">Download file</button>
+        
+        <div *ngIf=isBackupInProcess id="cssload-wrapper">
+          <div id="cssload-border">
+            <div id="cssload-whitespace">
+              <div id="cssload-line">
+              </div>
+            </div>
+          </div> 
+        </div>
+      
+      </div>
+  </div>
+  
+  <swu-component type="swu" class="box box-unit box-green"> </swu-component>
+
+  <swu-component type="restore" class="box box-unit box-light-blue"> </swu-component>
+
+</div>

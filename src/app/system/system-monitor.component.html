@@ -1,108 +1,82 @@
-<div>
-    <h3 class="section-title">System</h3>
-    <!--<div class="">-->
-        <div class="box box-system box-green">
-            <div class="box-body">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="system-box-title">
-                            HSU
-                        </div>
-                        <div style="font-size: 18px; margin-top: 10px; margin-bottom: 10px;">
-                        {{system?.hsu?.hsuName}} 
-                        {{system?.hsu?.hsuLocation}}
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="info-box-label">
-                            IP Address
-                        </div>
-                        <div class="info-box-text sm">
-                            {{network?.ipParams?.hsuIp}}
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="info-box-label">
-                            Subnet Mask
-                        </div>
-                        <div class="info-box-text sm">
-                            {{network?.ipParams?.hsuSubnetMask}}
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="info-box-label">
-                            Def. Gateway
-                        </div>
-                        <div class="info-box-text sm">
-                            {{network?.ipParams?.hsuDefaultGateway}}
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="info-box-label">
-                            MAC Address
-                        </div>
-                        <div class="info-box-text sm">
-                            {{ system?.macAddress }}
-                        </div>
-                    </div>
+<h3 class="section-title">System</h3>
+<div class="system-monitors-container">
+    <div class="box box-system-monitor box-green">
+        <div class="box-row box-header">
+            <div class="system-box-title">
+                HSU
+            </div>
+            <div class="system-box-details">
+                <span>{{system?.hsu?.hsuName}}</span> 
+                <span>{{system?.hsu?.hsuLocation}}</span>
+            </div>
+        </div>
+        <div class="box-row box-body">
+            <div class="info-box-label">
+                IP Address
+                <div class="info-box-text sm">
+                    {{network?.ipParams?.hsuIp}}
                 </div>
             </div>
-        <!--</div>-->
-
+            <div class="info-box-label">
+                Subnet Mask
+                <div class="info-box-text sm">
+                    {{network?.ipParams?.hsuSubnetMask}}
+                </div>
+            </div>
+        </div>
+        <div class="box-row box-body">
+            <div class="info-box-label">
+                Def. Gateway
+                <div class="info-box-text sm">
+                    {{network?.ipParams?.hsuDefaultGateway}}
+                </div>
+            </div>
+            <div class="info-box-label">
+                MAC Address
+                <div class="info-box-text sm">
+                    {{ system?.macAddress }}
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-6" *ngIf="system?.hbs?.hbsName">
-        <div class="box box-system box-green">
-            <div class="box-body">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="system-box-title">
-                            HBS
-                        </div>
-                        <div style="font-size: 18px;" *ngIf='isLinkSynchronized'>
-                            {{system?.hbs?.hbsName}} 
-                            {{system?.hbs?.hbsLocation}}
-                        </div>
-                    </div>
+    <div class="box box-system-monitor box-gray" *ngIf='isLinkSynchronized'>
+        <div class="box-row box-header">
+            <div class="system-box-title">
+                HBS
+            </div>
+            <div class="system-box-details">
+            <!--<div class="system-box-details" *ngIf='isLinkSynchronized'>-->
+                <span *ngIf='isLinkSynchronized'>{{system?.hbs?.hbsName}}</span> 
+                <span *ngIf='isLinkSynchronized'>{{system?.hbs?.hbsLocation}}</span>
+            </div>
+        </div>
+        <div class="box-row box-body">
+            <div class="info-box-label">
+                IP Address
+                <div class="info-box-text sm">
+                <!--<div class="info-box-text sm" *ngIf='isLinkSynchronized'>-->
+                    {{system?.hbs?.hbsIp | noneValuePipe }}
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="info-box-label">
-                            IP Address
-                        </div>
-                        <div class="info-box-text sm" *ngIf='isLinkSynchronized'>
-                            {{system?.hbs?.hbsIp | noneValuePipe }}
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="info-box-label">
-                            Subnet Mask
-                        </div>
-                        <div class="info-box-text sm" *ngIf='isLinkSynchronized'>
-                            {{system?.hbs?.hbsSubnetMask | noneValuePipe}}
-                        </div>
-                    </div>
+            </div>
+            <div class="info-box-label">
+                Subnet Mask
+                <div class="info-box-text sm">
+                <!--<div class="info-box-text sm" *ngIf='isLinkSynchronized'>-->
+                    {{system?.hbs?.hbsSubnetMask | noneValuePipe}}
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="info-box-label">
-                            Def. Gateway
-                        </div>
-                        <div class="info-box-text sm">
-                            N/A
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="info-box-label">
-                            MAC Address
-                        </div>
-                        <div class="info-box-text sm">
-                            N/A
-                        </div>
-                    </div>
+            </div>
+        </div>
+        <div class="box-row box-body">
+            <div class="info-box-label">
+                Def. Gateway
+                <div class="info-box-text sm">
+                    N/A
+                </div>
+            </div>
+            <div class="info-box-label">
+                MAC Address
+                <div class="info-box-text sm">
+                    N/A
                 </div>
             </div>
         </div>

@@ -27,7 +27,7 @@
     }
 	@include breakpoint(mobileonly){
 		background-position: center !important;
-		// background-size: auto 100% !important;
+		/* background-size: auto 100% !important;*/
 	} 
 }
 
@@ -72,7 +72,7 @@
 		p{
 			margin-bottom: 0;
 		}
-		// margin-bottom:36px;
+		/* margin-bottom:36px;*/
 	}
 
 	.form-content{

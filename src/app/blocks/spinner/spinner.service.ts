@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class SpinnerService {
+export class SpinnerService { 
 
   private _selector: string = 'preloader';
   private _messageSelector: string = 'spinner-message';
@@ -22,8 +22,8 @@ export class SpinnerService {
   }
 
   public hide(delay: number = 0): void {
-    setTimeout(() => {
+    // setTimeout(() => {
       this._element.style['display'] = 'none';
-    }, delay);
+    // }, delay);
   }
 }

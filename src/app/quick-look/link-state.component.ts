@@ -6,10 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
     template: `
                 
                     <div class="info-box-icon">
-                        <!--<i [ngClass]="getClass()"></i>-->
-                        <i class="info-box-icon">
                             <img [src]="getImg()"/>
-                        </i>
                     </div>
                     <div class="info-box-content">
                         <span class="info-box-label">Status</span>
@@ -59,7 +56,6 @@ export class LinkStateComponent implements OnInit {
 
     getImg() {
         switch (this.linkState) {
-
             case 'Not Synchronized':
                 return '../../assets/icon/nosync.svg';
             case 'Active Violated':
@@ -69,7 +65,7 @@ export class LinkStateComponent implements OnInit {
             case 'Active':
                 return '../../assets/icon/registered.svg';
             case 'Active Authentication Error':
-                return '../../assets/icon/authenticationerror.png';
+                return '../../assets/icon/authenticationerror.svg';
             case 'Active SW Upgrade Required':
                 return '../../assets/icon/upgraderequired.svg';
             default:

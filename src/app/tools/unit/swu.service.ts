@@ -7,6 +7,7 @@ import { Consts, exLog } from '../../shared';
 let swuValidateUrl = Consts.baseUrls.swuValidate;
 let swuStartUrl = Consts.baseUrls.swuStart;
 let swuStartBackupUrl = Consts.baseUrls.swuBackup;
+let swuCheckFileExistenceUrl = Consts.baseUrls.checkFileExistence;
 
 export interface ISwuMetaData {
   type: string;
@@ -23,8 +24,15 @@ export class SwuService {
 
   getSwuState(mode): Observable<ISwuMetaData> {
     exLog('SWU getdata');
-    return this._httpService.getData(swuValidateUrl + '?mode=' + mode);
+    return this._httpService.getJson(swuValidateUrl + '?mode=' + mode);
   }
+
+  checkFileExistance(mode): Observable<ISwuMetaData> {
+    exLog('SWU check file existence');
+    return this._httpService.getData(swuCheckFileExistenceUrl + '?mode=' + mode);
+  }
+
+  
 
   startSwu(mode): Observable<ISwuMetaData> {
      exLog('SWU start');

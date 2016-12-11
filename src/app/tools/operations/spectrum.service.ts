@@ -49,9 +49,12 @@ export class SpectrumService {
   getSpectrumTable() {
     this.spectrumSubscription = Observable.timer(0, 7000)
               .flatMap(() => this._httpService.getData(spectrumTableUrl))
+              .do(a=>console.log('before map: ',a))
               .map(payload => ({ type: 'GET_SPECTRUM_TABLE', payload }))
               .subscribe(action =>  {
                   this._store.dispatch(action);
+                  console.log(action);
+                  
               });
   }
 

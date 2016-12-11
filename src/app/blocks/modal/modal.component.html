@@ -5,7 +5,8 @@
 	<modal-body>
 		<div class="modal-body-container">
 			<div class="modal-body-content">
-				<i [ngClass]="getIconClass()"></i>
+				<!--<i [ngClass]="getIconClass()"></i>-->
+				<img [src]="getIconImg()"/>
 				<div #innercomponent></div>
 				<p>{{message}}</p>
 			</div>

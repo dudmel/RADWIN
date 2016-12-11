@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="67px" height="67px" viewBox="0 0 67 67" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>info</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="10.3499543" y="10.3499543" width="50" height="50" rx="6"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="50" height="50" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Dialog-Box" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="info" transform="translate(-2.000000, -2.000000)">
+            <use id="Rectangle-2" stroke="#EF4023" mask="url(#mask-2)" stroke-width="6" transform="translate(35.349954, 35.349954) rotate(46.000000) translate(-35.349954, -35.349954) " xlink:href="#path-1"></use>
+            <circle id="Oval-3" fill="#EF4023" cx="35" cy="20" r="3"></circle>
+            <path d="M35,29.5 L35,49.5" id="Line" stroke="#F04326" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+    </g>
+</svg>
