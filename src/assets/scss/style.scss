@@ -25,10 +25,14 @@ dashboard {
 body {
     background-color: #fbfbfb;
 }
-
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
 @media (min-width: 1000px) {
     font-size:20px;
-}
+} 
 @media (min-width: 1200px) {
     font-size:30px;
 }
@@ -36,7 +40,11 @@ body {
     font-size:10px;
 }
 
-
+.row-flex {
+    display: flex;
+    flex-flow: row nowrap;
+    
+}
 .box {
   position: relative;
   display: -webkit-box;
@@ -216,4 +224,14 @@ body {
 /* Fix for not showing up/down arrows when readonly in firefix*/
 input[type='number']:-moz-read-only  {
     -moz-appearance:textfield;
+}
+input-controls {
+    height: 34px;
+    align-self: center;
+}
+.buttons-footer{
+    margin-bottom: 25px
+}
+unit {
+    min-width: 600px;
 }

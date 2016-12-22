@@ -47,8 +47,8 @@ export class NetworkConfigurationComponent implements OnInit, OnDestroy {
       }, { validator: ipParamsValidator }),
       currentPortState: [''],
       desiredPortState: [''],
-      vlanId: ['', minMaxNumberValidator(1, 4094)],
-      vlanPriority: ['', minMaxNumberValidator(0, 7)]
+      vlanId: ['2', Validators.compose([Validators.required, minMaxNumberValidator(2, 4094)])],
+      vlanPriority: ['', Validators.compose([Validators.required, minMaxNumberValidator(0, 7)])]
     });
 
   }
@@ -112,12 +112,12 @@ export class NetworkConfigurationComponent implements OnInit, OnDestroy {
     this.form.reset();
   }
 
-  canDeactivate(): any {
+  canDeactivate(): Promise<boolean> | boolean {
     if (!this.form || !this.form.dirty) {
       return true;
     }
     // Ask User
-    return Observable.fromPromise(Promise.resolve(this._modalService.activate()));
+    return Promise.resolve(this._modalService.activate());
   }
 
   ngOnDestroy() {

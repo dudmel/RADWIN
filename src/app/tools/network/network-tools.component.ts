@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import { NetworkToolsService } from './network-tools.service';
 import { SpeedTestService } from './speed-test.service';
+import { ISpeedTestModel } from './network-tools.model';
 import { INetworkToolsModel } from './network-tools.model';
 import { IMonitorModel } from '../../monitor/monitor.model';
 import { WModalService, GaugeComponent } from '../../blocks';
@@ -28,9 +29,11 @@ export class NetworkToolsComponent implements OnInit, OnDestroy {
     private traceInProgress: boolean;
     private speedTestInProgress: boolean;
     private isLinkSynchronized: boolean;
-    private speedTestData;
+    private speedTestData: ISpeedTestModel;
     private speedTestSub;
     private monitorSub;
+    private showTraceResults;
+    private showPingResults;
 
     constructor(private _networkToolsService: NetworkToolsService,
                 private _speedTestService: SpeedTestService,
@@ -55,6 +58,7 @@ export class NetworkToolsComponent implements OnInit, OnDestroy {
 
     ping() {
         this.clearResults();
+        this.showPingResults = true;
         this.pingInProgress = true;
         this._networkToolsService.ping(this.form.value)
             .subscribe((networkTools: any) => {
@@ -65,6 +69,7 @@ export class NetworkToolsComponent implements OnInit, OnDestroy {
 
     trace() {
         this.clearResults();
+        this.showTraceResults = true;
         this.traceInProgress = true;
         this._networkToolsService.trace(this.traceform.value)
             .subscribe((networkTools: INetworkToolsModel) => {
@@ -74,16 +79,28 @@ export class NetworkToolsComponent implements OnInit, OnDestroy {
     }
 
     startSpeedTest() {
+
+        this.speedTestSub = this._store.select('speedTest')
+            .subscribe((speedTestData: ISpeedTestModel) => {
+                this.speedTestData = speedTestData;
+            });
+            
         this.speedTestInProgress = true;
         this._speedTestService.startSpeedTest();
     }
 
     stopSpeedTest() {
+
+        if (this.speedTestSub != null)
+            this.speedTestSub.unsubscribe()
+
         this.speedTestInProgress = false;
         this._speedTestService.stop();
+
+        this.speedTestData = { ulSpeed: 0, dlSpeed: 0};
     }
 
-    canDeactivate(): any {
+    canDeactivate(): Promise<boolean> | boolean {
         // Ask User
         if (!this.pingInProgress && !this.traceInProgress && !this.speedTestInProgress) {
             return true;
@@ -98,28 +115,23 @@ export class NetworkToolsComponent implements OnInit, OnDestroy {
         if (this.speedTestInProgress) {
             warning = Resources.speedTestInProgressWarning;
         }
-        let p = Promise.resolve(this._modalService.activate(warning, Resources.warning));
-        return Observable.fromPromise(p);
+        return Promise.resolve(this._modalService.activate(warning, Resources.warning));
     }
 
     ngOnInit() {
         exLog('hello Network Tools component');
         this.clearResults();
 
-        this.speedTestSub = this._store.select('speedTest')
-            .subscribe((speedTestData: any) => {
-                this.speedTestData = speedTestData;
-            });
+
 
         this.monitorSub = this._store.select('monitor')
             .subscribe((monitor: IMonitorModel) => {
                 this.isLinkSynchronized = (monitor.hsuLinkState == "Active");
 
-                if (!this.isLinkSynchronized) {
-                    this.speedTestInProgress = false;
+                if (!this.isLinkSynchronized && this.speedTestInProgress) {
+                    this.stopSpeedTest();
                 }
       });
-
     }
 
     clearResults(): void {
@@ -131,6 +143,5 @@ export class NetworkToolsComponent implements OnInit, OnDestroy {
         if (this.speedTestInProgress) {
             this._speedTestService.stop();
         }
-        this.speedTestSub.unsubscribe();
     }
 }

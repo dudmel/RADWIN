@@ -22,20 +22,24 @@ export class WifiConfigurationComponent implements OnInit, OnDestroy {
   private monitor: IMonitorModel;
   private wifiSub;
   private monitorSub;
+  private isUnregistered: boolean;
 
   constructor(private _wifiService: WifiService,
-    private _store: Store<AppStore>,
-    private _modalService: WModalService,
-    private _formBuilder: FormBuilder) {
+              private _store: Store<AppStore>,
+              private _modalService: WModalService,
+              private _formBuilder: FormBuilder) {
 
     this.form = _formBuilder.group({
       wifiMode: [''],
       wifiChannel: ['', minMaxNumberValidator(1, 11)],
       wifiTxPower: ['', minMaxNumberValidator(1, 17)],
-      wifiPassword: ['********', Validators.compose([Validators.minLength(8), Validators.maxLength(30)])],
+      wifiPassword: ['', Validators.compose([Validators.minLength(8), Validators.maxLength(30)])],
       wifiNetwork: ['', Validators.compose([ip4Validator, wifiIpValidator])]
     });
+
+    this.isUnregistered = true;
   }
+  
   save() {
 
     let dirtyForm: IWifiModel = <IWifiModel>{};
@@ -54,25 +58,28 @@ export class WifiConfigurationComponent implements OnInit, OnDestroy {
     this.form.reset();
   }
 
-  canDeactivate(): any {
+  canDeactivate(): Promise<boolean> | boolean {
     if (!this.form || !this.form.dirty) {
       return true;
     }
     // Ask User
-    return Observable.fromPromise(Promise.resolve(this._modalService.activate()));
+    return Promise.resolve(this._modalService.activate());
   }
 
   ngOnInit() {
 
-    exLog('hello Wifi Configuration Component');
     this.wifiSub = this._store.select('wifi')
       .subscribe((wifi: IWifiModel) => {
         this.wifi = wifi;
+        this.form.controls['wifiPassword'].setValue('********');
       });
 
     this.monitorSub = this._store.select('monitor')
       .subscribe((monitor: IMonitorModel) => {
         this.monitor = monitor;
+        this.isUnregistered = monitor.hsuLinkState === 'Active Unregistered';
+
+        this.udateSwitchStatus()
       });
 
     this.getWifi();
@@ -87,4 +94,10 @@ export class WifiConfigurationComponent implements OnInit, OnDestroy {
     this._wifiService.getData();
   }
 
+  private udateSwitchStatus() {
+      if (this.isUnregistered)
+        this.form.controls['wifiMode'].disable();
+      else
+        this.form.controls['wifiMode'].enable();
+  }
 }

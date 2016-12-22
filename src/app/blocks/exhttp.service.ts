@@ -37,10 +37,8 @@ export class ExHttpService<T> implements ExHttpService<T> {
   }
 
   getData(url: string): any {
-    return this._http.get(url, { headers: this.createJwtAuthorizationHeader()})
-      .map((response: Response) => {
-          return <T>response.json().data;
-      })
+      return this._http.get(url + '?ddd=' + Date.now(), { headers: this.createJwtAuthorizationHeader()})
+      .map((response: Response) => <T>response.json().data);
   }
 
   getJson(url: string): any {

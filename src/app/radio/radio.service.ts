@@ -18,7 +18,11 @@ export class RadioService {
 
   getData() {
     this._httpService.getData(radioUrl)
-          .map(payload => ({ type: 'GET_RADIO', payload }))
+          .map(payload => {
+            payload.sectorId1 = payload.sectorId.slice(0,4);
+            payload.sectorId2 = payload.sectorId.slice(4);
+            return  ({ type: 'GET_RADIO', payload })
+        })
           .subscribe(action =>  {
               this._store.dispatch(action);
             });
@@ -28,7 +32,7 @@ export class RadioService {
     this._httpService.postData(radio, radioUrl)
         .subscribe(action => {
           // this._store.dispatch({ type: 'SET_RADIO', payload: radio });
-          this.getData();
+          setTimeout(()=>this.getData(), 2000);
         });
   }
 

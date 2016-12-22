@@ -1,6 +1,6 @@
 <h3 class="section-title">Radio</h3>
 <div class="radio-container">
-    <div class="box box-radio box-light-blue">
+    <div class="box box-radio box-light-blue radio-left-side">
         <form *ngIf="radio" [formGroup]="form" style="height: 100%">
             <fieldset style="height: 100%">
                 <div class="box-body">
@@ -17,19 +17,21 @@
                         </div>
                         <span class="header-details">
                             <span><span style="color: #76828e">TX Power (System):</span>{{monitor?.configMonitor?.totalTxPower}}</span>
-                            <span><span style="color: #76828e">EIRP:</span> {{eirp | number:'2.0' | units: 'dbm' }} Max: {{monitor?.configMonitor?.maxEirp}}</span>
+                            <span><span style="color: #76828e">EIRP:</span> {{eirp | number:'1.1-2' | units: 'dbm' }} Max: {{monitor?.configMonitor?.maxEirp | number:'1.1-2'}} </span>
                         </span>
                     </div>
 
                     <div class="box-radio-sector">
                         <span class="sector-title">Sector ID</span>
                         <div class="sector-inputs">
-                            <input formControlName="sectorId1" [(ngModel)]="radio.sectorId1" [readonly]="!canChangeSectorId1" (keyup)="_canChangeSectorId2(radio.sectorId1)" class="form-control sector1" type="text">
-                            <input formControlName="sectorId2" [(ngModel)]="radio.sectorId2" [readonly]="!canChangeSectorId2" class="form-control sector2" type="text">
+                            <input formControlName="sectorId1" [maxlength]="4" [(ngModel)]="radio.sectorId1" [readonly]="!canChangeSectorId1" (keyup)="_canChangeSectorId2(form.controls.sectorId1.value)" class="form-control sector1" type="text">
+                            <input formControlName="sectorId2" [maxlength]="20" [(ngModel)]="radio.sectorId2" class="form-control sector2" type="text">
                         </div>
-                        <div class="control-msgs" *ngIf="(form.controls.sectorId1.dirty && form.controls.sectorId1.invalid) || (form.controls.sectorId2.dirty  && form.controls.sectorId2.invalid)">
-                            <p *ngIf="form.controls.sectorId1.invalid || form.controls.sectorId2.errors.minlength">Sector ID must be at least 8 characters.</p>
-                            <p *ngIf="form.controls.sectorId1.valid && form.controls.sectorId2.errors.maxlength">Sector ID is maximum 24 characters.</p>
+                        <!--<div class="control-msgs" *ngIf="(form.controls.sectorId1.dirty && form.controls.sectorId1.invalid) || (form.controls.sectorId2.dirty  && form.controls.sectorId2.invalid)">-->
+                        <div class="control-msgs">
+                            <p *ngIf="(!form.controls.sectorId1.pristine && form.controls.sectorId1.invalid) || 
+                                      (!form.controls.sectorId2.pristine && form.controls.sectorId2.invalid)">Sector ID must be at least 8 characters.</p>
+                            <p *ngIf="form.controls.sectorId1.valid && form.controls.sectorId2.errors?.maxlength">Sector ID is maximum 24 characters.</p>
                         </div>
                     </div>
 
@@ -48,13 +50,18 @@
                     <div class="box-radio-footer">
                         
                         <div class="footer-left">
-                            
                             <div class="req-tx">
                                 <span>Required TX Power Per Radio</span>
-                                <span class="input-field">
-                                    <input formControlName="desiredTxPower" [(ngModel)]="radio.desiredTxPower" class="form-control" type="number"
-                                        min={{radio.minTxPower}} max="{{radio.maxTxPower}}">
+                                <span class="input-field-flex">
+                                    <input formControlName="desiredTxPower"
+                                             [(ngModel)]="radio.desiredTxPower"
+                                             #desiredTx
+                                             class="form-control" 
+                                             type="number"
+                                             min={{radio.minTxPower}}
+                                             max="{{radio.maxTxPower}}">
                                     <span class="input-units">dBm</span>
+                                    <input-controls [inputToChange]="desiredTx"></input-controls>
                                 </span>
                             </div>
                             <div class="control-msgs" *ngIf="form.controls.desiredTxPower.dirty && !form.controls.desiredTxPower.valid">
@@ -64,10 +71,12 @@
                             
                             <div class="ant-gain">
                                 <span>Antenna Gain </span>
-                                <span class="input-field">
-                                    <input formControlName="antennaGain" [(ngModel)]="radio.antennaGain" class="form-control" type="number" step="0.1" readonly
+                                <span class="input-field-flex">
+                                    <input formControlName="antennaGain" #antennaGain [(ngModel)]="radio.antennaGain" class="form-control" type="number" step="0.1" readonly
                                         min="{{radio.minAntennaGain" max="radio.maxAntennaGain}}">
-                                    <span class="input-units">dBi</span>
+                                <span class="input-units">dBi</span>
+                                <input-controls [inputToChange]="antennaGain"></input-controls>
+                                
                                 </span>
                             </div>
 
@@ -76,18 +85,18 @@
                         <div class="footer-right">
                             <div class="cbw">
                                 <span>Channel Bandwidth</span>
-                                <span class="input-field">
+                                <span class="input-field-flex">
                                     <select formControlName="currentCbw" [(ngModel)]="radio.currentCbw" class="form-control" type="number">
                                         <option *ngFor="let cbw of radio?.options?.cbwList" [value]="cbw">{{ cbw }}</option>
                                     </select>
-                                    <span class="input-units">MHz</span>
+                                <span class="input-units">MHz</span>
                                 </span>
                             </div>
                             <div class="frq">
-                                <span>Frequency </span>
-                                <span class="input-field">
+                                <span>Frequency</span>
+                                <span class="input-field-flex">
                                     <input [ngModelOptions]="{standalone: true}" [(ngModel)]="radio.currentFrequency" class="form-control" readonly>
-                                    <span class="input-units">GHz</span>
+                                <span class="input-units"></span>
                                 </span>
                             </div>
                         </div>
@@ -99,7 +108,7 @@
     </div>
 
 
-    <div class="right-side">
+    <div class="radio-right-side">
         <div class="box box-radio box-green">
             <change-band></change-band>
         </div>
@@ -126,6 +135,6 @@
 </div>
 
 <div class="buttons-footer">
-    <button form="form" type="submit" (click)="save($event)" [disabled]="form.pristine" class="btn btn-primary">APPLY ALL</button>
+    <button form="form" type="submit" (click)="save($event)" [disabled]="form.invalid" class="btn btn-primary">APPLY ALL</button>
     <button form="form" type="cancel" (click)="cancel($event)" class="btn btn-default">CANCEL</button>
 </div>

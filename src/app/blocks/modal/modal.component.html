@@ -1,14 +1,13 @@
-<modal style="top: 15%" #modal data-backdrop="static">
-	<modal-header [show-close]="true">
+<modal style="top: 15%" #modal data-backdrop="static" (onClose)="clear()">
+	<modal-header [show-close]="fasle">
 		<h4 class="modal-title">{{ title }}</h4>
 	</modal-header>
 	<modal-body>
 		<div class="modal-body-container">
-			<div class="modal-body-content">
-				<!--<i [ngClass]="getIconClass()"></i>-->
+			<div class="modal-body-content" style="display: flex; flex-flow: row nowrap; align-items: center; justify-content:flex-start">
 				<img [src]="getIconImg()"/>
 				<div #innercomponent></div>
-				<p>{{message}}</p>
+				<p *ngIf="message" style="margin: 0">{{message}}</p>
 			</div>
 		</div>
 	</modal-body>

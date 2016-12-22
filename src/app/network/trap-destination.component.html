@@ -1,6 +1,6 @@
 
     <form [formGroup]="trapform">
-        <div class="row-flex">
+        <div class="row-flex-trap">
                 <div class="form-group">
                     IP Address
                     <input formControlName="hostIp" [(ngModel)]="trap && trap.hostIp" class="form-control" type="text">
@@ -10,8 +10,11 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    Port
-                    <input formControlName="hostPort" [(ngModel)]="trap && trap.hostPort" class="form-control" type="number">
+                    <span class="input-label">Port</span>
+                    <span class="row-flex">
+                        <input formControlName="hostPort" #port [(ngModel)]="trap && trap.hostPort" class="form-control" type="number">
+                        <input-controls [inputToChange]="port"></input-controls>
+                    </span>
                 </div>
         </div>
     </form>

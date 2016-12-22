@@ -4,7 +4,19 @@ import { RestoreToDefaultsData } from './restore-to-defaults-data';
 
 @Component({
     selector: 'restore-to-deaults',
-    template: require('./restore-to-defaults-component.html')
+    template: require('./restore-to-defaults-component.html'),
+    styles: [`
+        .restore-defaults {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            width:90%;
+            margin: auto;
+        }
+        input {
+            margin-top: 20px;
+        }
+    `]
 })
 
 export class RestoreToDeaultsComponent {

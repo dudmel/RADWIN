@@ -62,39 +62,39 @@
 		</div>
 
 		<div class="box box-vlan box-light-blue">
-				<div class="vlan-content">
-					<div class="vlan-title">
-						<div>VLAN MANAGEMENT</div>
-						<div class="onoffswitch">
-							<input type="checkbox" (click)="vlanCheckBoxClicked()" class="onoffswitch-checkbox" id="myonoffswitch" [(ngModel)]="isVlanEnabled"
-								[ngModelOptions]="{standalone: true}">
-							<label class="onoffswitch-label" for="myonoffswitch">
-								<span class="onoffswitch-inner"></span>
-								<span class="onoffswitch-switch"></span>
-							</label>
-						</div>
-					</div>
-
-					<div class="vlan-form">
-								<div class="form-group-vlan">
-									ID:
-									<input formControlName="vlanId" [(ngModel)]="vlanId" [readonly]="!isVlanEnabled" class="form-control" type="number"
-										min="1" max="4094">
-									<div class="control-msgs" *ngIf="form.controls.vlanId.dirty && !form.controls.vlanId.valid">
-										<p *ngIf="form.controls.vlanId.errors.invalidMinMax">VLAN ID should be set in the range of 1-4094 </p>
-									</div>
-								</div>
-								<div class="form-group-vlan">
-									Priority:
-									<input formControlName="vlanPriority" type="number" min="0" max="7"
-										[(ngModel)]="vlanPriority"
-										[readonly]="!isVlanEnabled" class="form-control">
-									<div class="control-msgs" *ngIf="form.controls.vlanPriority.dirty && !form.controls.vlanPriority.valid">
-										<p *ngIf="form.controls.vlanPriority.errors.invalidMinMax">VLAN Priority should be set in the range of 0-7 </p>
-									</div>
-								</div>
+			<div class="vlan-content">
+				<div class="vlan-title">
+					<div>VLAN MANAGEMENT</div>
+					<div class="onoffswitch">
+						<input type="checkbox" (click)="vlanCheckBoxClicked()" class="onoffswitch-checkbox" id="myonoffswitch" [(ngModel)]="isVlanEnabled" [ngModelOptions]="{standalone: true}">
+						<label class="onoffswitch-label" for="myonoffswitch">
+							<span class="onoffswitch-inner"></span>
+							<span class="onoffswitch-switch"></span>
+						</label>
 					</div>
 				</div>
+
+				<div class="vlan-form">
+					<div class="form-group-vlan">
+						<span class="input-label">ID:</span>
+						<span class="row-flex">
+							<input formControlName="vlanId" #id [(ngModel)]="vlanId" [readonly]="!isVlanEnabled" class="form-control" type="number" min="1" max="4094">
+							<input-controls [inputToChange]="id"></input-controls>
+						</span>
+						<p class="control-msgs" *ngIf="form.controls.vlanId.dirty && !form.controls.vlanId.valid && form.controls.vlanId.errors.invalidMinMax">VLAN ID should be set in the range of 2-4094 </p>
+					</div>
+					<div class="form-group-vlan">
+						<span class="input-label">Priority:</span>
+						<span class="row-flex">
+							<input formControlName="vlanPriority" #priority type="number" min="0" max="7"
+								[(ngModel)]="vlanPriority"
+								[readonly]="!isVlanEnabled" class="form-control">
+							<input-controls [inputToChange]="priority"></input-controls>
+						</span>
+						<p class="control-msgs" *ngIf="form.controls.vlanPriority.dirty && !form.controls.vlanPriority.valid && form.controls.vlanPriority.errors.invalidMinMax">VLAN Priority should be set in the range of 0-7 </p>
+					</div>
+				</div>
+			</div>
 		</div>
     </form>
 
@@ -117,9 +117,9 @@
 							<div class="trap-button" (click)="changeTrapIndex(9)" [ngClass]="{'active': isActive(9)}">10 <span class="arrow-down" *ngIf="isActive(9)"></span></div>
 						</div>
 				</div>
-				<div class="traps-body row-flex">
+				<!--<div class="traps-body row-flex">-->
 						<trap-comp [trap]="clonedTraps[trapIndex]"></trap-comp>
-				</div>
+				<!--</div>-->
 		</div>
 	</div>
 </div>

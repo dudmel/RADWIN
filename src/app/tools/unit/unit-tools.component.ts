@@ -31,7 +31,7 @@ export class UnitToolsComponent implements OnInit {
   }
 
 
-  canDeactivate(): any {
+  canDeactivate(): Promise<boolean> | boolean {
     return true;
     // return Observable.fromPromise(Promise.resolve(this._modalService.activate()));
   }
@@ -49,7 +49,7 @@ export class UnitToolsComponent implements OnInit {
         this._spinnerService.hide();
 
         this._store.dispatch({ type: 'MONITOR_SUSPEND_OFF' });
-
+        this.isBackupInProcess = false;
         if (response && response['_body'].type === 'application/json') {
           this._modalService.activate(Resources.backupFailed, Resources.error, undefined, '', Consts.ModalType.error);
         } else {

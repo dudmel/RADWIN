@@ -1,8 +1,8 @@
 <div class="col-flex">
 	<h3 class="section-title">Network</h3>
-
-	<div class="network-container">
-		<div class="box box-network box-light-blue speedbox">
+	<div class="section-body">
+		<div class="speed-test-container">
+			<div class="box box-network box-light-blue speedbox">
 				<div class="box-header">
 					<h3 class="box-title">SPEED TEST</h3>
 				</div>
@@ -15,101 +15,105 @@
 					<button type="submit" class="btn btn-default" [disabled]="!speedTestInProgress" (click)="stopSpeedTest()">STOP</button>
 				</div>
 			</div>
-
-	<div class="box box-network box-green">
-			<div class="box-header-ping">
-				<h3 class="box-title">PING</h3>
-			</div> 
-			<div class="pingbox">
-				<form [formGroup]="form">
-						<div class="form-group">
-							Target IP
-							<input formControlName="ip" type="text" class="form-control" placeholder="IP">
-							<div class="control-msgs" *ngIf="form.controls.ip.dirty && !form.controls.ip.valid">
-								<p *ngIf="form.controls.ip.errors.required">IP is required</p>
-								<p *ngIf="form.controls.ip.errors.invalidIp4">IP is invalid</p>
-							</div>
+		</div>
+		<div class="ping-trace-container">
+			<div class="box box-network box-green ping-container">
+				<div class="box-ping">
+					<div class="box-header-ping">
+						<h3 class="box-title">PING</h3>
+					</div> 
+					<form [formGroup]="form">
+						<div class="form-body">
+						<div class="inputs">	
+							<span class="input-ip"> 
+								<span class="input-label">Target IP</span>
+								<input formControlName="ip" type="text" class="form-control" placeholder="IP">
+							</span>
+							<span class="input-packet"> 
+								<span class="input-label">Packets (1-30)</span> 
+								<span class="row-flex">
+									<input formControlName="packetCount" #packetCount type="number" class="form-control" placeholder="Packets" min=1 max=30>
+									<input-controls [inputToChange]="packetCount"></input-controls>
+								</span>
+							</span>
+							<span class="input-packet"> 
+								<span class="input-label">Packet Size (0-1472)</span>
+								<span class="row-flex">
+									<input formControlName="packetSize"#packetSize type="number" class="form-control" placeholder="Packet Size" min=0 max=1472>
+									<input-controls [inputToChange]="packetSize"></input-controls>
+								</span>
+							</span>
 						</div>
-						<div class="form-group">
-							Packets (1-30)
-							<input formControlName="packetCount" type="number" class="form-control" placeholder="Packets" min=1 max=30>
-							<div class="control-msgs" *ngIf="form.controls.packetCount.dirty && !form.controls.packetCount.valid">
-								<p *ngIf="form.controls.packetCount.errors.invalidMinMax">Packet Count is invalid</p>
-							</div>
-						</div>
-						<div class="form-group">
-							Packet Size (0-1472)
-							<input formControlName="packetSize" type="number" class="form-control" placeholder="Packet Size" min=0 max=1472>
-							<div class="control-msgs" *ngIf="form.controls.packetSize.dirty && !form.controls.packetSize.valid">
-								<p *ngIf="form.controls.packetSize.errors.invalidMinMax">Packet Size is invalid</p>
-							</div>
-						</div>
-						<div class="box-buttons">
-							<button type="submit" *ngIf=!pingInProgress class="btn btn-default" (click)="ping()" [disabled]="!form.valid">PING</button>
-							<div *ngIf=pingInProgress id="cssload-wrapper">
+						<div class="ping-button">
+							<button *ngIf="!pingInProgress" type="submit" class="btn btn-default" (click)="ping()" [disabled]="!form.valid">PING</button>
+							<div *ngIf="pingInProgress" id="cssload-wrapper">
 								<div id="cssload-border">
 									<div id="cssload-whitespace">
-										<div id="cssload-line">
-										</div>
+										<div id="cssload-line"></div>
 									</div>
 								</div>
 							</div>
-					</div>
-				</form>
-			
-				<div class="box box-results" *ngIf="ipNetworkTools?.result">
-					<div class="box-header-trace">
+						</div>
+						<div class="control-msgs ping-msgs">
+							<p *ngIf="form.controls.ip.dirty && !form.controls.ip.valid && form.controls.ip.errors.required">IP is required</p>
+							<p *ngIf="form.controls.ip.dirty && !form.controls.ip.valid && form.controls.ip.errors.invalidIp4">IP is invalid</p>
+							<p *ngIf="form.controls.packetCount.dirty && !form.controls.packetCount.valid && form.controls.packetCount.errors.invalidMinMax">Packet Count is invalid</p>
+							<p *ngIf="form.controls.packetSize.dirty && !form.controls.packetSize.valid && form.controls.packetSize.errors.invalidMinMax">Packet Size is invalid</p>
+						</div>
+						</div>
+					</form>
+				</div>
+				<div class="box-results" *ngIf="ipNetworkTools?.result && showPingResults">
+				<!--<div class="box-results">-->
+					<div class="box-header">
 						<h3 class="box-title">RESULTS</h3>
+						<!--<button *ngIf="ipNetworkTools?.result" type="button" class="no-btn" data-widget="remove">CLOSE</button>-->
+						<button *ngIf="ipNetworkTools?.result" type="button" class="no-btn" (click)="showPingResults=false">CLOSE</button>
 					</div>
-					<div class="box-body">
-						<pre class="rd-pre"> {{ ipNetworkTools?.result }}</pre>
+					<pre> {{ ipNetworkTools?.result }}</pre>
+				</div>
+			</div>
+				
+			<div class="box box-network box-gray ping-container">
+				<div class="box-ping">
+					<div class="box-header-ping">
+						<h3 class="box-title">TRACE</h3>
+					</div> 
+				
+					<form [formGroup]="traceform">
+						<div class="form-body">
+						<div class="inputs">	
+							<span class="input-ip"> 
+								<span class="input-label"> Target IP </span>
+								<input formControlName="ip" type="text" class="form-control" placeholder="IP">
+							</span>
+						</div>
+						<div class="ping-button">
+							<button *ngIf="!traceInProgress" type="submit" class="btn btn-default" (click)="trace()" [disabled]="!traceform.valid">TRACE</button>
+							<div *ngIf="traceInProgress" id="cssload-wrapper">
+								<div id="cssload-border">
+									<div id="cssload-whitespace">
+										<div id="cssload-line"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="control-msgs">
+							<p *ngIf="traceform.controls.ip.dirty && !traceform.controls.ip.valid && traceform.controls.ip.errors.required">IP is required</p>
+							<p *ngIf="traceform.controls.ip.dirty && !traceform.controls.ip.valid && traceform.controls.ip.errors.invalidIp4">IP is invalid</p>
+						</div>
+						</div>
+					</form>
+				</div>
+				<div class="box-results" *ngIf="traceNetworkTools?.result && showTraceResults">
+					<div class="box-header">
+						<h3 class="box-title">RESULTS</h3>
+						<!--<button type="button" class="no-btn" data-widget="remove">CLOSE</button>-->
+						<button *ngIf="traceNetworkTools?.result" type="button" class="no-btn" (click)="showTraceResults=false">CLOSE</button>
 					</div>
-					<div class="box-tools pull-right">
-						<button type="button" class="btn btn-box-tool" data-widget="remove">CLOSE</button>
-					</div>
+					<pre>{{ traceNetworkTools?.result }}</pre>
 				</div>
 			</div>
 		</div>
 	</div>
-
-		
-	<div class="box box-network box-gray">
-
-		<div class="box-header-tracebox">
-			<h3 class="box-title">TRACE</h3>
-		</div>
-				<div class="tracebox">
-					<form [formGroup]="traceform">
-							<div class="form-group">
-								Target IP
-								<input formControlName="ip" type="text" class="form-control" placeholder="IP">
-								<div class="control-msgs" *ngIf="traceform.controls.ip.dirty && !traceform.controls.ip.valid">
-									<p *ngIf="traceform.controls.ip.errors.required">IP is required</p>
-									<p *ngIf="traceform.controls.ip.errors.invalidIp4">IP is invalid</p>
-								</div>
-							</div>
-							<div class="box-buttons">
-								<button type="submit" *ngIf=!traceInProgress class="btn btn-default" (click)="trace()" [disabled]="!traceform.valid">TRACE</button>
-								<div *ngIf=traceInProgress id="cssload-wrapper">
-									<div id="cssload-border">
-										<div id="cssload-whitespace">
-											<div id="cssload-line">
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-					</form>
-					<div class="box box-network box-results" *ngIf="traceNetworkTools?.result">
-						<div class="box-header">
-							<h3 class="box-title">RESULTS</h3>
-						</div>
-						<div class="box-body">
-							<pre class="rd-pre"> {{ traceNetworkTools?.result }}</pre>
-						</div>
-						<div class="box-tools pull-right">
-							<button type="button" class="btn btn-box-tool" data-widget="remove">CLOSE</button>
-						</div>
-					</div>
-				</div>
-		</div>
+</div>

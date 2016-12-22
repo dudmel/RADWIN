@@ -23,7 +23,12 @@ function displayTime(ticksInSecs: number) {
     let mm = Math.floor(ticks / 60) % 60;
     let ss = ticks % 60;
 
-    return pad(dd,2) + 'd:' + pad(hh, 2) + 'h:' + pad(mm, 2) + 'm:' + pad(ss, 2) + 's';
+    let ddStr = dd > 0? pad(dd,2) + 'd:' : '';
+    let hhStr = hh > 0? pad(hh,2) + 'h:' : '';
+    let mmStr = mm > 0? pad(mm,2) + 'm:' : '';
+    let ssStr = pad(ss,2) + 's';
+
+    return ddStr + hhStr + mmStr + ssStr;
 }
 
 function pad(n, width) {

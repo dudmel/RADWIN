@@ -101,7 +101,7 @@ export function spectrumRangeValidator(group: FormGroup): { [s: string]: boolean
 export function ntpServerValidator(control: FormControl): { [s: string]: boolean } {
   if (!control.value || control.value === undefined)
     return {invalidNtpServer: false};
-  if (!control.value.match(ipRegex) || control.value === '0.0.0.0' || control.value === '255.255.255.255') {
+  if (!control.value.match(ipRegex) || control.value === '255.255.255.255') { //control.value === '0.0.0.0' ||
     return {invalidNtpServer: true};
   }
 }

@@ -1,84 +1,92 @@
 <h3 class="section-title">Operations</h3>
-
+ 
 <div class="row-flex">
 
-    <div class="box box-operations box-light-blue">
-      <div class="box-body">
-      <div class="box-header">
-        <h3 class="box-title spectrum-title">SPECTRUM ANALYZER</h3>
+  <div class="box box-operations box-light-blue">
+    <div class="box-header">
+      <h3 class="box-title spectrum-title">SPECTRUM ANALYZER</h3>
+    </div>
+    <div class="box-body">
+      <div class="inputs-container">
+        <form *ngIf="spectrumRange" [formGroup]="spectrumForm">
+          <fieldset>
+            <div class="form-group">
+              Range [MHz]:
+              <span class="row-flex row-flex-input">
+                <input formControlName="minAirFrequency" [(ngModel)]="spectrumRange.minAirFrequency" #minAirFrq class="form-control" type="number" step=5 min={{spectrumRange.minChipFrequency}}>
+                <input-controls [inputToChange]="minAirFrq"></input-controls>
+              </span>
+              <span class="row-flex row-flex-input">              
+                <input formControlName="maxAirFrequency" [(ngModel)]="spectrumRange.maxAirFrequency" #maxAirFrq class="form-control" type="number" step=5 max={{spectrumRange.maxChipFrequency}}>
+                <input-controls [inputToChange]="maxAirFrq"></input-controls>
+              </span>
+              <div class="control-msgs" *ngIf="spectrumForm.controls.minAirFrequency.dirty || spectrumForm.controls.maxAirFrequency.dirty">
+                <p *ngIf="spectrumForm.errors?.invalidSpectrumRange">Scanning range should be up to 500MHz</p>
+              </div>
+            </div>
+            <div class="form-group">
+              Duration [sec]:
+              <span class="row-flex row-flex-input">
+                <input formControlName="duration" #duration1 [(ngModel)]="duration" class="form-control" type="number" min="60" max="86400">
+                <input-controls [inputToChange]="duration1"></input-controls>
+              </span>
+              <div class="control-msgs" *ngIf="spectrumForm.controls.duration.dirty && !spectrumForm.controls.duration.valid">
+                <p *ngIf="spectrumForm.controls.duration.errors.invalidMinMax">Duration should be 60-86400 sec</p>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+        <button  [disabled]="!spectrumForm.valid || spectrumTestInProgress" (click)="startSpectrum($event)" class="btn btn-default">START</button>
+        <button  [disabled]="!spectrumTestInProgress" (click)="stopSpectrum($event)" class="btn btn-default">STOP</button>
+        <button  [disabled]="!downloadAvailable" (click)="saveToFile($event)" class="btn btn-default">SAVE TO FILE</button>
       </div>
-        <div class="row-flex">
-          <div class="inputs-container">
-            <form *ngIf="spectrumRange" [formGroup]="spectrumForm">
-              <fieldset>
-                <div class="form-group">
-                  Range [MHz]:
-                  <input formControlName="minAirFrequency" [(ngModel)]="spectrumRange.minAirFrequency" class="form-control" type="number" step=5
-                    min={{spectrumRange.minChipFrequency}}>
-                  <input formControlName="maxAirFrequency" [(ngModel)]="spectrumRange.maxAirFrequency" class="form-control" type="number" step=5
-                    max={{spectrumRange.maxChipFrequency}}>
-                  <div class="control-msgs" *ngIf="spectrumForm.controls.minAirFrequency.dirty || spectrumForm.controls.maxAirFrequency.dirty">
-                    <p *ngIf="spectrumForm.errors?.invalidSpectrumRange">Scanning range should be up to 500MHz</p>
-                  </div>
-                </div>
-                <div class="form-group">
-                  Duration [sec]:
-                  <input formControlName="duration" [(ngModel)]="duration" class="form-control" type="number" min="60" max="86400">
-                  <div class="control-msgs" *ngIf="spectrumForm.controls.duration.dirty && !spectrumForm.controls.duration.valid">
-                    <p *ngIf="spectrumForm.controls.duration.errors.invalidMinMax">Duration should be 60-86400 sec</p>
-                  </div>
-                </div>
-              </fieldset>
-            </form>
-              <button  [disabled]="!spectrumForm.valid || spectrumTestInProgress" (click)="startSpectrum($event)" class="btn btn-default">START</button>
-              <button  [disabled]="!spectrumTestInProgress" (click)="stopSpectrum($event)" class="btn btn-default">STOP</button>
+      <div class="charts-container">
+          <div class="chart">
+            <div>
+              Antenna A
+            </div>
+            <canvas baseChart class="spectrum-chart" id="antennaA" [datasets]="barChartDataA" [labels]="barChartLabels" [options]="barChartOptions"
+              [colors]="barChartColors" [chartType]="barChartType">
+            </canvas>
           </div>
-          <div class="charts-container">
-            <div class="chart">
-              <div>
-                Antenna A
-              </div>
-              <canvas baseChart class="spectrum-chart" id="antennaA" [datasets]="barChartDataA" [labels]="barChartLabels" [options]="barChartOptions"
-                [colors]="barChartColors" [chartType]="barChartType">
-              </canvas>
+          <div class="chart">
+            <div>
+              Antenna B
             </div>
-            <div class="chart">
-              <div>
-                Antenna B
-              </div>
-              <canvas baseChart class="spectrum-chart" id="antennaB" [datasets]="barChartDataB" [labels]="barChartLabels" [options]="barChartOptions"
-                [colors]="barChartColors" [chartType]="barChartType">
-              </canvas>
-            </div>
+            <canvas baseChart class="spectrum-chart" id="antennaB" [datasets]="barChartDataB" [labels]="barChartLabels" [options]="barChartOptions"
+              [colors]="barChartColors" [chartType]="barChartType">
+            </canvas>
           </div>
         </div>
-      </div>
     </div>
+  </div>
 
   <div class="side-box">
-    <div class="box box-green">
+   
+    <div class="box box-function box-green">
       <div class="box-header">
         <h4 class="box-title">DIAGNOSTICS FILE</h4>
       </div>
         <button type="submit" [disabled]="false" (click)="getDiagnostics($event)" class="btn btn-default">DOWNLOAD</button>
     </div>
 
-    <div class="box box-orange">
+    <div class="box box-function box-orange">
       <div class="box-header">
         <h4 class="box-title">FUNCTIONS</h4>
       </div>
       <div class="box-body">
-          <div class="row-flex two-buttons">
-                <button type="submit" (click)="reset($event)" class="btn btn-default">RESET</button>
-                <button type="submit" (click)="resync($event)" class="btn btn-default">RESYNC</button>
-          </div>
+          <!--<div class="row-flex two-buttons">-->
+              <button type="submit" (click)="reset($event)" class="btn btn-default">RESET</button>
+              <button type="submit" (click)="resync($event)" class="btn btn-default">RESYNC</button>
+          <!--</div>-->
               <button type="submit" [disabled]="!isActivationEnabled" (click)="acitvateDevice($event)" class="btn btn-default">DEVICE ACTIVATION</button>
         </div>
     </div>
-    <div class="box box-gray">
+
+    <div class="box box-function box-gray">
       <div class="box-header">
         <h4 class="box-title">LICENSE ACTIVATION</h4>
-      </div>
+      </div> 
       <div class="box-body">
         <form [formGroup]="licenseActivationForm">
           <div class="form-group">
@@ -91,11 +99,12 @@
       </div>
     </div>
         
-    <div class="box box-gray">
+    <div class="box box-function box-gray">
       <div class="box-header">
         <h4 class="box-title">RESTORE TO FACTORY DEFAULTS</h4>
       </div>
         <button type="submit" class="btn btn-default" (click)="restoreToDefualtsPressed($event)">RESTORE</button>
     </div>
+    
   </div>
 </div>

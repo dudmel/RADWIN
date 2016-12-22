@@ -39,8 +39,11 @@ import { OperationsComponent } from './tools/operations/operations.component';
 import { RestoreToDeaultsComponent } from './tools/operations/restoreToDefaults/restore-to-defaults-component';
 import { NetworkToolsComponent } from './tools/network/network-tools.component';
 import { GaugeComponent, options } from './blocks';
+import { InputControls } from './blocks/input_controls';
+
+
 // Pipes
-import { UnitsPipe, TimeTicks, ProductPipe, NoneValuePipe } from './blocks';
+import { UnitsPipe, TimeTicks, ProductPipe, NoneValuePipe, MacPipe } from './blocks';
 // 3rd Party
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { FileUploadModule } from 'ng2-file-upload';
@@ -67,9 +70,9 @@ const APP_PROVIDERS = [
     ChangeBandComponent, TrapComponent, WifiConfigurationComponent,
     SecurityConfigurationComponent, UnitToolsComponent, OperationsComponent,
     NetworkToolsComponent, LinkStateComponent, GaugeComponent, AlarmsComponent,
-    SwuComponent, RestoreToDeaultsComponent,
+    SwuComponent, RestoreToDeaultsComponent,  InputControls,
     // pipes
-    ProductPipe, UnitsPipe, TimeTicks, NoneValuePipe,
+    ProductPipe, UnitsPipe, TimeTicks, NoneValuePipe, MacPipe
   ],
   imports: [ // import Angular's modules
     Ng2Bs3ModalModule,

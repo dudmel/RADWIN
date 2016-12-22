@@ -3,12 +3,12 @@
     <div class="overview-row">
         <radio-monitor></radio-monitor>
         <div class="monitors-container">
-            <device-monitor device="HSU" [tput]="monitor.hsuTput" [rss]="monitor.hsuRss" [tx]="monitor.hsuLan1TxMbps" [rx]="monitor.hsuLan1RxMbps">
+            <device-monitor device="HSU">
             </device-monitor>
-            <device-monitor device="HBS" [tput]="monitor.hbsTput" [rss]="monitor.hbsRss" [tx]="monitor.hbsLan1TxMbps" [rx]="monitor.hbsLan1RxMbps">
+            <device-monitor device="HBS">
             </device-monitor>
         </div>
     </div>
 
-        <recent-events></recent-events>
+        <recent-events></recent-events> 
 </div>

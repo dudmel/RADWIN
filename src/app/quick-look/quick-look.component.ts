@@ -85,7 +85,7 @@ export class QuickLookComponent implements OnInit, OnDestroy {
     }
 
     getRssImg() {
-        if (this.monitor.hsuLinkState == 'Not Synchronized') return '../../assets/icon/rss4.svg'; 
+        if (!this.monitor.hsuLinkState || this.monitor.hsuLinkState == 'Not Synchronized') return '../../assets/icon/rss4.svg'; 
         if (this.monitor.hsuRss >= -65) return '../../assets/icon/rss1.svg' 
         if (this.monitor.hsuRss >= -80 && this.monitor.hsuRss < 65 ) return '../../assets/icon/rss2.svg' 
         if (this.monitor.hsuRss < -80) return '../../assets/icon/rss3.svg' 

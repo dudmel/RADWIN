@@ -23,7 +23,7 @@ declare var $: any;
 @Component({
     selector: 'dashboard',
     providers: [WModalService, SystemService, RadioService, ChangeBandService, SpinnerService,
-        NetworkService, MonitorService, TrapsDestinationsService, ActiveAlarmsService],
+                NetworkService, MonitorService, TrapsDestinationsService, ActiveAlarmsService],
     template: require('./dashboard.component.html'),
     styleUrls: ['dashboard.component.scss']
 })

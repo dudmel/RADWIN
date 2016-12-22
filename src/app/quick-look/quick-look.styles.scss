@@ -18,11 +18,13 @@
     width: 24%;
   }
   .info-box-text {
-    font-size: 1.2vw;
+    font-size: 1.6em;
   }
 }
 
-
+link-state {
+  min-width: 239px;
+}
 
 .quick-look-bar {
   background-image:url("/assets/icon/pattern.png");
@@ -167,6 +169,9 @@
     border-left: 4px solid #72cd9a;
 }
 
+.sm-text {
+  font-size: 14px;
+}
 @media (max-width: 1050px) {
   .row-flex {
     width: 600px;
@@ -177,7 +182,7 @@
     width: 274px;
   }
   .info-box-text {
-    font-size: 1.6em;
+    font-size: 20px;
   }
   .quick-look-block {
     margin: 0 10px 0 10px;

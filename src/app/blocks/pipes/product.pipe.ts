@@ -7,7 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ProductPipe implements PipeTransform {
     transform(value: string): any {
 
-        if (!value) return '';
+        if (value == undefined) return '';
         let res = value.split('- RW-5');
         return res[0];
     }

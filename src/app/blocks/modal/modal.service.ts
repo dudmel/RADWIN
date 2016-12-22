@@ -5,8 +5,17 @@ import { ImodelResponce} from './modelResponce';
 
 @Injectable()
 export class WModalService {
-  activate: (message?: string, title?: string,
-             okText?: string, cancelText?: string, type?: Consts.ModalType) => Promise<Boolean>;
+  
+  activate: (message?: string,
+             title?: string,
+             okText?: string,
+             cancelText?: string,
+             type?: Consts.ModalType) => Promise<Boolean>;
 
-  activateWithInnerTemplate: (innerComponent: Component) => Promise<ImodelResponce>;
+  activateWithInnerTemplate: (innerComponent: Component,
+                              message?: string, 
+                              title?: string,
+                              okText?: string, 
+                              cancelText?: string,
+                              type?: Consts.ModalType) => Promise<ImodelResponce>;
 }

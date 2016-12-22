@@ -50,7 +50,7 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
-.icon-ok:before {
+.icon-ok:before { 
   content: '\e800';
 }
 
@@ -64,6 +64,9 @@
 
 .icon-cancel:before {
   content: '\e802';
+}
+.icon-cancel-circled2:before { 
+  content: '\e803';
 }
 
 /* '' */

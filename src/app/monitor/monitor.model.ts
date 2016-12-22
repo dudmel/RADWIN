@@ -36,4 +36,5 @@ export interface IMonitorModel {
     realTimeAndDate?: string;
     activeAlarmsCounter?: number;
     configMonitor?: IConfigMonitor;
+    atpcStstus?: string
 };

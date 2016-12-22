@@ -4,8 +4,9 @@ import { Observable } from 'rxjs/Observable';
 import { ExHttpService } from '../../blocks';
 import { Consts, exLog } from '../../shared';
 
-let swuValidateUrl = Consts.baseUrls.swuValidate;
+let resetUrl = Consts.baseUrls.reset;
 let swuStartUrl = Consts.baseUrls.swuStart;
+let swuValidateUrl = Consts.baseUrls.swuValidate;
 let swuStartBackupUrl = Consts.baseUrls.swuBackup;
 let swuCheckFileExistenceUrl = Consts.baseUrls.checkFileExistence;
 
@@ -20,7 +21,8 @@ export interface ISwuMetaData {
 
 @Injectable()
 export class SwuService {
-  constructor(private _httpService: ExHttpService<ISwuMetaData>) {}
+  constructor(private _httpService: ExHttpService<ISwuMetaData>) {
+  }
 
   getSwuState(mode): Observable<ISwuMetaData> {
     exLog('SWU getdata');
@@ -32,8 +34,6 @@ export class SwuService {
     return this._httpService.getData(swuCheckFileExistenceUrl + '?mode=' + mode);
   }
 
-  
-
   startSwu(mode): Observable<ISwuMetaData> {
      exLog('SWU start');
      return this._httpService.post(swuStartUrl + '?mode=' + mode);
@@ -44,4 +44,7 @@ export class SwuService {
      return this._httpService.getBlob(swuStartBackupUrl);
    }
 
+  reset(): any {
+    return this._httpService.post(resetUrl);
+  }
 }

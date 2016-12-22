@@ -1,8 +1,8 @@
 <div class="box-header">
 	<h3 class="box-title">{{ title }}</h3>
-	<button class="btn btn-file">
+	<span class="btn btn-file">
 		Manual upload <input type="file" ng2FileSelect [uploader]="uploader" accept="{{fileType}}"/>
-	</button>
+	</span>
 </div>
 <div class="box-body">
 	
@@ -15,7 +15,7 @@
 		<button type="submit" class="btn btn-install" (click)="validateSwu()">Validate</button>
 	</div>
 
-	<div *ngIf="swuError" class="file-details">
+	<div *ngIf="swuError" class="file-error">
 		<span class="file-status"> Error: {{ swuError }} </span>
 	</div>
 	

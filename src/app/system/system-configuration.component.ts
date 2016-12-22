@@ -54,12 +54,12 @@ export class SystemConfigurationComponent implements OnInit, OnDestroy {
     this.form.reset();
   }
 
-  canDeactivate(): any {
+  canDeactivate(): Promise<boolean> | boolean {
     if (!this.form || !this.form.dirty) {
       return true;
     }
     // Ask User
-    return Observable.fromPromise(Promise.resolve(this._modalService.activate()));
+    return Promise.resolve(this._modalService.activate());
   }
 
   ngOnInit() {

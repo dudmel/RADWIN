@@ -14,7 +14,7 @@
             </div>
         </div> 
        
-            <div class="info-box">
+            <div class="info-box info-box-gray">
                 <div class="info-box-icon">
                         <img src="./../assets/icon/lan.svg"/>
                 </div>
@@ -63,15 +63,15 @@
                     </div>
                     <span class="quick-look-text">
                     {{system?.swVersion}}
-                </span>
-            </div>
+                    </span>
+                </div>
 
                 <div class="quick-look-block">
                     <div class="quick-look-header">
                         HW Version
                     </div>
-                    <span class="quick-look-text">
-                        {{system?.hwVersion}}
+                    <span class="quick-look-text" *ngIf="system?.hwVersion">
+                        {{system?.hwVersion}}.{{system?.radioRev}}
                     </span>
                 </div>
         </div>

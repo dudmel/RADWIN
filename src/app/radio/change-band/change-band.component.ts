@@ -6,7 +6,7 @@ import { AppStore, WModalService } from '../../blocks';
 import { ChangeBandService } from './change-band.service';
 import { IChangeBandModel } from './change-band.model';
 import { IMonitorModel } from '../../monitor';
-import { Resources, exLog } from '../../shared';
+import { Resources, exLog, Consts } from '../../shared';
 import 'rxjs/add/observable/fromPromise';
 
 @Component({
@@ -43,7 +43,9 @@ export class ChangeBandComponent implements OnInit, OnDestroy {
                     this._bandService.setData(this.bandform.value)
                         .subscribe(response => {
                             exLog(response);
-                            if (response.code === '200') {
+                            if (response.data.error != null) {
+                                this._modalService.activate(Resources.unableToPerformOperation, Resources.error, "OK", null, Consts.ModalType.error)
+                            } else {
                                 let p = Promise.resolve(this._modalService.activate(Resources.reseting, Resources.changeBandSuccess));
                                 return Observable.fromPromise(p);
                             }
@@ -57,7 +59,7 @@ export class ChangeBandComponent implements OnInit, OnDestroy {
         return isDifferent;
     }
 
-    canDeactivate(): any {
+    canDeactivate(): Promise<boolean> | boolean {
         if (!this.bandform || !this.bandform.dirty) {
             return true;
         }
@@ -67,7 +69,7 @@ export class ChangeBandComponent implements OnInit, OnDestroy {
         }
         
         // Ask User
-        return Observable.fromPromise(Promise.resolve(this._modalService.activate()));
+        Promise.resolve(this._modalService.activate());
     }
 
     ngOnInit() {
@@ -82,11 +84,11 @@ export class ChangeBandComponent implements OnInit, OnDestroy {
             .subscribe((monitor: IMonitorModel) => {
                 this.monitor = monitor;
                 this.linkOff = monitor.hsuLinkState === 'Not Synchronized';
-                if (!this.linkOff) {
-                    this.bandform.controls['currentBandId'].disable();
-                } else {
-                    this.bandform.controls['currentBandId'].enable();
-                }
+                // if (!this.linkOff) {
+                //     this.bandform.controls['currentBandId'].disable();
+                // } else {
+                //     this.bandform.controls['currentBandId'].enable();
+                // }
             });
     }
 

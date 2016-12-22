@@ -58,7 +58,7 @@ export class WModalComponent implements OnInit, OnDestroy {
 
         document.onkeyup = (e: any) => {
             if (e.which === KEY_ESC) {
-                this.modal.close();
+                this.tryClose();
                 return this.negativeOnClick(undefined);
             }
         };
@@ -66,14 +66,22 @@ export class WModalComponent implements OnInit, OnDestroy {
         return promise;
     }
 
-    activateWithInnerTemplate(component: any) {
+    activateWithInnerTemplate(component: any,
+                                message = this._defaults.message,
+                                title = this._defaults.title,
+                                okText = this._defaults.okText,
+                                cancelText = this._defaults.cancelText,
+                                modalType = this._defaults.modalType,
+                                ) {
 
         let factory = this._resolver.resolveComponentFactory(component);
-        this.innercomponent.clear();
         let componentRef = this.innercomponent.createComponent(factory);
 
-        this.okText = this._defaults.okText;
-        this.cancelText = this._defaults.cancelText;
+        this.title      = (title != undefined) ? title : this._defaults.title
+        this.okText     = (okText != undefined) ? okText : this._defaults.okText;
+        this.cancelText = (cancelText != undefined) ? cancelText : this._defaults.cancelText;
+        this.modalType  = (modalType != undefined) ? modalType : this._defaults.modalType
+
         this.message = '';
 
         let promise = new Promise<any>((resolve, reject) => {
@@ -95,7 +103,6 @@ export class WModalComponent implements OnInit, OnDestroy {
     }
 
     tryClose(){
-        this.innercomponent.clear();
         this.modal.close();
     }
 
@@ -103,6 +110,10 @@ export class WModalComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy(){
+    }
+
+    clear() {
+        this.innercomponent.clear();
     }
 
     getIconImg(): string {

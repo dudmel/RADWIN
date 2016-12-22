@@ -29,7 +29,7 @@ export class GaugeComponent implements OnInit {
 
     @Input()
     set value(val: number) {
-        if (val && this._gauge) {
+        if (val >= 0 && this._gauge) {
             this._value = val;
             this._gauge.value = this._value;
         }
@@ -41,14 +41,15 @@ export class GaugeComponent implements OnInit {
 
     constructor( @Attribute('title') _title) {
         this._title = _title;
+        this._value = 0;
     }
 
     ngAfterViewInit() {
         this._gauge = new RadialGauge({
             renderTo: this._title,
             title: this._title,
-            width: 300,
-            height: 300,
+            width: 250,
+            height: 250,
             units: 'Mb/s',
             minValue: 0,
             maxValue: 120,

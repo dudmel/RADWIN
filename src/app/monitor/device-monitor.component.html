@@ -6,7 +6,7 @@
     <div class="device-monitor-block border-right">
         <div class="monitor-block border-bottom">
             <div class="monitor-graph">
-                <div class="sparkline" #rsssparkline></div>
+                <div class="sparkline-rss" #rsssparkline></div>
             </div>
             <div class="measure">
                 <div class="monitor-caption">RSS</div>
@@ -19,7 +19,7 @@
             </div>
             <div class="measure">
                 <div class="monitor-caption">Est. T-Put</div>
-                <div class="monitor-caption-data" *ngIf='isLinkSynchronized'>{{tput / 1000000 | number : '1.2-2' | units: 'mbs'}}</div>
+                <div class="monitor-caption-data" *ngIf='isLinkSynchronized'>{{tput | units: 'mbs'}}</div>
             </div>
         </div>
     </div>
@@ -34,7 +34,7 @@
                 <div class="monitor-caption-data" *ngIf='isLinkSynchronized'>{{tx | units: 'mbs'}}</div>
             </div>
         </div>
-        <div class="monitor-block">
+        <div class="monitor-block"> 
             <div class="monitor-graph">
                 <div class="sparkline" #rxsparkline></div>
             </div>

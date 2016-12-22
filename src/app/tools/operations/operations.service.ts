@@ -11,12 +11,17 @@ let restoreToDefaultsUrl = Consts.baseUrls.restoreToDefaults;
 let activateLicenseUrl = Consts.baseUrls.activateLicense;
 let skipAlignmentUrl = Consts.baseUrls.skipAlignment;
 let diagnosticsUrl = Consts.baseUrls.diagnostics;
+let spectrumTableUrl = Consts.baseUrls.spectrumTable;
 
 @Injectable()
 export class OperationsService {
   constructor(private _httpService: ExHttpService<any>) {}
 
   getDiagnostics(): any {
+     return this._httpService.get(diagnosticsUrl);
+  }
+
+    getSpectrum(): any {
      return this._httpService.get(diagnosticsUrl);
   }
 

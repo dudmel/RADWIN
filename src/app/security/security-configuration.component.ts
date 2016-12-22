@@ -10,7 +10,7 @@ import { exLog, Resources, Consts } from '../shared';
 import {
   AppStore, WModalService, ip4Validator,
   invalidPasswordValidator, matchingPasswordsValidator
-} from '../blocks';
+} from '../blocks'; 
 import 'rxjs/add/observable/fromPromise';
 
 @Component({
@@ -34,10 +34,10 @@ export class SecurityConfigurationComponent implements OnInit, OnDestroy {
 
     this.linkPasswordForm = _formBuilder.group({
       matchingPasswords: this._formBuilder.group({
-        newPassword: ['', Validators.compose([Validators.required, invalidPasswordValidator, Validators.minLength(8)])],
-        confirmPassword: ['', Validators.compose([Validators.required, invalidPasswordValidator, Validators.minLength(8)])],
+        newPassword: [{value: '', disabled: !this._isChangeLinkPasswordEnabled}, Validators.compose([Validators.required, invalidPasswordValidator, Validators.minLength(8)])],
+        confirmPassword: [{value: '', disabled: !this._isChangeLinkPasswordEnabled}, Validators.compose([Validators.required, invalidPasswordValidator, Validators.minLength(8)])],
       }, { validator: matchingPasswordsValidator }),
-      currentPassword: ['', Validators.compose([Validators.required, invalidPasswordValidator])],
+      currentPassword: [{value: '', disabled:  !this._isChangeLinkPasswordEnabled}, Validators.compose([Validators.required, invalidPasswordValidator])],
     });
   }
 
@@ -65,22 +65,28 @@ export class SecurityConfigurationComponent implements OnInit, OnDestroy {
     this.linkPasswordForm.reset();
   }
 
-  canDeactivate(): any {
+  canDeactivate(): Promise<boolean> | boolean {
     if (!this.linkPasswordForm || !this.linkPasswordForm.dirty) {
       return true;
     }
     // Ask User
-    return Observable.fromPromise(Promise.resolve(this._modalService.activate()));
+    return Promise.resolve(this._modalService.activate());
   }
-
   ngOnInit() {
     exLog('hello Security Configuration Component');
 
     this.monitorSub = this._store.select('monitor')
       .subscribe((monitor: IMonitorModel) => {
-        this._isChangeLinkPasswordEnabled = monitor.hsuLinkState === 'Not Synchronized' ||
-                  monitor.hsuLinkState === 'Active Authentication Error';
-      });
+        if (monitor.hsuLinkState === 'Not Synchronized' || monitor.hsuLinkState === 'Active Authentication Error') {
+          this.linkPasswordForm.controls['currentPassword'].enable();
+          this.linkPasswordForm.controls['matchingPasswords'].enable();
+        }
+        else {
+          this.linkPasswordForm.controls['currentPassword'].disable();
+          this.linkPasswordForm.controls['matchingPasswords'].disable();
+        }
+            
+    });
   }
 
   ngOnDestroy() {

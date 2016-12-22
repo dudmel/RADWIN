@@ -6,7 +6,11 @@ export namespace Resources {
 
     export let timeout = 'Timeout occured';
     export let tokenExpiration = 'Session timeout, please re-login';
-    export let error = 'Error';
+    export let error = 'Error occurred';
+    export let unableToPerformOperation = 'Unable to perform operation';
+
+
+    
 
     export let changeBandSuccess = 'Change Band Successfully';
     export let reseting = 'Device is about to reset';
@@ -32,7 +36,9 @@ export namespace Resources {
 
     export let activateDeviceWarning = 'You are about to activate an HSU. Please make sure you know exactly the HBS location for alignment.\n Continue ?';
 
-    export let restoreWarning = `You are about to restore device to release {0}.\n Some of the current configuration settings may be lost.\n Do you wish to continue ?`;
+    export let restoreWarning = `You are about to restore device to release {0}.\n Some of the current configuration settings may be lost.\n After successfull restore automatic reset will be performed.\n Do you wish to continue ?`;
+
+    export let swuResetWarning = `You are about to perform software upgrade.\n After successfull upgrade automatic reset will be performed.\n Do you wish to continue ?`;
 
     export let backupFailed = 'Backup Failed';
 }

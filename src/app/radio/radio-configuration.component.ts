@@ -29,7 +29,7 @@ export class RadioConfigurationComponent implements OnInit, OnDestroy {
   private monitorSub;
   private mobilityLevels: number[];
   private isLinkSynchronized: boolean;
-  private initialSectorId
+  private isAtpcEnabled: boolean;
   // private mask = [/[1-9]/, /[1-9]/, /[1-9]/, '.', /[1-9]/];
   // [textMask]="{mask: mask}"
 
@@ -42,8 +42,7 @@ export class RadioConfigurationComponent implements OnInit, OnDestroy {
   }
 
   save() {
-    exLog('Radio Form Value: ', this.form.value);
-
+    exLog('Saving Radio Form Value: ', this.form.value);
     if (!this.form.valid) {
       return Observable.fromPromise(Promise.resolve(this._modalService.activate("Configuration is invalid", "Radio configuration", "OK", "", Consts.ModalType.error)));
     }
@@ -54,28 +53,25 @@ export class RadioConfigurationComponent implements OnInit, OnDestroy {
         : "You are about to change Channel Bandwidth.";
       this._modalService.activate(warningMessage, Resources.warning, undefined, undefined, Consts.ModalType.warning)
         .then(responseOk => {
-          if (!responseOk) { return; }
+          if (!responseOk) 
+            return;
+          this.setFormData();
           }); 
     }
-    // else if (this.form.controls['currentCbw'].dirty) {
-    //   let warningMessage = "You are about to change the Operating Channel."
-    //   this._modalService.activate(warningMessage, Resources.warning, undefined, undefined, Consts.ModalType.warning)
-    //     .then(responseOk => {
-    //       if (!responseOk) { return; }
-    //       }); 
-    //  }
+    this.setFormData();
+  }
 
+  setFormData() {
     let dirtyForm: IRadioModel = <IRadioModel>{};
     for (let control in this.form.controls) {
       if (this.form.controls[control].dirty) {
         dirtyForm[control] = this.form.controls[control].value;
-        dirtyForm.sectorId = '' + this.form.controls['sectorId1'].value + this.form.controls['sectorId2'].value
+        if (this.form.controls['sectorId1'].value != undefined && this.form.controls['sectorId2'].value != undefined)
+          dirtyForm.sectorId = '' + this.form.controls['sectorId1'].value + this.form.controls['sectorId2'].value
       }
       exLog(dirtyForm.sectorId);
     }
-
     this._radioService.setData(dirtyForm);
-
     if (this.form.controls['sectorId1'].dirty || this.form.controls['sectorId2'].dirty)
       this._radioService.resync();
 
@@ -87,12 +83,12 @@ export class RadioConfigurationComponent implements OnInit, OnDestroy {
     this.form.reset();
   }
 
-  canDeactivate(): any {
+  canDeactivate(): Promise<boolean> | boolean {
     if (!this.form || !this.form.dirty) {
       return true;
     }
     // Ask User
-    return Observable.fromPromise(Promise.resolve(this._modalService.activate()));
+    return Promise.resolve(this._modalService.activate());
   }
 
   ngOnInit() {
@@ -102,9 +98,11 @@ export class RadioConfigurationComponent implements OnInit, OnDestroy {
     this.monitorSub = this._store.select('monitor')
       .subscribe((monitor: IMonitorModel) => {
         this.monitor = monitor;
-        this.canChangeSectorId1 =  monitor.hsuLinkState === 'Not Synchronized' ||
-                                  monitor.hsuLinkState === 'Active Unregistered';
+        this.canChangeSectorId1 = monitor.hsuLinkState === 'Not Synchronized' || monitor.hsuLinkState === 'Active Unregistered';
+        this.canChangeSectorId2 = this.form.controls['sectorId1'].valid;
         this.linkOff = monitor.hsuLinkState === 'Not Synchronized';
+        this.isAtpcEnabled = monitor.atpcStstus && monitor.atpcStstus != 'Off';
+       
 
         // this.linkOff = monitor.hsuLinkState === Consts.linkStates.linkOff;
         if (!this.linkOff) {
@@ -114,19 +112,25 @@ export class RadioConfigurationComponent implements OnInit, OnDestroy {
           this.form.controls['currentCbw'].enable();
           this.form.controls['mobilityLevels'].enable();
         }
+
+        if (this.isAtpcEnabled)
+          this.form.controls['desiredTxPower'].disable();
+        else
+          this.form.controls['desiredTxPower'].enable();
+
+          this.calculateEirp();
+          if (!this.canChangeSectorId2) this.form.controls['sectorId2'].disable();
       });
 
     this.radioSub = this._store.select('radio')
       .subscribe((radio: IRadioModel) => {
         this.radio = radio;
-        this.initialSectorId = radio.sectorId;
-        this.calculateEirp();
+        //this.calculateEirp();
       });
 
     this.isLinkSynchronized = true;
 
     this.getRadio();
-
   }
 
   ngOnDestroy() {
@@ -138,8 +142,8 @@ export class RadioConfigurationComponent implements OnInit, OnDestroy {
     this.mobilityLevels = [1, 2, 3, 4];
 
     this.form = this._formBuilder.group({
-      sectorId1: ['', Validators.compose([Validators.minLength(4), Validators.maxLength(4)])],
-      sectorId2: ['', Validators.compose([Validators.minLength(4), Validators.maxLength(16)])],
+      sectorId1: ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(4)])],
+      sectorId2: ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(20)])],
       antennaGain: [''],
       desiredTxPower: ['', minMaxNumberValidator(-8, 25)],
       currentCbw: [''],
@@ -156,9 +160,14 @@ export class RadioConfigurationComponent implements OnInit, OnDestroy {
   }
 
   calculateEirp() {
-    if (this.radio !== undefined && this.monitor.configMonitor !== undefined) {
-      this.eirp = this.monitor.configMonitor.totalTxPower + this.radio.antennaGain + this.radio.cableLoss / 10;
+    if (this.radio == undefined) {
+      return;
     }
+     if (this.monitor == undefined || this.monitor.configMonitor == undefined) {
+      return;
+     }
+      
+      this.eirp = this.monitor.configMonitor.totalTxPower + this.radio.antennaGain + this.radio.cableLoss / 10;
   }
 
   private getRadio() {
@@ -166,8 +175,7 @@ export class RadioConfigurationComponent implements OnInit, OnDestroy {
     this._changeBandService.getData();
   }
 
-  private _canChangeSectorId2(sector1Value) {
-    if ((sector1Value + '').length === 4) this.canChangeSectorId2 = true;
-    else this.canChangeSectorId2 = false;
+  private _canChangeSectorId2(sector1Value: string) {
+    if (sector1Value.length == 4) this.form.controls['sectorId2'].enable();
   }
 }

@@ -36,6 +36,7 @@ export class OperationsComponent implements OnInit, OnDestroy {
   private licenseActivationForm: FormGroup;
   private duration: number = 120;
   private isActivationEnabled: boolean;
+  private downloadAvailable: boolean;
   private spectrumTestInProgress: boolean;
   private restoreData: IRestoreToDefaultsData;
   private spectrumSub;
@@ -84,7 +85,7 @@ export class OperationsComponent implements OnInit, OnDestroy {
           this.barChartDataB[1].data = spectrum.averageAntennaB.map(function (val) { return val + OFFSET; });
           this.barChartDataA[2].data = spectrum.maxAntennaA.map(function (val) { return val + OFFSET; });
           this.barChartDataB[2].data = spectrum.maxAntennaB.map(function (val) { return val + OFFSET; });
-          // console.table(this.barChartDataA)
+          this.downloadAvailable = true;
         }
       });
 
@@ -110,6 +111,7 @@ export class OperationsComponent implements OnInit, OnDestroy {
 
   startSpectrum() {
     exLog('starting spectrum');
+    this.downloadAvailable = false;
     
     let durationStr = String(this.duration);
     let warningMessage = Resources.spectrumWarning.replace('{0}', durationStr);
@@ -129,6 +131,17 @@ export class OperationsComponent implements OnInit, OnDestroy {
     this._spectrumService.stopSpectrum();
   }
 
+  saveSpectrumDataToFile() {
+    this._operationsService.getSpectrum()
+      .subscribe(response => {
+        let data = JSON.stringify(response, null, 4);
+        let spectrumFileName = 'spectrum_' + this.spectrumRange.minAirFrequency + '_' + this.spectrumRange.maxAirFrequency + new Date().toLocaleDateString('en-GB').replace(/\//g, '.')
+        spectrumFileName = spectrumFileName + '.json';
+        let blob = new Blob([data], { type: 'application/json' });
+        saveAs(blob, spectrumFileName);
+      });
+  }
+
   getDiagnostics(e) {
     this._operationsService.getDiagnostics()
       .subscribe(response => {
@@ -146,8 +159,10 @@ export class OperationsComponent implements OnInit, OnDestroy {
         if (responseOk) {
           this._operationsService.reset()
             .subscribe(response => {
-              if (response.code === '200') {
+              if (!response.error) {
                 this._router.navigate(['login']);
+              } else {
+                this.showUnableToPerformOperationMessage()
               }
             });
         }
@@ -155,13 +170,15 @@ export class OperationsComponent implements OnInit, OnDestroy {
   }
 
   restoreToDefualtsPressed() {
-    this._modalService.activateWithInnerTemplate(RestoreToDeaultsComponent)
+    this._modalService.activateWithInnerTemplate(RestoreToDeaultsComponent, undefined, 'Restore to Defaults')
       .then(userAction => {
         if (userAction.responce) {
           this._operationsService.restoreToDefaults((<RestoreToDeaultsComponent>userAction.internalData).data)
             .subscribe(response => {
-              if (response.code === '200') {
+              if (response.data.error != null) {
                 this._router.navigate(['login']);
+              } else {
+                this.showUnableToPerformOperationMessage()
               }
             });
         }
@@ -174,8 +191,8 @@ export class OperationsComponent implements OnInit, OnDestroy {
         if (responseOk) {
           this._operationsService.resync()
             .subscribe(response => {
-              if (response.code === '200') {
-                this._router.navigate(['login']);
+              if (response.data.error != null) {
+                this.showUnableToPerformOperationMessage()
               }
             });
         }
@@ -198,16 +215,19 @@ export class OperationsComponent implements OnInit, OnDestroy {
         if (responseOk) {
           this._operationsService.activateDevice()
             .subscribe(response => {
-              if (response.code === '200') {
-
+              if (response.data.error != null) {
+                this.showUnableToPerformOperationMessage()
               }
             });
         }
       });
   }
 
-  canDeactivate(): any {
+  canDeactivate(): Promise<boolean> | boolean {
     return true;
   }
 
+  showUnableToPerformOperationMessage() {
+    this._modalService.activate(Resources.unableToPerformOperation, Resources.error, "OK", null, Consts.ModalType.error)
+  }
 }
