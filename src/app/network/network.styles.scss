@@ -1,49 +1,28 @@
 ﻿.custom-pagination {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   height: auto;
-  -ms-flex-flow: row wrap;
-      flex-flow: row wrap;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }
 form {
 	width: 100%;
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-flow: row nowrap;
-	    flex-flow: row nowrap;
-	-webkit-box-pack: justify;
-	    -ms-flex-pack: justify;
-	        justify-content: space-between;
+	flex-flow: row nowrap;
+	justify-content: space-between;
 }
 
 .network-container {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-flow: column nowrap;
-	    flex-flow: column nowrap;
-	-webkit-box-pack: justify;
-	    -ms-flex-pack: justify;
-	        justify-content: space-between;
-	-webkit-box-align: start;
-	    -ms-flex-align: start;
-	        align-items: flex-start;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	align-items: flex-start;
 	width: 100%;
 }
 .row-flex {
 	width: 100%;
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-flow: row nowrap;
-	    flex-flow: row nowrap;
-	-webkit-box-pack: justify;
-	    -ms-flex-pack: justify;
-	        justify-content: space-between
+	flex-flow: row nowrap;
+	justify-content: space-between
 }
 input-controls {
 	position: relative;
@@ -56,14 +35,9 @@ input-controls {
 	color: #ef4023;
 }
 .form-group-vlan {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-    -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
     width: 50%;
     height: 100%;
     padding-top: 6%;
@@ -91,48 +65,28 @@ input-controls {
 .vlan-content
 {
 	height : 100%; 
-	display: -webkit-box; 
-	display: -ms-flexbox; 
 	display: flex;
-	-ms-flex-flow: row wrap;
-	    flex-flow: row wrap;
-	-webkit-box-pack: justify;
-	    -ms-flex-pack: justify;
-	        justify-content: space-between;
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .vlan-title
 {
-	-ms-flex-flow: column nowrap;
-	    flex-flow: column nowrap;
-	-ms-flex-pack: distribute;
-	    justify-content: space-around;
+	flex-flow: column nowrap;
+	justify-content: space-around;
 	height: 65%;
-	-webkit-box-align: start;
-	    -ms-flex-align: start;
-	        align-items: flex-start;
+	align-items: flex-start;
 	width: 170px;
 	font-size: 18px;
-	-webkit-box-flex: 2;
-	    -ms-flex: 2;
-	        flex: 2;
+	flex: 2;
 	padding: 10px;
 }
 .vlan-form {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-    -ms-flex-flow: row wrap;
-        flex-flow: row wrap;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-	-webkit-box-flex: 5;
-	    -ms-flex: 5;
-	        flex: 5;
+    flex-flow: row wrap;
+    align-items: center;
+	flex: 5;
 	background-color : #fbfbfb;
 	height: 100%;
 	padding: 10px;
@@ -146,13 +100,9 @@ input-controls {
 	padding: 0;
 }
 .traps-header {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-flow: row nowrap;
-	    flex-flow: row nowrap;
-	-ms-flex-pack: distribute;
-	    justify-content: space-around;
+	flex-flow: row nowrap;
+	justify-content: space-around;
 	background-color: white;
 	min-height: 77px;
 	padding: 0 10px 0 10px;
@@ -168,14 +118,9 @@ input-controls {
 	padding: 0 28px 0 28px;
 }
 .traps-buttons {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-flow: row nowrap;
-	    flex-flow: row nowrap;
-	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
+	flex-flow: row nowrap;
+	justify-content: center;
 	position: relative;
 	bottom: -26px;
 	height:100%;
@@ -217,18 +162,14 @@ input-controls {
 	}
 }
 .row-flex-trap {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
 	width: 100%;
-	-ms-flex-pack: distribute;
-	    justify-content: space-around;
+	justify-content: space-around;
 }
 
 @media (max-width: 1050px) {
 	form {
-		-ms-flex-flow: column nowrap;
-		    flex-flow: column nowrap;
+		flex-flow: column nowrap;
 	}
 	.box-traps, .box-network, .box-vlan {
 		width: 600px;

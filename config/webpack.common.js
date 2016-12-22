@@ -287,4 +287,5 @@ module.exports = function(options) {
         }
 
     };
+     postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ]
 }

@@ -2,14 +2,9 @@ h3 {
     margin-left: 0;
 }
 .col-flex {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-flow: column nowrap;
-	    flex-flow: column nowrap;
-	-webkit-box-pack: justify;
-	    -ms-flex-pack: justify;
-	        justify-content: space-between;
+	flex-flow: column nowrap;
+	justify-content: space-between;
 }
 .row-flex {
     width: 100%;
@@ -19,27 +14,17 @@ input-controls {
     right: -50px;
 }
 .section-body {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-flow: row nowrap;
-        flex-flow: row nowrap;
+    flex-flow: row nowrap;
     width: 100%;
     height: 100%;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
 
 }
 .speed-test-container {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-flow: row nowrap;
-	    flex-flow: row nowrap;
-	-webkit-box-pack: justify;
-	    -ms-flex-pack: justify;
-	        justify-content: space-between;
+	flex-flow: row nowrap;
+	justify-content: space-between;
 	width: 49%;
     min-width: 505px;
 }
@@ -51,65 +36,40 @@ input-controls {
 
 .box-network {
     .gauges {
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -ms-flex-flow: row nowrap;
-            flex-flow: row nowrap;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
+        flex-flow: row nowrap;
+        justify-content: center;
     }
 }
 .ping-trace-container {
     width: 49%;
     /* min-height: 380px;*/
     height: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    flex-flow: column nowrap;
+    justify-content: space-between;
 }
 .box-ping, .box-trace {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap;
+    flex-flow: column nowrap;
     padding-right: 10px;
     padding-left: 10px;
     height: 100%;
 }
 .form-body {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    flex-flow: column nowrap;
+    justify-content: space-between;
     .ping-button {
         width: 40%;
         margin: 10px 0 10px 0;
     }
 }
 .inputs {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-flow: row nowrap;
-        flex-flow: row nowrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
     height: 100%;
     width:100%; 
     input {
@@ -136,23 +96,14 @@ input-controls {
     .ping-button {
         height: 33px;
         width: 100px;
-
-        -ms-flex-item-align: end;
-            align-self: flex-end;
-        display: -webkit-box;
-        display: -ms-flexbox;
+        align-self: flex-end;
         display: flex;
-        -webkit-box-pack: end;
-            -ms-flex-pack: end;
-                justify-content: flex-end;
+        justify-content: flex-end;
     }
 }
 .control-msgs {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-flow: row nowrap;
-        flex-flow: row nowrap;
+    flex-flow: row nowrap;
     color: #ef4023;
     /* height: 33px;*/
     margin-top: 5px;
@@ -165,14 +116,9 @@ input-controls {
     }
 }
 .ping-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap;
-            -webkit-box-pack: justify;
-                -ms-flex-pack: justify;
-                    justify-content: space-between;
+    flex-flow: column nowrap;
+            justify-content: space-between;
     padding-right: 0;
     padding-left: 0;
     padding-bottom: 0;
@@ -181,25 +127,15 @@ input-controls {
 }
 .box-results {
     background-color: #fbfbfb;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    flex-flow: column nowrap;
+    justify-content: space-between;
     height: 210px;
     width: 100%;
     .box-header {
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -ms-flex-flow: row nowrap;
-            flex-flow: row nowrap;
-        -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-                justify-content: space-between;
+        flex-flow: row nowrap;
+        justify-content: space-between;
         width: 100%;
         .box-title {
             margin: 0;
@@ -229,23 +165,16 @@ input-controls {
 }
 @media (max-width: 1200px) {
     .section-body {
-       -ms-flex-flow: column nowrap;
-           flex-flow: column nowrap;
+       flex-flow: column nowrap;
        height: 100%;
-       -webkit-box-pack: justify;
-           -ms-flex-pack: justify;
-               justify-content: space-between;
+       justify-content: space-between;
     }
     .speed-test-container, .ping-trace-container {
         width: 100%;
         margin: 0;
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -ms-flex-flow: column nowrap;
-            flex-flow: column nowrap;
-        -ms-flex-pack: distribute;
-            justify-content: space-around;
+        flex-flow: column nowrap;
+        justify-content: space-around;
     }
     .ping-container {
         margin: 0 0 20px 0;

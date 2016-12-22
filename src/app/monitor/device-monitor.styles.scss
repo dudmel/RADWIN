@@ -1,21 +1,13 @@
 .sparkline {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
     position: relative
 }
 .box-device {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-flow: row nowrap;
-      flex-flow: row nowrap;
+  flex-flow: row nowrap;
   border-radius: 3px;
   background: #ffffff;
   padding: 5px 5px 0 5px;
@@ -33,88 +25,54 @@
   border-left: 4px solid #f47f6b
 }
 .device-monitor-title {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
 	padding:20px;
-	-ms-flex-flow: column nowrap;
-	    flex-flow: column nowrap;
-	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
+	flex-flow: column nowrap;
+	justify-content: center;
 	text-align: center;
 	border-right: 1px solid #d8d8d8;
 	font-size: 36px;
 	height: 100%;
-	-webkit-box-flex: 1;
-	    -ms-flex: 1;
-	        flex: 1;
+	flex: 1;
 }
 
 .device-monitor-block {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-flow: column nowrap;
-	    flex-flow: column nowrap;
-	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
-	-webkit-box-flex: 4;
-	    -ms-flex: 4;
-	        flex: 4;
+	flex-flow: column nowrap;
+	justify-content: center;
+	flex: 4;
 	&.border-right {
 		border-right: 1px solid #d8d8d8;
 	}
 }
 .monitor-block {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-flow: row nowrap;
-	    flex-flow: row nowrap;
-	-webkit-box-pack: justify;
-	    -ms-flex-pack: justify;
-	        justify-content: space-between;
+	flex-flow: row nowrap;
+	justify-content: space-between;
 	min-width: 265px;
 	width: 100%;
 	height: 50%;
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
+	align-items: center;
 	padding: 0 5px 0 5px;
 	div {
-    	display: -webkit-box;
-    	display: -ms-flexbox;
     	display: flex;
-    	-ms-flex-flow: row nowrap;
-    	    flex-flow: row nowrap;
-		-webkit-box-pack: center;
-		    -ms-flex-pack: center;
-		        justify-content: center;
+    	flex-flow: row nowrap;
+		justify-content: center;
 		text-align: end;
-		-ms-flex-item-align: end;
-		    align-self: flex-end;
+		align-self: flex-end;
 	}
 	.monitor-graph {
 		width: 70%;
-		display: -webkit-box;
-		display: -ms-flexbox;
 		display: flex;
 		padding-bottom: 6px;
 	}
 	.measure {
 		width: 74px;
 		height: 100%;
-		display: -webkit-box;
-		display: -ms-flexbox;
 		display: flex;
-		-ms-flex-flow: column nowrap;
-			flex-flow: column nowrap;
+		flex-flow: column nowrap;
 		text-align: end;
-		-webkit-box-pack: center;
-			-ms-flex-pack: center;
-				justify-content: center;
+		justify-content: center;
 
 	}
 }
@@ -135,8 +93,6 @@
 }
 
 .device-row {
-	display:-webkit-box;
-	display:-ms-flexbox;
 	display:flex;
 	padding: 5px;
 	min-height: 68px;

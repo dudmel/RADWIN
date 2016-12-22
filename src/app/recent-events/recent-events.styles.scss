@@ -1,10 +1,7 @@
 .box-events {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-flow: row nowrap;
-      flex-flow: row nowrap;
+  flex-flow: row nowrap;
   border-radius: 3px;
   border-left: 4px solid #76828e;
   background: #ffffff;
@@ -14,8 +11,6 @@
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 .events-title {
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
     display: inline-flex;
     h3 {
         margin-left:0;
@@ -67,9 +62,7 @@
 }
 .section-title {
     margin: 0 15px 0 0;
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
+    align-self: center;
 }
 
 .severity-circle.major {
@@ -83,57 +76,33 @@
 }
 
 .title-row {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-flow: row nowrap;
-        flex-flow: row nowrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    flex-flow: row nowrap;
+    justify-content: space-between;
     margin-bottom:10px;
 }
 .events-legend {
-    -ms-flex-item-align: end;
-        align-self: flex-end;
-    display: -webkit-box;
-    display: -ms-flexbox;
+    align-self: flex-end;
     display: flex;
-    -ms-flex-flow: row nowrap;
-        flex-flow: row nowrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
     .legend-title {
         font-family: 'Roboto';
         font-size: 10px;
         margin-right: 10px;
-        -ms-flex-item-align: end;
-            align-self: flex-end;
+        align-self: flex-end;
     }
     .legend-body {
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -ms-flex-flow: column nowrap;
-            flex-flow: column nowrap;
-        -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-                justify-content: space-between;
+        flex-flow: column nowrap;
+        justify-content: space-between;
         width: 130px;
     }
     .legend-icons {
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -ms-flex-flow: row nowrap;
-            flex-flow: row nowrap;
-        -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-                justify-content: space-between;
+        flex-flow: row nowrap;
+        justify-content: space-between;
         height: 20px;
         width: 100%;
         line-height: 50%;
@@ -146,17 +115,10 @@
         .legend-icon {
             width: 13px;
             height: 13px;
-            display: -webkit-box;
-            display: -ms-flexbox;
             display: flex;
-            -ms-flex-flow: column nowrap;
-                flex-flow: column nowrap;
-            -webkit-box-pack: center;
-                -ms-flex-pack: center;
-                    justify-content: center;
-            -webkit-box-align: center;
-                -ms-flex-align: center;
-                    align-items: center;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
             .severity-circle {
                 position: absolute;
                 width: 13px;
@@ -167,14 +129,9 @@
     .legend-bubbles {
         width:100%;
         height: 20px;
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -ms-flex-flow: row nowrap;
-            flex-flow: row nowrap;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
+        flex-flow: row nowrap;
+        justify-content: center;
 
     }
         .bubble {

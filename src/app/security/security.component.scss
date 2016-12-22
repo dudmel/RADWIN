@@ -6,32 +6,21 @@
     margin-left: 0
 }
 .fields-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-flow: row wrap;
-        flex-flow: row wrap;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    flex-flow: row wrap;
+    justify-content: flex-start;
 }
 .password-field {
     width: 230px;  
     margin-left: 25px;
 }
 .matching-passwords {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-flow: row nowrap;
-        flex-flow: row nowrap;    
+    flex-flow: row nowrap;    
 }
 .control-msgs {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap;
+    flex-flow: column nowrap;
     color: #ef4023;
     height: 100%;
     margin-top: 10px;

@@ -16,8 +16,8 @@
                             </span>
                         </div>
                         <span class="header-details">
-                            <span><span style="color: #76828e">TX Power (System):</span>{{monitor?.configMonitor?.totalTxPower}}</span>
-                            <span><span style="color: #76828e">EIRP:</span> {{eirp | number:'1.1-2' | units: 'dbm' }} Max: {{monitor?.configMonitor?.maxEirp | number:'1.1-2'}} </span>
+                            <span><span style="color: #76828e">TX Power (System):</span>{{monitor?.configMonitor?.totalTxPower}} dBm</span>
+                            <span><span style="color: #76828e">EIRP:</span> {{eirp | number:'1.1-2'}} [Max: {{monitor?.configMonitor?.maxEirp | number:'1.1-2' }}] dBm </span>
                         </span>
                     </div>
 
@@ -74,9 +74,8 @@
                                 <span class="input-field-flex">
                                     <input formControlName="antennaGain" #antennaGain [(ngModel)]="radio.antennaGain" class="form-control" type="number" step="0.1" readonly
                                         min="{{radio.minAntennaGain" max="radio.maxAntennaGain}}">
-                                <span class="input-units">dBi</span>
-                                <input-controls [inputToChange]="antennaGain"></input-controls>
-                                
+                                    <span class="input-units">dBi</span>
+                                    <input-controls [inputToChange]="antennaGain"></input-controls>
                                 </span>
                             </div>
 
@@ -96,7 +95,7 @@
                                 <span>Frequency</span>
                                 <span class="input-field-flex">
                                     <input [ngModelOptions]="{standalone: true}" [(ngModel)]="radio.currentFrequency" class="form-control" readonly>
-                                <span class="input-units"></span>
+                                <!--<span class="input-units"></span>-->
                                 </span>
                             </div>
                         </div>

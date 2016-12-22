@@ -1,12 +1,7 @@
 .row-flex {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-flow: row nowrap;
-        flex-flow: row nowrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    flex-flow: row nowrap;
+    justify-content: space-between;
 }
 .row-flex-input {
 }
@@ -14,13 +9,9 @@ form, fieldset, .form-group {
     width: 100%;
 }
 .col-flex {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
+    flex-flow: column nowrap;
+    justify-content: space-around;
 }
 input-controls {
     right: 0;
@@ -29,50 +20,32 @@ input-controls {
     font-size: 18px;
 }
 .box-operations {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    flex-flow: column nowrap;
+    justify-content: space-between;
     width: 80%;
 }
 
 .box-body {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-flow: row nowrap;
-        flex-flow: row nowrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    flex-flow: row nowrap;
+    justify-content: space-between;
     width: 100%;
 }
 .inputs-container {
     position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-flow: row wrap;
-        flex-flow: row wrap;
+    flex-flow: row wrap;
     width: 20%;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    justify-content: flex-start;
     min-width: 152px;
     height: 220px;
     
 }
 .charts-container {
     width: 80%;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap;
+    flex-flow: column nowrap;
 }
 .chart {
     width:100%;
@@ -81,20 +54,14 @@ input-controls {
  button {
     margin: 2px;
     display: block;
-    -ms-flex-item-align: start;
-        align-self: flex-start;
+    align-self: flex-start;
 }
 .side-box {
     width: 18%;
     height: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    flex-flow: column nowrap;
+    justify-content: space-between;
     min-width: 163px;
 
     h4 { 
@@ -103,21 +70,14 @@ input-controls {
     .box-function {
         width: 100%;
         .box-body {
-            -ms-flex-flow: row wrap;
-                flex-flow: row wrap;
-                -webkit-box-pack: start;
-                    -ms-flex-pack: start;
-                        justify-content: flex-start;
+            flex-flow: row wrap;
+                justify-content: flex-start;
         }
        
     }
     .two-buttons {
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-box-pack: start;
-            -ms-flex-pack: start;
-                justify-content: flex-start;
+        justify-content: flex-start;
         max-width:100%; 
     }
 
@@ -125,13 +85,11 @@ input-controls {
 
 @media (max-width: 1050px) {
     .row-flex {
-        -ms-flex-flow: column nowrap;
-            flex-flow: column nowrap;
+        flex-flow: column nowrap;
     }
     .form-group {
         .row-flex {
-            -ms-flex-flow: row nowrap;
-                flex-flow: row nowrap;
+            flex-flow: row nowrap;
         }
     }
     .box-operations {
@@ -140,26 +98,17 @@ input-controls {
     .box-body {
     }
     .side-box {
-        -ms-flex-flow: row nowrap;
-            flex-flow: row nowrap;
-        -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-                justify-content: space-between;
+        flex-flow: row nowrap;
+        justify-content: space-between;
         width: 100%;
         .box-function {
-            -webkit-box-pack: justify;
-                -ms-flex-pack: justify;
-                    justify-content: space-between;
+            justify-content: space-between;
             width: 24%;
             .box-header {
-                display: -webkit-box;
-                display: -ms-flexbox;
                 display: flex;
                 width:100%;
                 min-height: 65px;
-                -webkit-box-align: end;
-                    -ms-flex-align: end;
-                        align-items: flex-end;
+                align-items: flex-end;
                 h4 {
                     font-size: 1.17em;
                     width: 100%;

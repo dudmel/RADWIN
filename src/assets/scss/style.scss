@@ -47,15 +47,12 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .box {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-flow: column nowrap;
-      flex-flow: column nowrap;
+  flex-flow: column nowrap;
   border-radius: 3px;
   background: #ffffff;
   margin-bottom: 20px;
-      border: 1px solid silver;
+  border: 1px solid silver;
   box-shadow: 1px 2px 0px rgba(0, 0, 0, 0.1);
   padding: 5px 10px 5px 10px;
 }
@@ -138,15 +135,10 @@ input[type=number]::-webkit-outer-spin-button {
     /*width: 778px;*/
 }
 .parent {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   height: auto;
-  -ms-flex-flow: row wrap;
-      flex-flow: row wrap;
-  -webkit-box-pack: inherit;
-      -ms-flex-pack: inherit;
-          justify-content: inherit;
+  flex-flow: row wrap;
+  justify-content: inherit;
 }
 
 .child {
@@ -155,8 +147,7 @@ input[type=number]::-webkit-outer-spin-button {
   border-right: 1px solid #f4f4f4;
   padding-right: 20px;
   padding-left: 20px;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
+  -ms-grid-row-align: center;
       align-self: center;
 }
 
@@ -227,7 +218,8 @@ input[type='number']:-moz-read-only  {
 }
 input-controls {
     height: 34px;
-    align-self: center;
+        -ms-grid-row-align: center;
+            align-self: center;
 }
 .buttons-footer{
     margin-bottom: 25px

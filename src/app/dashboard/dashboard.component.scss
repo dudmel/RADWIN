@@ -5,11 +5,8 @@
     margin: auto;
     padding-left: $side-bar-collapsed-width;
     .content {
-      display: -webkit-box;
-      display: -ms-flexbox;
       display: flex;
-      -ms-flex-flow:column nowrap;
-          flex-flow:column nowrap;
+      flex-flow:column nowrap;
     }
 }
 
@@ -28,16 +25,9 @@
     z-index: 1030;
     .navbar {
         height: 100%;
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-box-pack: start;
-            -ms-flex-pack: start;
-                justify-content: flex-start;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
-        -webkit-transition: margin-left 0.3s ease-in-out;
+        justify-content: flex-start;
+        align-items: center;
         transition: margin-left 0.3s ease-in-out;
         margin-bottom: 0;
         border: none;
@@ -53,12 +43,8 @@
         }
         .custom-menu { 
             width: 100%;
-            display: -webkit-box;
-            display: -ms-flexbox;
             display: flex;
-            -webkit-box-pack: end;
-                -ms-flex-pack: end;
-                    justify-content: flex-end;
+            justify-content: flex-end;
         }
     }
 }
@@ -120,7 +106,6 @@
     }
   }
   .logo {
-    -webkit-transition: width 0.3s ease-in-out;
     transition: width 0.3s ease-in-out;
     display: block;
     float: left;
@@ -255,11 +240,7 @@
   padding-top: 112px;
   height: 100%;
   z-index: 810;
-  -webkit-transition: -webkit-transform 0.3s ease-in-out, width 0.3s ease-in-out;
-  -webkit-transition: width 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-  transition: width 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
 .menu-collapse {
     width: $side-bar-collapsed-width;
@@ -282,11 +263,8 @@
 .side-bar-item {
     cursor: pointer;
     position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap;
+    flex-flow: column nowrap;
     width: 100%;
     color: #b8c7ce;
     .side-bar-title {
@@ -297,12 +275,8 @@
       display: block; 
     }
     .menu-title {
-      display: -webkit-box;
-      display: -ms-flexbox;
       display: flex;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
+      align-items: center;
     }
 }
 
@@ -314,7 +288,6 @@
 
 @media (max-width: 767px) {
   .main-sidebar, .left-side {
-    -webkit-transform: translate(-230px, 0);
     transform: translate(-230px, 0);
   }
 }
@@ -322,7 +295,6 @@
 @media (min-width: 768px) {
   .sidebar-collapse {
     .main-sidebar, .left-side {
-      -webkit-transform: translate(-230px, 0);
       transform: translate(-230px, 0);
     }
   }
@@ -331,7 +303,6 @@
 @media (max-width: 767px) {
   .sidebar-open {
     .main-sidebar, .left-side {
-      -webkit-transform: translate(0, 0);
       transform: translate(0, 0);
     }
   }
@@ -395,14 +366,9 @@
   background-color: white;
 }
 .sidebar-menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-flow: column nowrap;
-      flex-flow: column nowrap;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
   height: 100%;
   top: -19px;
   width: 100%;
@@ -455,7 +421,6 @@
     }
     &.active > {
       a > .fa-angle-left {
-        -webkit-transform: rotate(-90deg);
         transform: rotate(-90deg);
       }
       .treeview-menu {
@@ -480,11 +445,8 @@
   overflow: hidden;
 }
 .menu-title {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-flow: row nowrap;
-        flex-flow: row nowrap;
+    flex-flow: row nowrap;
 }
 /*
  * Component: Sidebar Mini
@@ -496,7 +458,6 @@
       z-index: 840;
     }
     .main-sidebar {
-      -webkit-transform: translate(0, 0);
       transform: translate(0, 0);
       width: 63px !important;
       z-index: 850;
@@ -883,67 +844,32 @@
 .open:not(.dropup) > .animated-dropdown-menu {
   -webkit-backface-visibility: visible !important;
           backface-visibility: visible !important;
-  -webkit-animation: flipInX 0.7s both;
   animation: flipInX 0.7s both;
 }
 
 @keyframes flipInX {
   0% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
-            transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
-    -webkit-transition-timing-function: ease-in;
-            transition-timing-function: ease-in;
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    transition-timing-function: ease-in;
     opacity: 0;
   }
 
   40% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-            transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-    -webkit-transition-timing-function: ease-in;
-            transition-timing-function: ease-in;
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    transition-timing-function: ease-in;
   }
 
   60% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
-            transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
     opacity: 1;
   }
 
   80% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
-            transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
   }
 
   100% {
-    -webkit-transform: perspective(400px);
-            transform: perspective(400px);
-  }
-}
-
-
-@-webkit-keyframes flipInX {
-  0% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
-    -webkit-transition-timing-function: ease-in;
-    opacity: 0;
-  }
-
-  40% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-    -webkit-transition-timing-function: ease-in;
-  }
-
-  60% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
-    opacity: 1;
-  }
-
-  80% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
-  }
-
-  100% {
-    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
   }
 }
 
