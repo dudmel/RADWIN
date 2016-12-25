@@ -19,7 +19,7 @@ export class ChangeBandComponent implements OnInit, OnDestroy {
     private bandform: FormGroup;
     private bands: IChangeBandModel;
     private monitor: IMonitorModel;
-    private linkOff: boolean;
+    //private linkOff: boolean;
     private currentBandId: string;
     private changeBandSub;
     private monitorSub;
@@ -83,7 +83,7 @@ export class ChangeBandComponent implements OnInit, OnDestroy {
         this.monitorSub = this._store.select('monitor')
             .subscribe((monitor: IMonitorModel) => {
                 this.monitor = monitor;
-                this.linkOff = monitor.hsuLinkState === 'Not Synchronized';
+                //this.linkOff = monitor.hsuLinkState === 'Not Synchronized';
                 // if (!this.linkOff) {
                 //     this.bandform.controls['currentBandId'].disable();
                 // } else {

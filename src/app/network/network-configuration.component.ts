@@ -27,8 +27,11 @@ export class NetworkConfigurationComponent implements OnInit, OnDestroy {
   private crcDecreaser: number;
   private crcCounterPresenter: number;
   private trapIndex: number;
-  private vlanId: number;
-  private vlanPriority: number;
+  private vlanId: any;
+  private vlanPriority: any;
+  private isIpExist;
+  private minVlanId: number = 2;
+  private minVlanPriority: number = 1;
   private networkSub;
   private crcSub;
   private trapsSub;
@@ -48,7 +51,7 @@ export class NetworkConfigurationComponent implements OnInit, OnDestroy {
       currentPortState: [''],
       desiredPortState: [''],
       vlanId: ['2', Validators.compose([Validators.required, minMaxNumberValidator(2, 4094)])],
-      vlanPriority: ['', Validators.compose([Validators.required, minMaxNumberValidator(0, 7)])]
+      vlanPriority: ['1', Validators.compose([Validators.required, minMaxNumberValidator(1, 7)])]
     });
 
   }
@@ -69,6 +72,11 @@ export class NetworkConfigurationComponent implements OnInit, OnDestroy {
         dirtyNetworkForm[control] = this.form.controls[control].value;
       }
     }
+
+    if (!this.isVlanEnabled && (this.form.controls['vlanPriority'].value != 0 || this.form.controls['vlanId'].value != 0 )) {
+          dirtyNetworkForm['vlanPriority'] = 0;
+          dirtyNetworkForm['vlanId'] = 0;
+        }
 
     if (dirtyNetworkForm.ipParams) {
       this._modalService.activate(Resources.changeIpParamsWarning, Resources.warning)
@@ -128,7 +136,6 @@ export class NetworkConfigurationComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.trapIndex = 0;
-    exLog('hello Network Configuration Component');
 
     this.crcSub = this._store.select('crcDecreaser').subscribe((s: number) => this.crcDecreaser = s);
 
@@ -137,9 +144,9 @@ export class NetworkConfigurationComponent implements OnInit, OnDestroy {
         this.initialNetworkData = network;
         this.network = network;
         this.crcCounterPresenter = network.crcErrors - this.crcDecreaser;
-        this.vlanId = network.vlanId;
-        this.vlanPriority = network.vlanPriority;
         this.isVlanEnabled = this.isInitialVlanEnabled();
+
+        this.updateVlanState();
       });
 
 
@@ -150,7 +157,19 @@ export class NetworkConfigurationComponent implements OnInit, OnDestroy {
       });
 
     this.getNetwork();
+  }
 
+  checkTraps(value) {
+    console.log(this.traps)
+    for (var i=0; i<10; i++) {
+      if (this.traps[i].hostIp === value) 
+      {
+        this.isIpExist = true;
+        return;
+      }
+    }
+    this.isIpExist = false;
+    return;
   }
 
   isInitialVlanEnabled() {
@@ -179,20 +198,23 @@ export class NetworkConfigurationComponent implements OnInit, OnDestroy {
     //   // Skip vlan 
     //   return !this.form.controls['ipParams'].valid || !this.form.controls['currentPortState'].valid;
     // }
-
-    return false;
+    if (this.isIpExist) return true ;
   }
 
   private vlanCheckBoxClicked() {
     this.isVlanEnabled = !this.isVlanEnabled;
 
-    if (this.isVlanEnabled === true) {
-      this.vlanId = this.network.vlanId;
-      this.vlanPriority = this.network.vlanPriority;
-    } else {
-      this.vlanId = 0;
-      this.vlanPriority = 0;
-    }
+    this.updateVlanState();
   }
 
+  private updateVlanState() {
+        
+    if (this.isVlanEnabled === true) {
+      this.vlanId = this.network.vlanId == 0 ? this.minVlanId : this.network.vlanId ;
+      this.vlanPriority = this.network.vlanPriority  == 0 ? this.minVlanPriority : this.network.vlanPriority;
+    } else {
+      this.vlanId = '';
+      this.vlanPriority = '';
+    }
+  }
 }

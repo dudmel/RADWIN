@@ -32,15 +32,15 @@
 							<span class="input-packet"> 
 								<span class="input-label">Packets (1-30)</span> 
 								<span class="row-flex">
-									<input formControlName="packetCount" #packetCount type="number" class="form-control" placeholder="Packets" min=1 max=30>
-									<input-controls [inputToChange]="packetCount"></input-controls>
+									<input formControlName="packetCount" type="number" class="form-control" placeholder="Packets" min=1 max=30>
+									<input-controls [form]="form"></input-controls>
 								</span>
 							</span>
 							<span class="input-packet"> 
 								<span class="input-label">Packet Size (0-1472)</span>
 								<span class="row-flex">
-									<input formControlName="packetSize"#packetSize type="number" class="form-control" placeholder="Packet Size" min=0 max=1472>
-									<input-controls [inputToChange]="packetSize"></input-controls>
+									<input formControlName="packetSize" type="number" class="form-control" placeholder="Packet Size" min=0 max=1472>
+									<input-controls [form]="form"></input-controls>
 								</span>
 							</span>
 						</div>

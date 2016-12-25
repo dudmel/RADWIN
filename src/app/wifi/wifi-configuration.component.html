@@ -59,8 +59,8 @@
                                 <div class="ch">
                                     <span class="input-label">Channel</span>
                                     <span class="row-flex">
-                                        <input formControlName="wifiChannel" #channel [(ngModel)]="wifi.wifiChannel" class="form-control" type="number" step="1" min="1" max="11">
-                                        <input-controls [inputToChange]="channel"></input-controls>
+                                        <input formControlName="wifiChannel" [(ngModel)]="wifi.wifiChannel" class="form-control" type="number" step="1" min="1" max="11">
+									<input-controls [form]="form"></input-controls>
                                     </span>
                                     <div class="control-msgs" *ngIf="form.controls.wifiChannel.dirty && !form.controls.wifiChannel.valid">
                                         <p *ngIf="form.controls.wifiChannel.errors.required">Channel is required.</p>
@@ -71,9 +71,9 @@
                                     <span class="input-label">TX Power [dBm]</span>
                                     <!--<div class="tx-power">-->
                                     <span class="row-flex">
-                                        <input formControlName="wifiTxPower" #tx [(ngModel)]="wifi.wifiTxPower" class="form-control" type="number" step="1" min="1" max="{{wifi.wifiMaxTxPower}}">
+                                        <input formControlName="wifiTxPower" [(ngModel)]="wifi.wifiTxPower" class="form-control" type="number" step="1" min="1" max="{{wifi.wifiMaxTxPower}}">
                                         <!--<span class="dbm">dBm</span>-->
-                                        <input-controls [inputToChange]="tx"></input-controls>
+									<input-controls [form]="form"></input-controls>
                                     </span>
                                 <!--</div>-->
 

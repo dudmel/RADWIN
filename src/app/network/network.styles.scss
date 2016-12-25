@@ -1,4 +1,11 @@
-﻿.custom-pagination {
+﻿.network-container {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	align-items: flex-start;
+	width: 100%;
+}
+.custom-pagination {
   display: flex;
   height: auto;
   flex-flow: row wrap;
@@ -10,13 +17,12 @@ form {
 	flex-flow: row nowrap;
 	justify-content: space-between;
 }
-
-.network-container {
-	display: flex;
-	flex-flow: column nowrap;
-	justify-content: space-between;
-	align-items: flex-start;
-	width: 100%;
+.network-bottom {
+	.form-group{
+		input, select {
+			font-size: 0.9em;
+		}
+	}
 }
 .row-flex {
 	width: 100%;
@@ -30,6 +36,7 @@ input-controls {
 }
 .form-group {
 	width: 30%; 
+	min-width:160px;
 }
 .control-msgs {
 	color: #ef4023;
@@ -47,6 +54,7 @@ input-controls {
 }
 .box-network {
   width: 48%;
+  min-width: 516px;
   padding: 5px 10px 5px 10px;
 }
 .box-vlan {
@@ -131,6 +139,7 @@ input-controls {
 		cursor: pointer;
 		width:24px;
 		height:24px;
+		line-height: 21px;
 		text-align: center;
 		background-color: white;
 		color: black;
@@ -142,7 +151,7 @@ input-controls {
 	.active {
 		position: relative;
 		background-color: #8db5d3;
-		height: 52px;
+		height: 32px;
 		border-bottom-left-radius: 0;
 		border-bottom-right-radius: 0;
 	}
@@ -157,17 +166,23 @@ input-controls {
 		border-left: 12px solid transparent; 
 		border-right:12px solid transparent;; 
 		position:absolute;
-		top: 50px;
+		top: 30px;
 		right:-2px;
+	}
+}
+.traps {
+	.control-msgs {
+		padding-left: 31px;
 	}
 }
 .row-flex-trap {
 	display: flex;
 	width: 100%;
-	justify-content: space-around;
+	justify-content: space-between;
+	padding: 0 30px;
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 1200px) {
 	form {
 		flex-flow: column nowrap;
 	}
@@ -178,4 +193,4 @@ input-controls {
 	.vlan-title {
 		height: 100%;
 	}
-}
+} 

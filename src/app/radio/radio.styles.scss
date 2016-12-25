@@ -14,13 +14,17 @@ h3 {
 }
 .radio-right-side {
   min-width:300px;
+  margin-left: 20px;
   width:38%;
   display: flex;
   flex-flow: column nowrap;
+  .box-radio:nth-child(1) {
+    padding: 10px ;
+  }
 }
 
 .radio-left-side { 
-  width: 60%;
+  width: 26%;
   min-width: 500px;
 }
 .box-header {
@@ -32,7 +36,7 @@ h3 {
 .radio-container {
 	display: flex;
 	flex-flow: row wrap;
-          justify-content: space-between;
+  justify-content: center;
 	width: 100%;
   margin-bottom: 10px;
 }
@@ -40,6 +44,7 @@ h3 {
 @media (max-width: 1050px) {
   .radio-right-side {
     width: 100%;
+    margin-left: 0;
   }
   .radio-container {
     width: 600px;
@@ -173,7 +178,7 @@ h3 {
       }
       .sector2 {
         border: 1px solid #d8d8d8;
-        width: 330px;
+        // width: 330px;
       }
     }
   }

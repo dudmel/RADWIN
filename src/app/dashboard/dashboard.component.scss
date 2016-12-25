@@ -49,11 +49,6 @@
     }
 }
 
-.layout-top-nav .main-header > .navbar {
-  margin-left: 0;
-}
-
-
 .main-header {
   #navbar-search-input.form-control {
     background: rgba(255, 255, 255, 0.2);
@@ -296,14 +291,6 @@
   .sidebar-collapse {
     .main-sidebar, .left-side {
       transform: translate(-230px, 0);
-    }
-  }
-}
-
-@media (max-width: 767px) {
-  .sidebar-open {
-    .main-sidebar, .left-side {
-      transform: translate(0, 0);
     }
   }
 }

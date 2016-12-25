@@ -131,7 +131,7 @@ export class OperationsComponent implements OnInit, OnDestroy {
     this._spectrumService.stopSpectrum();
   }
 
-  saveSpectrumDataToFile() {
+  saveSpectrumDataToFile(e) {
     this._operationsService.getSpectrum()
       .subscribe(response => {
         let data = JSON.stringify(response, null, 4);

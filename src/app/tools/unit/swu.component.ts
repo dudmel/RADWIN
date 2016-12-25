@@ -62,13 +62,21 @@ export class SwuComponent implements OnInit, OnDestroy {
 
 
         this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
-                    console.log("item uploaded" + response);
-                    this._spinnerService.hide();
-                    this._store.dispatch({ type: 'MONITOR_SUSPEND_OFF' });
-                    this.validateAllowable = false;
-                    
-                    this.validateSwu();
-            };
+
+            let respData = JSON.parse(response); 
+            console.log("item uploaded" + respData);
+            this._spinnerService.hide();
+            this._store.dispatch({ type: 'MONITOR_SUSPEND_OFF' });
+            this.validateAllowable = false;
+
+            if (respData.error != undefined )
+            {
+                this._modalService.activate(respData.error.message, this.title, 'OK', '', Consts.ModalType.error);
+                return;
+            }
+            
+            this.validateSwu();
+        };
 
         this.uploader.onBeforeUploadItem = () => {
                 console.log("Begin upload");
@@ -129,17 +137,13 @@ export class SwuComponent implements OnInit, OnDestroy {
 
     startSwu() {
 
+        let warningMessage = '';
         // in restore ask user
         if (this.type === 'restore') {
-            let warningMessage = Resources.restoreWarning.replace('{0}', this.swuData.release);
-            this._modalService.activate(warningMessage, Resources.warning, undefined, undefined, Consts.ModalType.warning)
-                .then(responseOk => {
-                    if (responseOk) {
-                        this.startProcess();
-                    }
-                });
-        } else {
-            // swu
+            warningMessage = (this.type === 'restore') 
+                ? Resources.restoreWarning.replace('{0}', this.swuData.release)
+                : Resources.swuResetWarning
+
             this._modalService.activate(Resources.swuResetWarning, Resources.warning, undefined, undefined, Consts.ModalType.warning)
                 .then(responseOk => {
                     if (responseOk) {
@@ -161,8 +165,7 @@ export class SwuComponent implements OnInit, OnDestroy {
 
         this._store.dispatch({ type: 'MONITOR_SUSPEND_ON' });
         
-        this._swuService.startSwu(this.type)
-            .subscribe((swudata: ISwuMetaData) => {
+        this._swuService.startSwu(this.type).subscribe((swudata: ISwuMetaData) => {
 
                 this._spinnerService.hide();
 
@@ -172,9 +175,10 @@ export class SwuComponent implements OnInit, OnDestroy {
                     this.swuData = swudata;
                 } else {
                     let message = this.title + ' completed, reset will be performed';
-                    this._modalService.activate(message, 'Info', "OK", null, Consts.ModalType.info).then(responce=>{
-                        this.performReset();
-                    })
+                    this._modalService.activate(message, 'Info', "OK", null, Consts.ModalType.info)
+                        .then(responce=> {
+                            this.performReset();
+                        })
                 }
             });
     }

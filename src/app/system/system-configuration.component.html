@@ -43,8 +43,8 @@
                                 <div class="form-group">
                                     <span class="input-label">Offset [Minutes]</span>
                                     <span class="row-flex">
-                                        <input formControlName="ntpTimeOffsetFromUTC" #offset  [(ngModel)]="system.ntpTimeOffsetFromUTC" class="form-control" type="number" min=-1439 max=1439>
-                                        <input-controls [inputToChange]="offset"> </input-controls>
+                                        <input formControlName="ntpTimeOffsetFromUTC" [(ngModel)]="system.ntpTimeOffsetFromUTC" class="form-control" type="number" min=-1439 max=1439>
+                                        <input-controls [form]="form"></input-controls>
                                     </span>
                                 </div>
                             </div>

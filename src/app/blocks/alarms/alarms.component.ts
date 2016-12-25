@@ -18,7 +18,8 @@ import { AppStore, ExHttpService } from '../../blocks';
                         <div class="alarms-list">
                             <li *ngFor="let alarm of alarms">
                                 <h4>{{ alarm.interfaceName }}</h4>
-                                <p>{{ alarm.description }}</p>
+                                <p>{{ alarm.alarmId }}</p>
+                                <p>{{ alarm.alarmText }}</p>
                                 <small>{{ alarm.dateAndTime }}</small>
                             </li>
                         </div>

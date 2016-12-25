@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, AbstractControl, Validators } from '@angular/forms';
 import { INetworkModel, ITrapDestination } from './network.model';
 import { Observable } from 'rxjs/Rx';
@@ -16,6 +16,7 @@ export class TrapComponent implements OnInit {
     @Input() trap: ITrapDestination;
     private securityModel: string = 'SNMPv1';
     private trapform: FormGroup;
+    @Output() trapChange = new EventEmitter;
 
     constructor(private _formBuilder: FormBuilder) {
         this.trapform = _formBuilder.group({
@@ -24,8 +25,11 @@ export class TrapComponent implements OnInit {
             securityModel: ['']
         });
     }
-
+ 
     ngOnInit() {
+    }
 
+    checkTraps(ev) {
+        this.trapChange.emit(ev.target.value);
     }
 }

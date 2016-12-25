@@ -22,7 +22,7 @@ export class OperationsService {
   }
 
     getSpectrum(): any {
-     return this._httpService.get(diagnosticsUrl);
+     return this._httpService.get(spectrumTableUrl);
   }
 
   reset(): any {

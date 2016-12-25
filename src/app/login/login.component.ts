@@ -78,11 +78,10 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
         this._http.get('./assets/files/release.json')
             .map((res: Response) => res.json()).subscribe(data => {
-                this.version = data.release.version;
-                this.build = data.release.build;
+                this.version = data.release;
+                this.build = data.build;
                 }
             );
     }
-
 }
 

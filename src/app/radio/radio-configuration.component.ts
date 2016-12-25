@@ -60,7 +60,7 @@ export class RadioConfigurationComponent implements OnInit, OnDestroy {
     }
     this.setFormData();
   }
-
+  
   setFormData() {
     let dirtyForm: IRadioModel = <IRadioModel>{};
     for (let control in this.form.controls) {

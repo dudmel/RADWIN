@@ -1,11 +1,3 @@
-/*************************************************/
-/*                                               */
-/*	Theme        : RADWIN                        */
-/*	Developed by : Manoj Dharajiya               */
-/*	Site URL     : http://md.wearedevelopers.in  */
-/*	version      : 1.0.0	                     */
-/*                                               */
-/*************************************************/
 select,
 textarea,
 input {
@@ -255,15 +247,6 @@ input {
   }
 }
 
-/*===== Login / Forgot-Password Css  =====*/
-/*************************************************/
-/*                                               */
-/*	Theme        : RADWIN                        */
-/*	Developed by : Manoj Dharajiya               */
-/*	Site URL     : http://md.wearedevelopers.in  */
-/*	version      : 1.0.0	                     */
-/*                                               */
-/*************************************************/
 .login-background {
   background-image: url("/assets/img/login_background.jpg") !important;
   background-size: 100% 100%;

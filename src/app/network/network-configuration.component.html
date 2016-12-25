@@ -38,7 +38,7 @@
 						</div>
 					</fieldset>
 					<fieldset>
-						<div class="row-flex">
+						<div class="row-flex network-bottom">
 								<div class="form-group">
 									Current:
 									<input formControlName="currentPortState" [(ngModel)]="network.currentPortState" class="form-control" type="text" readonly>
@@ -78,20 +78,20 @@
 					<div class="form-group-vlan">
 						<span class="input-label">ID:</span>
 						<span class="row-flex">
-							<input formControlName="vlanId" #id [(ngModel)]="vlanId" [readonly]="!isVlanEnabled" class="form-control" type="number" min="1" max="4094">
-							<input-controls [inputToChange]="id"></input-controls>
+							<input formControlName="vlanId" [(ngModel)]="vlanId" [readonly]="!isVlanEnabled" class="form-control" type="number" min="2" max="4094">
+							<input-controls [form]="form"></input-controls>
 						</span>
 						<p class="control-msgs" *ngIf="form.controls.vlanId.dirty && !form.controls.vlanId.valid && form.controls.vlanId.errors.invalidMinMax">VLAN ID should be set in the range of 2-4094 </p>
 					</div>
 					<div class="form-group-vlan">
 						<span class="input-label">Priority:</span>
 						<span class="row-flex">
-							<input formControlName="vlanPriority" #priority type="number" min="0" max="7"
+							<input formControlName="vlanPriority" type="number" min="1" max="7"
 								[(ngModel)]="vlanPriority"
 								[readonly]="!isVlanEnabled" class="form-control">
-							<input-controls [inputToChange]="priority"></input-controls>
+							<input-controls [form]="form"></input-controls>
 						</span>
-						<p class="control-msgs" *ngIf="form.controls.vlanPriority.dirty && !form.controls.vlanPriority.valid && form.controls.vlanPriority.errors.invalidMinMax">VLAN Priority should be set in the range of 0-7 </p>
+						<p class="control-msgs" *ngIf="form.controls.vlanPriority.dirty && !form.controls.vlanPriority.valid && form.controls.vlanPriority.errors.invalidMinMax">VLAN Priority should be set in the range of 1-7 </p>
 					</div>
 				</div>
 			</div>
@@ -100,26 +100,25 @@
 
 	<div class="box box-traps box-orange">
 		<div class="traps box-body">
-				<div class="traps-header">
-						<div class="traps-title">
-							TRAP DESTINATIONS
-						</div>
-						<div class="traps-buttons">
-							<div class="trap-button" (click)="changeTrapIndex(0)" [ngClass]="{'active': isActive(0)}">1 <span class="arrow-down" *ngIf="isActive(0)"></span></div>
-							<div class="trap-button" (click)="changeTrapIndex(1)" [ngClass]="{'active': isActive(1)}">2 <span class="arrow-down" *ngIf="isActive(1)"></span></div>
-							<div class="trap-button" (click)="changeTrapIndex(2)" [ngClass]="{'active': isActive(2)}">3 <span class="arrow-down" *ngIf="isActive(2)"></span></div>
-							<div class="trap-button" (click)="changeTrapIndex(3)" [ngClass]="{'active': isActive(3)}">4 <span class="arrow-down" *ngIf="isActive(3)"></span></div>
-	   						<div class="trap-button" (click)="changeTrapIndex(4)" [ngClass]="{'active': isActive(4)}">5 <span class="arrow-down" *ngIf="isActive(4)"></span></div>
-							<div class="trap-button" (click)="changeTrapIndex(5)" [ngClass]="{'active': isActive(5)}">6 <span class="arrow-down" *ngIf="isActive(5)"></span></div>
-							<div class="trap-button" (click)="changeTrapIndex(6)" [ngClass]="{'active': isActive(6)}">7 <span class="arrow-down" *ngIf="isActive(6)"></span></div>
-							<div class="trap-button" (click)="changeTrapIndex(7)" [ngClass]="{'active': isActive(7)}">8 <span class="arrow-down" *ngIf="isActive(7)"></span></div>
-							<div class="trap-button" (click)="changeTrapIndex(8)" [ngClass]="{'active': isActive(8)}">9 <span class="arrow-down" *ngIf="isActive(8)"></span></div>
-							<div class="trap-button" (click)="changeTrapIndex(9)" [ngClass]="{'active': isActive(9)}">10 <span class="arrow-down" *ngIf="isActive(9)"></span></div>
-						</div>
+			<div class="traps-header">
+				<div class="traps-title">
+					TRAP DESTINATIONS
 				</div>
-				<!--<div class="traps-body row-flex">-->
-						<trap-comp [trap]="clonedTraps[trapIndex]"></trap-comp>
-				<!--</div>-->
+				<div class="traps-buttons">
+				<div class="trap-button" (click)="changeTrapIndex(0)" [ngClass]="{'active': isActive(0)}">1 <span class="arrow-down" *ngIf="isActive(0)"></span></div>
+				<div class="trap-button" (click)="changeTrapIndex(1)" [ngClass]="{'active': isActive(1)}">2 <span class="arrow-down" *ngIf="isActive(1)"></span></div>
+				<div class="trap-button" (click)="changeTrapIndex(2)" [ngClass]="{'active': isActive(2)}">3 <span class="arrow-down" *ngIf="isActive(2)"></span></div>
+				<div class="trap-button" (click)="changeTrapIndex(3)" [ngClass]="{'active': isActive(3)}">4 <span class="arrow-down" *ngIf="isActive(3)"></span></div>
+				<div class="trap-button" (click)="changeTrapIndex(4)" [ngClass]="{'active': isActive(4)}">5 <span class="arrow-down" *ngIf="isActive(4)"></span></div>
+				<div class="trap-button" (click)="changeTrapIndex(5)" [ngClass]="{'active': isActive(5)}">6 <span class="arrow-down" *ngIf="isActive(5)"></span></div>
+				<div class="trap-button" (click)="changeTrapIndex(6)" [ngClass]="{'active': isActive(6)}">7 <span class="arrow-down" *ngIf="isActive(6)"></span></div>
+				<div class="trap-button" (click)="changeTrapIndex(7)" [ngClass]="{'active': isActive(7)}">8 <span class="arrow-down" *ngIf="isActive(7)"></span></div>
+				<div class="trap-button" (click)="changeTrapIndex(8)" [ngClass]="{'active': isActive(8)}">9 <span class="arrow-down" *ngIf="isActive(8)"></span></div>
+				<div class="trap-button" (click)="changeTrapIndex(9)" [ngClass]="{'active': isActive(9)}">10 <span class="arrow-down" *ngIf="isActive(9)"></span></div>
+				</div>
+			</div>
+			<trap-comp [trap]="clonedTraps[trapIndex]" (trapChange)="checkTraps($event)"></trap-comp>
+			<p class="control-msgs" *ngIf="isIpExist">IP already exists</p>
 		</div>
 	</div>
 </div>

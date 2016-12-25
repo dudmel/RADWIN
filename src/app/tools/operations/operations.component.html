@@ -13,12 +13,12 @@
             <div class="form-group">
               Range [MHz]:
               <span class="row-flex row-flex-input">
-                <input formControlName="minAirFrequency" [(ngModel)]="spectrumRange.minAirFrequency" #minAirFrq class="form-control" type="number" step=5 min={{spectrumRange.minChipFrequency}}>
-                <input-controls [inputToChange]="minAirFrq"></input-controls>
+                <input formControlName="minAirFrequency" [(ngModel)]="spectrumRange.minAirFrequency" class="form-control" type="number" step=5 min={{spectrumRange.minChipFrequency}}>
+									<input-controls [form]="spectrumForm"></input-controls>
               </span>
               <span class="row-flex row-flex-input">              
-                <input formControlName="maxAirFrequency" [(ngModel)]="spectrumRange.maxAirFrequency" #maxAirFrq class="form-control" type="number" step=5 max={{spectrumRange.maxChipFrequency}}>
-                <input-controls [inputToChange]="maxAirFrq"></input-controls>
+                <input formControlName="maxAirFrequency" [(ngModel)]="spectrumRange.maxAirFrequency" class="form-control" type="number" step=5 max={{spectrumRange.maxChipFrequency}}>
+									<input-controls [form]="spectrumForm"></input-controls>
               </span>
               <div class="control-msgs" *ngIf="spectrumForm.controls.minAirFrequency.dirty || spectrumForm.controls.maxAirFrequency.dirty">
                 <p *ngIf="spectrumForm.errors?.invalidSpectrumRange">Scanning range should be up to 500MHz</p>
@@ -27,8 +27,8 @@
             <div class="form-group">
               Duration [sec]:
               <span class="row-flex row-flex-input">
-                <input formControlName="duration" #duration1 [(ngModel)]="duration" class="form-control" type="number" min="60" max="86400">
-                <input-controls [inputToChange]="duration1"></input-controls>
+                <input formControlName="duration" [(ngModel)]="duration" class="form-control" type="number" min="60" max="86400">
+									<input-controls [form]="spectrumForm"></input-controls>
               </span>
               <div class="control-msgs" *ngIf="spectrumForm.controls.duration.dirty && !spectrumForm.controls.duration.valid">
                 <p *ngIf="spectrumForm.controls.duration.errors.invalidMinMax">Duration should be 60-86400 sec</p>
@@ -38,7 +38,7 @@
         </form>
         <button  [disabled]="!spectrumForm.valid || spectrumTestInProgress" (click)="startSpectrum($event)" class="btn btn-default">START</button>
         <button  [disabled]="!spectrumTestInProgress" (click)="stopSpectrum($event)" class="btn btn-default">STOP</button>
-        <button  [disabled]="!downloadAvailable" (click)="saveToFile($event)" class="btn btn-default">SAVE TO FILE</button>
+        <button  [disabled]="!downloadAvailable" (click)="saveSpectrumDataToFile($event)" class="btn btn-default">SAVE TO FILE</button>
       </div>
       <div class="charts-container">
           <div class="chart">
