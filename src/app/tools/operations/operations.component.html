@@ -11,24 +11,27 @@
         <form *ngIf="spectrumRange" [formGroup]="spectrumForm">
           <fieldset>
             <div class="form-group">
-              Range [MHz]:
+              Range:
               <span class="row-flex row-flex-input">
                 <input formControlName="minAirFrequency" [(ngModel)]="spectrumRange.minAirFrequency" class="form-control" type="number" step=5 min={{spectrumRange.minChipFrequency}}>
-									<input-controls [form]="spectrumForm"></input-controls>
+                <input-controls [form]="spectrumForm"></input-controls>
+                <span class="input-units">[MHz]</span>
               </span>
               <span class="row-flex row-flex-input">              
                 <input formControlName="maxAirFrequency" [(ngModel)]="spectrumRange.maxAirFrequency" class="form-control" type="number" step=5 max={{spectrumRange.maxChipFrequency}}>
-									<input-controls [form]="spectrumForm"></input-controls>
+                <input-controls [form]="spectrumForm"></input-controls>
+                <span class="input-units">[MHz]</span>
               </span>
               <div class="control-msgs" *ngIf="spectrumForm.controls.minAirFrequency.dirty || spectrumForm.controls.maxAirFrequency.dirty">
                 <p *ngIf="spectrumForm.errors?.invalidSpectrumRange">Scanning range should be up to 500MHz</p>
               </div>
             </div>
             <div class="form-group">
-              Duration [sec]:
+              Duration:
               <span class="row-flex row-flex-input">
                 <input formControlName="duration" [(ngModel)]="duration" class="form-control" type="number" min="60" max="86400">
 									<input-controls [form]="spectrumForm"></input-controls>
+                  <span class="input-units">[Sec]</span>
               </span>
               <div class="control-msgs" *ngIf="spectrumForm.controls.duration.dirty && !spectrumForm.controls.duration.valid">
                 <p *ngIf="spectrumForm.controls.duration.errors.invalidMinMax">Duration should be 60-86400 sec</p>
@@ -36,20 +39,33 @@
             </div>
           </fieldset>
         </form>
-        <button  [disabled]="!spectrumForm.valid || spectrumTestInProgress" (click)="startSpectrum($event)" class="btn btn-default">START</button>
-        <button  [disabled]="!spectrumTestInProgress" (click)="stopSpectrum($event)" class="btn btn-default">STOP</button>
-        <button  [disabled]="!downloadAvailable" (click)="saveSpectrumDataToFile($event)" class="btn btn-default">SAVE TO FILE</button>
+        <div class="buttons-container">
+          <div class="row-buttons">
+            <button  [disabled]="!spectrumForm.valid || spectrumTestInProgress" (click)="startSpectrum($event)" class="btn btn-default">START</button>
+            <button  [disabled]="!spectrumTestInProgress" (click)="stopSpectrum($event)" class="btn btn-default">STOP</button>
+          </div>
+          <button  [disabled]="!downloadAvailable" (click)="saveSpectrumDataToFile($event)" class="btn btn-default">SAVE TO FILE</button>
+        </div>
       </div>
       <div class="charts-container">
-          <div class="chart">
+          <div class="chart" (click)="enlargeChartA=true; enlargeChartB=false">
             <div>
               Antenna A
             </div>
             <canvas baseChart class="spectrum-chart" id="antennaA" [datasets]="barChartDataA" [labels]="barChartLabels" [options]="barChartOptions"
-              [colors]="barChartColors" [chartType]="barChartType">
+              [colors]="barChartColors" [chartType]="barChartType" >
             </canvas>
           </div>
-          <div class="chart">
+          <div class="chart large-charts" (click)="enlargeChartA=false; $event.stopPropogation" *ngIf="enlargeChartA">
+            <div>
+              <span class="x" (click)="enlargeChartB=false"> X </span>
+              Antenna A 
+            </div>
+            <canvas baseChart class="spectrum-chart" id="antennaA" [datasets]="barChartDataA" [labels]="barChartLabels" [options]="barChartOptions"
+              [colors]="barChartColors" [chartType]="barChartType" >
+            </canvas>
+          </div>
+          <div class="chart" (click)="enlargeChartB=true; enlargeChartA=false">
             <div>
               Antenna B
             </div>
@@ -57,6 +73,17 @@
               [colors]="barChartColors" [chartType]="barChartType">
             </canvas>
           </div>
+          <div class="chart large-charts" (click)="enlargeChartB=false" *ngIf="enlargeChartB">
+            <div>
+              <span class="x" (click)="enlargeChartB=false"> X </span>
+              Antenna B 
+            </div>
+            <canvas baseChart class="spectrum-chart" id="antennaB" [datasets]="barChartDataB" [labels]="barChartLabels" [options]="barChartOptions"
+              [colors]="barChartColors" [chartType]="barChartType">
+            </canvas>
+          </div>
+
+
         </div>
     </div>
   </div>

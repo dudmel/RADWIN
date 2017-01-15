@@ -1,16 +1,13 @@
-
-
 .overview-section {
     display: flex;
     flex-flow: column nowrap;
-    height: 100%;
     justify-content: space-between;
+    // height: 100%;
 }
 .overview-row {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    height: 350px;
     width:100%;
 }
 system-monitor {
@@ -20,19 +17,17 @@ system-monitor {
 }
 device-monitor {
     width: 100%;
-    height: 100%;
+    height: 150px;
     margin-top:10px;
     display: flex;
 }
 radio-monitor {
     width: 25%;
-    height: 100%;
-            justify-content: center;
+    justify-content: center;
     min-width: 230px;
     display: flex;
     align-self: center;
     flex-flow: column nowrap;
-    
 }
 .monitors-container {
     min-width: 600px;
@@ -43,29 +38,83 @@ radio-monitor {
 }
 
 recent-events {
-    width: 100%;  
+    width: 100%;
     margin-top: 20px;
     margin-bottom: 40px;
 }
 
-@media (max-width: 1170px) {
+@media (max-width: 1050px) {
     .overview-row {
         flex-flow: column nowrap;
-            justify-content: flex-start;
-        height: 650px;
+        justify-content: flex-start;
     }
     .monitors-container {
         width: 100%;
-        height: 350px;
     }
-
     radio-monitor {
-        width: 50%;
-        height: 250px;
-        margin-bottom: 35px;
+        align-self: flex-start;
     }
-
     .overview-section {
         min-width: 600px;
+    }
+    recent-events {
+       
+    }
+}
+
+@media (max-width: 768px) {
+    .overview-section {
+        min-width: 0;
+    }
+    .overview-row {
+    }
+     radio-monitor {
+        width: 100%;
+        border-bottom: 2px solid #d9dcdf;
+        max-height: 300px;
+        margin-bottom: 0;
+        justify-content: flex-start;
+    }
+    .monitors-container {
+        border-bottom: 2px solid #d9dcdf;
+        min-width: 0;
+    }
+    device-monitor {
+        margin-bottom: 20px;
+    }
+    system-monitor {
+        border-bottom: 2px solid #d9dcdf;
+    }
+    h3 {
+        margin-top: 10px;
+        font-size: 20px;
+        height: 22px;
+        cursor: pointer;
+    }
+    recent-events {
+        border-bottom: 2px solid #d9dcdf;
+        /* margin-top: 10px;*/
+    }
+}
+
+@media (max-width: 600px) {
+    .overview-section {
+        // min-height: 216px;
+        display: flex;
+        justify-content: space-between;
+        flex-flow: column nowrap;
+    }
+    .overview-row {
+        justify-content: space-between;
+    }
+    .monitors-container, radio-monitor, system-monitor {
+        min-height: 44px;
+    }
+    device-monitor {
+        height: 115px;
+    }
+    recent-events { 
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 }

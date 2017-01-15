@@ -9,14 +9,14 @@ import { Http, Response } from '@angular/http';
  */
 @Component({
     selector: 'app',
-    styles: [require('../assets/scss/style.scss')],
+    styles: [require('../assets/scss/style.scss'),require('../assets/scss/_vars.scss')],
     encapsulation: ViewEncapsulation.None,
     template: `<router-outlet></router-outlet>`
 })
 export class App {
 
     private companyName;
-
+  
   constructor(public toastr: ToastsManager,
               private _http: Http,
               private vRef: ViewContainerRef) {

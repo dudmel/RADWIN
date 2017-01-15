@@ -3,8 +3,9 @@
     <span>Are you sure you want to restore Factory default Settings?</span>
     <span>The Link may be unreachable after the process.</span>
     <span>This process takes several seconds and followed by a device reset.</span>
-    <div class="">
+    <div class="checkbox-container">
         <input type="checkbox" #resetPwdChBox [checked]=false (change)="onResetIpChanged(resetPwdChBox.checked)" />
         {{resetIpWarningMessage}}
     </div>
 </div>
+

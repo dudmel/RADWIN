@@ -60,7 +60,7 @@
                                              min={{radio.minTxPower}}
                                              max="{{radio.maxTxPower}}">
                                     <input-controls [form]="form"></input-controls>
-                                    <span class="input-units">dBm</span>
+                                    <span class="input-units">[dBm]</span>
                                 </span>
                             </div>
                             <div class="control-msgs" *ngIf="form.controls.desiredTxPower.dirty && !form.controls.desiredTxPower.valid">
@@ -73,8 +73,8 @@
                                 <span class="input-field-flex">
                                     <input formControlName="antennaGain" [(ngModel)]="radio.antennaGain" class="form-control" type="number" step="0.1" readonly
                                         min="{{radio.minAntennaGain" max="radio.maxAntennaGain}}">
-                                    <span class="input-units">dBi</span>
                                     <input-controls [form]="form"></input-controls>
+                                    <span class="input-units">[dBi]</span>
                                 </span>
                             </div>
 
@@ -87,7 +87,7 @@
                                     <select formControlName="currentCbw" [(ngModel)]="radio.currentCbw" class="form-control" type="number">
                                         <option *ngFor="let cbw of radio?.options?.cbwList" [value]="cbw">{{ cbw }}</option>
                                     </select>
-                                <span class="input-units">MHz</span>
+                                <span class="input-units">[MHz]</span>
                                 </span>
                             </div>
                             <div class="frq">
@@ -117,7 +117,7 @@
             <div class="box-body">
                 <form *ngIf="radio" [formGroup]="form">
                     <fieldset>
-                        <div class="form-group">
+                        <div class="form-group"> 
                             Mobility level
                             <div class="input-group">
                                 <select formControlName="mobilityLevels" [(ngModel)]="radio.mobilityLevel" class="form-control" type="number">

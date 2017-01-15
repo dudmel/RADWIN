@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Input, ChangeDetectionStrategy, Attribute } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, Input, ChangeDetectionStrategy, Attribute } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
@@ -17,7 +17,7 @@ let hbsColor = '#f47f6b';
     styles: [require('./device-monitor.styles.scss')],
     // changeDetection: ChangeDetectionStrategy.OnPush
 })
-
+ 
 export class DeviceMonitorComponent implements OnInit {
 
     private monitorSub: any;
@@ -87,6 +87,10 @@ export class DeviceMonitorComponent implements OnInit {
         this.tputLineOptions.spotColor = this.sparksColor;
         this.lanBarOptions.barColor = this.sparksColor;
         this.rssBarOptions.barColor = this.sparksColor;
+    }
+
+    ngOnDestroy() {
+        this.monitorSub.unsubscribe()
     }
 
     // http://omnipotent.net/jquery.sparkline/#s-docs

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 import { Store } from '@ngrx/store';
@@ -6,12 +6,14 @@ import { WModalService, AppStore } from '../blocks';
 import { IMonitorModel } from '../monitor';
 import { ISystemModel } from '../system';
 import { Resources, exLog, Consts } from '../shared';
+import { RssMonitorComponent} from '../rss-monitor'
 
  
 @Component({
     selector: 'quick-look',
     template: require('./quick-look.component.html'),
-    styles: [require('./quick-look.styles.scss')]
+    styles: [require('./quick-look.styles.scss')],
+    outputs: ['rssMonitorClicked']
 })
 
 export class QuickLookComponent implements OnInit, OnDestroy {
@@ -25,6 +27,7 @@ export class QuickLookComponent implements OnInit, OnDestroy {
     private alarmsCounterSub;
     private timeoutOccuredSub;
     private tokenExpirationSub;
+    private rssMonitorClicked = new EventEmitter;
 
     constructor(private _modalService: WModalService,
         private _router: Router,
@@ -89,5 +92,9 @@ export class QuickLookComponent implements OnInit, OnDestroy {
         if (this.monitor.hsuRss >= -65) return '../../assets/icon/rss1.svg' 
         if (this.monitor.hsuRss >= -80 && this.monitor.hsuRss < 65 ) return '../../assets/icon/rss2.svg' 
         if (this.monitor.hsuRss < -80) return '../../assets/icon/rss3.svg' 
+    }
+    openRssMonitor() {
+        this.rssMonitorClicked.emit();
+
     }
 }

@@ -18,10 +18,10 @@
        url('../assets/fonts/roboto-v15-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
        url('../assets/fonts/roboto-v15-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
-
 dashboard {
     position: relative;
 }
+
 body {
     background-color: #fbfbfb;
 }
@@ -32,12 +32,25 @@ input[type=number]::-webkit-outer-spin-button {
 }
 @media (min-width: 1000px) {
     font-size:20px;
-} 
+}  
 @media (min-width: 1200px) {
     font-size:30px;
 }
 @media (min-width: 800px) {
     font-size:10px;
+}
+rss-monitor {
+    background-color:rgba(0, 0, 0, 0.5);
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    z-index: 1049;
+}
+@media (max-width: 500px) {
+   
 }
 
 .row-flex {
@@ -213,13 +226,13 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* Fix for not showing up/down arrows when readonly in firefix*/
-input[type='number']:-moz-read-only  {
+input[type="number"]  {
     -moz-appearance:textfield;
 }
 input-controls {
     height: 34px;
-        -ms-grid-row-align: center;
-            align-self: center;
+    -ms-grid-row-align: center;
+        align-self: center;
 }
 .buttons-footer{
     margin-bottom: 25px
@@ -227,3 +240,9 @@ input-controls {
 unit {
     min-width: 600px;
 }
+@media (max-width: 700px) {
+    unit {
+        min-width: 100%;
+    }
+}
+

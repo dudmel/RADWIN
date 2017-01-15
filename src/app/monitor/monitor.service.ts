@@ -27,10 +27,11 @@ export class MonitorService {
 
   startMonitoring() {
     this.monitorSub = Observable.timer(0, monitorInterval)
-      .flatMap(() => this._httpService.getData(monitorUrl))
+      .flatMap(() => this.sendMonitorRequest())
       .map(payload => ({ type: 'GET_MONITOR', payload }))
       .subscribe(action => {
             this._store.dispatch(action);
+            this._timeoutsCounter--;
           }, (err: any) => {
             // Handle token expiration
             if (err.status === 401) {
@@ -38,11 +39,19 @@ export class MonitorService {
               return;
             }
 
-            this._timeoutsCounter++;
-            if (this._timeoutsCounter >= Consts.timeoutRetries) {
-              this.onTimeOut();
-            }
+            this.startMonitoring();
       });
+  }
+
+  sendMonitorRequest(): any {
+
+    if (this._timeoutsCounter >= Consts.timeoutRetries) {
+      this.onTimeOut();
+      return;
+    }
+
+    this._timeoutsCounter++;
+    return Observable.from(this._httpService.getData(monitorUrl));
   }
 
   stopMonitor() {
@@ -54,6 +63,8 @@ export class MonitorService {
     this.stateProviderSub = this._store.select('monitorSuspend')
         .subscribe((isSuspend: boolean) => {
             this.isMonitorSuspend = isSuspend;
+
+            this._timeoutsCounter = 0;
             
             if (this.isMonitorSuspend)
               this.stopMonitor();
@@ -70,5 +81,9 @@ export class MonitorService {
 
   onTokenExpiration() {
     this._store.dispatch({ type: 'TOKEN_EXPIRATION' });
+  }
+
+  terminate() {
+    
   }
 }

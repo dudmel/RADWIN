@@ -139,18 +139,16 @@ export class SwuComponent implements OnInit, OnDestroy {
 
         let warningMessage = '';
         // in restore ask user
-        if (this.type === 'restore') {
-            warningMessage = (this.type === 'restore') 
-                ? Resources.restoreWarning.replace('{0}', this.swuData.release)
-                : Resources.swuResetWarning
+        warningMessage = (this.type === 'restore') 
+            ? Resources.restoreWarning.replace('{0}', this.swuData.release)
+            : Resources.swuResetWarning
 
-            this._modalService.activate(Resources.swuResetWarning, Resources.warning, undefined, undefined, Consts.ModalType.warning)
-                .then(responseOk => {
-                    if (responseOk) {
-                        this.startProcess();
-                    }
-                });
-        }
+        this._modalService.activate(warningMessage, Resources.warning, undefined, undefined, Consts.ModalType.warning)
+            .then(responseOk => {
+                if (responseOk) {
+                    this.startProcess();
+                }
+            });
     }
 
     startProcess() {

@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'input-controls',
@@ -9,7 +9,7 @@ import { Component, OnInit, ElementRef, ViewEncapsulation } from '@angular/core'
     </section>
   `,
   styleUrls: ['./input_controls.scss'],
-  inputs: ['form']
+  inputs: ['form'],
 })
 
 export class InputControls {

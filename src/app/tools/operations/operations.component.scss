@@ -1,3 +1,5 @@
+@import './../../blocks/input_controls/input_controls.scss';
+
 .row-flex {
     display: flex;
     flex-flow: row nowrap;
@@ -5,8 +7,11 @@
 }
 .row-flex-input {
 }
+.box-title {
+    margin-left: 0;
+    margin-top: 10px;
+}
 form, fieldset, .form-group {
-    width: 100%;
 }
 .col-flex {
     display: flex;
@@ -14,7 +19,8 @@ form, fieldset, .form-group {
     justify-content: space-around;
 }
 input-controls {
-    right: 0;
+    right: -80px + $control-width;
+    position: relative;
 }
 .spectrum-title {
     font-size: 18px;
@@ -35,11 +41,10 @@ input-controls {
 .inputs-container {
     position: relative;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column nowrap;
     width: 20%;
     justify-content: flex-start;
     min-width: 152px;
-    height: 220px;
     
 }
 .charts-container {
@@ -58,10 +63,9 @@ input-controls {
 }
 .side-box {
     width: 18%;
-    height: 100%;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     min-width: 163px;
 
     h4 { 
@@ -81,6 +85,10 @@ input-controls {
         max-width:100%; 
     }
 
+}
+.row-buttons {
+    display: flex;
+    flex-flow: row nowrap;
 }
 
 @media (max-width: 1050px) {
@@ -118,4 +126,79 @@ input-controls {
             }
         }
     }
+}
+.input-units {
+    width: 0;
+    position: relative;
+    right: 65px  + $control-width;
+    align-self: center;
+}
+
+@media (max-width: 800px) {
+    .box-body {
+        flex-flow: column nowrap;
+        align-items: center;
+    }
+    .inputs-container {
+        width:100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        form {
+            fieldset {
+                .form-group {
+                }
+            }
+        }
+    }
+    .charts-container {
+        width: 100%;
+    }
+    .buttons-container {
+        display: flex;
+        flex-flow: column nowrap;
+        button {
+            width: 100%;
+        }
+        .row-buttons {
+            flex-flow: column nowrap;
+        }
+    }
+    .side-box {
+        flex-flow: column nowrap;
+        .box-function {
+            width: 100%;
+            .box-header {
+                min-height: initial;
+                
+            }
+        }
+    }
+}
+
+@media (max-width:650px){
+    .large-charts {
+        width: 150vw;
+        position: absolute;
+        left: -3%;
+        top: 50%;
+        overflow-x: scroll;
+        display: flex;
+        flex-flow: column nowrap;
+        border-radius: 3px;
+        background: #ffffff;
+        margin-bottom: 20px;
+        border: 1px solid silver;
+        box-shadow: 1px 2px 0px rgba(0, 0, 0, 0.1);
+        padding: 2px;
+        z-index: 99;
+    }
+    .x {
+        cursor: pointer;
+        display: block;
+        margin: auto;
+        text-align: center;
+    }
+
 }

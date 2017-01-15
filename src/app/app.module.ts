@@ -40,6 +40,8 @@ import { RestoreToDeaultsComponent } from './tools/operations/restoreToDefaults/
 import { NetworkToolsComponent } from './tools/network/network-tools.component';
 import { GaugeComponent, options } from './blocks';
 import { InputControls } from './blocks/input_controls';
+import { RssMonitorComponent } from './rss-monitor'
+
 
 
 // Pipes
@@ -49,6 +51,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { FileUploadModule } from 'ng2-file-upload';
 import { Ng2Bs3ModalModule   } from 'ng2-bs3-modal/ng2-bs3-modal';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
+
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -70,7 +73,7 @@ const APP_PROVIDERS = [
     ChangeBandComponent, TrapComponent, WifiConfigurationComponent,
     SecurityConfigurationComponent, UnitToolsComponent, OperationsComponent,
     NetworkToolsComponent, LinkStateComponent, GaugeComponent, AlarmsComponent,
-    SwuComponent, RestoreToDeaultsComponent,  InputControls,
+    SwuComponent, RestoreToDeaultsComponent, RssMonitorComponent, InputControls,
     // pipes
     ProductPipe, UnitsPipe, TimeTicks, NoneValuePipe, MacPipe
   ],
@@ -83,7 +86,7 @@ const APP_PROVIDERS = [
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, { useHash: true })
+    RouterModule.forRoot(ROUTES, { useHash: true }),
   ],
   entryComponents: [RestoreToDeaultsComponent],
   providers: [ // expose our Services and Providers into Angular's dependency injection

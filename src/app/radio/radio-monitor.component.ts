@@ -5,6 +5,7 @@ import { IRadioModel } from './radio.model';
 import { IMonitorModel } from '../monitor';
 import { UnitsPipe, AppStore } from '../blocks';
 import { exLog } from '../shared/global-methods';
+import { Consts } from '../shared/consts'
 
 @Component({
   selector: 'radio-monitor',
@@ -19,7 +20,10 @@ export class RadioMonitorComponent implements OnInit, OnDestroy {
   private monitor: IMonitorModel = <IMonitorModel>{};
   private radioSub;
   private monitorSub;
-
+  private hideSection = true;
+  get isMobile() {
+      return Consts.isMobile;
+  }
   constructor(private _store: Store<AppStore>) { }
 
 

@@ -1,15 +1,8 @@
-<!-- template -->
+<div class="wrapper"> 
 
-<!-- /#wrapper -->
-<div class="wrapper">
-
-	<!-- Main Header -->
 	<header class="main-header">
-		<!-- Header Navbar -->
 		<nav class="navbar" role="navigation">
-			<!-- Sidebar toggle button-->
 			<span href="#" class="hamburger hamburger--collapse" [ngClass]="isActive? 'is-active' : ''" (click)="isActive=!isActive">
-				<!--<i class="rad-sprite hamburger"></i>-->
 					<span class="hamburger-box">
 						<span class="hamburger-inner"></span>
 					</span>
@@ -18,15 +11,12 @@
 			<span class="main-logo">
                 <img src="/assets/img/logo.png">
             </span>
-			<!-- Navbar Right Menu -->
+		
 			<div class="custom-menu">
 				<ul class="nav navbar-nav">
 
-					<!-- Notifications Menu -->
 					<li class="dropdown notifications-menu" (click)='RequestForAlarms()'>
-						<!-- Menu toggle button -->
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<!--<i class="rad-sprite bell"></i>-->
 							<img class="bell" [src]="'../../assets/icon/bell.svg'" />
 							<span *ngIf="alarmsCounter > 0" class="label label-warning">{{alarmsCounter}}</span>
 						</a>
@@ -34,17 +24,11 @@
 							<active-alarms></active-alarms>
 						</ul>
 					</li>
-					<!-- User Account Menu -->
 					<li class="dropdown user user-menu">
-						<!-- Menu Toggle Button -->
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<!-- The user image in the navbar-->
-							<!-- hidden-xs hides the username on small devices so only the image appears. -->
-							<!--               <span class="hidden-xs">{{ loginData.fullName }}</span>
-                            --><span class="hidden-xs">Admin</span>
+							<span class="">Admin</span>
 						</a>
 						<ul class="dropdown-menu">
-							<!-- Menu Footer-->
 							<li class="user-footer">
 								<a href="/" (click)='logout()' class="btn btn-default btn-flat">Log out</a>
 							</li>
@@ -52,23 +36,21 @@
 					</li>
 				</ul>
 			</div>
+		
 		</nav>
 	</header>
-	<!-- Left side column. contains the logo and sidebar -->
 	<span class="main-sidebar" [ngClass]="!isActive? 'menu-collapse' : ''" (mouseenter)="isActive=true" (mouseleave)="isActive=false">
 
-        <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
 
-            <!-- Sidebar Menu -->
             <ul class="sidebar-menu">
 				<li class="treeview" (click)="openedSection === 1? openedSection = 0 : openedSection = 1">
-					<span class="side-bar-item" [routerLink]=" ['./overview'] " [routerLinkActive]="['is-active']">
+					<span class="side-bar-item" [routerLink]=" ['./overview'] " [routerLinkActive]="['is-active']" (click)="isActive=false; $event.stopPropagation();">
 						<span class="menu-title" (mouseenter)="openedSection === 1? state1='active' : state1='hover'" (mouseleave)="openedSection === 1? state1='active' : state1=''" (click)="state1='active'; state2=''; state3=''">
 							<img [src]="'../../assets/icon/menu1' + getImg(state1) + '.svg'"/>
 							<span class="side-bar-title" *ngIf="isActive">OVERVIEW</span>
 						</span>
-						<span [ngClass]="openedSection === 1 ? 'arrow-left' : ''"> </span>
+						<span [ngClass]="openedSection === 1 && isActive? 'arrow-left' : ''"> </span>
 					</span>
 				</li>
 				
@@ -78,14 +60,14 @@
 							<img [src]="'../../assets/icon/menu2' + getImg(state2) + '.svg'"/>
 							<span class="side-bar-title" *ngIf="isActive">CONFIGURE</span>
 						</span>
-						<span [ngClass]="openedSection === 2 ? 'arrow-left' : ''"> </span>
+						<span [ngClass]="openedSection === 2  && isActive? 'arrow-left' : ''"> </span>
 					
 						<ul class="treeview-menu" *ngIf="isActive && openedSection === 2">
-							<li><a [routerLink]=" ['./system-configuration'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i><span class="side-bar-title sub-menu" (click)="$event.stopPropagation()">SYSTEM</span></a></li>
-							<li><a [routerLink]=" ['./radio-configuration'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="$event.stopPropagation()">RADIO</span></a></li>
-							<li><a [routerLink]=" ['./network-configuration'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="$event.stopPropagation()">NETWORK</span></a></li>
-							<li><a [routerLink]=" ['./wifi-configuration'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="$event.stopPropagation()">WIFI</span></a></li>
-							<li><a [routerLink]=" ['./security-configuration'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="$event.stopPropagation()">SECURITY</span></a></li>
+							<li><a [routerLink]=" ['./system-configuration'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i><span class="side-bar-title sub-menu" (click)="isActive=false; $event.stopPropagation();">SYSTEM</span></a></li>
+							<li><a [routerLink]=" ['./radio-configuration'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="isActive=false; $event.stopPropagation();">RADIO</span></a></li>
+							<li><a [routerLink]=" ['./network-configuration'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="isActive=false; $event.stopPropagation();">NETWORK</span></a></li>
+							<li><a [routerLink]=" ['./wifi-configuration'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="isActive=false; $event.stopPropagation();">WIFI</span></a></li>
+							<li><a [routerLink]=" ['./security-configuration'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="isActive=false; $event.stopPropagation();">SECURITY</span></a></li>
 						</ul>
 					</span>
 				</li>
@@ -96,12 +78,12 @@
 							<img [src]="'../../assets/icon/menu3' + getImg(state3) + '.svg'"/>
 							<span class="side-bar-title" *ngIf="isActive">TOOLS</span>
 						</span>
-						<span [ngClass]="openedSection === 3 ? 'arrow-left' : ''"> </span>
+						<span [ngClass]="openedSection === 3 && isActive? 'arrow-left' : ''"> </span>
 					</span>
 					<ul class="treeview-menu" *ngIf="isActive && openedSection === 3">
-						<li><a [routerLink]=" ['./unit-tools'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="$event.stopPropagation()">UNIT</span></a></li>
-						<li><a [routerLink]=" ['./network-tools'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="$event.stopPropagation()">NETWORK</span></a></li>
-						<li><a [routerLink]=" ['./operations-tools'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="$event.stopPropagation()">OPERATIONS</span></a></li>
+						<li><a [routerLink]=" ['./unit-tools'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="isActive=false; $event.stopPropagation();">UNIT</span></a></li>
+						<li><a [routerLink]=" ['./network-tools'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="isActive=false; $event.stopPropagation();">NETWORK</span></a></li>
+						<li><a [routerLink]=" ['./operations-tools'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="isActive=false; $event.stopPropagation();">OPERATIONS</span></a></li>
 					</ul>
 				</li>
 
@@ -109,7 +91,6 @@
 			</section>
 	</span>
 
-	<!-- Content Wrapper. Contains page content -->
 	<div class="content-wrapper">
 		<section class="content-header">
 			<h1>
@@ -118,14 +99,13 @@
 			<h5 *ngIf="system">{{system?.hsu?.hsuName}}, {{system?.hsu?.hsuLocation}}</h5>
 		</section>
 
-		<!-- Main content -->
 		<section class="content">
-			<quick-look></quick-look>
-			<!-- Your Page Content Here -->
+			<quick-look (rssMonitorClicked)="showRssMonitor=true"></quick-look>
 			<router-outlet></router-outlet>
 		</section>
 	</div>
 
 </div>
+<rss-monitor *ngIf="showRssMonitor" (rssMonitorClicked)="showRssMonitor=false"></rss-monitor>
 
 <rad-modal></rad-modal>

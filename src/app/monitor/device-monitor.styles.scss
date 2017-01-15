@@ -10,12 +10,13 @@
   flex-flow: row nowrap;
   border-radius: 3px;
   background: #ffffff;
-  padding: 5px 5px 0 5px;
+  padding: 0 5px;
   width: 100%;
-  min-width: 670px;
+//   min-width: 670px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   .system-box-title {
 	font-size: 36px;
+	padding-right: 5px;
   }
 }
 .box-lightBlue {
@@ -26,21 +27,24 @@
 }
 .device-monitor-title {
 	display: flex;
-	padding:20px;
+	// padding:20px;
 	flex-flow: column nowrap;
 	justify-content: center;
 	text-align: center;
 	border-right: 1px solid #d8d8d8;
 	font-size: 36px;
-	height: 100%;
-	flex: 1;
+	padding: 0 5px;
+	// height: 100%;
+	// flex: 1;
+	max-width: 20%;
 }
 
 .device-monitor-block {
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: center;
-	flex: 4;
+	// flex: 4;
+	width: 50%;
 	&.border-right {
 		border-right: 1px solid #d8d8d8;
 	}
@@ -49,9 +53,7 @@
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: space-between;
-	min-width: 265px;
-	width: 100%;
-	height: 50%;
+	flex: 1;
 	align-items: center;
 	padding: 0 5px 0 5px;
 	div {
@@ -59,7 +61,6 @@
     	flex-flow: row nowrap;
 		justify-content: center;
 		text-align: end;
-		align-self: flex-end;
 	}
 	.monitor-graph {
 		width: 70%;
@@ -68,7 +69,7 @@
 	}
 	.measure {
 		width: 74px;
-		height: 100%;
+		// height: 100%;
 		display: flex;
 		flex-flow: column nowrap;
 		text-align: end;
@@ -101,6 +102,35 @@
 	}
 }
 .monitor-graph {
-	height: 100%;
+	// height: 100%;
 	margin: auto;
+}
+
+@media (max-width: 768px) {
+	.box-device {
+		padding: 5px 0;
+		min-width: 0;
+	}
+	.monitor-block {
+		min-width: 0;
+		.monitor-graph {
+			display: none;
+		}
+		.measure {
+			width: 100%;
+			text-align: center;
+			padding: 4px 4px 8px 4px;
+			div {
+				-ms-grid-row-align: center;
+				align-self: center;
+			}
+		}
+	}
+	.box-device {
+		min-width: 0;
+	}
+	.device-monitor-title {
+		font-size: 26px;
+	}
+	
 }

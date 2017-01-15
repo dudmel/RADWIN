@@ -13,12 +13,12 @@ import { RestoreToDeaultsComponent } from './restoreToDefaults/restore-to-defaul
 import { SpectrumService, ISpectrumData, ISpectrumRange } from './spectrum.service';
 import { Store } from '@ngrx/store';
 import { saveAs } from 'file-saver';
-
+ 
 let diagnosticsUrl = Consts.baseUrls.diagnostics;
 let OFFSET: number = 100;
 
 @Component({
-  selector: 'unit',
+  selector: 'operations',
   providers: [OperationsService, SpectrumService],
   template: require('./operations.component.html'),
   styleUrls: ['operations.component.scss']
@@ -42,6 +42,8 @@ export class OperationsComponent implements OnInit, OnDestroy {
   private spectrumSub;
   private spectrumRangeSub;
   private monitorSub;
+  private enlargeCahrtA = false;
+  private enlargeCahrtB = false;
 
   private barChartDataA: any[] = [
     { label: 'Current', data: [] },
@@ -135,7 +137,7 @@ export class OperationsComponent implements OnInit, OnDestroy {
     this._operationsService.getSpectrum()
       .subscribe(response => {
         let data = JSON.stringify(response, null, 4);
-        let spectrumFileName = 'spectrum_' + this.spectrumRange.minAirFrequency + '_' + this.spectrumRange.maxAirFrequency + new Date().toLocaleDateString('en-GB').replace(/\//g, '.')
+        let spectrumFileName = 'spectrum_' + this.spectrumRange.minAirFrequency + '-' + this.spectrumRange.maxAirFrequency + '_' + new Date().toLocaleDateString('en-GB').replace(/\//g, '.')
         spectrumFileName = spectrumFileName + '.json';
         let blob = new Blob([data], { type: 'application/json' });
         saveAs(blob, spectrumFileName);

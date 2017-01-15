@@ -12,6 +12,7 @@
                 <span class="info-box-text" *ngIf="!(monitor?.hsuLinkState == 'Not Synchronized')">{{ monitor?.hsuRss | units: 'dbm'}}</span>
                 <span class="info-box-text" *ngIf="monitor?.hsuLinkState == 'Not Synchronized'" >N/A</span>
             </div>
+            <img src="./../assets/icon/search.svg" class="serach-icon" (click)="openRssMonitor()" title="RSS Monitor">
         </div> 
        
             <div class="info-box info-box-gray">
@@ -24,20 +25,19 @@
                     <span *ngIf="!mbpsUnits" style="cursor: pointer" class="info-box-text">{{monitor?.hsuLan1TxFps}} / {{monitor?.hsuLan1RxFps | units: 'fps'}}</span>
                 </div>
             </div>
-       
+        
             <div class="info-box info-box-light-blue">
                 <div class="info-box-icon">
                         <img src="./../assets/icon/uptime.svg"/>
                 </div>
                 <div class="info-box-content">
                     <span class="info-box-label">Up Time</span>
-                    <span *ngIf="monitor?.upTime" class="info-box-text">{{ monitor?.upTime | timeTicks }}</span>
-                    <!--<span *ngIf="monitor?.upTime" class="info-box-text">{{ monitor?.upTime | timeTicks | date:'medium' }}</span>-->
+                    <span *ngIf="monitor?.upTime" class="info-box-text up-time-text">{{ monitor?.upTime | timeTicks }}</span>
                 </div>
             </div>
     </div>
 
-    <div>
+    <!--<div>-->
         <div class="row-flex quick-look-bar">
                 <div class="quick-look-block border-right">
                     <div class="quick-look-header">
@@ -76,5 +76,5 @@
                 </div>
         </div>
 
-    </div>
+    <!--</div>-->
 </div>

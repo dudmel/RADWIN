@@ -8,33 +8,35 @@ export function ip4Validator(control: FormControl): { [s: string]: boolean } {
   if (!control.value.match(ipRegex)) {
     return {invalidIp4: true};
   }
+  return null;
 }
 
 export function wifiIpValidator(control: FormControl): { [s: string]: boolean } {
-  if (!control.value || control.value === undefined)
-    return {invalidWifiIp: false};
-  let ip = control.value;
-  if (!ip.startsWith('192.168.')) {
-    return {invalidWifiIp: true};
-  }
+    if (!control.value || control.value === undefined)
+        return {invalidWifiIp: false};
+    let ip = control.value;
+    if (!ip.startsWith('192.168.')) {
+        return {invalidWifiIp: true};
+    }
+    return null;
 }
 
 export function ipParamsValidator(group: FormGroup): { [s: string]: boolean } {
   if (!group.value.hsuDefaultGateway || group.value.hsuDefaultGateway === undefined ||
       !group.value.hsuSubnetMask || group.value.hsuSubnetMask === undefined ||
       !group.value.hsuIp || group.value.hsuIp === undefined)
-    return {invalidIpParams: false};
+    return {invalidIpParams: true};
 
     // Convert ips to numeric
     let ip = convertIpToNumeric(group.value.hsuIp);
     let mask = convertIpToNumeric(group.value.hsuSubnetMask);
     let gw = convertIpToNumeric(group.value.hsuDefaultGateway);
 
-    if (!(((ip & mask) === (mask & gw)) || (gw === 0) )) {
+    if ((ip & mask) != (gw & mask)) {
         return {invalidIpParams: true};
-    } else {
-        return {invalidIpParams: false};
     }
+
+    return null;
   }
 
 export function matchingPasswordsValidator(group: FormGroup): { [s: string]: boolean } {
@@ -46,12 +48,19 @@ export function matchingPasswordsValidator(group: FormGroup): { [s: string]: boo
   }
 
 function convertIpToNumeric(ip: string): number {
-    let splitted = ip.split('.');
-    let a = +splitted[0] * 16777216;
-    let b = +splitted[1] * 65536;
-    let c = +splitted[2] * 256;
-    let d = +splitted[3];
-    return a + b + c + d ;
+    if (!ip)
+        return 0;
+
+    try {
+        let splitted = ip.split('.');
+        let a = +splitted[0] * 16777216;
+        let b = +splitted[1] * 65536;
+        let c = +splitted[2] * 256;
+        let d = +splitted[3];
+        return a + b + c + d ;
+    } catch (error) {
+        return 0;
+    }
 }
 
 export function restrictedCharsValidator(control: FormControl): { [s: string]: boolean } {
@@ -74,7 +83,7 @@ export function invalidPasswordValidator(control: FormControl): { [s: string]: b
 
 export function minMaxNumberValidator(min: number, max: number) {
     return (control: FormControl): { [s: string]: boolean } => {
-        if (!control.value || control.value === undefined)
+        if (control.value === undefined || control.value === '')
             return null;
 
         if (control.value < min || control.value > max) {

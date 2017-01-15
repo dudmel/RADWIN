@@ -1,14 +1,13 @@
-<div class="overview-section">
-        <system-monitor></system-monitor>
+<div class="overview-section" (window:resize)="setIsMobile()">
+    <system-monitor></system-monitor>
     <div class="overview-row">
         <radio-monitor></radio-monitor>
         <div class="monitors-container">
-            <device-monitor device="HSU">
-            </device-monitor>
-            <device-monitor device="HBS">
-            </device-monitor>
+            <h3 class="section-title" (click)="hideSection=!hideSection">Device Monitor</h3>
+            <device-monitor device="HSU" *ngIf="!hideSection || !isMobile"></device-monitor>
+            <device-monitor device="HBS" *ngIf="!hideSection || !isMobile"></device-monitor>
         </div>
     </div>
-
-        <recent-events></recent-events> 
+    <recent-events></recent-events> 
+        
 </div>

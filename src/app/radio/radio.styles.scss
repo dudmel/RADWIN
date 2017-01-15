@@ -1,4 +1,5 @@
-﻿/* radio configuration */
+﻿@import './../blocks/input_controls/input_controls.scss';
+
 change-band {
   width: 100%;
 } 
@@ -60,6 +61,7 @@ h3 {
 .radio-table {
   display: flex;
   flex-flow: column nowrap;
+  justify-content: flex-start;
 }
 .radio-table-header {
   display: flex;
@@ -91,6 +93,8 @@ h3 {
     border-top: 1px solid #d8d8d8;
     border-bottom: 1px solid #d8d8d8;
     padding: 5px;
+    height: 40px;
+    line-height: 26px;
   }
 }
 
@@ -103,9 +107,9 @@ h3 {
   .box-radio-header {
     justify-content: space-between;
     display: flex;
-            align-items: flex-start;
+    align-items: flex-start;
     min-height: 100px;
-    height: 100%;
+    // height: 100%;
     .h-title {
       height: 100%;
       display: flex;
@@ -169,7 +173,7 @@ h3 {
       padding: 4px 0 4px 0;
       .sector1 {
         border: 1px solid #d8d8d8;
-        width: 84px;
+        width: 90px;
         margin-right:20px;
         &:after {
           content: "-";
@@ -178,12 +182,11 @@ h3 {
       }
       .sector2 {
         border: 1px solid #d8d8d8;
-        // width: 330px;
+        /* width: 330px;*/
       }
     }
   }
   .box-radio-footer {
-    height: 200px;
     width:100%;
     display: flex;
     flex-flow: row nowrap;
@@ -193,39 +196,42 @@ h3 {
       flex-flow: column nowrap;
       justify-content: space-between;
       align-self: flex-end;
-      height: 100%;
-      width: 49%;
-      align-self: flex-end;
+      width: 45%;
       .req-tx, .ant-gain, .cbw, .frq, {
         min-height: 70px;
-        height: 100%;
-        justify-content: flex-end;
+        // height: 100%;
+        width: 100%;
         display: flex;
         flex-flow: column nowrap;
+        justify-content: flex-end;
         span {
           color: #76828e;
         }
         .input-field-flex {
           display: flex;
           flex-flow: row nowrap;
-          justify-content: space-around;
-          width: 100%;
+          /* justify-content: space-around;*/
+          /* width: 100%;*/
           .form-control{
             width: 100%;
+            display: block;
           }
           .input-units {
             width: 0;
             position: relative;
-            right: 85px;
+            right: 45px + $control-width;
+            -ms-grid-row-align: center;
                 align-self: center;
           }
         }
       }
     }
   }
-
 }
 
+fieldset, form {
+  width: 100%;
+}
 .control-msgs {
   display: flex;
   color: red;
@@ -235,7 +241,67 @@ h3 {
 }
 input-controls {
   height: 34px;
-  width: 0;
+  /* width: 0;*/
   position: relative;
-  right: 0px;
+  right: -109px + $control-width;
+}
+@media (max-width: 768px) {
+  h3 {
+    margin-top: 10px;
+    font-size: 20px;
+    height: 22px;
+  }
+  .radio-table-body {
+    margin-bottom: 20px;
+  }
+  .radio-left-side { 
+    width: 100%;
+    min-width: 0;
+  }
+  .radio-container {
+    min-width: 0;
+    width: 100%;
+  }
+  .box-radio {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .box-body {
+    .box-radio-header {
+      .header-details {
+        min-width: 0;
+        width: 100%;
+        text-align: left;
+        font-size: 13px;
+      }
+      .header-title {
+        padding-left: 0;
+        padding-right: 10px;
+      }
+    }
+    .box-radio-footer {
+      flex-flow: column nowrap;
+      .footer-left, .footer-right {
+        flex-flow: column nowrap;
+        width: 100%;
+        .form-control {
+          margin: 0;
+        }
+      }
+    }
+  }
+  .img {
+    display: none;
+  }
+  .radio-table {
+    justify-content: space-between;
+  }
+  h3 {
+    cursor: pointer;
+  }
+  .form-control {
+    font-size: 13px;
+  }
 }

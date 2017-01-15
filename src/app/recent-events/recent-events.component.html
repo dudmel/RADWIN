@@ -1,44 +1,39 @@
-<div class="title-row">
+<div class="title-row" (click)="hideSection=!hideSection">
     <div class="events-title">
         <h3 class="section-title">Events</h3>
-        <img src="../../assets/icon/refresh.svg" style="cursor: pointer; height: 40px;"(click)="refresh()"/>
+        <img *ngIf="!hideSection || !isMobile" src="../../assets/icon/refresh.svg" class="refresh-img" (click)="refresh()"/>
     </div> 
 
-    <div class="events-legend"> 
+    <div class="events-legend" *ngIf="!hideSection ||!isMobile"> 
         <span class="legend-title"> LEGEND </span>
         <span class="legend-body">
             <span class="legend-icons"> 
-                <span class="legend-icon" (mouseenter)="legendStatus='info'" (mouseleave)="legendStatus=''">
-                    <span class="bubble" [ngClass]="{'visible' : legendStatus==='info'}"> Info </span>
-                    <span class="severity-circle info"></span>
+                <span class="legend-icon">
+                    <span class="severity-circle info" data-toggle="tooltip" title="Info"></span>
                 </span>
-                <span class="legend-icon" (mouseenter)="legendStatus='normal'" (mouseleave)="legendStatus=''">
-                    <span class="bubble" [ngClass]="{'visible' : legendStatus==='normal'}"> Normal </span>
-                    <span class="severity-circle normal"></span>
+                <span class="legend-icon">
+                    <span class="severity-circle normal" data-toggle="tooltip" title="Normal"></span>
                 </span>
-                <span class="legend-icon" (mouseenter)="legendStatus='warning'" (mouseleave)="legendStatus=''">
-                    <span class="bubble" [ngClass]="{'visible' : legendStatus==='warning'}"> Warning </span>
-                    <span class="severity-circle warning"></span>
+                <span class="legend-icon">
+                    <span class="severity-circle warning" data-toggle="tooltip" title="Warning"></span>
                 </span>
-                <span class="legend-icon" (mouseenter)="legendStatus='minor'" (mouseleave)="legendStatus=''">
-                    <span class="bubble" [ngClass]="{'visible' : legendStatus==='minor'}"> Minor </span>
-                    <span class="severity-circle minor"></span>
+                <span class="legend-icon">
+                    <span class="severity-circle minor" data-toggle="tooltip" title="Minor"></span>
                 </span>
-                <span class="legend-icon" (mouseenter)="legendStatus='major'" (mouseleave)="legendStatus=''">
-                    <span class="bubble" [ngClass]="{'visible' : legendStatus==='major'}"> Major </span>
-                    <span class="severity-circle major"></span>
+                <span class="legend-icon">
+                    <span class="severity-circle major" data-toggle="tooltip" title="Major"></span>
                 </span>
-                <span class="legend-icon" (mouseenter)="legendStatus='critical'" (mouseleave)="legendStatus=''">                      
-                    <span class="bubble" [ngClass]="{'visible' : legendStatus==='critical'}"> Critical </span>
-                    <span class="severity-circle critical"></span>
+                <span class="legend-icon">                      
+                    <span class="severity-circle critical" data-toggle="tooltip" title="Critical"></span>
                 </span>
             </span>
         </span>
     
     </div>
+    
 </div>
 
-<div class="box-events events-table-wrapper">
+<div class="box-events events-table-wrapper" *ngIf="!hideSection || !isMobile">
     <table class="table" *ngIf="events">
         <thead>
             <tr>

@@ -1,20 +1,20 @@
-<h3 class="section-title">Radio</h3>
-<div class="radio-table">
+<h3 class="section-title" (click)="hideSection=!hideSection">Radio</h3>
+<div class="radio-table" *ngIf="!hideSection || !isMobile">
     
     <div class="radio-table-header">
         <div class="radio-table-icon">
             <img src="../../assets/icon/coordinates_active.svg"/>
         </div>
         <div class="header-details">
-            <span class="quick-look-header"> Lat.    Long.       Hgt. </span>
-            <span class="quick-look-text"> N/A, N/A, N/A </span>
+            <span class="quick-look-header"> Lat.    Long.</span>
+            <span class="quick-look-text"> {{ radio?.latitude }}, {{ radio?.longitude }} </span>
         </div>
     </div>
     
     <div class="radio-table-body">
         <div>
             <span>Sector ID</span>
-            <span>{{ radio?.sectorId }}</span>
+            <span>{{ radio?.sectorId }}</span> 
         </div>
         <div>
             <span>Frequency</span>

@@ -5,6 +5,7 @@ import { AppStore } from '../blocks';
 import { exLog } from '../shared/global-methods';
 import { Store } from '@ngrx/store';
 import { IMonitorModel } from '../monitor';
+import { Consts } from '../shared/consts'
 
 @Component({
     selector: 'system-monitor',
@@ -20,6 +21,10 @@ export class SystemMonitorComponent implements OnInit, OnDestroy {
     private networkSub;
     private monitorSub;
     private  isLinkSynchronized: boolean
+    private hideSection=true;
+    get isMobile() {
+        return Consts.isMobile;
+    }
 
     constructor(private _store: Store<AppStore>) { }
 

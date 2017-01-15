@@ -17,6 +17,10 @@ export class RecentEventsComponent implements OnInit, OnDestroy {
   private legendStatus;
   private events: IRecentEvents[];
   private eventsSub;
+  private hideSection=true;
+  get isMobile() {
+      return Consts.isMobile;
+  }
 
   constructor(private _recentEventsService: RecentEventsService,
     private _store: Store<AppStore>) {
@@ -43,6 +47,7 @@ export class RecentEventsComponent implements OnInit, OnDestroy {
   }
 
   refresh() {
+    event.stopPropagation();
     exLog('Refresh Recent Events table');
     this.getRecentEvents();
   }

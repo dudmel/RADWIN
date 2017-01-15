@@ -1,5 +1,5 @@
-<h3 class="section-title">System</h3>
-<div class="system-monitors-container">
+<h3 class="section-title" (click)="hideSection=!hideSection">System</h3>
+<div class="system-monitors-container" *ngIf="!hideSection || !isMobile">
     <div class="box box-system-monitor box-green">
         <div class="box-row box-header">
             <div class="system-box-title">

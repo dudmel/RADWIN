@@ -1,3 +1,5 @@
+@import './../../blocks/input_controls/input_controls.scss';
+
 h3 {
     margin-left: 0;
 }
@@ -11,13 +13,12 @@ h3 {
 }
 input-controls {
     position: relative;
-    right: -50px;
+    right: -100px + $control-width;
 }
 .section-body {
     display: flex;
     flex-flow: row nowrap;
     width: 100%;
-    height: 100%;
     justify-content: space-between;
 
 }
@@ -43,8 +44,6 @@ input-controls {
 }
 .ping-trace-container {
     width: 49%;
-    /* min-height: 380px;*/
-    height: 100%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
@@ -54,7 +53,6 @@ input-controls {
     flex-flow: column nowrap;
     padding-right: 10px;
     padding-left: 10px;
-    height: 100%;
 }
 .form-body {
     display: flex;
@@ -70,10 +68,10 @@ input-controls {
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: flex-end;
-    height: 100%;
     width:100%; 
     input {
-        width: 60%;
+        width: 70%;
+        
     }
     .input-label {
         display: block;
@@ -84,6 +82,9 @@ input-controls {
         min-width: 85px;
         .row-flex {
             width: 100%;
+        }
+        input {
+            border-right: none;
         }
     }
     .input-ip {
@@ -130,7 +131,6 @@ input-controls {
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
-    height: 210px;
     width: 100%;
     .box-header {
         display: flex;
@@ -144,7 +144,6 @@ input-controls {
         }
     }
     pre {
-        height: 100%;
         background-color: #fbfbfb;
         border: none;
         padding-top: 0;
@@ -166,7 +165,6 @@ input-controls {
 @media (max-width: 1200px) {
     .section-body {
        flex-flow: column nowrap;
-       height: 100%;
        justify-content: space-between;
     }
     .speed-test-container, .ping-trace-container {
@@ -179,5 +177,28 @@ input-controls {
     .ping-container {
         margin: 0 0 20px 0;
         padding: 0 0 0 0;
+    }
+}
+@media (max-width: 665px) {
+    .box-network {
+        .gauges {
+            flex-flow: column nowrap;
+        }
+    }
+    .speed-test-container {
+        min-width: initial;
+    }
+    .inputs {
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+        .input-ip {
+            width: 100%;
+        }
+        .input-packet {
+            width: 28%;
+            margin-right: 15px;
+        }
     }
 }

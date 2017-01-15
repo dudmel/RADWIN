@@ -2,17 +2,19 @@
 export namespace Consts {
   'use strict';
 
+  export let isMobile = window.innerWidth < 700? true : false;
+  
   let url: string = window.location.protocol + '//' + window.location.hostname;
   export let ip = window.location.hostname;
-
+  
   if ('production' === ENV) {
     // Production
   } else {
     url += ':5000';
   }
 
-  export let timeoutRetries: number = 3;
-  export let monitorInterval: number = 2000;
+  export let timeoutRetries: number = 10;
+  export let monitorInterval: number = 1000;
   export let jwtToken: string = 'jwt';
   export let jwtPrefix: string = 'JWT ';
 
@@ -31,6 +33,7 @@ export namespace Consts {
     resync: url + '/api/v1/operations/resync',
     reset: url + '/api/v1/operations/reset',
     speed: url + '/api/v1/operations/speed-test',
+    
     restoreToDefaults: url + '/api/v1/operations/restore-to-defaults',
     changeBand: url + '/api/v1/operations/change-band',
     activateLicense: url + '/api/v1/operations/activate-license',

@@ -9,7 +9,7 @@ import { INetworkToolsModel } from './network-tools.model';
 import { IMonitorModel } from '../../monitor/monitor.model';
 import { WModalService, GaugeComponent } from '../../blocks';
 import { Resources, exLog } from '../../shared';
-import { AppStore, ip4Validator, minMaxNumberValidator } from '../../blocks';
+import { AppStore, ip4Validator, minMaxNumberValidator, SpinnerService } from '../../blocks';
 
 let emptyResult = '';
 
@@ -39,6 +39,7 @@ export class NetworkToolsComponent implements OnInit, OnDestroy {
                 private _speedTestService: SpeedTestService,
                 private _store: Store<AppStore>,
                 private _formBuilder: FormBuilder,
+                private _spinnerService: SpinnerService,
                 private _modalService: WModalService) {
 
         this.form = _formBuilder.group({
@@ -60,8 +61,16 @@ export class NetworkToolsComponent implements OnInit, OnDestroy {
         this.clearResults();
         this.showPingResults = true;
         this.pingInProgress = true;
+
+        this._store.dispatch({ type: 'MONITOR_SUSPEND_ON' });
+        this._spinnerService.show('Ping in process...');
+
         this._networkToolsService.ping(this.form.value)
             .subscribe((networkTools: any) => {
+
+                this._store.dispatch({ type: 'MONITOR_SUSPEND_OFF' });
+                this._spinnerService.hide();
+
                 this.pingInProgress = false;
                 this.ipNetworkTools = <INetworkToolsModel>(networkTools);
             });
@@ -71,8 +80,17 @@ export class NetworkToolsComponent implements OnInit, OnDestroy {
         this.clearResults();
         this.showTraceResults = true;
         this.traceInProgress = true;
+
+
+        this._store.dispatch({ type: 'MONITOR_SUSPEND_ON' });
+        this._spinnerService.show('Trace in process...');
+
         this._networkToolsService.trace(this.traceform.value)
             .subscribe((networkTools: INetworkToolsModel) => {
+
+                this._store.dispatch({ type: 'MONITOR_SUSPEND_OFF' });
+                this._spinnerService.hide();
+                
                 this.traceNetworkTools = <INetworkToolsModel>(networkTools);
                 this.traceInProgress = false;
             });

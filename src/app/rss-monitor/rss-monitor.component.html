@@ -1,0 +1,63 @@
+<div class="box box-gray rss-monitor-box">
+    
+    <div class="rss-monitor-header">
+        <h3 class="section-title">RSS Monitor</h3>
+        <button class="btn btn-close" (click)="closeRssMonitor()">X</button> 
+    </div>
+    
+    <div class="box-body">
+        <div class="graphs-container box box-gray">
+            <div class="box chartlegend"> 
+                <span class="rss-legend"> 
+                    <span class="linelegend"></span>
+                    <span class="text-legend">RSS</span>
+                </span>
+                <span class="best-rss-legend">                 
+                    <span class="linelegend"></span>
+                    <span class="text-legend">Best RSS</span>
+                </span>
+            </div>
+            <canvas baseChart 
+                [datasets]="rssValues"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType" 
+                [labels]="lineChartLabels">
+            </canvas>
+        </div>
+        <div class="side-pan">
+        
+            <div class="readings box box-green"> 
+                <span> RSS: {{currRssValue}} [dBm] </span>
+                <span class="best-rss"> 
+                    Best RSS: {{maxRssValue}} [dBm]
+                </span>
+                <button class="btn btn-default" (click)="resetMaxtRss()"> Reset best RSS </button>
+            </div>
+        
+            <div class="functions box box-orange"> 
+                <span class="title"> Time window </span>
+                <button class="btn btn-default" [ngClass]="testTime===10?  'active' : ''" (click)="setTestTime(10)"> 10 Sec </button>
+                <button class="btn btn-default" [ngClass]="testTime===60? 'active' : ''" (click)="setTestTime(60)"> 60 Secs </button>
+            </div>
+
+
+            <div class="buttons box box-light-blue">
+                <button class="btn btn-install" data-toggle="tooltip" 
+                        title="When radius server is used, sends confirmation on the installation of ths SU to the radius server">
+                        Confirm Installation
+                </button>
+                <!--<button class="btn btn-default" (click)="stopMonitor()">Stop Monitor</button>-->
+                <button class="btn btn-default active" *ngIf="!isRunning" (click)="isRunning=true">Resume</button>
+                <button class="btn btn-default" *ngIf="isRunning" (click)="isRunning=false">Freeze</button>
+                <!--<span class="ctrlBtnsContainer">
+                    <img class="ctrlBtn" src="../../assets/icon/play.png" (click)="startMonitor()"/>
+                    <img class="ctrlBtn" src="../../assets/icon/pause.png" (click)="stopMonitor()"/>
+                </span>-->
+            </div>
+        </div>
+    
+    </div>
+
+</div>

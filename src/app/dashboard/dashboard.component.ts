@@ -36,7 +36,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
     private systemSub;
     private opendSection = 0;
     private isActive = false;
-
+    private showRssMonitor = false;
+    
     constructor(private _store: Store<AppStore>,
                 private _monitorService: MonitorService,
                 private _networkService: NetworkService,

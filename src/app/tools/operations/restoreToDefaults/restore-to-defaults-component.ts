@@ -13,8 +13,17 @@ import { RestoreToDefaultsData } from './restore-to-defaults-data';
             width:90%;
             margin: auto;
         }
-        input {
+        .checkbox-container {
+            width: 90%;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;    
             margin-top: 20px;
+        }
+        input {
+            margin: 0 10px 0 0;
+            width: 20px;
         }
     `]
 })

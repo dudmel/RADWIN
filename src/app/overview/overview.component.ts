@@ -8,7 +8,7 @@ import { SystemService } from '../system';
 import { NetworkService } from '../network';
 import { RadioService } from '../radio';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
-
+import { Consts } from '../shared/consts'
 declare var jQuery: any;
 
 @Component({
@@ -21,12 +21,19 @@ export class OverviewComponent implements OnInit, OnDestroy {
 
     private monitor: any;
     private monitorSub;
+    private hideSection = true;
 
     constructor(private _systemService: SystemService,
         private _networkService: NetworkService,
         private _radioService: RadioService,
         public toastr: ToastsManager,
         private _store: Store<AppStore>) { }
+    get isMobile() {
+        return Consts.isMobile;
+    }
+    setIsMobile() {
+        Consts.isMobile = window.innerWidth < 700? true : false;
+    }
 
     ngOnInit() {
         // this.toastr.success('You are awesome!', 'Success!');

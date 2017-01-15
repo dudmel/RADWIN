@@ -1,32 +1,75 @@
+/***********************
+    Up / Down arrows 
+************************/
+$control-width: 30px;
 section {
     text-align: center;
-    width: 50px;
+    width: $control-width;
     height: 100%;
     background-color: white;
     display: flex;
-    justify-content: center;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-self: center;
     cursor: pointer;
     position: relative;
-    right: 50px;
+    right: $control-width + 50px;
+    border: 1px solid #d2d6de;
+    border-left: none;
 } 
 .control {
-    width: 50%;
-    height: 100%;
-    border: 1px solid #d2d6de;
-    font-weight: bold;  
+    width: 100%;
+    line-height: 15px;
     display: flex;
-    align-items: center;
-    justify-content: center;  
+    justify-content: center;
+    align-items: flex-start;
+    margin: 2px 0;
+    font-size: 0.7em;
 }
 .control-plus {
+    margin-bottom: 2px;
     &:before {
-        content: '+';
-
+        content: '▲';
     }
 }
 .control-minus {
+    margin-top: 2px;
     &:before {
-        content: '-';
-
+        content: '▼';
     }
 }
+
+/***********************
+    Plus / Minus signs 
+************************/
+// $control-width: 50px;
+// section {
+//     text-align: center;
+//     width: $control-width;
+//     height: 100%;
+//     background-color: white;
+//     display: flex;
+//     justify-content: center;
+//     cursor: pointer;
+//     position: relative;
+//     right: $control-width;
+// } 
+// .control {
+//     width: 50%;
+//     height: 100%;
+//     border: 1px solid #d2d6de;
+//     font-weight: bold;  
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;  
+// }
+// .control-plus {
+//     &:before {
+//         content: '+';
+//     }
+// }
+// .control-minus {
+//     &:before {
+//         content: '-';
+//     }
+// }

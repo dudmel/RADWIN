@@ -10,8 +10,6 @@ import { Component, OnInit, Input } from '@angular/core';
                     <div class="info-box-content">
                         <span class="info-box-label">Status</span>
                         <span class="info-box-text" [ngClass]="linkState == 'Active Authentication Error' || linkState == 'Active SW Upgrade Required' ? 'sm-text' : ''">{{status}}</span>
-                        <!--<span class="info-box-text">{{linkState}}</span>
-                        <span class="info-box-text">{{airState}}</span>-->
                     </div>
                 
             `,

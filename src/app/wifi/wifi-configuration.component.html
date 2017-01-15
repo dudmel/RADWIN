@@ -3,32 +3,32 @@
 <div class="wifi-container">
     
     <div class="box box-wifi box-light-blue">
-        <div class="box-title"> Settings </div>
-        <form *ngIf="wifi" [formGroup]="form">
-            <fieldset>
-                <div class="box-content">
-                    <div class="box-header">
-                        <div class="header-left">
-                            <span class="left-title">
-                                SSID
-                            </span>
-                            <span class="left-value">
-                                 {{ wifi.wifiSSID}}
-                            </span>
-                        </div>
-                        
-                        <div class="header-right">
-                            <div class="right-status">
-                                <span>Status</span>
-                                <span>{{ monitor.configMonitor?.wifiApStatus }}</span>
-                            </div>
-
-                            <div class="right-security">
-                                <span>Security</span>
-                                <span>{{ wifi.wifiSecurityType }}</span>
-                            </div>
-                        </div>
+        <h3 class="box-title"> Settings </h3>
+        <div class="box-content">
+            <div class="box-header">
+                <div class="header-left">
+                    <span class="left-title">
+                        SSID
+                    </span>
+                    <span class="left-value">
+                            {{ wifi.wifiSSID}}
+                    </span>
+                </div>
+                
+                <div class="header-right">
+                    <div class="right-status">
+                        <span>Status</span>
+                        <span>{{ monitor.configMonitor?.wifiApStatus }}</span>
                     </div>
+
+                    <div class="right-security">
+                        <span>Security</span>
+                        <span>{{ wifi.wifiSecurityType }}</span>
+                    </div>
+                </div>
+            </div>
+            <form *ngIf="wifi" [formGroup]="form">
+                <fieldset>
                     <div class="box-footer">
                         <div class="footer-left">
                             <div class="left-pass">
@@ -56,38 +56,38 @@
                                 </select>
                             </div>
                             <div class="right-chTx">
+                                
                                 <div class="ch">
                                     <span class="input-label">Channel</span>
                                     <span class="row-flex">
                                         <input formControlName="wifiChannel" [(ngModel)]="wifi.wifiChannel" class="form-control" type="number" step="1" min="1" max="11">
-									<input-controls [form]="form"></input-controls>
+                                        <input-controls [form]="form"></input-controls>
                                     </span>
                                     <div class="control-msgs" *ngIf="form.controls.wifiChannel.dirty && !form.controls.wifiChannel.valid">
                                         <p *ngIf="form.controls.wifiChannel.errors.required">Channel is required.</p>
                                         <p *ngIf="form.controls.wifiChannel.errors.invalidMinMax">Channel should be between 1-11</p>
                                     </div>
                                 </div>
+                                
                                 <div class="tx">
-                                    <span class="input-label">TX Power [dBm]</span>
-                                    <!--<div class="tx-power">-->
+                                    <span class="input-label">TX Power</span>
                                     <span class="row-flex">
                                         <input formControlName="wifiTxPower" [(ngModel)]="wifi.wifiTxPower" class="form-control" type="number" step="1" min="1" max="{{wifi.wifiMaxTxPower}}">
-                                        <!--<span class="dbm">dBm</span>-->
-									<input-controls [form]="form"></input-controls>
+                                        <span class="input-units">dBm</span>
+                                        <input-controls [form]="form"></input-controls>
                                     </span>
-                                <!--</div>-->
-
                                     <div class="control-msgs" *ngIf="form.controls.wifiTxPower.dirty && !form.controls.wifiTxPower.valid">
                                         <p *ngIf="form.controls.wifiTxPower.errors.required">Tx Power Gain is required.</p>
                                         <p *ngIf="form.controls.wifiTxPower.errors.invalidMinMax">Tx Power should be between 1-{{wifi.wifiMaxTxPower}}</p>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
-                </div>
-            </fieldset>
-        </form>
+                </fieldset>
+            </form>
+        </div>
     </div>
 
     <div class="box box-wifi box-green">
