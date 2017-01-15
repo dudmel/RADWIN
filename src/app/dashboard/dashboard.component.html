@@ -45,7 +45,7 @@
 
             <ul class="sidebar-menu">
 				<li class="treeview" (click)="openedSection === 1? openedSection = 0 : openedSection = 1">
-					<span class="side-bar-item" [routerLink]=" ['./overview'] " [routerLinkActive]="['is-active']" (click)="isActive=false; $event.stopPropagation();">
+					<span class="side-bar-item" [routerLink]=" ['./overview'] " [routerLinkActive]="['is-active']" (click)="isActive=false;">
 						<span class="menu-title" (mouseenter)="openedSection === 1? state1='active' : state1='hover'" (mouseleave)="openedSection === 1? state1='active' : state1=''" (click)="state1='active'; state2=''; state3=''">
 							<img [src]="'../../assets/icon/menu1' + getImg(state1) + '.svg'"/>
 							<span class="side-bar-title" *ngIf="isActive">OVERVIEW</span>
@@ -63,9 +63,9 @@
 						<span [ngClass]="openedSection === 2  && isActive? 'arrow-left' : ''"> </span>
 					
 						<ul class="treeview-menu" *ngIf="isActive && openedSection === 2">
-							<li><a [routerLink]=" ['./system-configuration'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i><span class="side-bar-title sub-menu" (click)="isActive=false; $event.stopPropagation();">SYSTEM</span></a></li>
+							<li><a [routerLink]=" ['./system-configuration/'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i><span class="side-bar-title sub-menu" (click)="isActive=false; $event.stopPropagation();">SYSTEM</span></a></li>
 							<li><a [routerLink]=" ['./radio-configuration'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="isActive=false; $event.stopPropagation();">RADIO</span></a></li>
-							<li><a [routerLink]=" ['./network-configuration'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="isActive=false; $event.stopPropagation();">NETWORK</span></a></li>
+							<li><a [routerLink]=" ['./network-configuration/'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="isActive=false; $event.stopPropagation();">NETWORK</span></a></li>
 							<li><a [routerLink]=" ['./wifi-configuration'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="isActive=false; $event.stopPropagation();">WIFI</span></a></li>
 							<li><a [routerLink]=" ['./security-configuration'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="isActive=false; $event.stopPropagation();">SECURITY</span></a></li>
 						</ul>
@@ -100,7 +100,9 @@
 		</section>
 
 		<section class="content">
+			<span  #quickLook>
 			<quick-look (rssMonitorClicked)="showRssMonitor=true"></quick-look>
+			</span>
 			<router-outlet></router-outlet>
 		</section>
 	</div>

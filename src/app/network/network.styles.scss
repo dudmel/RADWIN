@@ -215,6 +215,9 @@ input-controls {
 	.box-network {
 		width: 100%;
 		min-width: 100%;
+		input {
+								margin-top: 0;
+							}
 		.box-body {
 			fieldset {
 				.row-flex { 
@@ -223,10 +226,11 @@ input-controls {
 						width: 100%;
 						.input-group {
 							width: 100%;
+							
 							.my-input-group-addon {
 								position: absolute;
 								max-width: 35px;
-								left: 89%;
+								left: initial;
 								top:0;
 								right: 0;
 							}

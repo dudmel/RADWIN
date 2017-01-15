@@ -133,50 +133,50 @@ export class NetworkConfigurationComponent implements OnInit, OnDestroy {
     this.trapsSub.unsubscribe();
   }
 
-    ngOnInit() {
-        this.trapIndex = 0;
+  ngOnInit() {
+      this.trapIndex = 0;
 
-        this.crcSub = this._store.select('crcDecreaser').subscribe((s: number) => this.crcDecreaser = s);
+      this.crcSub = this._store.select('crcDecreaser').subscribe((s: number) => this.crcDecreaser = s);
 
-        this.networkSub = this._store.select('network')
-            .subscribe((network: INetworkModel) => {
-                this.initialNetworkData = network;
-                this.network = network;
-                this.crcCounterPresenter = network.crcErrors - this.crcDecreaser;
-                this.isVlanEnabled = this.isInitialVlanEnabled();
+      this.networkSub = this._store.select('network')
+          .subscribe((network: INetworkModel) => {
+              this.initialNetworkData = network;
+              this.network = network;
+              this.crcCounterPresenter = network.crcErrors - this.crcDecreaser;
+              this.isVlanEnabled = this.isInitialVlanEnabled();
 
-                this.updateVlanState();
-            });
+              this.updateVlanState();
+          });
 
 
-        this.trapsSub = this._store.select('traps')
-            .subscribe((traps: ITrapDestination[]) => {
-                this.traps = traps;
-                this.clonedTraps = JSON.parse(JSON.stringify(traps));
-            });
+      this.trapsSub = this._store.select('traps')
+          .subscribe((traps: ITrapDestination[]) => {
+              this.traps = traps;
+              this.clonedTraps = JSON.parse(JSON.stringify(traps));
+          });
 
-        this.getNetwork();
-    }
+      this.getNetwork();
+  }
 
-    checkTraps(value, index) {
-        console.log(this.traps)
-        for (var i=0; i<10; i++) {
-            if (value != '0.0.0.0' && value == this.traps[i].hostIp) 
-            {
-                if (index == i)
-                    continue;
+  checkTraps(value, index) {
+      console.log(this.traps)
+      for (var i=0; i<10; i++) {
+          if (value != '0.0.0.0' && value == this.traps[i].hostIp) 
+          {
+              if (index == i)
+                  continue;
 
-                this.isIpExist = true;
-                return;
-            }
-        }
-        this.isIpExist = false;
-        return;
-    }
+              this.isIpExist = true;
+              return;
+          }
+      }
+      this.isIpExist = false;
+      return;
+  }
 
-    isInitialVlanEnabled() {
-        return this.network.vlanPriority !== 0;
-    }
+  isInitialVlanEnabled() {
+      return this.network.vlanPriority !== 0;
+  }
 
   isVlanEnabledByUser() {
     return this.isVlanEnabled && !this.isInitialVlanEnabled();
