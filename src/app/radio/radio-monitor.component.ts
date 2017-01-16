@@ -40,7 +40,6 @@ export class RadioMonitorComponent implements OnInit, OnDestroy {
         this.radio = radio;
       });
   }
-
   ngOnDestroy() {
     this.radioSub.unsubscribe();
     this.monitorSub.unsubscribe();

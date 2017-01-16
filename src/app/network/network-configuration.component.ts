@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, AfterContentInit } from '@angular/core';
 import { FormBuilder, FormGroup, AbstractControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
@@ -157,7 +157,6 @@ export class NetworkConfigurationComponent implements OnInit, OnDestroy {
 
       this.getNetwork();
   }
-
   checkTraps(value, index) {
       console.log(this.traps)
       for (var i=0; i<10; i++) {

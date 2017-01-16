@@ -28,7 +28,7 @@ export class QuickLookComponent implements OnInit, OnDestroy {
     private timeoutOccuredSub;
     private tokenExpirationSub;
     private rssMonitorClicked = new EventEmitter;
-
+    
     constructor(private _modalService: WModalService,
         private _router: Router,
         private _store: Store<AppStore>) { }

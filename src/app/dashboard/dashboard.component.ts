@@ -63,7 +63,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this._systemService.getData();
     }
     ngOnChanges() {
-        console.log(this.system);
     }
     ngOnDestroy() {
         this.monitorSub.unsubscribe();

@@ -48,13 +48,8 @@
                         title="When radius server is used, sends confirmation on the installation of ths SU to the radius server">
                         Confirm Installation
                 </button>
-                <!--<button class="btn btn-default" (click)="stopMonitor()">Stop Monitor</button>-->
                 <button class="btn btn-default active" *ngIf="!isRunning" (click)="isRunning=true">Resume</button>
                 <button class="btn btn-default" *ngIf="isRunning" (click)="isRunning=false">Freeze</button>
-                <!--<span class="ctrlBtnsContainer">
-                    <img class="ctrlBtn" src="../../assets/icon/play.png" (click)="startMonitor()"/>
-                    <img class="ctrlBtn" src="../../assets/icon/pause.png" (click)="stopMonitor()"/>
-                </span>-->
             </div>
         </div>
     

@@ -43,12 +43,7 @@ export class RssMonitorComponent implements OnInit, OnDestroy {
     }
 
     startMonitor() {
-        if (this.currLabel === 0) {
-            for (let i = 0; i < this.testTime; i++) {
-                if (i % 5 === 0) this.lineChartLabels.push(i);
-                else this.lineChartLabels.push('');
-            }
-        }
+        this.setLabels();
         this.monitorSub = this._store.select('monitor')
             .subscribe((monitor: IMonitorModel) => {
                 this.currRssValue = +monitor.hsuRss;
@@ -67,12 +62,16 @@ export class RssMonitorComponent implements OnInit, OnDestroy {
         this.updateLabels();
 
     }
-
+    setLabels() {
+        for (let i = 0; i < this.testTime; i++) {
+            if (i % 5 === 0) this.lineChartLabels.push(i);
+            else this.lineChartLabels.push('');
+        }
+    }
     updateLabels() {
         if (this.currLabel >= this.testTime) {
             if (this.currLabel % 5 === 0) this.lineChartLabels.push(this.currLabel);
             else this.lineChartLabels.push('');
-
             this.rssValues[0].data.shift();
             this.rssValues[1].data.shift();
             this.lineChartLabels.shift();
@@ -84,19 +83,16 @@ export class RssMonitorComponent implements OnInit, OnDestroy {
     ngOnDestroy() {
         this.monitorSub.unsubscribe()
     }
-    
     setTestTime(value) {
         this.testTime = value;
         this.lineChartLabels = [];
+        this.rssValues[0].data=[];
+        this.rssValues[1].data=[];
         this.currLabel = 0;
         value === 60? this.pointRadius = 2 : this.pointRadius = 3;
+        this.monitorSub.unsubscribe();
         this.startMonitor();
     }
-   
-    stopMonitor() {
-       
-    }
-
     resetMaxtRss() {
         this.maxRssValue = -90;
         this.rssValues[1].data = this.rssValues[1].data.map(value=>this.maxRssValue);

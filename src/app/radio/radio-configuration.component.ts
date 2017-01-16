@@ -132,7 +132,6 @@ export class RadioConfigurationComponent implements OnInit, OnDestroy {
 
     this.getRadio();
   }
-
   ngOnDestroy() {
     this.radioSub.unsubscribe();
     this.monitorSub.unsubscribe();
