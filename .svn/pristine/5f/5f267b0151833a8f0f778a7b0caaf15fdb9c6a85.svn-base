@@ -1,4 +1,0 @@
-<div>
-    <input type="checkbox" #resetPwdChBox [checked]=false (change)="onResetIpChanged(resetPwdChBox.checked)" />
-    <p>{{resetIpWarningMessage}}</p>
-</div>
