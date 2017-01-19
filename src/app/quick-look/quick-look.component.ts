@@ -1,13 +1,12 @@
 import { Component, OnInit, OnDestroy, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 import { Store } from '@ngrx/store';
 import { WModalService, AppStore } from '../blocks';
 import { IMonitorModel } from '../monitor';
 import { ISystemModel } from '../system';
 import { Resources, exLog, Consts } from '../shared';
-import { RssMonitorComponent} from '../rss-monitor'
-
+import { RssMonitorComponent} from '../rss-monitor';
  
 @Component({
     selector: 'quick-look',
@@ -17,6 +16,12 @@ import { RssMonitorComponent} from '../rss-monitor'
 })
 
 export class QuickLookComponent implements OnInit, OnDestroy {
+
+    private alarmsCounterSub;
+    private timeoutOccuredSub;
+    private tokenExpirationSub;
+    private mobileDataSub;
+
     private monitor: IMonitorModel;
     private system: ISystemModel;
     private alarmsCounter: number;
@@ -24,17 +29,17 @@ export class QuickLookComponent implements OnInit, OnDestroy {
     private isTimeOutPopupOpen: boolean = false;
     private monitorSub;
     private systemSub;
-    private alarmsCounterSub;
-    private timeoutOccuredSub;
-    private tokenExpirationSub;
     private rssMonitorClicked = new EventEmitter;
-    
+    private hideSection = true;
+    private isMobile: boolean;
+
+
     constructor(private _modalService: WModalService,
         private _router: Router,
         private _store: Store<AppStore>) { }
 
     ngOnInit() {
-        exLog('hello Quick Look component');
+        // exLog('hello Quick Look component');
 
         this.monitorSub = this._store.select('monitor')
             .subscribe((monitor: IMonitorModel) => {
@@ -49,6 +54,11 @@ export class QuickLookComponent implements OnInit, OnDestroy {
         this.alarmsCounterSub = this._store.select('alarmsCounter')
             .subscribe((counter: number) => {
                 this.alarmsCounter = counter;
+            });
+
+        this.mobileDataSub = this._store.select('mobileData')
+            .subscribe((isMobile: boolean) => {
+                this.isMobile = isMobile;
             });
 
         this.timeoutOccuredSub = this._store.select('timeoutOccured')
@@ -81,6 +91,7 @@ export class QuickLookComponent implements OnInit, OnDestroy {
         this.alarmsCounterSub.unsubscribe();
         this.timeoutOccuredSub.unsubscribe();
         this.tokenExpirationSub.unsubscribe();
+        this.mobileDataSub.unsubscribe();
     }
 
     onLanClick() {

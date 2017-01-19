@@ -63,7 +63,7 @@ export class SystemConfigurationComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    exLog('hello System Configuration Component');
+    // exLog('hello System Configuration Component');
 
     this.systemSub = this._store.select('system')
           .subscribe((system: ISystemModel) => {

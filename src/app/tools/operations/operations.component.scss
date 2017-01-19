@@ -19,7 +19,7 @@ form, fieldset, .form-group {
     justify-content: space-around;
 }
 input-controls {
-    right: -80px + $control-width;
+    right: -110px + $control-width;
     position: relative;
 }
 .spectrum-title {
@@ -42,9 +42,9 @@ input-controls {
     position: relative;
     display: flex;
     flex-flow: column nowrap;
-    width: 20%;
+    // width: 17%;
     justify-content: flex-start;
-    min-width: 152px;
+    width: 130px;
     
 }
 .charts-container {
@@ -60,6 +60,16 @@ input-controls {
     margin: 2px;
     display: block;
     align-self: flex-start;
+}
+.btn-close {
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    align-self: center;
+    background-color: #ef4023;
+    color: white;
+    width: 24px;
+    padding: 2px 7px;
 }
 .side-box {
     width: 18%;
@@ -130,7 +140,7 @@ input-controls {
 .input-units {
     width: 0;
     position: relative;
-    right: 65px  + $control-width;
+    right: 43px  + $control-width;
     align-self: center;
 }
 
@@ -140,14 +150,31 @@ input-controls {
         align-items: center;
     }
     .inputs-container {
-        width:100%;
+        width: 100%;
         display: flex;
-        flex-flow: row nowrap;
+        flex-flow: column nowrap;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         form {
+            width: 100%;
             fieldset {
+                
                 .form-group {
+                    width: 100%;
+                    flex-flow: row nowrap;
+                    display: flex;
+                    .my-label {
+                        width: 60px;
+                    }
+                    .row-flex {
+                        width: 120px;
+                        margin: 0 5px;
+                        align-items: center;
+                        input, .input-units {
+                            font-size: 12px;
+                        }
+                    }
+                    
                 }
             }
         }
@@ -156,13 +183,15 @@ input-controls {
         width: 100%;
     }
     .buttons-container {
+        width: 100%;
         display: flex;
-        flex-flow: column nowrap;
+        flex-flow: row nowrap;
+        margin-bottom: 20px;
         button {
-            width: 100%;
+            width: 100px;
         }
         .row-buttons {
-            flex-flow: column nowrap;
+            flex-flow: row nowrap;
         }
     }
     .side-box {
@@ -177,13 +206,14 @@ input-controls {
     }
 }
 
-@media (max-width:650px){
+@media (max-width:650px) and (orientation: portrait) {
     .large-charts {
         width: 150vw;
         position: absolute;
         left: -3%;
         top: 50%;
-        overflow-x: scroll;
+        overflow: overlay;
+        overflow-x: overlay;
         display: flex;
         flex-flow: column nowrap;
         border-radius: 3px;
@@ -194,11 +224,7 @@ input-controls {
         padding: 2px;
         z-index: 99;
     }
-    .x {
-        cursor: pointer;
-        display: block;
-        margin: auto;
+    .large-chart-header {
         text-align: center;
     }
-
 }

@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy
 import { FormBuilder, FormGroup, AbstractControl, Validators } from '@angular/forms';
 import { INetworkModel, ITrapDestination } from './network.model';
 import { Observable } from 'rxjs/Rx';
-import { WModalService, ip4Validator } from '../blocks';
+import { WModalService, ip4Validator, minMaxNumberValidator } from '../blocks';
 import { exLog } from '../shared';
 
 @Component({
@@ -14,14 +14,16 @@ import { exLog } from '../shared';
 
 export class TrapComponent implements OnInit {
     @Input() trap: ITrapDestination;
+    private form: FormGroup;
     private securityModel: string = 'SNMPv1';
     private trapform: FormGroup;
     @Output() trapChange = new EventEmitter;
+    @Output() trapValidityRequestEvent = new EventEmitter;
 
     constructor(private _formBuilder: FormBuilder) {
         this.trapform = _formBuilder.group({
             hostIp: ['', ip4Validator],
-            hostPort: [''],
+            hostPort: ['', Validators.compose([minMaxNumberValidator(1, 65535)])],
             securityModel: ['']
         });
     }
@@ -30,6 +32,10 @@ export class TrapComponent implements OnInit {
     }
 
     checkTraps(ev) {
-        this.trapChange.emit(ev.target.value);
+        this.trapChange.emit(ev.target.value );
+    }
+
+    trapValidityRequest() {
+        this.trapValidityRequestEvent.emit(this.trapform.valid);
     }
 }

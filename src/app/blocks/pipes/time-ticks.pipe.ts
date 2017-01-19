@@ -12,7 +12,7 @@ export class TimeTicks implements PipeTransform {
         // let _date = new Date();
         // _date.setSeconds(-value / 10);
         // return _date
-        return displayTime(value / 1000);
+        return displayTime(value / 100);
     }
 }
 

@@ -30,6 +30,8 @@ export class RadioConfigurationComponent implements OnInit, OnDestroy {
   private mobilityLevels: number[];
   private isLinkSynchronized: boolean;
   private isAtpcEnabled: boolean;
+  private cableLoss: number;
+  
   // private mask = [/[1-9]/, /[1-9]/, /[1-9]/, '.', /[1-9]/];
   // [textMask]="{mask: mask}"
 
@@ -93,7 +95,6 @@ export class RadioConfigurationComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // console.log(this.form);
-    exLog('hello Radio Configuration Component');
 
     this.monitorSub = this._store.select('monitor')
       .subscribe((monitor: IMonitorModel) => {
@@ -125,13 +126,16 @@ export class RadioConfigurationComponent implements OnInit, OnDestroy {
     this.radioSub = this._store.select('radio')
       .subscribe((radio: IRadioModel) => {
         this.radio = radio;
-        //this.calculateEirp();
+        this.calculateCableLoss();
+        
+        this.form.controls['desiredTxPower'].setValidators(minMaxNumberValidator(radio.minTxPower, radio.maxTxPower))
       });
 
     this.isLinkSynchronized = true;
 
     this.getRadio();
   }
+
   ngOnDestroy() {
     this.radioSub.unsubscribe();
     this.monitorSub.unsubscribe();
@@ -144,7 +148,8 @@ export class RadioConfigurationComponent implements OnInit, OnDestroy {
       sectorId1: ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(4)])],
       sectorId2: ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(20)])],
       antennaGain: [''],
-      desiredTxPower: ['', minMaxNumberValidator(-8, 25)],
+      cableLoss: ['', minMaxNumberValidator(0, 20)],
+      desiredTxPower: [''],
       currentCbw: [''],
       mobilityLevels: ['']
     });
@@ -167,6 +172,9 @@ export class RadioConfigurationComponent implements OnInit, OnDestroy {
      }
       
       this.eirp = this.monitor.configMonitor.totalTxPower + this.radio.antennaGain + this.radio.cableLoss / 10;
+  }
+  calculateCableLoss() {
+    this.cableLoss = +(this.radio.cableLoss / 10).toFixed(1);
   }
 
   private getRadio() {

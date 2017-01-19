@@ -1,10 +1,12 @@
-<div class="quick-look-wrapper">
+<h3 class="section-title" (click)="hideSection=!hideSection"  *ngIf="isMobile">Quick look</h3>
+
+<div class="quick-look-wrapper" *ngIf="!hideSection || !isMobile">
     <div class="row-flex">
         
         <link-state linkState="{{monitor?.hsuLinkState}}" airState="{{monitor?.hsuAirState}}" class="info-box info-box-green"> </link-state>
     
         <div class="info-box info-box-red"> 
-            <div class="info-box-icon">
+            <div class="info-box-icon rss-icon">
                 <img [src]="getRssImg()"/>
             </div>
             <div class="info-box-content">

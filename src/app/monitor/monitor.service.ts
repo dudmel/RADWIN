@@ -82,8 +82,4 @@ export class MonitorService {
   onTokenExpiration() {
     this._store.dispatch({ type: 'TOKEN_EXPIRATION' });
   }
-
-  terminate() {
-    
-  }
 }

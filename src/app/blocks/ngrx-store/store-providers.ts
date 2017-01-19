@@ -5,7 +5,9 @@ import { monitorReducer, timeoutReducer, systemReducer,
          radioReducer, wifiReducer, changeBandReducer,
          networkReducer, activeAlarmsReducer, spectrumReducer, trapsReducer,
          spectrumRangeReducer, speedTestReducer, tokenExpirationReducer,
-         crcDecreaserReducer, activeAlarmsCounterReducer, eventsReducer, monitorSuspendReducer } from './reducers';
+         mobileDataReducer, radiusDataReducer,
+         crcDecreaserReducer, activeAlarmsCounterReducer, eventsReducer,
+         monitorSuspendReducer } from './reducers';
 
 
 
@@ -28,5 +30,7 @@ import { monitorReducer, timeoutReducer, systemReducer,
                 crcDecreaser: crcDecreaserReducer,
                 timeoutOccured: timeoutReducer,
                 monitorSuspend: monitorSuspendReducer,
+                mobileData: mobileDataReducer,
+                radiusData: radiusDataReducer
               }),
               ];

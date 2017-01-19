@@ -53,8 +53,7 @@ link-state {
 }
 
 .quick-look-wrapper {
-  border-bottom: 2px solid #d9dcdf;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
 }
 /*
  * Component: Info Box
@@ -94,7 +93,9 @@ link-state {
   width: 72px;
   text-align: center;
 }
-
+.rss-icon {
+  transform: rotateY(180deg);
+}
 .info-box-content {
   display: block;
   margin: auto;
@@ -215,5 +216,4 @@ link-state {
   .serach-icon {
     height: 30px;
   }
-  
 }

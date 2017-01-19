@@ -1,3 +1,8 @@
+.security-container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
 .box-security {
   width: 100%;
 }

@@ -1,11 +1,11 @@
 import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef, EventEmitter } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { BaseChartDirective } from 'ng2-charts/ng2-charts';
-import { AppStore } from '../blocks';
+import { AppStore, ExHttpService, WModalService } from '../blocks';
 import { IMonitorModel } from '../monitor';
 import { Resources, exLog, Consts } from '../shared';
 import { RssChart } from './rss-chart.options'
-import { Observable } from 'rxjs/Observable';
+import { Observable, Subscription } from 'rxjs/Rx';
 
 @Component({
     selector: 'rss-monitor',
@@ -15,18 +15,19 @@ import { Observable } from 'rxjs/Observable';
 })
 
 export class RssMonitorComponent implements OnInit, OnDestroy {
+
+    private monitorSub: Subscription;
+    private radiusDataSub: Subscription;
+
+    private rssMonitorClicked = new EventEmitter;
+
     private currRssValue: number;
     private maxRssValue: number = -90;
-    private monitorSub: any;
     private pointRadius = 2;
-    private rssValues = [
-                {data: [], label: 'RSS', radius: this.pointRadius},
-                {data: [], label: 'Best RSS', radius: this.pointRadius}
-            ];
     private sparksColor: string;
     private _rssInterval: number = 1;
     private testTime: number = 10;
-    private rssMonitorClicked = new EventEmitter;
+
     private lineChartOptions = RssChart.lineChartOptions;
     private lineChartColors = RssChart.lineChartColors;
     private lineChartLegend = RssChart.legend;
@@ -34,9 +35,20 @@ export class RssMonitorComponent implements OnInit, OnDestroy {
     private lineChartLabels: any[] = [];
     private currLabel = 0;
     private isRunning = true;
+    private installConfirmReruired: boolean;
+
+    private rssValues = [ {data: [], label: 'RSS', radius: this.pointRadius},
+                            {data: [], label: 'Best RSS', radius: this.pointRadius} ];
+
+    
     // @ViewChild(BaseChartDirective) _chart;
 
-    constructor(private _store: Store<AppStore>) { }
+    constructor(private _store: Store<AppStore>, 
+        private _httpService: ExHttpService<any>, 
+        private _modalService: WModalService ) {
+
+            this.subscribeRadiusData();
+    }
 
     ngOnInit() {
         this.startMonitor();
@@ -81,7 +93,8 @@ export class RssMonitorComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        this.monitorSub.unsubscribe()
+        this.monitorSub.unsubscribe();
+        this.radiusDataSub.unsubscribe();
     }
     setTestTime(value) {
         this.testTime = value;
@@ -105,4 +118,22 @@ export class RssMonitorComponent implements OnInit, OnDestroy {
         this.rssMonitorClicked.emit();
     }
     
+    setConfirmationAndClose() {
+        let confirmationUrl = Consts.baseUrls.confirmationInstallation;
+
+        this._httpService.post(confirmationUrl).subscribe(response => {
+              if (response.data == null || response.data.error != null) {
+                this.closeRssMonitor();
+              } else {
+                this._modalService.activate(Resources.unableToPerformOperation, Resources.error, "OK", null, Consts.ModalType.error);
+              }
+            });
+    }
+
+    subscribeRadiusData() {
+        this.radiusDataSub = this._store.select('RadiusData')
+            .subscribe((installConfirmReruired: boolean) => {
+                this.installConfirmReruired = installConfirmReruired;
+            });
+    }
 }

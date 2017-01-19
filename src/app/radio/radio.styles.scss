@@ -5,6 +5,8 @@ change-band {
 } 
 .box-radio {
   width: 100%;
+  flex:1;
+  // max-height: 50%;
   padding: 5px 10px 5px 10px;
   .system-box-title {
 	  font-size: 36px;
@@ -19,6 +21,7 @@ h3 {
   width:38%;
   display: flex;
   flex-flow: column nowrap;
+  justify-content: space-between;
   .box-radio:nth-child(1) {
     padding: 10px ;
   }
@@ -191,30 +194,28 @@ h3 {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+    align-items: flex-start;
     .footer-left, .footer-right {
       display: flex;
       flex-flow: column nowrap;
       justify-content: space-between;
-      align-self: flex-end;
       width: 45%;
-      .req-tx, .ant-gain, .cbw, .frq, {
-        min-height: 70px;
-        // height: 100%;
+      .req-tx, .ant-gain, .cbw, .frq, .cable-loss {
         width: 100%;
         display: flex;
         flex-flow: column nowrap;
         justify-content: flex-end;
+        margin: 5px 0;
         span {
           color: #76828e;
         }
         .input-field-flex {
           display: flex;
           flex-flow: row nowrap;
-          /* justify-content: space-around;*/
-          /* width: 100%;*/
           .form-control{
             width: 100%;
             display: block;
+            margin: 0;
           }
           .input-units {
             width: 0;
@@ -236,14 +237,14 @@ fieldset, form {
   display: flex;
   color: red;
   p {
-    margin: 10px 0 0 0 ;
+    margin: 0 0 5px 0;
   }
 }
 input-controls {
   height: 34px;
   /* width: 0;*/
   position: relative;
-  right: -109px + $control-width;
+  right: -110px + $control-width;
 }
 @media (max-width: 768px) {
   h3 {

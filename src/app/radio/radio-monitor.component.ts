@@ -16,20 +16,19 @@ import { Consts } from '../shared/consts'
 
 export class RadioMonitorComponent implements OnInit, OnDestroy {
 
-  private radio: IRadioModel = <IRadioModel>{};
-  private monitor: IMonitorModel = <IMonitorModel>{};
   private radioSub;
   private monitorSub;
+  private mobileDataSub;
+
+  private radio: IRadioModel = <IRadioModel>{};
+  private monitor: IMonitorModel = <IMonitorModel>{};
   private hideSection = true;
-  get isMobile() {
-      return Consts.isMobile;
-  }
+  private isMobile: boolean;
+  
   constructor(private _store: Store<AppStore>) { }
 
 
   ngOnInit() {
-
-    exLog('hello Radio monitor component');
     this.monitorSub = this._store.select('monitor')
       .subscribe((monitor: IMonitorModel) => {
         this.monitor = monitor;
@@ -39,10 +38,16 @@ export class RadioMonitorComponent implements OnInit, OnDestroy {
       .subscribe((radio: IRadioModel) => {
         this.radio = radio;
       });
+
+    this.mobileDataSub = this._store.select('mobileData')
+          .subscribe((isMobile: boolean) => {
+              this.isMobile = isMobile;
+          });
   }
+
   ngOnDestroy() {
     this.radioSub.unsubscribe();
     this.monitorSub.unsubscribe();
+    this.mobileDataSub.unsubscribe();
   }
-
 }

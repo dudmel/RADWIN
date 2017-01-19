@@ -9,7 +9,7 @@ import { RadioConfigurationComponent } from '../radio/';
 import { WifiConfigurationComponent } from '../wifi/';
 import { SecurityConfigurationComponent } from '../security/';
 import { CanDeactivateGuard } from '../blocks/can-deactivate.guard';
-import { RssMonitorComponent } from '../rss-monitor' 
+import { RssMonitorComponent } from '../rss-monitor';
 
 export const ROUTES: Routes = [ 
   { path: '', redirectTo: 'overview' },

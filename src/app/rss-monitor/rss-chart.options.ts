@@ -11,10 +11,10 @@ export namespace RssChart {
             xAxes: [{
                 scaleLabel: {
                     display: true,
-                    labelString: 'Time [sec]'
+                    labelString: 'Time [sec]',
                 },
                 ticks: {
-                    fontSize: 9
+                    fontSize: 8
                 },
                 gridLines: {
                     display: true,

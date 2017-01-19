@@ -4,8 +4,8 @@ import { Component, OnInit, ElementRef } from '@angular/core';
   selector: 'input-controls',
   template: `
     <section>
-        <span class="control control-plus"  (click)="btnClicked(+1)"> </span>
-        <span class="control control-minus  icon-down-dir" (click)="btnClicked(-1)"> </span>
+        <span class="control control-plus" (click)="btnClicked(+1)"> </span>
+        <span class="control control-minus icon-down-dir" (click)="btnClicked(-1)"> </span>
     </section>
   `,
   styleUrls: ['./input_controls.scss'],
@@ -19,20 +19,28 @@ export class InputControls {
     private step;
     private input;
     private form;
-    private initValue;
+    private initValue ;
 
     ngOnInit() {
         this.input.step? this.step = +this.input.step : this.step = 1;
     }
 
     btnClicked(sign) {
-        if ( this.input.value == this.input.max && sign == +1 ||
-             this.input.value == this.input.min && sign == -1 ||
-             this.input.getAttribute('readonly') !== null
-        ) return;
-        
-        let newValue = +this.input.value + sign * this.step;
         let controlName = this.input.getAttribute('formcontrolname');
+        
+        if ( +this.input.value > +this.input.max) {
+            this.form.controls[controlName].setValue(this.input.max);
+            return;
+        }
+        if  ( +this.input.value < +this.input.min ) {
+            this.form.controls[controlName].setValue(this.input.min);
+            return;
+        }
+        if ( (+this.input.value == +this.input.max && sign == '+1') || 
+             (+this.input.value == +this.input.min && sign == '-1') ||
+             this.input.getAttribute('readonly') !== null ) return;
+             
+        let newValue = +this.input.value + sign * this.step;
 
         if (this.form.controls[controlName].pristine) this.initValue = this.form.controls[controlName].value;
         

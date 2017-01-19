@@ -137,7 +137,7 @@ export class NetworkToolsComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        exLog('hello Network Tools component');
+        // exLog('hello Network Tools component');
         this.clearResults();
 
 

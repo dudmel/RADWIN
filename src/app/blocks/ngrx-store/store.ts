@@ -28,4 +28,6 @@ export interface AppStore {
   alarmsCounter: number;
   crcErrorsClear: number;
   crcDecreaser: number;
+  mobileData: boolean;
+  radiusData: boolean;
 };

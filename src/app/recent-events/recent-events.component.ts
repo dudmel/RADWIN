@@ -17,21 +17,12 @@ export class RecentEventsComponent implements OnInit, OnDestroy {
   private legendStatus;
   private events: IRecentEvents[];
   private eventsSub;
+  private mobileDataSub;
   private hideSection=true;
-  get isMobile() {
-      return Consts.isMobile;
-  }
-
+  private isMobile: boolean;
+  
   constructor(private _recentEventsService: RecentEventsService,
     private _store: Store<AppStore>) {
-  }
-
-  getRecentEvents() {
-    this._recentEventsService.getData();
-  }
-
-  ngOnInit() {
-    exLog('hello Recent Events component');
 
     this.eventsSub = this._store.select('events')
       .subscribe((events: IRecentEvents[]) => {
@@ -39,11 +30,23 @@ export class RecentEventsComponent implements OnInit, OnDestroy {
           this.events = events;
       });
 
+    this.mobileDataSub = this._store.select('mobileData')
+      .subscribe((isMobile: boolean) => {
+          this.isMobile = isMobile;
+      });
+  }
+
+  getRecentEvents() {
+    this._recentEventsService.getData();
+  }
+
+  ngOnInit() {
     this.getRecentEvents();
   }
 
   ngOnDestroy() {
     this.eventsSub.unsubscribe();
+    this.mobileDataSub.unsubscribe();
   }
 
   refresh() {

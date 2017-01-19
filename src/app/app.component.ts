@@ -16,7 +16,7 @@ import { Http, Response } from '@angular/http';
 export class App {
 
     private companyName;
-  
+
   constructor(public toastr: ToastsManager,
               private _http: Http,
               private vRef: ViewContainerRef) {
@@ -25,7 +25,7 @@ export class App {
     }
 
     ngOnInit() {
-        exLog('Hello App Component !');
+        // exLog('Hello App Component !');
 
         this._http.get('./assets/files/release.json')
             .map((res: Response) => res.json()).subscribe(data => {

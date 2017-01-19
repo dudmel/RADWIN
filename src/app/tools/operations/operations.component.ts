@@ -13,7 +13,7 @@ import { RestoreToDeaultsComponent } from './restoreToDefaults/restore-to-defaul
 import { SpectrumService, ISpectrumData, ISpectrumRange } from './spectrum.service';
 import { Store } from '@ngrx/store';
 import { saveAs } from 'file-saver';
- 
+
 let diagnosticsUrl = Consts.baseUrls.diagnostics;
 let OFFSET: number = 100;
 
@@ -76,7 +76,7 @@ export class OperationsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    exLog('hello Operations component');
+    // exLog('hello Operations component');
     this.spectrumSub = this._store.select('spectrum')
       .subscribe((spectrum: ISpectrumData) => {
         if (spectrum && spectrum.spectrumChannelFrequncy !== undefined) {
@@ -177,7 +177,7 @@ export class OperationsComponent implements OnInit, OnDestroy {
         if (userAction.responce) {
           this._operationsService.restoreToDefaults((<RestoreToDeaultsComponent>userAction.internalData).data)
             .subscribe(response => {
-              if (response.data.error != null) {
+              if (response.data == null || response.data.error != null) {
                 this._router.navigate(['login']);
               } else {
                 this.showUnableToPerformOperationMessage()

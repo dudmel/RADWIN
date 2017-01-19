@@ -1,0 +1,2673 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Radwin</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('http://jira6/jira/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [ODU-1258]&nbsp;<a href="http://jira6/jira/browse/ODU-1258">RW5K-ULC-WI: Menu items via Edge not remains open.</a>
+            <span class="subText">
+               Created: 04/01/17                   &nbsp;Updated: 19/01/17
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Status:</b></td>
+        <td width="80%">Open</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Project:</b></td>
+        <td width="80%"><a href="http://jira6/jira/secure/BrowseProject.jspa?id=10161">Embedded SW</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Component/s:</b></td>
+            <td>
+                                        <a title="WI"
+                href="http://jira6/jira/issues/?jql=project%3D10161%20AND%20%22component%22%3D10723%20ORDER%20BY%20priority%20ASC"
+            >WI</a>                        </td>
+    </tr>
+    
+
+    
+
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Type:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Bug
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Priority:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                Medium
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Reporter:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                            <a class="user-hover" rel="tomer_a" id="word_reporter_tomer_a" href="http://jira6/jira/secure/ViewProfile.jspa?name=tomer_a">Tomer Azulay</a>
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Assignee:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                            <a class="user-hover" rel="michael" id="word_assignee_michael" href="http://jira6/jira/secure/ViewProfile.jspa?name=michael">Michael Nurenberg</a>
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolution:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				Unresolved
+                    </td>
+                    <td bgcolor="#ffffff" colspan="2">&nbsp;</td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Labels:</b>
+        </td>
+        <td id="labels-95593-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            IE, dudu                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Remaining Estimate:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Time Spent:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Original Estimate:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+        
+    
+
+
+
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found In Version:</b></td>
+                <td id="customfield_10750-95593-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10750-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Found+In+Version%22%3D%224.9.00%22%20ORDER%20BY%20priority%20ASC" title="4.9.00">4.9.00</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found in Build:</b></td>
+                <td id="customfield_10391-95593-value" class="value" bgcolor="#ffffff" width="80%">    15
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Fix in Version:</b></td>
+                <td id="customfield_10753-95593-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10753-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Fix+in+Version%22%3D%224.9.10%22%20ORDER%20BY%20priority%20ASC" title="4.9.10">4.9.10</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Source of issue:</b></td>
+                <td id="customfield_10013-95593-value" class="value" bgcolor="#ffffff" width="80%">    Verification
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Documeted in RN:</b></td>
+                <td id="customfield_10757-95593-value" class="value" bgcolor="#ffffff" width="80%">    Yes
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Reopened:</b></td>
+                <td id="customfield_10759-95593-value" class="value" bgcolor="#ffffff" width="80%">    No
+</td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Description</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>RW5K-ULC-WI: Menu items via Edge not remains open.</p>
+
+<p>To Reproduce:<br/>
+1. Open the WI of any ULC with Edge browser (Version 25.10586.0.0).<br/>
+2. Press on Main menu button.<br/>
+3. The Menu items will open in left side of browser.<br/>
+4. Press on one of the menu items (CONFIGURE or TOOLS)</p>
+
+
+<p>Results:<br/>
+1. The  Menu items in left side of browser closed.<br/>
+2. The Menu items in left side of browser should not close, should remains open.<br/>
+3. Pressing on one of the menu items (CONFIGURE or TOOLS) should open a sub menu, for example:<br/>
+if pressing on TOOLS menu, the sub menu should open:<br/>
+UNIT<br/>
+NETWORK4. After Pressing on Main menu button again, the sub menu of last menu <br/>
+OPERATIONS<br/>
+opened.<br/>
+5. see the video of bug scenario at link: P:\HighLink\Groups\Verification\Testing\Release\4.9.xx\4.9.00.14\Bugs\Menu items via Edge not remains open.mp4</p>
+
+
+<p>Reproduced always in described scenario.<br/>
+not reproduced with other browsers as Chrome, Internet explorer or Firefox.</p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+<hr class='fullcontent'><br /><br style='page-break-before:always;'/><br />
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [ODU-1257]&nbsp;<a href="http://jira6/jira/browse/ODU-1257">RW5K-ULC-WI: License activation key doesn&#39;t work via Edge browser.</a>
+            <span class="subText">
+               Created: 04/01/17                   &nbsp;Updated: 19/01/17
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Status:</b></td>
+        <td width="80%">Open</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Project:</b></td>
+        <td width="80%"><a href="http://jira6/jira/secure/BrowseProject.jspa?id=10161">Embedded SW</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Component/s:</b></td>
+            <td>
+                                        <a title="WI"
+                href="http://jira6/jira/issues/?jql=project%3D10161%20AND%20%22component%22%3D10723%20ORDER%20BY%20priority%20ASC"
+            >WI</a>                        </td>
+    </tr>
+    
+
+    
+
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Type:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Bug
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Priority:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                Medium
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Reporter:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                            <a class="user-hover" rel="tomer_a" id="word_reporter_tomer_a" href="http://jira6/jira/secure/ViewProfile.jspa?name=tomer_a">Tomer Azulay</a>
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Assignee:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                            <a class="user-hover" rel="michael" id="word_assignee_michael" href="http://jira6/jira/secure/ViewProfile.jspa?name=michael">Michael Nurenberg</a>
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolution:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				Unresolved
+                    </td>
+                    <td bgcolor="#ffffff" colspan="2">&nbsp;</td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Labels:</b>
+        </td>
+        <td id="labels-95592-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            IE, dudu                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Remaining Estimate:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Time Spent:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Original Estimate:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>Attachments:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="http://jira6/jira/images/icons/attach/image.gif" height="16" width="16" border="0" alt="JPEG File">
+                    ACTIVATE LICENSE doesn&#39;t work via Edge.jpg &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+    
+
+
+
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found In Version:</b></td>
+                <td id="customfield_10750-95592-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10750-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Found+In+Version%22%3D%224.9.00%22%20ORDER%20BY%20priority%20ASC" title="4.9.00">4.9.00</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found in Build:</b></td>
+                <td id="customfield_10391-95592-value" class="value" bgcolor="#ffffff" width="80%">    15
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Fix in Version:</b></td>
+                <td id="customfield_10753-95592-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10753-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Fix+in+Version%22%3D%224.9.10%22%20ORDER%20BY%20priority%20ASC" title="4.9.10">4.9.10</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Source of issue:</b></td>
+                <td id="customfield_10013-95592-value" class="value" bgcolor="#ffffff" width="80%">    Verification
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Documeted in RN:</b></td>
+                <td id="customfield_10757-95592-value" class="value" bgcolor="#ffffff" width="80%">    Yes
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Reopened:</b></td>
+                <td id="customfield_10759-95592-value" class="value" bgcolor="#ffffff" width="80%">    No
+</td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Description</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>RW5K-ULC-WI: License activation key doesn't work via Edge browser.</p>
+
+<p>To Reproduce:</p>
+
+<p>1. Connect with Tablet to WiFi AP &amp; Open the WI of any ULC with Edge browser (Version 25.10586.0.0).<br/>
+2. Press on TOOLS-&gt;OPERATIONS.<br/>
+3, The page of operations will open.<br/>
+4. write the capacity key by generate via Rons excel.<br/>
+5. Press on "ACTIVATE LICENSE" button.</p>
+
+<p>Results:<br/>
+1. License activation key not performed.<br/>
+2. not relevant pop up message appears of "Do you want to cancel your<br/>
+changes?"<br/>
+3. Should open pop up message of "Activate key succeeded. Take effect after link synchronization"</p>
+
+<p>Reproduced always in described scenario.<br/>
+not reproduced via Chrome or Internet Explorer browsers.</p>
+
+<p>workaround:<br/>
+Activate license via different browser.</p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+<hr class='fullcontent'><br /><br style='page-break-before:always;'/><br />
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [ODU-1281]&nbsp;<a href="http://jira6/jira/browse/ODU-1281">WI - ULC - impossible to change Tx power on De-Registered ULC via WI</a>
+            <span class="subText">
+               Created: 10/01/17                   &nbsp;Updated: 19/01/17
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Status:</b></td>
+        <td width="80%">Open</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Project:</b></td>
+        <td width="80%"><a href="http://jira6/jira/secure/BrowseProject.jspa?id=10161">Embedded SW</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Component/s:</b></td>
+            <td>
+                                        <a title="WI"
+                href="http://jira6/jira/issues/?jql=project%3D10161%20AND%20%22component%22%3D10723%20ORDER%20BY%20priority%20ASC"
+            >WI</a>                        </td>
+    </tr>
+    
+
+    
+
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Type:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Bug
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Priority:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                Medium
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Reporter:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                            <a class="user-hover" rel="yuval_k" id="word_reporter_yuval_k" href="http://jira6/jira/secure/ViewProfile.jspa?name=yuval_k">Yuval Kagan</a>
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Assignee:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                            <a class="user-hover" rel="mikhail_a" id="word_assignee_mikhail_a" href="http://jira6/jira/secure/ViewProfile.jspa?name=mikhail_a">Mikhail Arsyonov</a>
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolution:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				Unresolved
+                    </td>
+                    <td bgcolor="#ffffff" colspan="2">&nbsp;</td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Labels:</b>
+        </td>
+        <td id="labels-95675-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            dudu                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Remaining Estimate:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Time Spent:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Original Estimate:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+        
+    
+
+
+
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found In Version:</b></td>
+                <td id="customfield_10750-95675-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10750-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Found+In+Version%22%3D%224.9.00%22%20ORDER%20BY%20priority%20ASC" title="4.9.00">4.9.00</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found in Build:</b></td>
+                <td id="customfield_10391-95675-value" class="value" bgcolor="#ffffff" width="80%">    16
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Fix in Version:</b></td>
+                <td id="customfield_10753-95675-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10753-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Fix+in+Version%22%3D%224.9.10%22%20ORDER%20BY%20priority%20ASC" title="4.9.10">4.9.10</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Source of issue:</b></td>
+                <td id="customfield_10013-95675-value" class="value" bgcolor="#ffffff" width="80%">    Verification
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Documeted in RN:</b></td>
+                <td id="customfield_10757-95675-value" class="value" bgcolor="#ffffff" width="80%">    Yes
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Reopened:</b></td>
+                <td id="customfield_10759-95675-value" class="value" bgcolor="#ffffff" width="80%">    No
+</td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Description</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>WI - ULC - impossible to change Tx power on De-Registered ULC via WI.<br/>
+To reproduce:<br/>
+1. Open WI on any Activated Not Registered ULC unit.<br/>
+2. Via Configure -&gt; Radio tab attempt to change "Required TX Power per Radio" parameter.</p>
+
+<p>Result:</p>
+<ul>
+	<li>Apply button stay disabled.</li>
+	<li>No ability to change Required TX Power vi WI on De-Register ULC.</li>
+</ul>
+
+
+<p>Reproduced every time in described scenario.<br/>
+Not reproduced on Registered ULC.<br/>
+No workaround found.</p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+<hr class='fullcontent'><br /><br style='page-break-before:always;'/><br />
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [ODU-1262]&nbsp;<a href="http://jira6/jira/browse/ODU-1262">WI - ULC Ver 4.9 Changing Trap configuration and IP/Subnet/gateway simultaneous is not function</a>
+            <span class="subText">
+               Created: 04/01/17                   &nbsp;Updated: 19/01/17
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Status:</b></td>
+        <td width="80%">Open</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Project:</b></td>
+        <td width="80%"><a href="http://jira6/jira/secure/BrowseProject.jspa?id=10161">Embedded SW</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Component/s:</b></td>
+            <td>
+                                        <a title="WI"
+                href="http://jira6/jira/issues/?jql=project%3D10161%20AND%20%22component%22%3D10723%20ORDER%20BY%20priority%20ASC"
+            >WI</a>                        </td>
+    </tr>
+    
+
+    
+
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Type:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Bug
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Priority:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                Medium
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Reporter:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                            <a class="user-hover" rel="Ofir_C" id="word_reporter_Ofir_C" href="http://jira6/jira/secure/ViewProfile.jspa?name=Ofir_C">Ofir Cohen</a>
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Assignee:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                            <a class="user-hover" rel="mikhail_a" id="word_assignee_mikhail_a" href="http://jira6/jira/secure/ViewProfile.jspa?name=mikhail_a">Mikhail Arsyonov</a>
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolution:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				Unresolved
+                    </td>
+                    <td bgcolor="#ffffff" colspan="2">&nbsp;</td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Labels:</b>
+        </td>
+        <td id="labels-95600-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            dudu                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Remaining Estimate:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Time Spent:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Original Estimate:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+        
+    
+
+
+
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found In Version:</b></td>
+                <td id="customfield_10750-95600-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10750-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Found+In+Version%22%3D%224.9.00%22%20ORDER%20BY%20priority%20ASC" title="4.9.00">4.9.00</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found in Build:</b></td>
+                <td id="customfield_10391-95600-value" class="value" bgcolor="#ffffff" width="80%">    15
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Fix in Version:</b></td>
+                <td id="customfield_10753-95600-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10753-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Fix+in+Version%22%3D%224.9.10%22%20ORDER%20BY%20priority%20ASC" title="4.9.10">4.9.10</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Source of issue:</b></td>
+                <td id="customfield_10013-95600-value" class="value" bgcolor="#ffffff" width="80%">    Integration/QA
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Documeted in RN:</b></td>
+                <td id="customfield_10757-95600-value" class="value" bgcolor="#ffffff" width="80%">    Yes
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Reopened:</b></td>
+                <td id="customfield_10759-95600-value" class="value" bgcolor="#ffffff" width="80%">    No
+</td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Description</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>When changing Trap configuration and one (or more) of the address parameters (IP,Subnet and gateway)  simultaneous only the address parameter will be update.<br/>
+This option operate properly by NMS</p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+<hr class='fullcontent'><br /><br style='page-break-before:always;'/><br />
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [ODU-1229]&nbsp;<a href="http://jira6/jira/browse/ODU-1229">WI ULC 4.9 : Main menu items are not aligned in WI</a>
+            <span class="subText">
+               Created: 29/12/16                   &nbsp;Updated: 19/01/17
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Status:</b></td>
+        <td width="80%">Open</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Project:</b></td>
+        <td width="80%"><a href="http://jira6/jira/secure/BrowseProject.jspa?id=10161">Embedded SW</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Component/s:</b></td>
+            <td>
+                                        <a title="WI"
+                href="http://jira6/jira/issues/?jql=project%3D10161%20AND%20%22component%22%3D10723%20ORDER%20BY%20priority%20ASC"
+            >WI</a>                        </td>
+    </tr>
+    
+
+    
+
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Type:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Bug
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Priority:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                Medium
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Reporter:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                            <a class="user-hover" rel="george_p" id="word_reporter_george_p" href="http://jira6/jira/secure/ViewProfile.jspa?name=george_p">George Priven</a>
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Assignee:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                            <a class="user-hover" rel="mikhail_a" id="word_assignee_mikhail_a" href="http://jira6/jira/secure/ViewProfile.jspa?name=mikhail_a">Mikhail Arsyonov</a>
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolution:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				Unresolved
+                    </td>
+                    <td bgcolor="#ffffff" colspan="2">&nbsp;</td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Labels:</b>
+        </td>
+        <td id="labels-95550-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            dudu                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Remaining Estimate:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Time Spent:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Original Estimate:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>Attachments:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="http://jira6/jira/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG File">
+                    WI_1.png &nbsp;&nbsp;&nbsp;
+                                    <img src="http://jira6/jira/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG File">
+                    WI_2.png &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+    
+
+
+
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found In Version:</b></td>
+                <td id="customfield_10750-95550-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10750-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Found+In+Version%22%3D%224.9.00%22%20ORDER%20BY%20priority%20ASC" title="4.9.00">4.9.00</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found in Build:</b></td>
+                <td id="customfield_10391-95550-value" class="value" bgcolor="#ffffff" width="80%">    15
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Fix in Version:</b></td>
+                <td id="customfield_10753-95550-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10753-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Fix+in+Version%22%3D%224.9.10%22%20ORDER%20BY%20priority%20ASC" title="4.9.10">4.9.10</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Source of issue:</b></td>
+                <td id="customfield_10013-95550-value" class="value" bgcolor="#ffffff" width="80%">    Verification
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Documeted in RN:</b></td>
+                <td id="customfield_10757-95550-value" class="value" bgcolor="#ffffff" width="80%">    No
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Reopened:</b></td>
+                <td id="customfield_10759-95550-value" class="value" bgcolor="#ffffff" width="80%">    Yes
+</td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Description</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>Main menu items are not aligned :</p>
+
+<p>1. "System" in the menu of the left is not aligned with the rest of the menu items</p>
+
+<p>2. Gaps in Configure and Tools menu are different</p>
+
+<p>See attached screenshots.</p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+<hr class='fullcontent'><br /><br style='page-break-before:always;'/><br />
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [ODU-1198]&nbsp;<a href="http://jira6/jira/browse/ODU-1198">WI ULC 4.9 404 Not Found occurs after several actions </a>
+            <span class="subText">
+               Created: 26/12/16                   &nbsp;Updated: 19/01/17
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Status:</b></td>
+        <td width="80%">Open</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Project:</b></td>
+        <td width="80%"><a href="http://jira6/jira/secure/BrowseProject.jspa?id=10161">Embedded SW</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Component/s:</b></td>
+            <td>
+                                        <a title="WI"
+                href="http://jira6/jira/issues/?jql=project%3D10161%20AND%20%22component%22%3D10723%20ORDER%20BY%20priority%20ASC"
+            >WI</a>                        </td>
+    </tr>
+    
+
+    
+
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Type:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Bug
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Priority:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                Medium
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Reporter:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                            <a class="user-hover" rel="yossi_p" id="word_reporter_yossi_p" href="http://jira6/jira/secure/ViewProfile.jspa?name=yossi_p">Yossi Peer</a>
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Assignee:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                            <a class="user-hover" rel="mikhail_a" id="word_assignee_mikhail_a" href="http://jira6/jira/secure/ViewProfile.jspa?name=mikhail_a">Mikhail Arsyonov</a>
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolution:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				Unresolved
+                    </td>
+                    <td bgcolor="#ffffff" colspan="2">&nbsp;</td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Labels:</b>
+        </td>
+        <td id="labels-95484-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            dudu                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Remaining Estimate:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Time Spent:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Original Estimate:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>Attachments:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="http://jira6/jira/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG File">
+                    404 not found spectrum.png &nbsp;&nbsp;&nbsp;
+                                    <img src="http://jira6/jira/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG File">
+                    404 not found.png &nbsp;&nbsp;&nbsp;
+                                    <img src="http://jira6/jira/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG File">
+                    404 not found1.png &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+    
+
+
+
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found In Version:</b></td>
+                <td id="customfield_10750-95484-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10750-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Found+In+Version%22%3D%224.9.00%22%20ORDER%20BY%20priority%20ASC" title="4.9.00">4.9.00</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found in Build:</b></td>
+                <td id="customfield_10391-95484-value" class="value" bgcolor="#ffffff" width="80%">    14
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Fix in Version:</b></td>
+                <td id="customfield_10753-95484-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10753-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Fix+in+Version%22%3D%224.9.10%22%20ORDER%20BY%20priority%20ASC" title="4.9.10">4.9.10</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Source of issue:</b></td>
+                <td id="customfield_10013-95484-value" class="value" bgcolor="#ffffff" width="80%">    Integration/QA
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Documeted in RN:</b></td>
+                <td id="customfield_10757-95484-value" class="value" bgcolor="#ffffff" width="80%">    No
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Reopened:</b></td>
+                <td id="customfield_10759-95484-value" class="value" bgcolor="#ffffff" width="80%">    Yes
+</td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Description</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>error 404 not found occurs  (debug F-12) after several action such as FC-1<br/>
+refresh , spectrum analyzer see attachments<br/>
+Environment:<br/>
+P:\HighLink\Groups\Software\Releases\4.9.00\ULC Web\PrivateReleases\20161225</p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+<hr class='fullcontent'><br /><br style='page-break-before:always;'/><br />
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [ODU-1181]&nbsp;<a href="http://jira6/jira/browse/ODU-1181">RW5K-ULC-WI: Wrong WI display via PC in low display resolutions</a>
+            <span class="subText">
+               Created: 21/12/16                   &nbsp;Updated: 19/01/17
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Status:</b></td>
+        <td width="80%">Open</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Project:</b></td>
+        <td width="80%"><a href="http://jira6/jira/secure/BrowseProject.jspa?id=10161">Embedded SW</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Component/s:</b></td>
+            <td>
+                                        <a title="WI"
+                href="http://jira6/jira/issues/?jql=project%3D10161%20AND%20%22component%22%3D10723%20ORDER%20BY%20priority%20ASC"
+            >WI</a>                        </td>
+    </tr>
+    
+
+    
+
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Type:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Bug
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Priority:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                Medium
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Reporter:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                            <a class="user-hover" rel="tomer_a" id="word_reporter_tomer_a" href="http://jira6/jira/secure/ViewProfile.jspa?name=tomer_a">Tomer Azulay</a>
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Assignee:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                            <a class="user-hover" rel="michael" id="word_assignee_michael" href="http://jira6/jira/secure/ViewProfile.jspa?name=michael">Michael Nurenberg</a>
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolution:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				Unresolved
+                    </td>
+                    <td bgcolor="#ffffff" colspan="2">&nbsp;</td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Labels:</b>
+        </td>
+        <td id="labels-95440-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            dudu                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Remaining Estimate:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Time Spent:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Original Estimate:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>Attachments:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="http://jira6/jira/images/icons/attach/image.gif" height="16" width="16" border="0" alt="JPEG File">
+                    wrong display of WI on PC with low display resolution  800x600 example 3.jpg &nbsp;&nbsp;&nbsp;
+                                    <img src="http://jira6/jira/images/icons/attach/image.gif" height="16" width="16" border="0" alt="JPEG File">
+                    wrong display of WI on PC with low display resolution  800x600 example 4.jpg &nbsp;&nbsp;&nbsp;
+                                    <img src="http://jira6/jira/images/icons/attach/image.gif" height="16" width="16" border="0" alt="JPEG File">
+                    wrong display of WI on PC with low display resolution 1024x768 example 1.jpg &nbsp;&nbsp;&nbsp;
+                                    <img src="http://jira6/jira/images/icons/attach/image.gif" height="16" width="16" border="0" alt="JPEG File">
+                    wrong display of WI on PC with low display resolution 1024x768 example 2.jpg &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+    
+
+
+
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found In Version:</b></td>
+                <td id="customfield_10750-95440-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10750-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Found+In+Version%22%3D%224.9.00%22%20ORDER%20BY%20priority%20ASC" title="4.9.00">4.9.00</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found in Build:</b></td>
+                <td id="customfield_10391-95440-value" class="value" bgcolor="#ffffff" width="80%">    13
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Fix in Version:</b></td>
+                <td id="customfield_10753-95440-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10753-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Fix+in+Version%22%3D%224.9.10%22%20ORDER%20BY%20priority%20ASC" title="4.9.10">4.9.10</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Source of issue:</b></td>
+                <td id="customfield_10013-95440-value" class="value" bgcolor="#ffffff" width="80%">    Verification
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Documeted in RN:</b></td>
+                <td id="customfield_10757-95440-value" class="value" bgcolor="#ffffff" width="80%">    Yes
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Reopened:</b></td>
+                <td id="customfield_10759-95440-value" class="value" bgcolor="#ffffff" width="80%">    Yes
+</td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Description</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>RW5K-ULC-WI: Wrong WI display in low PC display resolutions</p>
+
+<p>To Reproduce:<br/>
+1. Open WI of any ULC with any PC &amp; with any browser (Internet explorer 11, Chrome, Firefox &amp; edge).<br/>
+2. Configure the display resolution to low (1024x768 &amp; 800x600)<br/>
+3. Go over all pages of WI (e.g SYSTEM, RADIO, NETWORK ...)</p>
+
+<p>Results:<br/>
+1. Wrong WI display via PC in low display resolutions.<br/>
+2. See attached print screen for all wrong display pages.</p>
+
+<p>Reproduced always in described scenario</p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Comments</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="grid" style="margin: 0;">
+                <tr id="comment-header-112332"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="mikhail_a" id="word_commented_mikhail_a" href="http://jira6/jira/secure/ViewProfile.jspa?name=mikhail_a">Mikhail Arsyonov</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">22/12/16</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-112332"><td bgcolor="#ffffff">
+            [~tomer_a] [~avner_a] Hi, It&#39;s not a bug. We currently not support Low resolution.
+        </td></tr>
+                <tr id="comment-header-112337"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="avner_a" id="word_commented_avner_a" href="http://jira6/jira/secure/ViewProfile.jspa?name=avner_a">Avner Arbel</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">22/12/16</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-112337"><td bgcolor="#ffffff">
+            [~assaf_s] please add your comments.<br/>
+<br/>
+
+        </td></tr>
+            </table>
+<hr class='fullcontent'><br /><br style='page-break-before:always;'/><br />
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [ODU-1231]&nbsp;<a href="http://jira6/jira/browse/ODU-1231">WI - ULC 4.9- Icon is not present in the &#39;Error occurred&#39; popup after ULC disconnection.</a>
+            <span class="subText">
+               Created: 29/12/16                   &nbsp;Updated: 19/01/17
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Status:</b></td>
+        <td width="80%">Open</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Project:</b></td>
+        <td width="80%"><a href="http://jira6/jira/secure/BrowseProject.jspa?id=10161">Embedded SW</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Component/s:</b></td>
+            <td>
+                                        <a title="WI"
+                href="http://jira6/jira/issues/?jql=project%3D10161%20AND%20%22component%22%3D10723%20ORDER%20BY%20priority%20ASC"
+            >WI</a>                        </td>
+    </tr>
+    
+
+    
+
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Type:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Bug
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Priority:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                Low
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Reporter:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                            <a class="user-hover" rel="lucy_g" id="word_reporter_lucy_g" href="http://jira6/jira/secure/ViewProfile.jspa?name=lucy_g">Lucy Geva</a>
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Assignee:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                            <a class="user-hover" rel="mikhail_a" id="word_assignee_mikhail_a" href="http://jira6/jira/secure/ViewProfile.jspa?name=mikhail_a">Mikhail Arsyonov</a>
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolution:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				Unresolved
+                    </td>
+                    <td bgcolor="#ffffff" colspan="2">&nbsp;</td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Labels:</b>
+        </td>
+        <td id="labels-95552-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            dudu                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Remaining Estimate:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Time Spent:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Original Estimate:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>Attachments:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="http://jira6/jira/images/icons/attach/image.gif" height="16" width="16" border="0" alt="JPEG File">
+                    Icon is not present after restore to factory defaults..jpg &nbsp;&nbsp;&nbsp;
+                                    <img src="http://jira6/jira/images/icons/attach/image.gif" height="16" width="16" border="0" alt="JPEG File">
+                    Icon is not present as result of an exception..jpg &nbsp;&nbsp;&nbsp;
+                                    <img src="http://jira6/jira/images/icons/attach/image.gif" height="16" width="16" border="0" alt="JPEG File">
+                    Icon is not present as result of an exception_1.jpg &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+    
+
+
+
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found In Version:</b></td>
+                <td id="customfield_10750-95552-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10750-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Found+In+Version%22%3D%224.9.00%22%20ORDER%20BY%20priority%20ASC" title="4.9.00">4.9.00</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found in Build:</b></td>
+                <td id="customfield_10391-95552-value" class="value" bgcolor="#ffffff" width="80%">    15
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Fix in Version:</b></td>
+                <td id="customfield_10753-95552-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10753-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Fix+in+Version%22%3D%224.9.10%22%20ORDER%20BY%20priority%20ASC" title="4.9.10">4.9.10</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Source of issue:</b></td>
+                <td id="customfield_10013-95552-value" class="value" bgcolor="#ffffff" width="80%">    Verification
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Documeted in RN:</b></td>
+                <td id="customfield_10757-95552-value" class="value" bgcolor="#ffffff" width="80%">    No
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Reopened:</b></td>
+                <td id="customfield_10759-95552-value" class="value" bgcolor="#ffffff" width="80%">    Yes
+</td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Description</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>Icon is not present in the 'Error occurred' popup after ULC disconnection.<br/>
+Two cases of missing icon:<br/>
+1) ULC disconnection as result of 'Restore to factory defaults':<br/>
+To reproduce:<br/>
+TOOLS-&gt;OPERATIONS-&gt;RESTORE TO FACTORY DEFAULTS.<br/>
+Perform "reset to factory defaults" <br/>
+Results:<br/>
+ 'Error occurred' popup message appears <br/>
+Icon is not present. see picture attached<br/>
+2) Icon is not present as result of an exception-  see picture attached.<br/>
+Version: 4.9.00_b0015_Dec 28 2016</p>
+
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+<hr class='fullcontent'><br /><br style='page-break-before:always;'/><br />
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [ODU-1230]&nbsp;<a href="http://jira6/jira/browse/ODU-1230">WI ULC 4.9 : &quot;Packet Size&quot; watermark is truncated</a>
+            <span class="subText">
+               Created: 29/12/16                   &nbsp;Updated: 19/01/17
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Status:</b></td>
+        <td width="80%">In Progress</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Project:</b></td>
+        <td width="80%"><a href="http://jira6/jira/secure/BrowseProject.jspa?id=10161">Embedded SW</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Component/s:</b></td>
+            <td>
+                                        <a title="WI"
+                href="http://jira6/jira/issues/?jql=project%3D10161%20AND%20%22component%22%3D10723%20ORDER%20BY%20priority%20ASC"
+            >WI</a>                        </td>
+    </tr>
+    
+
+    
+
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Type:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Bug
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Priority:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                Low
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Reporter:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                            <a class="user-hover" rel="george_p" id="word_reporter_george_p" href="http://jira6/jira/secure/ViewProfile.jspa?name=george_p">George Priven</a>
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Assignee:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                            <a class="user-hover" rel="mikhail_a" id="word_assignee_mikhail_a" href="http://jira6/jira/secure/ViewProfile.jspa?name=mikhail_a">Mikhail Arsyonov</a>
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolution:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				Unresolved
+                    </td>
+                    <td bgcolor="#ffffff" colspan="2">&nbsp;</td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Labels:</b>
+        </td>
+        <td id="labels-95551-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            dudu                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Remaining Estimate:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Time Spent:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Original Estimate:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>Attachments:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="http://jira6/jira/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG File">
+                    Ping_size.PNG &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+    
+
+
+
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found In Version:</b></td>
+                <td id="customfield_10750-95551-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10750-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Found+In+Version%22%3D%224.9.00%22%20ORDER%20BY%20priority%20ASC" title="4.9.00">4.9.00</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found in Build:</b></td>
+                <td id="customfield_10391-95551-value" class="value" bgcolor="#ffffff" width="80%">    15
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Fix in Version:</b></td>
+                <td id="customfield_10753-95551-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10753-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Fix+in+Version%22%3D%224.9.10%22%20ORDER%20BY%20priority%20ASC" title="4.9.10">4.9.10</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Source of issue:</b></td>
+                <td id="customfield_10013-95551-value" class="value" bgcolor="#ffffff" width="80%">    Verification
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Documeted in RN:</b></td>
+                <td id="customfield_10757-95551-value" class="value" bgcolor="#ffffff" width="80%">    No
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Reopened:</b></td>
+                <td id="customfield_10759-95551-value" class="value" bgcolor="#ffffff" width="80%">    Yes
+</td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Description</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>"Packet Size" watermark is truncated :</p>
+
+<p>1. Open WI -&gt; Tools -&gt; Network<br/>
+2. Under Ping -&gt; Packets size remove all the digits</p>
+
+<p>"Packet Size" watermark shows as "Packet Siz".<br/>
+Screenshot attached.</p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Comments</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="grid" style="margin: 0;">
+                <tr id="comment-header-112857"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="mikhail_a" id="word_commented_mikhail_a" href="http://jira6/jira/secure/ViewProfile.jspa?name=mikhail_a">Mikhail Arsyonov</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">19/01/17</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-112857"><td bgcolor="#ffffff">
+            [~george_p] Hi, Please add to bug screen resolution and width of the browser window, to allow our team to reproduce described behavior.
+        </td></tr>
+            </table>
+<hr class='fullcontent'><br /><br style='page-break-before:always;'/><br />
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [ODU-1227]&nbsp;<a href="http://jira6/jira/browse/ODU-1227">WI - ULC 4.9- &#39;Log Off&#39; button does not appear on the screen in specific scenario in Internet Explorer &amp; Edge</a>
+            <span class="subText">
+               Created: 29/12/16                   &nbsp;Updated: 19/01/17
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Status:</b></td>
+        <td width="80%">Open</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Project:</b></td>
+        <td width="80%"><a href="http://jira6/jira/secure/BrowseProject.jspa?id=10161">Embedded SW</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Component/s:</b></td>
+            <td>
+                                        <a title="WI"
+                href="http://jira6/jira/issues/?jql=project%3D10161%20AND%20%22component%22%3D10723%20ORDER%20BY%20priority%20ASC"
+            >WI</a>                        </td>
+    </tr>
+    
+
+    
+
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Type:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Bug
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Priority:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                Low
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Reporter:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                            <a class="user-hover" rel="lucy_g" id="word_reporter_lucy_g" href="http://jira6/jira/secure/ViewProfile.jspa?name=lucy_g">Lucy Geva</a>
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Assignee:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                            <a class="user-hover" rel="mikhail_a" id="word_assignee_mikhail_a" href="http://jira6/jira/secure/ViewProfile.jspa?name=mikhail_a">Mikhail Arsyonov</a>
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolution:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				Unresolved
+                    </td>
+                    <td bgcolor="#ffffff" colspan="2">&nbsp;</td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Labels:</b>
+        </td>
+        <td id="labels-95548-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            dudu                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Remaining Estimate:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Time Spent:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Original Estimate:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>Attachments:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="http://jira6/jira/images/icons/attach/image.gif" height="16" width="16" border="0" alt="JPEG File">
+                    Log Off button does not appear on the screen.jpg &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+    
+
+
+
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found In Version:</b></td>
+                <td id="customfield_10750-95548-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10750-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Found+In+Version%22%3D%224.9.00%22%20ORDER%20BY%20priority%20ASC" title="4.9.00">4.9.00</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found in Build:</b></td>
+                <td id="customfield_10391-95548-value" class="value" bgcolor="#ffffff" width="80%">    15
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Fix in Version:</b></td>
+                <td id="customfield_10753-95548-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10753-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Fix+in+Version%22%3D%224.9.10%22%20ORDER%20BY%20priority%20ASC" title="4.9.10">4.9.10</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Source of issue:</b></td>
+                <td id="customfield_10013-95548-value" class="value" bgcolor="#ffffff" width="80%">    Verification
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Documeted in RN:</b></td>
+                <td id="customfield_10757-95548-value" class="value" bgcolor="#ffffff" width="80%">    No
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Reopened:</b></td>
+                <td id="customfield_10759-95548-value" class="value" bgcolor="#ffffff" width="80%">    Yes
+</td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Description</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>WI - ULC 4.9- 'Log Off' button does not appear on the screen on specific scenario in Internet Explorer &amp; Edge.<br/>
+To Reproduce:<br/>
+1. Open WI of any ULC with Internet explorer or Edge<br/>
+2. Press on CONFIGURE-&gt;WiFi tab.<br/>
+3. Press 'Admin' at the top of the screen.<br/>
+Results:<br/>
+'Log Off' button does not appear at the top of the screen.<br/>
+Not reproduced in Chrome and Firefox.<br/>
+4.9.00_b0015_Dec 28 2016<br/>
+See attachment.</p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+<hr class='fullcontent'><br /><br style='page-break-before:always;'/><br />
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [ODU-1223]&nbsp;<a href="http://jira6/jira/browse/ODU-1223">RW5K-ULC-WI: Up &amp; Down arrows in WI can change to illegal values</a>
+            <span class="subText">
+               Created: 29/12/16                   &nbsp;Updated: 19/01/17
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Status:</b></td>
+        <td width="80%">Open</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Project:</b></td>
+        <td width="80%"><a href="http://jira6/jira/secure/BrowseProject.jspa?id=10161">Embedded SW</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Component/s:</b></td>
+            <td>
+                                        <a title="WI"
+                href="http://jira6/jira/issues/?jql=project%3D10161%20AND%20%22component%22%3D10723%20ORDER%20BY%20priority%20ASC"
+            >WI</a>                        </td>
+    </tr>
+    
+
+    
+
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Type:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Bug
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Priority:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                Low
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Reporter:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                            <a class="user-hover" rel="tomer_a" id="word_reporter_tomer_a" href="http://jira6/jira/secure/ViewProfile.jspa?name=tomer_a">Tomer Azulay</a>
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Assignee:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                            <a class="user-hover" rel="michael" id="word_assignee_michael" href="http://jira6/jira/secure/ViewProfile.jspa?name=michael">Michael Nurenberg</a>
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolution:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				Unresolved
+                    </td>
+                    <td bgcolor="#ffffff" colspan="2">&nbsp;</td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Labels:</b>
+        </td>
+        <td id="labels-95544-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            dudu                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Remaining Estimate:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Time Spent:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Original Estimate:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>Attachments:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="http://jira6/jira/images/icons/attach/image.gif" height="16" width="16" border="0" alt="JPEG File">
+                    Up &amp; Down arrows can change to wrong value_Number of Packets in Ping test.jpg &nbsp;&nbsp;&nbsp;
+                                    <img src="http://jira6/jira/images/icons/attach/image.gif" height="16" width="16" border="0" alt="JPEG File">
+                    Up &amp; Down arrows can change to wrong value_Port in Trap Destination.jpg &nbsp;&nbsp;&nbsp;
+                                    <img src="http://jira6/jira/images/icons/attach/image.gif" height="16" width="16" border="0" alt="JPEG File">
+                    Up &amp; Down arrows can change to wrong value_TX Power in RADIO.jpg &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+    
+
+
+
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found In Version:</b></td>
+                <td id="customfield_10750-95544-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10750-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Found+In+Version%22%3D%224.9.00%22%20ORDER%20BY%20priority%20ASC" title="4.9.00">4.9.00</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found in Build:</b></td>
+                <td id="customfield_10391-95544-value" class="value" bgcolor="#ffffff" width="80%">    15
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Fix in Version:</b></td>
+                <td id="customfield_10753-95544-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10753-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Fix+in+Version%22%3D%224.9.10%22%20ORDER%20BY%20priority%20ASC" title="4.9.10">4.9.10</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Source of issue:</b></td>
+                <td id="customfield_10013-95544-value" class="value" bgcolor="#ffffff" width="80%">    Verification
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Documeted in RN:</b></td>
+                <td id="customfield_10757-95544-value" class="value" bgcolor="#ffffff" width="80%">    No
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Reopened:</b></td>
+                <td id="customfield_10759-95544-value" class="value" bgcolor="#ffffff" width="80%">    Yes
+</td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Description</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>RW5K-ULC-WI: Up &amp; Down arrows in WI can change to illegal values</p>
+
+<p>To Reproduce:<br/>
+1. Open WI of any ULC (Synchronized/Registered).<br/>
+2. For example, Press on TOOLS-&gt;NETWORK.<br/>
+3. The page of Network will open.<br/>
+4. Write illegal values manually in Packets field (higher than max=30).<br/>
+5. Now, press on the Up &amp; Down arrows in this field.</p>
+
+<p>Results:<br/>
+1. The illegal value Increase &amp; decrease according to Arrows pressing <br/>
+2. The value in field should return to default valid value.<br/>
+3. Issue exist in all pages in WI (see screen shots attached)</p>
+
+<p>Reproduced always in described scenario.<br/>
+not reproduced via HBS NMS.</p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+<hr class='fullcontent'><br /><br style='page-break-before:always;'/><br />
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [ODU-1222]&nbsp;<a href="http://jira6/jira/browse/ODU-1222">RW5K-ULC-WI: Wrong Validation for TX Power per Radio</a>
+            <span class="subText">
+               Created: 29/12/16                   &nbsp;Updated: 19/01/17
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Status:</b></td>
+        <td width="80%">Open</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Project:</b></td>
+        <td width="80%"><a href="http://jira6/jira/secure/BrowseProject.jspa?id=10161">Embedded SW</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Component/s:</b></td>
+            <td>
+                                        <a title="WI"
+                href="http://jira6/jira/issues/?jql=project%3D10161%20AND%20%22component%22%3D10723%20ORDER%20BY%20priority%20ASC"
+            >WI</a>                        </td>
+    </tr>
+    
+
+    
+
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Type:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Bug
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Priority:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                Low
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Reporter:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                            <a class="user-hover" rel="tomer_a" id="word_reporter_tomer_a" href="http://jira6/jira/secure/ViewProfile.jspa?name=tomer_a">Tomer Azulay</a>
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Assignee:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                            <a class="user-hover" rel="michael" id="word_assignee_michael" href="http://jira6/jira/secure/ViewProfile.jspa?name=michael">Michael Nurenberg</a>
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolution:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				Unresolved
+                    </td>
+                    <td bgcolor="#ffffff" colspan="2">&nbsp;</td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Labels:</b>
+        </td>
+        <td id="labels-95543-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            dudu                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Remaining Estimate:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Time Spent:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Original Estimate:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>Attachments:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="http://jira6/jira/images/icons/attach/image.gif" height="16" width="16" border="0" alt="JPEG File">
+                    Tx Power per Radio validation starts from 26 dBm instead of 23dBm in ULC via WI.jpg &nbsp;&nbsp;&nbsp;
+                                    <img src="http://jira6/jira/images/icons/attach/image.gif" height="16" width="16" border="0" alt="JPEG File">
+                    Tx Power per Radio with 23dBm allowed to configured.jpg &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+    
+
+
+
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found In Version:</b></td>
+                <td id="customfield_10750-95543-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10750-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Found+In+Version%22%3D%224.9.00%22%20ORDER%20BY%20priority%20ASC" title="4.9.00">4.9.00</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found in Build:</b></td>
+                <td id="customfield_10391-95543-value" class="value" bgcolor="#ffffff" width="80%">    15
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Fix in Version:</b></td>
+                <td id="customfield_10753-95543-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10753-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Fix+in+Version%22%3D%224.9.10%22%20ORDER%20BY%20priority%20ASC" title="4.9.10">4.9.10</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Source of issue:</b></td>
+                <td id="customfield_10013-95543-value" class="value" bgcolor="#ffffff" width="80%">    Verification
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Documeted in RN:</b></td>
+                <td id="customfield_10757-95543-value" class="value" bgcolor="#ffffff" width="80%">    No
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Reopened:</b></td>
+                <td id="customfield_10759-95543-value" class="value" bgcolor="#ffffff" width="80%">    Yes
+</td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Description</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>RW5K-ULC-WI: Wrong Validation for TX Power per Radio</p>
+
+<p>To Reproduce:<br/>
+1. Open WI of any ULC (Synchronized/Registered).<br/>
+2. Press on CONFIGURE-&gt;RADIO.<br/>
+3. The page of Radio will open<br/>
+4. Try to change manually the Required TX Power Per Radio, higher than 22dBm (for example: 23 till 25)</p>
+
+<p>Results:<br/>
+1. Missing validation message for the values higher than 22dBm (23 till 25).<br/>
+2. The validation message appears only from value 26 or higher.<br/>
+3. The validation message is near the Antenna Gain, should be separated.<br/>
+4. Tx Power per Radio with values 23 till 25dBm allowed to configured<br/>
+5. Currently the wrong value not configured.<br/>
+6. Example of screen shot attached.</p>
+
+<p>Reproduced always in described scenario.<br/>
+not reproduced via HBS NMS.</p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+<hr class='fullcontent'><br /><br style='page-break-before:always;'/><br />
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [ODU-1197]&nbsp;<a href="http://jira6/jira/browse/ODU-1197">WI ULC 4.9 : Unnecessary character &quot;;&quot; is added in error message</a>
+            <span class="subText">
+               Created: 26/12/16                   &nbsp;Updated: 19/01/17
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Status:</b></td>
+        <td width="80%">Open</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Project:</b></td>
+        <td width="80%"><a href="http://jira6/jira/secure/BrowseProject.jspa?id=10161">Embedded SW</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Component/s:</b></td>
+            <td>
+                                        <a title="WI"
+                href="http://jira6/jira/issues/?jql=project%3D10161%20AND%20%22component%22%3D10723%20ORDER%20BY%20priority%20ASC"
+            >WI</a>                        </td>
+    </tr>
+    
+
+    
+
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Type:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Bug
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Priority:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                Low
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Reporter:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                            <a class="user-hover" rel="george_p" id="word_reporter_george_p" href="http://jira6/jira/secure/ViewProfile.jspa?name=george_p">George Priven</a>
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Assignee:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                            <a class="user-hover" rel="michael" id="word_assignee_michael" href="http://jira6/jira/secure/ViewProfile.jspa?name=michael">Michael Nurenberg</a>
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolution:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				Unresolved
+                    </td>
+                    <td bgcolor="#ffffff" colspan="2">&nbsp;</td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Labels:</b>
+        </td>
+        <td id="labels-95483-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            dudu                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Remaining Estimate:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            2 hours
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Time Spent:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Not Specified
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Original Estimate:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            2 hours
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>Attachments:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="http://jira6/jira/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG File">
+                    Bad_Char.PNG &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+    
+
+
+
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found In Version:</b></td>
+                <td id="customfield_10750-95483-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10750-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Found+In+Version%22%3D%224.9.00%22%20ORDER%20BY%20priority%20ASC" title="4.9.00">4.9.00</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Found in Build:</b></td>
+                <td id="customfield_10391-95483-value" class="value" bgcolor="#ffffff" width="80%">    14
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Fix in Version:</b></td>
+                <td id="customfield_10753-95483-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10753-field">
+                                    <a href="http://jira6/jira/issues/?jql=project%3D%22ODU%22%20AND%20%22Fix+in+Version%22%3D%224.9.10%22%20ORDER%20BY%20priority%20ASC" title="4.9.10">4.9.10</a>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Fix in Build:</b></td>
+                <td id="customfield_10400-95483-value" class="value" bgcolor="#ffffff" width="80%">    15
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Source of issue:</b></td>
+                <td id="customfield_10013-95483-value" class="value" bgcolor="#ffffff" width="80%">    Verification
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Documeted in RN:</b></td>
+                <td id="customfield_10757-95483-value" class="value" bgcolor="#ffffff" width="80%">    No
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Reopened:</b></td>
+                <td id="customfield_10759-95483-value" class="value" bgcolor="#ffffff" width="80%">    Yes
+</td>
+            </tr>
+                                    <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Unit Test:</b></td>
+                <td id="customfield_10752-95483-value" class="value" bgcolor="#ffffff" width="80%">      fixed
+  </td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Description</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>Unnecessary character ";" is added in error message, when entering bad IP address in Ping. <br/>
+"IP is invalid;"</p>
+
+<p>This issue was fixed for Trace (<a href="http://jira6/jira/browse/ODU-1150" title="WI ULC: Redundant semicolon at trace alert" class="issue-link" data-issue-key="ODU-1150"><del>ODU-1150</del></a>), still exists for Ping</p>
+
+<p>Screenshot attached.</p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+<hr class='fullcontent'><br /><br style='page-break-before:always;'/><br />Generated at Thu Jan 19 12:07:09 IST 2017 by Mikhail Arsyonov using JIRA 7.2.6#72008-sha1:26175bf5a1a24af841485172355360565636e05b.
+
+</body>
+</html>

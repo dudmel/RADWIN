@@ -45,8 +45,8 @@
 
             <ul class="sidebar-menu">
 				<li class="treeview" (click)="openedSection === 1? openedSection = 0 : openedSection = 1">
-					<span class="side-bar-item" [routerLink]=" ['./overview'] " [routerLinkActive]="['is-active']" (click)="isActive=false;">
-						<span class="menu-title" (mouseenter)="openedSection === 1? state1='active' : state1='hover'" (mouseleave)="openedSection === 1? state1='active' : state1=''" (click)="state1='active'; state2=''; state3=''">
+					<span class="side-bar-item" [routerLink]=" ['./overview'] " [routerLinkActive]="['is-active']">
+						<span class="menu-title" (mouseenter)="openedSection === 1? state1='active' : state1='hover'" (mouseleave)="openedSection === 1? state1='active' : state1=''" (click)="isActive = true; state1='active'; state2=''; state3=''">
 							<img [src]="'../../assets/icon/menu1' + getImg(state1) + '.svg'"/>
 							<span class="side-bar-title" *ngIf="isActive">OVERVIEW</span>
 						</span>
@@ -55,35 +55,34 @@
 				</li>
 				
 				<li class="treeview" (click)="openedSection === 2? openedSection = 0 : openedSection = 2" >
-					<span class="side-bar-item">
-						<span class="menu-title" (mouseenter)="openedSection === 2? state2='active' : state2='hover'" (mouseleave)="openedSection === 2? state2='active' : state2=''" (click)="state2='active'; state3=''; state1=''">
+					<span class="side-bar-item" >
+						<span class="menu-title" (mouseenter)="openedSection === 2? state2='active' : state2='hover'" (mouseleave)="openedSection === 2? state2='active' : state2=''" (click)="isActive = true; state2='active'; state1=''; state3=''">
 							<img [src]="'../../assets/icon/menu2' + getImg(state2) + '.svg'"/>
 							<span class="side-bar-title" *ngIf="isActive">CONFIGURE</span>
 						</span>
 						<span [ngClass]="openedSection === 2  && isActive? 'arrow-left' : ''"> </span>
-					
-						<ul class="treeview-menu" *ngIf="isActive && openedSection === 2">
-							<li><a [routerLink]=" ['./system-configuration/'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i><span class="side-bar-title sub-menu" (click)="isActive=false; $event.stopPropagation();">SYSTEM</span></a></li>
-							<li><a [routerLink]=" ['./radio-configuration'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="isActive=false; $event.stopPropagation();">RADIO</span></a></li>
-							<li><a [routerLink]=" ['./network-configuration/'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="isActive=false; $event.stopPropagation();">NETWORK</span></a></li>
-							<li><a [routerLink]=" ['./wifi-configuration'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="isActive=false; $event.stopPropagation();">WIFI</span></a></li>
-							<li><a [routerLink]=" ['./security-configuration'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="isActive=false; $event.stopPropagation();">SECURITY</span></a></li>
-						</ul>
 					</span>
+					<ul class="treeview-menu" *ngIf="isActive && openedSection === 2">
+						<li><a [routerLink]=" ['./system-configuration'] "   [routerLinkActive]="['is-active']"> <i class="sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="$event.stopPropagation();">SYSTEM  </span></a></li>
+						<li><a [routerLink]=" ['./radio-configuration'] "    [routerLinkActive]="['is-active']"> <i class="sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="$event.stopPropagation();">RADIO   </span></a></li>
+						<li><a [routerLink]=" ['./network-configuration'] "  [routerLinkActive]="['is-active']"> <i class="sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="$event.stopPropagation();">NETWORK </span></a></li>
+						<li><a [routerLink]=" ['./wifi-configuration'] "     [routerLinkActive]="['is-active']"> <i class="sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="$event.stopPropagation();">WIFI    </span></a></li>
+						<li><a [routerLink]=" ['./security-configuration'] " [routerLinkActive]="['is-active']"> <i class="sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="$event.stopPropagation();">SECURITY</span></a></li>
+					</ul>
 				</li>
 				
 				<li class="treeview" (click)="openedSection === 3? openedSection = 0 : openedSection = 3">
 					<span class="side-bar-item">
-						<span class="menu-title" (mouseenter)="openedSection === 3? state3='active' : state3='hover'" (mouseleave)="openedSection === 3? state3='active' : state3=''" (click)="state3='active'; state1=''; state2=''">
+						<span class="menu-title" (mouseenter)="openedSection === 3? state3='active' : state3='hover'" (mouseleave)="openedSection === 3? state3='active' : state3=''" (click)="isActive = true; state3='active'; state1=''; state2=''">
 							<img [src]="'../../assets/icon/menu3' + getImg(state3) + '.svg'"/>
 							<span class="side-bar-title" *ngIf="isActive">TOOLS</span>
 						</span>
 						<span [ngClass]="openedSection === 3 && isActive? 'arrow-left' : ''"> </span>
 					</span>
 					<ul class="treeview-menu" *ngIf="isActive && openedSection === 3">
-						<li><a [routerLink]=" ['./unit-tools'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="isActive=false; $event.stopPropagation();">UNIT</span></a></li>
-						<li><a [routerLink]=" ['./network-tools'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="isActive=false; $event.stopPropagation();">NETWORK</span></a></li>
-						<li><a [routerLink]=" ['./operations-tools'] " [routerLinkActive]="['is-active']"><i class="rad-sprite sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="isActive=false; $event.stopPropagation();">OPERATIONS</span></a></li>
+						<li><a [routerLink]=" ['./unit-tools'] "       [routerLinkActive]="['is-active']"> <i class="sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="$event.stopPropagation();">UNIT </span></a></li>
+						<li><a [routerLink]=" ['./network-tools'] "    [routerLinkActive]="['is-active']"> <i class="sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="$event.stopPropagation();">NETWORK </span></a></li>
+						<li><a [routerLink]=" ['./operations-tools'] " [routerLinkActive]="['is-active']"> <i class="sub-menu-icon"></i> <span class="side-bar-title sub-menu" (click)="$event.stopPropagation();">OPERATIONS </span></a></li>
 					</ul>
 				</li>
 

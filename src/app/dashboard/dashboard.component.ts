@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, OnChanges  } from '@angular/core';
+import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Rx';
 import { WModalService, SpinnerService } from '../blocks';
@@ -47,8 +47,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         // $.AdminLTE.layout.fix();
-        exLog('Hello Dashboard Component !');
-        
+        // exLog('Hello Dashboard Component !');
+
         this.systemSub = this._store.select('system')
             .subscribe((system: ISystemModel) => {
                 this.system = system;
@@ -64,6 +64,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
     ngOnChanges() {
     }
+
     ngOnDestroy() {
         this.monitorSub.unsubscribe();
         this.systemSub.unsubscribe();
@@ -73,12 +74,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
         exLog('logout');
         localStorage.removeItem(Consts.jwtToken);
     }
-   
+
     RequestForAlarms() {
         this._alarmsService.getActiveAlarms();
     }
 
-    getImg(state, section) {
+    getImg(state) {
         if (state === 'hover') return '_hover'
         else if (state === 'active') return '_active'
         else return '';

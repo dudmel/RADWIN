@@ -22,21 +22,21 @@ export class OverviewComponent implements OnInit, OnDestroy {
     private monitor: any;
     private monitorSub;
     private hideSection = true;
+    private isMobile: boolean;
 
     constructor(private _systemService: SystemService,
         private _networkService: NetworkService,
         private _radioService: RadioService,
         public toastr: ToastsManager,
         private _store: Store<AppStore>) { }
-    get isMobile() {
-        return Consts.isMobile;
-    }
+
     setIsMobile() {
-        Consts.isMobile = window.innerWidth < 700? true : false;
+        this.isMobile = window.innerWidth < Consts.mobileInnerWidth? true : false;
+
+        this._store.dispatch({ type: 'MOBILE_DATA', payload: this.isMobile });
     }
 
     ngOnInit() {
-        // this.toastr.success('You are awesome!', 'Success!');
         this.monitorSub = this._store.select('monitor')
             .subscribe((monitor: any) => {
                 this.monitor = monitor;
@@ -45,8 +45,6 @@ export class OverviewComponent implements OnInit, OnDestroy {
         this._systemService.getData();
         this._networkService.getData();
         this._radioService.getData();
-
-        // jQuery('.events-table-wrapper').slimScroll();
     }
 
     ngOnDestroy() {

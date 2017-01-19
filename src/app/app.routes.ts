@@ -7,5 +7,4 @@ export const ROUTES: Routes = [
   { path: '',      component: LoginComponent },
   { path: 'dashboard',  component: DashboardComponent, children: childRoutes, canActivate: [AuthGuard] },
   { path: '**',    component: LoginComponent }
-
 ];

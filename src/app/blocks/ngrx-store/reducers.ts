@@ -171,3 +171,27 @@ export const crcDecreaserReducer = (state: number = 0, {type, payload}) => {
       return state;
   }
 };
+
+export const mobileDataReducer = (state: boolean = false, {type, payload}) => {
+  switch (type) {
+    case 'MOBILE_DATA':
+      return payload;
+    default:
+      return state;
+  }
+};
+
+export const radiusDataReducer = (state: boolean = false, {type, payload}) => {
+  switch (type) {
+    case 'RADIUS_DATA':
+      return payload;
+    default:
+      return state;
+  }
+};
+
+
+
+
+
+

@@ -35,7 +35,7 @@ form {
 input-controls {
 	position: relative;
 	/* right: -74px;*/
-	right: -99px + $control-width;
+	right: -110px + $control-width;
 }
 .form-group {
 	width: 30%; 
@@ -43,6 +43,10 @@ input-controls {
 }
 .control-msgs {
 	color: #ef4023;
+}
+.input-group {
+	display: block;
+	height: 34px;
 }
 .my-input-group-addon {
 	height: 34px;
@@ -63,8 +67,6 @@ input-controls {
     flex-flow: column nowrap;
     justify-content: flex-start;
     width: 50%;
-    height: 100%;
-    padding-top: 6%;
 	.row-flex {
 		width: 90%;
 	}
@@ -76,6 +78,7 @@ input-controls {
 }
 .box-vlan {
 	width: 48%;
+	justify-content: center;
 	padding :0;
 }
 .box-light-blue {
@@ -93,6 +96,7 @@ input-controls {
 	flex-flow: row wrap;
 	justify-content: space-between;
 	align-items: center;
+	height: 100%;
 }
 
 .vlan-title
@@ -115,7 +119,8 @@ input-controls {
 	height: 100%;
 	padding: 10px;
 	input {
-		width: 80%;
+		// width: 80%;
+		min-width: 50px;
 	}
 	
 }
@@ -204,14 +209,18 @@ input-controls {
 	}
 	.box-traps, .box-network, .box-vlan {
 		width: 600px;
-		margin: 20px auto 20px auto;
+		margin: 0 auto 20px auto;
 	}
 	.vlan-title {
 		height: 100%;
 	}
+	.form-group-vlan {
+		padding: 6%;
+	}
 } 
 
 @media (max-width: 700px) {
+	
 	.box-network {
 		width: 100%;
 		min-width: 100%;

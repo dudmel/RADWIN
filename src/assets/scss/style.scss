@@ -74,6 +74,13 @@ rss-monitor {
     font-size: 24px;
     
 }
+@media (max-width: 768px) {
+    .section-title {
+		margin-top: 10px;
+    	font-size: 20px;
+    	height: 22px;
+	}
+}
 .box-title {
     color: $red-color;
     margin-left: 15px;
@@ -243,6 +250,9 @@ unit {
 @media (max-width: 700px) {
     unit {
         min-width: 100%;
+    }
+    .section-title {
+        cursor: pointer;
     }
 }
 

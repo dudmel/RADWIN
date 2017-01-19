@@ -42,7 +42,7 @@ export class SwuComponent implements OnInit, OnDestroy {
                             private _spinnerService: SpinnerService) { }
 
     ngOnInit() {
-        exLog('hello Swu component, type:' + this.type);
+        // exLog('hello Swu component, type:' + this.type);
 
         this.validateAllowable = false;
 

@@ -68,7 +68,7 @@
 					<div class="box-header">
 						<h3 class="box-title">RESULTS</h3>
 						<!--<button *ngIf="ipNetworkTools?.result" type="button" class="no-btn" data-widget="remove">CLOSE</button>-->
-						<button *ngIf="ipNetworkTools?.result" type="button" class="no-btn" (click)="showPingResults=false">CLOSE</button>
+						<button *ngIf="ipNetworkTools?.result" type="button" class="btn btn-close" (click)="showPingResults=false">X</button>
 					</div>
 					<pre> {{ ipNetworkTools?.result }}</pre>
 				</div>
@@ -109,7 +109,7 @@
 					<div class="box-header">
 						<h3 class="box-title">RESULTS</h3>
 						<!--<button type="button" class="no-btn" data-widget="remove">CLOSE</button>-->
-						<button *ngIf="traceNetworkTools?.result" type="button" class="no-btn" (click)="showTraceResults=false">CLOSE</button>
+						<button *ngIf="traceNetworkTools?.result" type="button" class="btn btn-close" (click)="showTraceResults=false">X</button>
 					</div>
 					<pre>{{ traceNetworkTools?.result }}</pre>
 				</div>

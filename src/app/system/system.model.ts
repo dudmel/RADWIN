@@ -26,5 +26,6 @@ export interface ISystemModel extends IClonable<ISystemModel> {
   longitude?: number;
   altitude?: number;
   ntpServer?: string;
+  installConfirmReq?: boolean
   ntpTimeOffsetFromUTC: number;
 }

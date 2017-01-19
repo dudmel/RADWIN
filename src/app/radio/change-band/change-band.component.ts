@@ -73,7 +73,7 @@ export class ChangeBandComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        exLog('hello Change Band Configuration Component');
+        // exLog('hello Change Band Configuration Component');
         this.changeBandSub = this._store.select('changeBand')
             .subscribe((bands: IChangeBandModel) => {
                 this.bands = bands;

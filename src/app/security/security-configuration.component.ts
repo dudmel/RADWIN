@@ -73,9 +73,7 @@ export class SecurityConfigurationComponent implements OnInit, OnDestroy {
     return Promise.resolve(this._modalService.activate());
   }
   ngOnInit() {
-    exLog('hello Security Configuration Component');
-
-    this.monitorSub = this._store.select('monitor')
+      this.monitorSub = this._store.select('monitor')
       .subscribe((monitor: IMonitorModel) => {
         if (monitor.hsuLinkState === 'Not Synchronized' || monitor.hsuLinkState === 'Active Authentication Error') {
           this.linkPasswordForm.controls['currentPassword'].enable();

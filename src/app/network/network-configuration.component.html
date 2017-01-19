@@ -1,64 +1,64 @@
-<h3 class="section-title" id="title">Network</h3>
+<h3 class="section-title">Network</h3>
 <div class="network-container">
-		<form *ngIf="network" [formGroup]="form">
+	<form *ngIf="network" [formGroup]="form">
 	
 		<div class="box box-network box-green">
-				<div class="box-body">
-					<fieldset formGroupName="ipParams">
-						<div class="row-flex">
-								<div class="form-group">
-									IP Address:
-									<input formControlName="hsuIp" [(ngModel)]="network.ipParams && network.ipParams.hsuIp" class="form-control" type="text">
-									<div class="control-msgs" *ngIf="form.controls.ipParams.controls.hsuIp.dirty && !form.controls.ipParams.controls.hsuIp.valid">
-										<p *ngIf="form.controls.ipParams.controls.hsuIp.errors.invalidIp4">IP Address is invalid</p>
-										<p *ngIf="form.controls.ipParams.controls.hsuIp.errors.required">IP Address is required</p>
-									</div>
-									<div class="control-msgs" *ngIf="form.controls.ipParams.dirty && !form.controls.ipParams.valid">
-										<p *ngIf="form.controls.ipParams.errors?.invalidIpParams">Invalid IP params</p>
-									</div>
-								</div>
-								<div class="form-group">
-									Subnet Mask:
-									<input formControlName="hsuSubnetMask" [(ngModel)]="network.ipParams && network.ipParams.hsuSubnetMask" class="form-control"
-										type="text">
-									<div class="control-msgs" *ngIf="form.controls.ipParams.controls.hsuSubnetMask.dirty && !form.controls.ipParams.controls.hsuSubnetMask.valid">
-										<p *ngIf="form.controls.ipParams.controls.hsuSubnetMask.errors.invalidIp4">Subnet Mask is invalid</p>
-										<p *ngIf="form.controls.ipParams.controls.hsuSubnetMask.errors.required">Subnet Mask is required</p>
-									</div>
-								</div>
-								<div class="form-group">
-									Default Gateway:
-									<input formControlName="hsuDefaultGateway" [(ngModel)]="network.ipParams && network.ipParams.hsuDefaultGateway" class="form-control"
-										type="text">
-									<div class="control-msgs" *ngIf="form.controls.ipParams.controls.hsuDefaultGateway.dirty && !form.controls.ipParams.controls.hsuDefaultGateway.valid">
-										<p *ngIf="form.controls.ipParams.controls.hsuDefaultGateway.errors.invalidIp4">Default Gateway is invalid</p>
-										<p *ngIf="form.controls.ipParams.controls.hsuDefaultGateway.errors.required">Default Gateway Mask is required</p>
-									</div>
-								</div>
+			<div class="box-body">
+				<fieldset formGroupName="ipParams">
+					<div class="row-flex">
+						<div class="form-group">
+							IP Address:
+							<input formControlName="hsuIp" [(ngModel)]="network.ipParams && network.ipParams.hsuIp" class="form-control" type="text">
+							<div class="control-msgs" *ngIf="form.controls.ipParams.controls.hsuIp.dirty && !form.controls.ipParams.controls.hsuIp.valid">
+								<p *ngIf="form.controls.ipParams.controls.hsuIp.errors.invalidIp4">IP Address is invalid</p>
+								<p *ngIf="form.controls.ipParams.controls.hsuIp.errors.required">IP Address is required</p>
+							</div>
+							<div class="control-msgs" *ngIf="form.controls.ipParams.dirty && !form.controls.ipParams.valid">
+								<p *ngIf="form.controls.ipParams.errors?.invalidIpParams">Invalid IP params</p>
+							</div>
 						</div>
-					</fieldset>
-					<fieldset>
-						<div class="row-flex network-bottom">
-								<div class="form-group">
-									Current:
-									<input formControlName="currentPortState" [(ngModel)]="network.currentPortState" class="form-control" type="text" readonly>
-								</div>
-								<div class="form-group">
-									Mode:
-									<select formControlName="desiredPortState" [(ngModel)]="network.desiredPortState" class="form-control">
-                                        <option *ngFor="let state of network.availablePortStates" [value]="state">{{ state }}</option>
-                                    </select>
-								</div>
-								<div class="form-group">
-									CRC Errors:
-									<div class="input-group">
-										<input class="form-control" (click)="ClearCrcCounter()" type="number" readonly value={{crcCounterPresenter}}>
-										<span style="cursor: pointer;" class="my-input-group-addon" (click)="ClearCrcCounter()">X</span>
-									</div>
-								</div>
+						<div class="form-group">
+							Subnet Mask:
+							<input formControlName="hsuSubnetMask" [(ngModel)]="network.ipParams && network.ipParams.hsuSubnetMask" class="form-control"
+								type="text">
+							<div class="control-msgs" *ngIf="form.controls.ipParams.controls.hsuSubnetMask.dirty && !form.controls.ipParams.controls.hsuSubnetMask.valid">
+								<p *ngIf="form.controls.ipParams.controls.hsuSubnetMask.errors.invalidIp4">Subnet Mask is invalid</p>
+								<p *ngIf="form.controls.ipParams.controls.hsuSubnetMask.errors.required">Subnet Mask is required</p>
+							</div>
 						</div>
-					</fieldset>
-				</div>
+						<div class="form-group">
+							Default Gateway:
+							<input formControlName="hsuDefaultGateway" [(ngModel)]="network.ipParams && network.ipParams.hsuDefaultGateway" class="form-control"
+								type="text">
+							<div class="control-msgs" *ngIf="form.controls.ipParams.controls.hsuDefaultGateway.dirty && !form.controls.ipParams.controls.hsuDefaultGateway.valid">
+								<p *ngIf="form.controls.ipParams.controls.hsuDefaultGateway.errors.invalidIp4">Default Gateway is invalid</p>
+								<p *ngIf="form.controls.ipParams.controls.hsuDefaultGateway.errors.required">Default Gateway Mask is required</p>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<div class="row-flex network-bottom">
+							<div class="form-group">
+								Current:
+								<input formControlName="currentPortState" [(ngModel)]="network.currentPortState" class="form-control" type="text" readonly>
+							</div>
+							<div class="form-group">
+								Mode:
+								<select formControlName="desiredPortState" [(ngModel)]="network.desiredPortState" class="form-control">
+									<option *ngFor="let state of network.availablePortStates" [value]="state">{{ state }}</option>
+								</select>
+							</div>
+							<div class="form-group">
+								CRC Errors:
+								<div class="input-group">
+									<input class="form-control" (click)="ClearCrcCounter()" type="number" readonly value={{crcCounterPresenter}}>
+									<span style="cursor: pointer;" class="my-input-group-addon" (click)="ClearCrcCounter()">X</span>
+								</div>
+							</div>
+					</div>
+				</fieldset>
+			</div>
 		</div>
 
 		<div class="box box-vlan box-light-blue">
@@ -66,7 +66,7 @@
 				<div class="vlan-title">
 					<div>VLAN MANAGEMENT</div>
 					<div class="onoffswitch">
-						<input type="checkbox" (click)="vlanCheckBoxClicked()" class="onoffswitch-checkbox" id="myonoffswitch">
+						<input type="checkbox" [checked]="vlanInitialState" (click)="vlanCheckBoxClicked()" class="onoffswitch-checkbox" id="myonoffswitch">
 						<label class="onoffswitch-label" for="myonoffswitch">
 							<span class="onoffswitch-inner"></span>
 							<span class="onoffswitch-switch"></span>
@@ -117,7 +117,7 @@
 				<div class="trap-button" (click)="changeTrapIndex(9)" [ngClass]="{'active': isActive(9)}">10 <span class="arrow-down" *ngIf="isActive(9)"></span></div>
 				</div>
 			</div>
-			<trap-comp [trap]="clonedTraps[trapIndex]" (trapChange)="checkTraps($event, trapIndex)"></trap-comp>
+			<trap-comp [trap]="clonedTraps[trapIndex]" (trapChange)="checkTraps($event, trapIndex)" (trapValidityRequestEvent)="checkTrapsValidity($event)"></trap-comp>
 			<p class="control-msgs" *ngIf="isIpExist">IP already exists</p>
 		</div>
 	</div>

@@ -6,16 +6,25 @@
     </div>
     
     <div class="box-body">
-        <div class="graphs-container box box-gray">
-            <div class="box chartlegend"> 
-                <span class="rss-legend"> 
-                    <span class="linelegend"></span>
-                    <span class="text-legend">RSS</span>
-                </span>
-                <span class="best-rss-legend">                 
-                    <span class="linelegend"></span>
-                    <span class="text-legend">Best RSS</span>
-                </span>
+        <div class="graph-container box box-gray">
+            <div class="widgets-container">
+                <div class="box chartlegend"> 
+                    <span class="rss-legend"> 
+                        <span class="linelegend"></span>
+                        <span class="text-legend">RSS</span>
+                    </span>
+                    <span class="best-rss-legend">                 
+                        <span class="linelegend"></span>
+                        <span class="text-legend">Best RSS</span>
+                    </span>
+                </div>
+                <div class="box time-frame"> 
+                    <span class=""> Time frame: </span>
+                    <button class="btn btn-default" (click)="setTestTime(10)" [ngClass]="testTime===10? 'active' : ''"> 10 Sec </button>
+                    <button class="btn btn-default" (click)="setTestTime(60)" [ngClass]="testTime===60? 'active' : ''"> 60 Secs </button>
+                    <button class="btn btn-default freeze" *ngIf="isRunning" (click)="!isRunning=false">Freeze</button>
+                    <button class="btn btn-default active" *ngIf="!isRunning" (click)="isRunning=true">Resume</button>
+                </div>
             </div>
             <canvas baseChart 
                 [datasets]="rssValues"
@@ -26,33 +35,22 @@
                 [labels]="lineChartLabels">
             </canvas>
         </div>
-        <div class="side-pan">
         
-            <div class="readings box box-green"> 
-                <span> RSS: {{currRssValue}} [dBm] </span>
-                <span class="best-rss"> 
-                    Best RSS: {{maxRssValue}} [dBm]
-                </span>
-                <button class="btn btn-default" (click)="resetMaxtRss()"> Reset best RSS </button>
-            </div>
-        
-            <div class="functions box box-orange"> 
-                <span class="title"> Time window </span>
-                <button class="btn btn-default" [ngClass]="testTime===10?  'active' : ''" (click)="setTestTime(10)"> 10 Sec </button>
-                <button class="btn btn-default" [ngClass]="testTime===60? 'active' : ''" (click)="setTestTime(60)"> 60 Secs </button>
-            </div>
-
-
-            <div class="buttons box box-light-blue">
-                <button class="btn btn-install" data-toggle="tooltip" 
-                        title="When radius server is used, sends confirmation on the installation of ths SU to the radius server">
-                        Confirm Installation
-                </button>
-                <button class="btn btn-default active" *ngIf="!isRunning" (click)="isRunning=true">Resume</button>
-                <button class="btn btn-default" *ngIf="isRunning" (click)="isRunning=false">Freeze</button>
-            </div>
+        <div class="readings"> 
+            <span> RSS: {{currRssValue}} [dBm] </span>
+            <span class="best-rss"> 
+                Best RSS: {{maxRssValue}} [dBm]
+            </span>
+            <button class="btn btn-default" (click)="resetMaxtRss()"> Reset best RSS </button>
+            <button class="btn btn-install" *ngIf="installConfirmReruired" data-toggle="tooltip" (click)="setConfirmationAndClose()"
+                    title="When radius server is used, sends confirmation on the installation of ths SU to the radius server">
+                    Confirm Installation
+            </button>
         </div>
     
+
+
+
     </div>
 
 </div>

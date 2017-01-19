@@ -11,8 +11,8 @@
                                 <img src="../../assets/icon/antenna.svg"/>
                             </span>
                             <span class="header-title">
-                                <span class="main-title"> {{radio.antennaType}} </span>
-                                <span class="sub-title">{{radio.antennaConnectionType}}</span>
+                                <span class="main-title">{{radio.attachedAntennaIndication}}</span>
+                                <span class="sub-title"> {{radio.antennaType}} </span>
                             </span>
                         </div>
                         <span class="header-details">
@@ -27,7 +27,6 @@
                             <input formControlName="sectorId1" [maxlength]="4" [(ngModel)]="radio.sectorId1" [readonly]="!canChangeSectorId1" (keyup)="_canChangeSectorId2(form.controls.sectorId1.value)" class="form-control sector1" type="text">
                             <input formControlName="sectorId2" [maxlength]="20" [(ngModel)]="radio.sectorId2" class="form-control sector2" type="text">
                         </div>
-                        <!--<div class="control-msgs" *ngIf="(form.controls.sectorId1.dirty && form.controls.sectorId1.invalid) || (form.controls.sectorId2.dirty  && form.controls.sectorId2.invalid)">-->
                         <div class="control-msgs">
                             <p *ngIf="(!form.controls.sectorId1.pristine && form.controls.sectorId1.invalid) || 
                                       (!form.controls.sectorId2.pristine && form.controls.sectorId2.invalid)">Sector ID must be at least 8 characters.</p>
@@ -35,18 +34,6 @@
                         </div>
                     </div>
 
-                    <!--Antenna Type: {{radio.antennaType}} <br> Antenna Connection Type: {{radio.antennaConnectionType}}
-                    <br> TX Power (System): {{monitor?.configMonitor?.totalTxPower}} <br> EIRP: {{eirp | number:'2.0'
-                    | units: 'dbm' }} Max: {{monitor?.configMonitor?.maxEirp}} <br> TX Power(Per radio): {{monitor?.configMonitor?.currentTxPower}}
-                    <div class="form-group">
-                        Sector ID
-                        <input formControlName="sectorId" [(ngModel)]="radio.sectorId" [readonly]="!canChangesectorId" class="form-control" type="text">
-                        <div class="control-msgs" *ngIf="!form.controls.sectorId.pristine && !form.controls.sectorId.valid">
-                            <p *ngIf="form.controls.sectorId.errors.minlength">Sector ID is must be at least 8 characters.</p>
-                            <p *ngIf="form.controls.sectorId.errors.maxlength">Sector ID is maximum characters is 24.</p>
-                        </div>
-                    </div>-->
-                    
                     <div class="box-radio-footer">
                         
                         <div class="footer-left">
@@ -78,6 +65,16 @@
                                 </span>
                             </div>
 
+                            <div class="cable-loss">
+                                <span>Cable Loss </span>
+                                <span class="input-field-flex">
+                                    <input formControlName="cableLoss" [(ngModel)]="radio.cableLoss" class="form-control" type="number" step="0.1" readonly
+                                        min="0" max="20">
+                                    <input-controls [form]="form"></input-controls>
+                                    <span class="input-units">[dB]</span>
+                                </span>
+                            </div>
+
                         </div>
                         
                         <div class="footer-right">
@@ -94,7 +91,6 @@
                                 <span>Frequency</span>
                                 <span class="input-field-flex">
                                     <input [ngModelOptions]="{standalone: true}" [(ngModel)]="radio.currentFrequency" class="form-control" readonly>
-                                <!--<span class="input-units"></span>-->
                                 </span>
                             </div>
                         </div>

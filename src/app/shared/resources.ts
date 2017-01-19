@@ -32,7 +32,7 @@ export namespace Resources {
 
     export let changeIpParamsWarning = 'You have set new IP Configuration and the connection will be reset.\n All changes made on this page will be discarded.\n Continue ?';
 
-    export let changeMngVlanWarning = 'Enabling the VLAN tagging inhibits access from non VLAN tagged sources.\n Do not enable VLAN unless you are sure you can generate/receive VLAN tagged traffic.\n Continue ?';
+    export let changeMngVlanWarning = 'Enabling or changing the VLAN tagging inhibits access from non VLAN tagged sources.\n Do not enable VLAN unless you are sure you can generate/receive VLAN tagged traffic.\n Continue ?';
 
     export let activateDeviceWarning = 'You are about to activate an HSU. Please make sure you know exactly the HBS location for alignment.\n Continue ?';
 

@@ -1,7 +1,22 @@
 @import './../../blocks/input_controls/input_controls.scss';
+::-webkit-input-placeholder {
+   font-size: 13px;
+}
 
+:-moz-placeholder { /* Firefox 18- */
+   font-size: 13px;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   font-size: 13px;  
+}
+
+:-ms-input-placeholder {  
+   font-size: 13px;  
+}
 h3 {
     margin-left: 0;
+    margin-top: 10px;
 }
 .col-flex {
 	display: flex;
@@ -13,7 +28,7 @@ h3 {
 }
 input-controls {
     position: relative;
-    right: -100px + $control-width;
+    right: -110px + $control-width;
 }
 .section-body {
     display: flex;
@@ -83,9 +98,6 @@ input-controls {
         .row-flex {
             width: 100%;
         }
-        input {
-            border-right: none;
-        }
     }
     .input-ip {
         min-width: 155px;
@@ -104,17 +116,11 @@ input-controls {
 }
 .control-msgs {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     color: #ef4023;
-    /* height: 33px;*/
     margin-top: 5px;
 }
 .ping-msgs {
-    p {
-        &:after {
-            content: '. \00a0';
-        }
-    }
 }
 .ping-container {
     display: flex;
@@ -123,8 +129,6 @@ input-controls {
     padding-right: 0;
     padding-left: 0;
     padding-bottom: 0;
-    /* max-height: 380px;*/
-    min-height: 49%;
 }
 .box-results {
     background-color: #fbfbfb;
@@ -150,6 +154,8 @@ input-controls {
         margin-top: 0;
         padding-bottom: 0;
         margin-bottom: 0;
+        max-height: 180px;
+        overflow: overlay;
     }
     .no-btn {
         border: none;
@@ -161,11 +167,24 @@ input-controls {
            
        }
     }
+    .btn-close {
+        font-weight: bold;
+        cursor: pointer;
+        display: block;
+        align-self: center;
+        background-color: #ef4023;
+        color: white;
+        margin: 10px;
+        padding: 2px 7px;
+    }
 }
 @media (max-width: 1200px) {
     .section-body {
        flex-flow: column nowrap;
        justify-content: space-between;
+    }
+    .box-network {
+        margin-bottom: 20px;
     }
     .speed-test-container, .ping-trace-container {
         width: 100%;

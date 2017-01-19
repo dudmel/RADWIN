@@ -2,7 +2,7 @@
 export namespace Consts {
   'use strict';
 
-  export let isMobile = window.innerWidth < 700? true : false;
+  export let mobileInnerWidth = 700;
   
   let url: string = window.location.protocol + '//' + window.location.hostname;
   export let ip = window.location.hostname;
@@ -51,6 +51,8 @@ export namespace Consts {
     spectrumRange: url + '/api/v1/operations/spectrum/range',
     spectrumTable: url + '/api/v1/operations/spectrum/table',
 
+    confirmationInstallation: url + '/api/v1/operations/installation-confirmation',
+
     skipAlignment: url + '/api/v1/alignment/action/skip'
   };
 
@@ -80,23 +82,5 @@ export namespace Consts {
     Major = 16,
     Critical = 32,
   };
-
-  // export enum UserType {
-  //   operator = 1,
-  //   technician = 2,
-  //   homeUser = 3,
-  // };
-
-
-  // export enum CpeStates {
-  //   linkOff = 1,
-  //   violated = 2,
-  //   unregistered = 3,
-  //   registered = 4,
-  //   authenticationError = 5,
-  //   swUpgradeRequired = 6,
-  //   registeredPassive = 7
-  // };
-
 }
 

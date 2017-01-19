@@ -40,7 +40,7 @@ import { RestoreToDeaultsComponent } from './tools/operations/restoreToDefaults/
 import { NetworkToolsComponent } from './tools/network/network-tools.component';
 import { GaugeComponent, options } from './blocks';
 import { InputControls } from './blocks/input_controls';
-import { RssMonitorComponent } from './rss-monitor'
+import { RssMonitorComponent } from './rss-monitor';
 
 
 

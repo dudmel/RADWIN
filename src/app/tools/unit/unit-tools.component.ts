@@ -27,7 +27,7 @@ export class UnitToolsComponent implements OnInit {
               private _modalService: WModalService) { }
 
   ngOnInit() {
-    exLog('hello Unit Tools component');
+    // exLog('hello Unit Tools component');
   }
 
 
